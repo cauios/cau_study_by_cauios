@@ -7,21 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150482242052C6A8005AF8F1 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150482232052C6A8005AF8F1 /* Explore.storyboard */; };
+		150482262052C6CA005AF8F1 /* Saved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150482252052C6CA005AF8F1 /* Saved.storyboard */; };
+		150482282052C6D9005AF8F1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150482272052C6D9005AF8F1 /* Profile.storyboard */; };
+		1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150482292052C811005AF8F1 /* NotisTableViewController.swift */; };
+		1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504822B2052C876005AF8F1 /* WritingViewController.swift */; };
+		15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A14A352057A8C8008EEB25 /* ExploreViewController.swift */; };
+		404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B134038822380599309DDC06 /* Pods_cau_study_ios.framework */; };
 		E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */; };
-		E39D51C1204EBAB3001D94F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51C0204EBAB3001D94F9 /* ViewController.swift */; };
-		E39D51C4204EBAB3001D94F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C2204EBAB3001D94F9 /* Main.storyboard */; };
 		E39D51C6204EBAB3001D94F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C5204EBAB3001D94F9 /* Assets.xcassets */; };
 		E39D51C9204EBAB3001D94F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C7204EBAB3001D94F9 /* LaunchScreen.storyboard */; };
+		E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51D2204EBC24001D94F9 /* SignInViewController.swift */; };
+		E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */; };
+		E39D51D7204EBC36001D94F9 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39D51D6204EBC36001D94F9 /* Start.storyboard */; };
+		E39D51D9204EBCCC001D94F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39D51D8204EBCCC001D94F9 /* Main.storyboard */; };
+		E39D51DB204EBDF6001D94F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */; };
+		E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51DC204EBE1F001D94F9 /* AuthService.swift */; };
+		E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51DD204EBE1F001D94F9 /* Config.swift */; };
+		E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E39D51E1204EBE29001D94F9 /* ProgressHUD.m */; };
+		E39D51E5204EBE29001D94F9 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		150482232052C6A8005AF8F1 /* Explore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
+		150482252052C6CA005AF8F1 /* Saved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Saved.storyboard; sourceTree = "<group>"; };
+		150482272052C6D9005AF8F1 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		150482292052C811005AF8F1 /* NotisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotisTableViewController.swift; sourceTree = "<group>"; };
+		1504822B2052C876005AF8F1 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		15A14A352057A8C8008EEB25 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		7A77189B568BA4FF60DC16BE /* Pods-cau_study_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		B134038822380599309DDC06 /* Pods_cau_study_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cau_study_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDFACC3AB4EBE20CAB25F58E /* Pods-cau_study_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.release.xcconfig"; sourceTree = "<group>"; };
 		E39D51BB204EBAB3001D94F9 /* cau_study_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cau_study_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E39D51C0204EBAB3001D94F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E39D51C3204EBAB3001D94F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E39D51C5204EBAB3001D94F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E39D51C8204EBAB3001D94F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E39D51CA204EBAB3001D94F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E39D51D2204EBC24001D94F9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E39D51D6204EBC36001D94F9 /* Start.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
+		E39D51D8204EBCCC001D94F9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E39D51DC204EBE1F001D94F9 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = cau_study_ios/AuthService.swift; sourceTree = "<group>"; };
+		E39D51DD204EBE1F001D94F9 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = cau_study_ios/Config.swift; sourceTree = "<group>"; };
+		E39D51E0204EBE28001D94F9 /* cau_study_ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cau_study_ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		E39D51E1204EBE29001D94F9 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = cau_study_ios/ProgressHUD.m; sourceTree = "<group>"; };
+		E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = cau_study_ios/ProgressHUD.bundle; sourceTree = "<group>"; };
+		E39D51E3204EBE29001D94F9 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = cau_study_ios/ProgressHUD.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +61,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E45366F5959EDC349EB2602 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A77189B568BA4FF60DC16BE /* Pods-cau_study_ios.debug.xcconfig */,
+				DDFACC3AB4EBE20CAB25F58E /* Pods-cau_study_ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DACADF49795A8E4C515CA152 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B134038822380599309DDC06 /* Pods_cau_study_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E39D51B2204EBAB3001D94F9 = {
 			isa = PBXGroup;
 			children = (
+				E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */,
+				E39D51E3204EBE29001D94F9 /* ProgressHUD.h */,
+				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
+				E39D51DC204EBE1F001D94F9 /* AuthService.swift */,
+				E39D51DD204EBE1F001D94F9 /* Config.swift */,
+				E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */,
 				E39D51BD204EBAB3001D94F9 /* cau_study_ios */,
 				E39D51BC204EBAB3001D94F9 /* Products */,
+				5E45366F5959EDC349EB2602 /* Pods */,
+				DACADF49795A8E4C515CA152 /* Frameworks */,
+				E39D51E0204EBE28001D94F9 /* cau_study_ios-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +113,38 @@
 		E39D51BD204EBAB3001D94F9 /* cau_study_ios */ = {
 			isa = PBXGroup;
 			children = (
+				E39D51D1204EBB23001D94F9 /* ViewController */,
+				E39D51D0204EBB02001D94F9 /* Storyboard */,
 				E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */,
-				E39D51C0204EBAB3001D94F9 /* ViewController.swift */,
-				E39D51C2204EBAB3001D94F9 /* Main.storyboard */,
 				E39D51C5204EBAB3001D94F9 /* Assets.xcassets */,
 				E39D51C7204EBAB3001D94F9 /* LaunchScreen.storyboard */,
 				E39D51CA204EBAB3001D94F9 /* Info.plist */,
 			);
 			path = cau_study_ios;
+			sourceTree = "<group>";
+		};
+		E39D51D0204EBB02001D94F9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E39D51D6204EBC36001D94F9 /* Start.storyboard */,
+				E39D51D8204EBCCC001D94F9 /* Main.storyboard */,
+				150482232052C6A8005AF8F1 /* Explore.storyboard */,
+				150482252052C6CA005AF8F1 /* Saved.storyboard */,
+				150482272052C6D9005AF8F1 /* Profile.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E39D51D1204EBB23001D94F9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E39D51D2204EBC24001D94F9 /* SignInViewController.swift */,
+				E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */,
+				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
+				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
+				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E39D51CD204EBAB3001D94F9 /* Build configuration list for PBXNativeTarget "cau_study_ios" */;
 			buildPhases = (
+				BAC83B36FA1A14B0900A64E3 /* [CP] Check Pods Manifest.lock */,
 				E39D51B7204EBAB3001D94F9 /* Sources */,
 				E39D51B8204EBAB3001D94F9 /* Frameworks */,
 				E39D51B9204EBAB3001D94F9 /* Resources */,
+				C911921931DA95CB4C8D5742 /* [CP] Embed Pods Frameworks */,
+				8E01F31A790F17D91255F72B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +182,7 @@
 				TargetAttributes = {
 					E39D51BA204EBAB3001D94F9 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,33 +212,98 @@
 			files = (
 				E39D51C9204EBAB3001D94F9 /* LaunchScreen.storyboard in Resources */,
 				E39D51C6204EBAB3001D94F9 /* Assets.xcassets in Resources */,
-				E39D51C4204EBAB3001D94F9 /* Main.storyboard in Resources */,
+				150482262052C6CA005AF8F1 /* Saved.storyboard in Resources */,
+				E39D51E5204EBE29001D94F9 /* ProgressHUD.bundle in Resources */,
+				150482242052C6A8005AF8F1 /* Explore.storyboard in Resources */,
+				E39D51DB204EBDF6001D94F9 /* GoogleService-Info.plist in Resources */,
+				150482282052C6D9005AF8F1 /* Profile.storyboard in Resources */,
+				E39D51D7204EBC36001D94F9 /* Start.storyboard in Resources */,
+				E39D51D9204EBCCC001D94F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8E01F31A790F17D91255F72B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAC83B36FA1A14B0900A64E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cau_study_ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C911921931DA95CB4C8D5742 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E39D51B7204EBAB3001D94F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E39D51C1204EBAB3001D94F9 /* ViewController.swift in Sources */,
+				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
+				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
 				E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */,
+				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
+				E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */,
+				15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */,
+				1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */,
+				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
+				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E39D51C2204EBAB3001D94F9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E39D51C3204EBAB3001D94F9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E39D51C7204EBAB3001D94F9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,31 +424,38 @@
 		};
 		E39D51CE204EBAB3001D94F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A77189B568BA4FF60DC16BE /* Pods-cau_study_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bro.caustudy.cau-study-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bro.cau-study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "cau_study_ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		E39D51CF204EBAB3001D94F9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDFACC3AB4EBE20CAB25F58E /* Pods-cau_study_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bro.caustudy.cau-study-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bro.cau-study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "cau_study_ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

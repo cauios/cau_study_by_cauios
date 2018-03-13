@@ -1,0 +1,6 @@
+framework module Pods_cau_study_ios {
+  umbrella header "Pods-cau_study_ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

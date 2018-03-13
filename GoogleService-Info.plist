@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>592962565925-qtajhlgulbo11qjootperp0mim6a7c0n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.592962565925-qtajhlgulbo11qjootperp0mim6a7c0n</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAT-U8jdmYjCHsG8mqokdLLErxJmx4a4zw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>592962565925</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bro.cau-study</string>
+	<key>PROJECT_ID</key>
+	<string>caustudy-76683</string>
+	<key>STORAGE_BUCKET</key>
+	<string>caustudy-76683.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:592962565925:ios:5a91d3cca2c48f61</string>
+	<key>DATABASE_URL</key>
+	<string>https://caustudy-76683.firebaseio.com</string>
+</dict>
+</plist>
