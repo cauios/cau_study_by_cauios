@@ -181,7 +181,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Upload" id="D1a-yY-JKU">
                                             <connections>
-                                                <action selector="uploadButtonClick:" destination="fBO-um-o01" id="Qum-mV-o9f"/>
+                                                <action selector="uploadButton_Click:" destination="fBO-um-o01" id="ZCW-r8-5bo"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -339,7 +339,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-Kr-DYq">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-Kr-DYq">
                                                 <rect key="frame" x="8" y="408" width="359" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="k1g-4j-psm"/>
@@ -483,4 +483,7 @@
             <point key="canvasLocation" x="-3202.4000000000001" y="3724.1379310344832"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Placeholder-image" width="840" height="600"/>
+    </resources>
 </document>
