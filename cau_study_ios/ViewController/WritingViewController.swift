@@ -14,25 +14,15 @@ class WritingViewController: UIViewController {
     // Outlets
     
     @IBOutlet weak var writingScrollView: UIScrollView!
-    
-    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    
     @IBOutlet weak var objectivesTextField: UITextField!
-    
     @IBOutlet weak var eligibilityTextField: UITextField!
-    
     @IBOutlet weak var durationTextField: UITextField!
-    
     @IBOutlet weak var locationTextField: UITextField!
-    
     @IBOutlet weak var numOfVacanTextField: UITextField!
-    
     @IBOutlet weak var contactTextField: UITextField!
-    
     @IBOutlet weak var writingImageView: UIImageView!
-    
     @IBOutlet weak var DescriptionTextView: UITextView!
     
     
@@ -43,11 +33,26 @@ class WritingViewController: UIViewController {
     }
     
     
+    var selectedImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectWritingImageView))
+        writingImageView.addGestureRecognizer(tapGesture)
+        writingImageView.isUserInteractionEnabled = true
+    
+        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    @objc func handleSelectWritingImageView() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
     }
     
     
@@ -68,4 +73,15 @@ class WritingViewController: UIViewController {
     }
     */
 
+}
+
+extension WritingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("did Finish Picking Media")
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImage = image
+            writingImageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
