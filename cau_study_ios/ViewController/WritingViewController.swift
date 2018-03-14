@@ -10,13 +10,11 @@ import UIKit
 
 class WritingViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
 
     // Outlets
+    
+    @IBOutlet weak var writingScrollView: UIScrollView!
+    
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
@@ -33,15 +31,26 @@ class WritingViewController: UIViewController {
     
     @IBOutlet weak var contactTextField: UITextField!
     
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var writingImageView: UIImageView!
     
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var DescriptionTextView: UITextView!
+    
     
     // Buttons
     
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
