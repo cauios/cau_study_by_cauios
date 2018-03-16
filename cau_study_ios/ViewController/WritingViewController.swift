@@ -55,7 +55,7 @@ class WritingViewController: UIViewController {
         let postsReference = ref.child("posts")
         let newPostId = postsReference.childByAutoId().key
         let newPostReference = postsReference.child(newPostId)
-        newPostReference.setValue(["photoUrl": photoUrl, "description": descriptionTextView.text! ], withCompletionBlock: {
+        newPostReference.setValue(["title": titleTextField.text!, "category": categoryTextField.text!, "objectives": objectivesTextField.text!, "eligibility": eligibilityTextField.text!, "duration": durationTextField.text!, "location": locationTextField.text!, "numOfVacan": numOfVacanTextField.text!, "contact": contactTextField.text!, "photoUrl": photoUrl, "description": descriptionTextView.text! ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
