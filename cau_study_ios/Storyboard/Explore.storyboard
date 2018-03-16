@@ -331,7 +331,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9l-mw-9Gn">
-                                                <rect key="frame" x="8" y="615" width="95" height="21"/>
+                                                <rect key="frame" x="8" y="545" width="95" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="2Ke-sl-OEE"/>
                                                 </constraints>
@@ -340,20 +340,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="c9I-Kr-DYq">
-                                                <rect key="frame" x="8" y="408" width="359" height="200"/>
+                                                <rect key="frame" x="8" y="408" width="359" height="130"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="k1g-4j-psm"/>
+                                                    <constraint firstAttribute="height" constant="130" id="k1g-4j-psm"/>
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-xV-Rtr">
-                                                <rect key="frame" x="8" y="639" width="359" height="294"/>
+                                                <rect key="frame" x="8" y="569" width="359" height="364"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">All the thing I would like to say alalalaa All the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaaAll the thing I would like to say alalalaa</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4U-IM-5GI">
-                                                <rect key="frame" x="8" y="611" width="359" height="1"/>
+                                                <rect key="frame" x="8" y="541" width="359" height="1"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="chU-wN-y5Z"/>
@@ -465,9 +464,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="DescriptionTextView" destination="Q6u-xV-Rtr" id="h3Y-k0-KBR"/>
                         <outlet property="categoryTextField" destination="91W-Kw-b77" id="3u2-xR-GQg"/>
                         <outlet property="contactTextField" destination="ahO-uT-Tuu" id="l7i-4w-Fe8"/>
+                        <outlet property="descriptionTextView" destination="Q6u-xV-Rtr" id="o4p-3k-fJ7"/>
                         <outlet property="durationTextField" destination="mK4-15-n0w" id="i0L-SC-VOz"/>
                         <outlet property="eligibilityTextField" destination="CHG-9W-g6x" id="noq-x4-KzT"/>
                         <outlet property="locationTextField" destination="9SG-Ax-GjP" id="Ga2-Jo-Ht0"/>

@@ -25,7 +25,7 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var numOfVacanTextField: UITextField!
     @IBOutlet weak var contactTextField: UITextField!
     @IBOutlet weak var writingImageView: UIImageView!
-    @IBOutlet weak var DescriptionTextView: UITextView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     
     // Buttons
@@ -54,13 +54,21 @@ class WritingViewController: UIViewController {
         let postsReference = ref.child("posts")
         let newPostId = postsReference.childByAutoId().key
         let newPostReference = postsReference.child(newPostId)
-        newPostReference.setValue(["photoUrl": photoUrl], withCompletionBlock: {
+        newPostReference.setValue(["photoUrl": photoUrl, "description": descriptionTextView.text! ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             ProgressHUD.showSuccess("Sucess")
+            
+            // [Dahye comment] after successfully push the writing data into the DB, change the imageview into the placeholder image and remove the texts in the textview
+            self.descriptionTextView.text = ""
+            self.writingImageView.image = UIImage(named: "Placeholder-image")
+            
+            // [Dahye comment] after successfully push the writing data into the DB, switch to the explore view. In this case I just used the 'dimiss method'. Note that 'self.tabBarController?.selectedIndex = 0' can not switch to the explore because the connection here is 'modally'. 'self.tabBarController?.selectedIndex = 0' could work when the view is contained in the tabController.
+            
+            self.dismiss(animated: true, completion: nil)
         })
     }
     
