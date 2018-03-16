@@ -30,6 +30,7 @@ class WritingViewController: UIViewController {
     
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
+        view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false)
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             let photoIdString = NSUUID().uuidString
@@ -91,6 +92,12 @@ class WritingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     
     @objc func handleSelectWritingImageView() {
