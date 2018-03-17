@@ -180,6 +180,7 @@
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Upload" id="D1a-yY-JKU">
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="uploadButton_Click:" destination="fBO-um-o01" id="ZCW-r8-5bo"/>
                                             </connections>
@@ -473,6 +474,7 @@
                         <outlet property="numOfVacanTextField" destination="zKm-84-1hd" id="fg2-j6-BrD"/>
                         <outlet property="objectivesTextField" destination="CF9-3I-Aqv" id="aa5-8K-eQP"/>
                         <outlet property="titleTextField" destination="qt7-MK-hKG" id="poF-vf-mWC"/>
+                        <outlet property="uploadButton" destination="D1a-yY-JKU" id="Dqc-mx-sLZ"/>
                         <outlet property="writingImageView" destination="c9I-Kr-DYq" id="GCv-Kz-ENE"/>
                         <outlet property="writingScrollView" destination="24M-EC-s9n" id="Uq9-Ut-agO"/>
                     </connections>

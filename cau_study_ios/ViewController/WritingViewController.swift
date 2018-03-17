@@ -26,7 +26,7 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var contactTextField: UITextField!
     @IBOutlet weak var writingImageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
-    
+    @IBOutlet weak var uploadButton: UIBarButtonItem!
     
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
@@ -46,7 +46,7 @@ class WritingViewController: UIViewController {
                 
             })
         } else {
-            ProgressHUD.showError("Profile Image can't be empty")
+            ProgressHUD.showError("All blanks have to be filled in")
         }
     }
     
@@ -82,7 +82,8 @@ class WritingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //empty()
+        handleTextField()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectWritingImageView))
         writingImageView.addGestureRecognizer(tapGesture)
@@ -92,7 +93,45 @@ class WritingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
+    
+    // [Dahye comment] Implement this method, to set the condtion where the 'upload' button can be activated. I set only when all components of the writing view have to be filled in, users can upload the post. When the button is light blue, it means it's activated and when it is lightgray it means it's disabled. Using handleTextField() method and textFieldDidChange introduced in Lec.34(from 5:28 ~). ***Note that*** description hasn't been contained here. We should fix it later.
+    
+
+
+    
+    func handleTextField() {
+        titleTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        categoryTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        objectivesTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        eligibilityTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        durationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        locationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        numOfVacanTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        contactTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+    }
+    
+    @objc func textFieldDidChange() {
+         guard let titleText = titleTextField.text, !titleText.isEmpty, let categoryText = categoryTextField.text, !categoryText.isEmpty, let objectivesText = objectivesTextField.text, !objectivesText.isEmpty, let eligibilityText = eligibilityTextField.text, !eligibilityText.isEmpty, let durationText = durationTextField.text, !durationText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let contactText = contactTextField.text, !contactText.isEmpty else {
+            uploadButton.tintColor = .lightGray
+            uploadButton.isEnabled = false
+            return
+        }
+        uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
+        uploadButton.isEnabled = true
+        
+    }
+    
+    func empty() {
+        self.titleTextField.text = ""
+        self.uploadButton.isEnabled = false
+        self.uploadButton.tintColor = UIColor.gray
+        
+    }
     
     // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
