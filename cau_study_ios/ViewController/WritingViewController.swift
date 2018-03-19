@@ -126,12 +126,7 @@ class WritingViewController: UIViewController {
         
     }
     
-    func empty() {
-        self.titleTextField.text = ""
-        self.uploadButton.isEnabled = false
-        self.uploadButton.tintColor = UIColor.gray
-        
-    }
+
     
     // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
