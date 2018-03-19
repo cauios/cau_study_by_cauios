@@ -7,14 +7,25 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ExploreViewController: UIViewController {
 
+    @IBOutlet weak var exploreTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
-
-        // Do any additional setup after loading the view.
+        exploreTableView.dataSource = self
+        loadPost()
+    }
+    
+    func loadPost() {
+        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            print(snapshot.value)
+        }
+        
     }
 
     
@@ -54,4 +65,21 @@ class ExploreViewController: UIViewController {
     }
     */
 
+}
+
+
+// [Dahye Comment] With extension, we let the exploreViewController promise to implement a few methods in the UItableViewDataSource. This protocol declares some methods that can be adopted to provide some information to tableview object. Basically, those methods can be implemented to decide how our small pieces of papare there are. What info? how the appreance of scene and so on. ExploreViewController must implement these methods.
+
+extension ExploreViewController: UITableViewDataSource {
+    // [Dahye Comment] how many cells?
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+    // [Dahye Comment] What does the each cell look like?
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        cell.textLabel?.text = "1"
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
 }
