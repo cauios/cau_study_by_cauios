@@ -26,6 +26,7 @@
 		E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51DD204EBE1F001D94F9 /* Config.swift */; };
 		E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E39D51E1204EBE29001D94F9 /* ProgressHUD.m */; };
 		E39D51E5204EBE29001D94F9 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */; };
+		E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E86382060E123007CBB6D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		E39D51E1204EBE29001D94F9 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = cau_study_ios/ProgressHUD.m; sourceTree = "<group>"; };
 		E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = cau_study_ios/ProgressHUD.bundle; sourceTree = "<group>"; };
 		E39D51E3204EBE29001D94F9 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = cau_study_ios/ProgressHUD.h; sourceTree = "<group>"; };
+		E39E86382060E123007CBB6D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
+				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
 				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
+				E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */,
 				E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */,
