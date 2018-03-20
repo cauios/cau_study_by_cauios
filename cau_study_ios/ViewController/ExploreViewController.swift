@@ -19,18 +19,6 @@ class ExploreViewController: UIViewController {
         addNavBarImage()
         exploreTableView.dataSource = self
         loadPost()
-//        var post = Post(titleText: "test1", categoryText: "test2", objectivesText: "test3", eligibilityText: "test4", durationText: "test5", locationText: "test6", numOfVacanText: "test7", contactText: "test8", photoUrlString: "url", descriptionText: "test9")
-//
-//        print(post.title)
-//        print(post.category)
-//        print(post.objectives)
-//        print(post.eligibility)
-//        print(post.duration)
-//        print(post.location)
-//        print(post.numOfVacan)
-//        print(post.contact)
-//        print(post.photoUrl)
-//        print(post.description)
     }
     
     func loadPost() {
@@ -39,17 +27,6 @@ class ExploreViewController: UIViewController {
             // do this, because many types of value can be stored in the DB
             if let dict = snapshot.value as? [String: Any] {
                 let newPost = Post.transformPost(dicr: dict)
-//                let titleText = dict["title"] as! String
-//                let categoryText = dict["category"] as! String
-//                let objectivesText = dict["objectives"] as! String
-//                let eligibilityText = dict["eligibility"] as! String
-//                let durationText = dict["duration"] as! String
-//                let locationText = dict["location"] as! String
-//                let numOfVacanText = dict["numOfVacan"] as! String
-//                let contactText = dict["contact"] as! String
-//                let photoUrlString = dict["photoUrl"] as! String
-//                let descriptionText = dict["description"] as! String
-//                let post = Post(titleText: titleText, categoryText: categoryText, objectivesText: objectivesText, eligibilityText: eligibilityText, durationText: durationText, locationText: locationText, numOfVacanText: numOfVacanText, contactText: contactText, photoUrlString: photoUrlString, descriptionText: descriptionText)
                 self.posts.append(newPost)
                 print(self.posts)
                 self.exploreTableView.reloadData()
@@ -111,8 +88,12 @@ extension ExploreViewController: UITableViewDataSource {
     }
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text = posts[indexPath.row].title
+        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+        let post = posts[indexPath.row]
+        cell.exploreTitleLabel.text = post.title
+        cell.exploreCategoryLabel.text = post.category
+        cell.exploreObjectivesLabel.text = post.objectives
+        cell.exploreImageView.image = UIImage(named: "bandabi.jpeg")
         return cell
     }
 }
