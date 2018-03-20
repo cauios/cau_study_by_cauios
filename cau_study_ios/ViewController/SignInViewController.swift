@@ -31,6 +31,7 @@ class SignInViewController: UIViewController {
         passwordTextField.layer.addSublayer(bottomLayerPassword)
         signInButton.isEnabled = false
         handleTextField()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,8 +41,7 @@ class SignInViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            //self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
-            //이부분을 지웠더니 실행이된다. 자동로그인 구현인데, 무조건 로그인 되는 오류가 발생.
+            self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
         }
     }
     

@@ -175,7 +175,7 @@
                                     <action selector="dismiss_onClick:" destination="VTE-tb-V8W" eventType="touchUpInside" id="uuu-LI-2Rw"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P38-dn-qAE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="P38-dn-qAE">
                                 <rect key="frame" x="147.5" y="61" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="7oT-Nv-ek3"/>
@@ -218,6 +218,9 @@
             <point key="canvasLocation" x="810" y="149"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Placeholder-image" width="840" height="600"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JRp-rs-fkO"/>
     </inferredMetricsTieBreakers>

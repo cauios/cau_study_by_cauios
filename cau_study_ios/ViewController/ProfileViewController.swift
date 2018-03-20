@@ -7,13 +7,64 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+   
+    var selectedImage:UIImage?
+    
+    var user: User!
+    var userId = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //print("userId: \(userId)")
+        //fetchUser()
+        
+        if(textField.isEditable == true)
+        {
+            textField.isEditable = false
+        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImage))
+        profileImage.addGestureRecognizer(tapGesture)
+        profileImage.isUserInteractionEnabled = true
+        // Do any additional setup after loading the view.
+    }
+    
+    func fetchUser() {
+        Api.User.observeUser(withId: userId) { (user) in
+                self.user = user
+                self.navigationItem.title = user.username
+                self.updateView()
+            }
+        }
+    
+    func updateView() {
+        self.nameLabel.text = user!.username
+        self.idLabel.text = user!.email
+        if let photoUrlString = user!.profileImageUrl {
+            if let photoUrl = URL(string: photoUrlString) //if 빼야함
+            {
+                print(photoUrl)
+            } //photo부분 아직 덜함
+            //self.profileImage.image(with: photoUrl)
+        }
+    }
+    
+    @objc func handleSelectProfileImage() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
+    }
+    
     @IBAction func edit_Button(_ sender: Any) {
         textField.isEditable = true
     }
@@ -23,27 +74,17 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logOut_Button(_ sender: Any) {
-    }
-    
-    var selectedImage:UIImage?
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if(textField.isEditable == true)
-        {
-            textField.isEditable = false
+        //print(Auth.auth().currentUser)
+        do{
+            try Auth.auth().signOut()
+        } catch let logoutError{
+            print(logoutError)
         }
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImage))
-        profileImage.addGestureRecognizer(tapGesture)
-        profileImage.isUserInteractionEnabled = true
-        // Do any additional setup after loading the view.
-    }
-    
-    @objc func handleSelectProfileImage() {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        present(pickerController, animated: true, completion: nil)
+        //print(Auth.auth().currentUser)
+        
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+        self.present(signInVC, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
