@@ -15,6 +15,27 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreObjectivesLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
     
+    
+    // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
+    var post: Post? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    
+    // [Dahye Comment] Fetch newly posting data from FB
+    func updateView() {
+        exploreTitleLabel.text = post?.title
+        exploreCategoryLabel.text = post?.category
+        exploreObjectivesLabel.text = post?.objectives
+        if let photoUrlString = post?.photoUrl {
+            let photoUrl = URL(string: photoUrlString)
+            exploreImageView.sd_setImage(with: photoUrl)
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

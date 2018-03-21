@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SDWebImage
 
 class ExploreViewController: UIViewController {
 
@@ -90,10 +91,7 @@ extension ExploreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
-        cell.exploreTitleLabel.text = post.title
-        cell.exploreCategoryLabel.text = post.category
-        cell.exploreObjectivesLabel.text = post.objectives
-        cell.exploreImageView.image = UIImage(named: "bandabi.jpeg")
+        cell.post = post
         return cell
     }
 }
