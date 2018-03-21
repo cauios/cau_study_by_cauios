@@ -25,11 +25,12 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var numOfVacanTextField: UITextField!
     @IBOutlet weak var contactTextField: UITextField!
     @IBOutlet weak var writingImageView: UIImageView!
-    @IBOutlet weak var DescriptionTextView: UITextView!
-    
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var uploadButton: UIBarButtonItem!
     
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
+        view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false)
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             let photoIdString = NSUUID().uuidString
@@ -45,7 +46,7 @@ class WritingViewController: UIViewController {
                 
             })
         } else {
-            ProgressHUD.showError("Profile Image can't be empty")
+            ProgressHUD.showError("All blanks have to be filled in")
         }
     }
     
@@ -54,13 +55,21 @@ class WritingViewController: UIViewController {
         let postsReference = ref.child("posts")
         let newPostId = postsReference.childByAutoId().key
         let newPostReference = postsReference.child(newPostId)
-        newPostReference.setValue(["photoUrl": photoUrl], withCompletionBlock: {
+        newPostReference.setValue(["title": titleTextField.text!, "category": categoryTextField.text!, "objectives": objectivesTextField.text!, "eligibility": eligibilityTextField.text!, "duration": durationTextField.text!, "location": locationTextField.text!, "numOfVacan": numOfVacanTextField.text!, "contact": contactTextField.text!, "photoUrl": photoUrl, "description": descriptionTextView.text! ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
             ProgressHUD.showSuccess("Sucess")
+            
+            // [Dahye comment] after successfully push the writing data into the DB, change the imageview into the placeholder image and remove the texts in the textview
+            self.descriptionTextView.text = ""
+            self.writingImageView.image = UIImage(named: "Placeholder-image")
+            
+            // [Dahye comment] after successfully push the writing data into the DB, switch to the explore view. In this case I just used the 'dimiss method'. Note that 'self.tabBarController?.selectedIndex = 0' can not switch to the explore because the connection here is 'modally'. 'self.tabBarController?.selectedIndex = 0' could work when the view is contained in the tabController.
+            
+            self.dismiss(animated: true, completion: nil)
         })
     }
     
@@ -73,7 +82,8 @@ class WritingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //empty()
+        handleTextField()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectWritingImageView))
         writingImageView.addGestureRecognizer(tapGesture)
@@ -83,6 +93,45 @@ class WritingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    
+    // [Dahye comment] Implement this method, to set the condtion where the 'upload' button can be activated. I set only when all components of the writing view have to be filled in, users can upload the post. When the button is light blue, it means it's activated and when it is lightgray it means it's disabled. Using handleTextField() method and textFieldDidChange introduced in Lec.34(from 5:28 ~). ***Note that*** description hasn't been contained here. We should fix it later.
+    
+
+
+    
+    func handleTextField() {
+        titleTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        categoryTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        objectivesTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        eligibilityTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        durationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        locationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        numOfVacanTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        contactTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+    }
+    
+    @objc func textFieldDidChange() {
+         guard let titleText = titleTextField.text, !titleText.isEmpty, let categoryText = categoryTextField.text, !categoryText.isEmpty, let objectivesText = objectivesTextField.text, !objectivesText.isEmpty, let eligibilityText = eligibilityTextField.text, !eligibilityText.isEmpty, let durationText = durationTextField.text, !durationText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let contactText = contactTextField.text, !contactText.isEmpty else {
+            uploadButton.tintColor = .lightGray
+            uploadButton.isEnabled = false
+            return
+        }
+        uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
+        uploadButton.isEnabled = true
+        
+    }
+    
+
+    
+    // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
     
     @objc func handleSelectWritingImageView() {

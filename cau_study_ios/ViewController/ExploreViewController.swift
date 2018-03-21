@@ -7,16 +7,39 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import SDWebImage
 
 class ExploreViewController: UIViewController {
 
+    @IBOutlet weak var exploreTableView: UITableView!
+    var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
+        exploreTableView.dataSource = self
+        loadPost()
+    }
+    
+    func loadPost() {
+        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
+            print(Thread.isMainThread)
+            // do this, because many types of value can be stored in the DB
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPost(dicr: dict)
+                self.posts.append(newPost)
+                print(self.posts)
+                self.exploreTableView.reloadData()
+            }
 
-        // Do any additional setup after loading the view.
+            
+        }
+        
     }
 
+    
+    // [Dahye Comment] This is to create an image title of a Navigation Bar.
     
     func addNavBarImage() {
         let navController = navigationController!
@@ -54,4 +77,21 @@ class ExploreViewController: UIViewController {
     }
     */
 
+}
+
+
+// [Dahye Comment] With extension, we let the exploreViewController promise to implement a few methods in the UItableViewDataSource. This protocol declares some methods that can be adopted to provide some information to tableview object. Basically, those methods can be implemented to decide how our small pieces of papare there are. What info? how the appreance of scene and so on. ExploreViewController must implement these methods.
+
+extension ExploreViewController: UITableViewDataSource {
+    // [Dahye Comment] how many cells?
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    // [Dahye Comment] What does the each cell look like?
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+        let post = posts[indexPath.row]
+        cell.post = post
+        return cell
+    }
 }
