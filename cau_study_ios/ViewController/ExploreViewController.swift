@@ -15,10 +15,15 @@ class ExploreViewController: UIViewController {
 
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
+    
+    var appDelegate:AppDelegate? = nil
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
-        exploreTableView.dataSource = self
+        exploreTableView.dataSource = self as? UITableViewDataSource
         loadPost()
     }
     
@@ -67,18 +72,41 @@ class ExploreViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        let vc = segue.destination as? ExploreDetailViewController
+        let contentIndex = self.exploreTableView.indexPath(for: sender as! UITableViewCell)
+  
 
+        
+        if let ExploreDetailViewController = vc {
+            let posts = self.posts
+            
+            ExploreDetailViewController.titleDetail = posts[contentIndex!.row].title
+            ExploreDetailViewController.categoryDetail = posts[contentIndex!.row].category
+            ExploreDetailViewController.objectivesDetail = posts[contentIndex!.row].objectives
+            ExploreDetailViewController.titleDetail = posts[contentIndex!.row].title
+            ExploreDetailViewController.durationDetail = posts[contentIndex!.row].duration
+            ExploreDetailViewController.locationDetail = posts[contentIndex!.row].location
+            ExploreDetailViewController.numofVacanDetail = posts[contentIndex!.row].numOfVacan
+            ExploreDetailViewController.contactDetail = posts[contentIndex!.row].contact
+            ExploreDetailViewController.descriptionDetail = posts[contentIndex!.row].description
+            ExploreDetailViewController.writtingDetail =
+                posts[contentIndex!.row].photoUrl
+           
+            }
+//        var title: String?
+//        var category: String?
+//        var objectives: String?
+//        var eligibility: String?
+//        var duration: String?
+//        var location: String?
+//        var numOfVacan: String?
+//        var contact: String?
+//        var photoUrl: String?
+//        var description: String?
+        
 }
-
+}
 
 // [Dahye Comment] With extension, we let the exploreViewController promise to implement a few methods in the UItableViewDataSource. This protocol declares some methods that can be adopted to provide some information to tableview object. Basically, those methods can be implemented to decide how our small pieces of papare there are. What info? how the appreance of scene and so on. ExploreViewController must implement these methods.
 

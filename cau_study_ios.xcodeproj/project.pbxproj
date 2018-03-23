@@ -28,6 +28,7 @@
 		E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51DD204EBE1F001D94F9 /* Config.swift */; };
 		E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E39D51E1204EBE29001D94F9 /* ProgressHUD.m */; };
 		E39D51E5204EBE29001D94F9 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */; };
+		FEDB924920628A710005AA7F /* ExploreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB924820628A710005AA7F /* ExploreDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		E39D51E1204EBE29001D94F9 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = cau_study_ios/ProgressHUD.m; sourceTree = "<group>"; };
 		E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = cau_study_ios/ProgressHUD.bundle; sourceTree = "<group>"; };
 		E39D51E3204EBE29001D94F9 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = cau_study_ios/ProgressHUD.h; sourceTree = "<group>"; };
+		FEDB924820628A710005AA7F /* ExploreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
+				FEDB924820628A710005AA7F /* ExploreDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */,
 				15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */,
+				FEDB924920628A710005AA7F /* ExploreDetailViewController.swift in Sources */,
 				1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */,
 				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
