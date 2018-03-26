@@ -9,11 +9,12 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SDWebImage
 
 class ExploreViewController: UIViewController {
 
     @IBOutlet weak var exploreTableView: UITableView!
-    
+    var posts = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
@@ -23,11 +24,22 @@ class ExploreViewController: UIViewController {
     
     func loadPost() {
         Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            print(snapshot.value)
+            print(Thread.isMainThread)
+            // do this, because many types of value can be stored in the DB
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPost(dicr: dict)
+                self.posts.append(newPost)
+                print(self.posts)
+                self.exploreTableView.reloadData()
+            }
+
+            
         }
         
     }
 
+    
+    // [Dahye Comment] This is to create an image title of a Navigation Bar.
     
     func addNavBarImage() {
         let navController = navigationController!
@@ -73,13 +85,13 @@ class ExploreViewController: UIViewController {
 extension ExploreViewController: UITableViewDataSource {
     // [Dahye Comment] how many cells?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return posts.count
     }
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text = "1"
-        cell.backgroundColor = UIColor.red
+        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+        let post = posts[indexPath.row]
+        cell.post = post
         return cell
     }
 }
