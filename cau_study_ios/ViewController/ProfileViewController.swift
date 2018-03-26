@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //print("userId: \(userId)")
-        //fetchUser()
+        fetchUser()
         
         if(textField.isEditable == true)
         {
@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController {
     }
     
     func fetchUser() {
-        Api.User.observeUser(withId: userId) { (user) in
+        Api.User.observeCurrentUser { (user) in
                 self.user = user
                 self.navigationItem.title = user.username
                 self.updateView()
@@ -48,9 +48,9 @@ class ProfileViewController: UIViewController {
         }
     
     func updateView() {
-        self.nameLabel.text = user!.username
-        self.idLabel.text = user!.email
-        if let photoUrlString = user!.profileImageUrl {
+        self.nameLabel.text = user.username
+        self.idLabel.text = user.email
+        if let photoUrlString = user.profileImageUrl {
             if let photoUrl = URL(string: photoUrlString) //if 빼야함
             {
                 print(photoUrl)

@@ -62,13 +62,13 @@ class UserApi {
         })
     }
     
-    var CURRENT_USER: User? {
+    /*var CURRENT_USER: User? {
         if let currentUser = Auth.auth().currentUser{
-            return nil
+            return currentUser
         }
         
         return nil
-    }//이부분 수정
+    }//이부분 수정*/
     
     
     var REF_CURRENT_USER: DatabaseReference? {
