@@ -169,11 +169,11 @@
             </objects>
             <point key="canvasLocation" x="-2306.4000000000001" y="2682.9085457271367"/>
         </scene>
-        <!--Explore-->
+        <!--Navigation Controller-->
         <scene sceneID="Ysa-qV-wIA">
             <objects>
                 <navigationController storyboardIdentifier="ExploreId" automaticallyAdjustsScrollViewInsets="NO" id="QxY-hx-YYF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" id="bp5-fY-skN"/>
+                    <tabBarItem key="tabBarItem" title="" image="list" id="bp5-fY-skN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o21-X8-KlC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -513,5 +513,6 @@
     </scenes>
     <resources>
         <image name="Placeholder-image" width="840" height="600"/>
+        <image name="list" width="36" height="36"/>
     </resources>
 </document>
