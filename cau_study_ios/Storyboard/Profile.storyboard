@@ -114,11 +114,11 @@
             </objects>
             <point key="canvasLocation" x="69.599999999999994" y="3074.2128935532237"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="lcz-F7-MoZ">
             <objects>
                 <navigationController storyboardIdentifier="ProfileId" automaticallyAdjustsScrollViewInsets="NO" id="msI-PS-hEn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="bfG-hi-hKW"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="bfG-hi-hKW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vuA-ak-H4N">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -136,5 +136,6 @@
     </scenes>
     <resources>
         <image name="Placeholder-image" width="840" height="600"/>
+        <image name="profile" width="38" height="37"/>
     </resources>
 </document>
