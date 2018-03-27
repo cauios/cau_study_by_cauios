@@ -32,6 +32,8 @@
 		E39E863C206104B2007CBB6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E863A206104B1007CBB6D /* User.swift */; };
 		E39E863D206104B2007CBB6D /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E863B206104B1007CBB6D /* UserApi.swift */; };
 		E39E863F206104EA007CBB6D /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E863E206104EA007CBB6D /* Api.swift */; };
+		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
+		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		E39E863A206104B1007CBB6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = cau_study_ios/User.swift; sourceTree = "<group>"; };
 		E39E863B206104B1007CBB6D /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserApi.swift; path = cau_study_ios/UserApi.swift; sourceTree = "<group>"; };
 		E39E863E206104EA007CBB6D /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = cau_study_ios/Api.swift; sourceTree = "<group>"; };
+		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 			children = (
 				E39D51D6204EBC36001D94F9 /* Start.storyboard */,
 				E39D51D8204EBCCC001D94F9 /* Main.storyboard */,
+				E3E299DB206A391C00ECA439 /* Chat.storyboard */,
 				150482232052C6A8005AF8F1 /* Explore.storyboard */,
 				150482252052C6CA005AF8F1 /* Saved.storyboard */,
 				150482272052C6D9005AF8F1 /* Profile.storyboard */,
@@ -172,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				E39D51D2204EBC24001D94F9 /* SignInViewController.swift */,
+				E3E299D3206A373000ECA439 /* ChatViewController.swift */,
 				E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */,
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
@@ -252,6 +258,7 @@
 				E39D51DB204EBDF6001D94F9 /* GoogleService-Info.plist in Resources */,
 				150482282052C6D9005AF8F1 /* Profile.storyboard in Resources */,
 				E39D51D7204EBC36001D94F9 /* Start.storyboard in Resources */,
+				E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */,
 				E39D51D9204EBCCC001D94F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +334,7 @@
 			files = (
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
+				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
 				E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */,
 				E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */,
