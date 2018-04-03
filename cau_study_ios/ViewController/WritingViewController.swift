@@ -19,13 +19,12 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var writingScrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var objectivesTextField: UITextField!
+    @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var eligibilityTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var numOfVacanTextField: UITextField!
     @IBOutlet weak var contactTextField: UITextField!
-    @IBOutlet weak var writingImageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var uploadButton: UIBarButtonItem!
     
@@ -81,7 +80,7 @@ class WritingViewController: UIViewController {
         }
         let currentUserId = currentUser.uid
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryTextField.text!, "objectives": objectivesTextField.text!, "eligibility": eligibilityTextField.text!, "duration": durationTextField.text!, "location": locationTextField.text!, "numOfVacan": numOfVacanTextField.text!, "contact": contactTextField.text!, "description": descriptionTextView.text! ], withCompletionBlock: {
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryTextField.text!, "tags": tagsTextField.text!, "eligibility": eligibilityTextField.text!, "duration": durationTextField.text!, "location": locationTextField.text!, "numOfVacan": numOfVacanTextField.text!, "contact": contactTextField.text!, "description": descriptionTextView.text! ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
@@ -126,7 +125,7 @@ class WritingViewController: UIViewController {
     func handleTextField() {
         titleTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         categoryTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        objectivesTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        tagsTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         eligibilityTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         durationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         locationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
@@ -135,7 +134,7 @@ class WritingViewController: UIViewController {
     }
     
     @objc func textFieldDidChange() {
-         guard let titleText = titleTextField.text, !titleText.isEmpty, let categoryText = categoryTextField.text, !categoryText.isEmpty, let objectivesText = objectivesTextField.text, !objectivesText.isEmpty, let eligibilityText = eligibilityTextField.text, !eligibilityText.isEmpty, let durationText = durationTextField.text, !durationText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let contactText = contactTextField.text, !contactText.isEmpty else {
+         guard let titleText = titleTextField.text, !titleText.isEmpty, let categoryText = categoryTextField.text, !categoryText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let eligibilityText = eligibilityTextField.text, !eligibilityText.isEmpty, let durationText = durationTextField.text, !durationText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let contactText = contactTextField.text, !contactText.isEmpty else {
             uploadButton.tintColor = .lightGray
             uploadButton.isEnabled = false
             return

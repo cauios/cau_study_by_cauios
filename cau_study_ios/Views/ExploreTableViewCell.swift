@@ -11,7 +11,7 @@ import UIKit
 class ExploreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exploreTitleLabel: UILabel!
-    @IBOutlet weak var exploreObjectivesLabel: UILabel!
+    @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
     
     
@@ -27,7 +27,7 @@ class ExploreTableViewCell: UITableViewCell {
     func updateView() {
         exploreTitleLabel.text = post?.title
         exploreCategoryLabel.text = post?.category
-        exploreObjectivesLabel.text = post?.objectives
+        exploreTagsLabel.text = post?.tags
     }
     
     

@@ -95,7 +95,7 @@
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Objectives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-Es-Ae6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xB-Es-Ae6">
                                                     <rect key="frame" x="15" y="38" width="294" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -106,7 +106,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="exploreCategoryLabel" destination="7AT-GY-PqU" id="mho-PY-Hhi"/>
-                                            <outlet property="exploreObjectivesLabel" destination="1xB-Es-Ae6" id="vy1-ih-hW6"/>
+                                            <outlet property="exploreTagsLabel" destination="1xB-Es-Ae6" id="Y7I-87-aW3"/>
                                             <outlet property="exploreTitleLabel" destination="4Dy-qK-db6" id="8LA-3m-tkV"/>
                                         </connections>
                                     </tableViewCell>
@@ -141,6 +141,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbb-Tm-NYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2306.4000000000001" y="2682.9085457271367"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2EV-wN-kCT">
+            <objects>
+                <viewController id="NWw-l4-S73" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CSd-u0-RVV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icj-wy-GXP">
+                                <rect key="frame" x="16" y="60" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSD-2q-Zrg">
+                                <rect key="frame" x="16" y="89" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="EGJ-pE-skF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVx-P5-irm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1492" y="2677.5112443778112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ysa-qV-wIA">
@@ -226,7 +257,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="27W-5O-TPt"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Objectives" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CF9-3I-Aqv">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="tags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CF9-3I-Aqv">
                                                 <rect key="frame" x="8" y="102" width="359" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="8SE-gh-uTE"/>
@@ -439,7 +470,7 @@
                         <outlet property="eligibilityTextField" destination="CHG-9W-g6x" id="noq-x4-KzT"/>
                         <outlet property="locationTextField" destination="9SG-Ax-GjP" id="Ga2-Jo-Ht0"/>
                         <outlet property="numOfVacanTextField" destination="zKm-84-1hd" id="fg2-j6-BrD"/>
-                        <outlet property="objectivesTextField" destination="CF9-3I-Aqv" id="aa5-8K-eQP"/>
+                        <outlet property="tagsTextField" destination="CF9-3I-Aqv" id="WGf-Kc-cbG"/>
                         <outlet property="titleTextField" destination="qt7-MK-hKG" id="poF-vf-mWC"/>
                         <outlet property="uploadButton" destination="D1a-yY-JKU" id="Dqc-mx-sLZ"/>
                         <outlet property="writingScrollView" destination="24M-EC-s9n" id="Uq9-Ut-agO"/>

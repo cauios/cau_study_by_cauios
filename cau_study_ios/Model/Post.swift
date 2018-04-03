@@ -12,7 +12,7 @@ import Foundation
 class Post {
     var title: String?
     var category: String?
-    var objectives: String?
+    var tags: String?
     var eligibility: String?
     var duration: String?
     var location: String?
@@ -28,7 +28,7 @@ extension Post{
         
         post.title = dicr["title"] as? String
         post.category = dicr["category"] as? String
-        post.objectives = dicr["objectives"] as? String
+        post.tags = dicr["tags"] as? String
         post.eligibility = dicr["eligibility"] as? String
         post.duration = dicr["duration"] as? String
         post.location = dicr["location"] as? String
