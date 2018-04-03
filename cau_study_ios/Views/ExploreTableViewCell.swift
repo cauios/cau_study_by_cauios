@@ -10,7 +10,6 @@ import UIKit
 
 class ExploreTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var exploreImageView: UIImageView!
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreObjectivesLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
@@ -29,10 +28,6 @@ class ExploreTableViewCell: UITableViewCell {
         exploreTitleLabel.text = post?.title
         exploreCategoryLabel.text = post?.category
         exploreObjectivesLabel.text = post?.objectives
-        if let photoUrlString = post?.photoUrl {
-            let photoUrl = URL(string: photoUrlString)
-            exploreImageView.sd_setImage(with: photoUrl)
-        }
     }
     
     
