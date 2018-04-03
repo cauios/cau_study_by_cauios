@@ -18,21 +18,8 @@ class Post {
     var location: String?
     var numOfVacan: String?
     var contact: String?
-    var photoUrl: String?
     var description: String?
     
-//    init(titleText: String, categoryText: String, objectivesText: String, eligibilityText: String, durationText: String, locationText: String, numOfVacanText: String, contactText: String, photoUrlString: String, descriptionText: String) {
-//        title = titleText
-//        category = categoryText
-//        objectives = objectivesText
-//        eligibility = eligibilityText
-//        duration = durationText
-//        location = locationText
-//        numOfVacan = numOfVacanText
-//        contact = contactText
-//        photoUrl = photoUrlString
-//        description = descriptionText
-//    }
 }
 
 extension Post{
@@ -47,7 +34,6 @@ extension Post{
         post.location = dicr["location"] as? String
         post.numOfVacan = dicr["numOfVacan"] as? String
         post.contact = dicr["contact"] as? String
-        post.photoUrl = dicr["photoUrl"] as? String
         post.description = dicr["description"] as? String
         
         return post
