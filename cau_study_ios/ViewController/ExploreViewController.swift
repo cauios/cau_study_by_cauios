@@ -15,6 +15,7 @@ class ExploreViewController: UIViewController {
 
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
+    var users = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
@@ -23,19 +24,30 @@ class ExploreViewController: UIViewController {
     }
     
     func loadPost() {
-        Database.database().reference().child("posts").observe(.childAdded) { (snapshot: DataSnapshot) in
-            print(Thread.isMainThread)
-            // do this, because many types of value can be stored in the DB
-            if let dict = snapshot.value as? [String: Any] {
-                let newPost = Post.transformPost(dicr: dict)
-                self.posts.append(newPost)
-                print(self.posts)
-                self.exploreTableView.reloadData()
-            }
-
+        Api.Post.observePosts{
+            (post) in
+            self.posts.append(post)
+            print(self.posts)
+            self.exploreTableView.reloadData()
             
         }
         
+    }
+    
+    func fetchUser(uid: String, completed: @escaping() -> Void) {
+        Api.User.observeUser(withId: uid, completion: {
+            user in
+            self.users.append(user)
+            completed()})
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Open_DetailSegue" {
+            let detailVC = segue.destination as! DetailViewController
+            let postId = sender as! String
+            detailVC.postId = postId
+        }
     }
 
     
@@ -67,17 +79,13 @@ class ExploreViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+
+
+
+
 
 
 // [Dahye Comment] With extension, we let the exploreViewController promise to implement a few methods in the UItableViewDataSource. This protocol declares some methods that can be adopted to provide some information to tableview object. Basically, those methods can be implemented to decide how our small pieces of papare there are. What info? how the appreance of scene and so on. ExploreViewController must implement these methods.
@@ -92,6 +100,16 @@ extension ExploreViewController: UITableViewDataSource {
         let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
         cell.post = post
+        cell.delegate = self
         return cell
     }
+}
+
+
+extension ExploreViewController: ExploreTableViewCellDelegate {
+    
+    func goToDetailVC(postId: String) {
+        performSegue(withIdentifier: "Open_DetailSegue", sender: postId)
+    }
+    
 }

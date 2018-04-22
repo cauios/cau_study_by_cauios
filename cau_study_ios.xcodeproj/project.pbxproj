@@ -12,7 +12,10 @@
 		150482282052C6D9005AF8F1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150482272052C6D9005AF8F1 /* Profile.storyboard */; };
 		1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150482292052C811005AF8F1 /* NotisTableViewController.swift */; };
 		1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504822B2052C876005AF8F1 /* WritingViewController.swift */; };
+		1534874A208C8D81006E789A /* ExploreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15348749208C8D81006E789A /* ExploreApi.swift */; };
+		1534874C208C8EF4006E789A /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534874B208C8EF4006E789A /* PostApi.swift */; };
 		15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A14A352057A8C8008EEB25 /* ExploreViewController.swift */; };
+		15D307CC208C3FBC000C3B22 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D307CB208C3FBC000C3B22 /* DetailViewController.swift */; };
 		15D47EB32060D4E7001CFF53 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB22060D4E7001CFF53 /* Post.swift */; };
 		15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */; };
 		404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B134038822380599309DDC06 /* Pods_cau_study_ios.framework */; };
@@ -42,7 +45,10 @@
 		150482272052C6D9005AF8F1 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		150482292052C811005AF8F1 /* NotisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotisTableViewController.swift; sourceTree = "<group>"; };
 		1504822B2052C876005AF8F1 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		15348749208C8D81006E789A /* ExploreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApi.swift; sourceTree = "<group>"; };
+		1534874B208C8EF4006E789A /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		15A14A352057A8C8008EEB25 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		15D307CB208C3FBC000C3B22 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		15D47EB22060D4E7001CFF53 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		7A77189B568BA4FF60DC16BE /* Pods-cau_study_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 		E39D51B2204EBAB3001D94F9 = {
 			isa = PBXGroup;
 			children = (
+				1534874B208C8EF4006E789A /* PostApi.swift */,
+				15348749208C8D81006E789A /* ExploreApi.swift */,
 				E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */,
 				E39D51E3204EBE29001D94F9 /* ProgressHUD.h */,
 				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
@@ -183,6 +191,7 @@
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
+				15D307CB208C3FBC000C3B22 /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -333,10 +342,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
+				15D307CC208C3FBC000C3B22 /* DetailViewController.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
 				E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */,
+				1534874A208C8D81006E789A /* ExploreApi.swift in Sources */,
 				E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */,
@@ -345,6 +356,7 @@
 				1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */,
 				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
 				E39E863D206104B2007CBB6D /* UserApi.swift in Sources */,
+				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,

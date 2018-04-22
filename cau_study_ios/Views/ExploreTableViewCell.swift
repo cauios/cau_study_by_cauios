@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol ExploreTableViewCellDelegate {
+    func goToDetailVC(postId: String)
+}
+
 class ExploreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
     
+    
+    var delegate: ExploreTableViewCellDelegate?
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
     var post: Post? {
@@ -28,6 +34,17 @@ class ExploreTableViewCell: UITableViewCell {
         exploreTitleLabel.text = post?.title
         exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
+        
+        let tapGestureForExploreTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.exploreTitleLabel_TouchUpInside))
+        
+        exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
+        exploreTitleLabel.isUserInteractionEnabled = true
+    }
+    
+    @objc func exploreTitleLabel_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToDetailVC(postId: id)
+        }
     }
     
     
