@@ -10,6 +10,7 @@
 
 import Foundation
 class Post {
+    var id: String?
     var title: String?
     var category: String?
     var tags: String?
@@ -23,9 +24,9 @@ class Post {
 }
 
 extension Post{
-    static func transformPost(dicr: [String: Any]) -> Post {
+    static func transformPost(dicr: [String: Any], key: String) -> Post {
         let post = Post()
-        
+        post.id = key
         post.title = dicr["title"] as? String
         post.category = dicr["category"] as? String
         post.tags = dicr["tags"] as? String
