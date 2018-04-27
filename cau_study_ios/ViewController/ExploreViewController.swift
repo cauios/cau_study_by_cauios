@@ -49,7 +49,7 @@ class ExploreViewController: UIViewController {
             detailVC.postId = postId
         }
     }
-
+                      
     
     // [Dahye Comment] This is to create an image title of a Navigation Bar.
     
@@ -113,3 +113,5 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
     }
     
 }
+
+

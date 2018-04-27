@@ -12,6 +12,18 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var postDetailView: UIView!
     
+    //ㅅㅈ
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var eligibilityLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var numOfVacanLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    //ㅅㅈ
     
     var postId = ""
     var posts = Post()
@@ -20,6 +32,18 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPost()
+        //ㅅㅈ
+        titleLabel.text = posts.title
+        idLabel.text = posts.id
+        dateLabel.text = " "
+        categoryLabel.text = posts.category
+        tagsLabel.text = posts.tags
+        eligibilityLabel.text = posts.eligibility
+        durationLabel.text = posts.duration
+        locationLabel.text = posts.location
+        numOfVacanLabel.text = posts.numOfVacan
+        descriptionLabel.text = posts.description
+        //ㅅㅈ
     }
     // [Dahye's comment] 나중에 id로 한 거 uid로 바꿔야 함. Lec 71 - 1:39 참고
     func loadPost() {
