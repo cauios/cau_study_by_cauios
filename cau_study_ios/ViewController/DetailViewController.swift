@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet var postDetailView: UIView!
+
+    @IBOutlet weak var detailTableView: UITableView!
+    
+
     
     
     var postId = ""
-    var posts = Post()
-    var users = User()
+    var post = Post()
+    var user = User()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,8 @@ class DetailViewController: UIViewController {
                 return
             }
             self.fetchUser(uid: postId, completed: {
-                self.posts = post
+                self.post = post
+                self.detailTableView.reloadData()
             })
         }
     }
@@ -37,8 +42,22 @@ class DetailViewController: UIViewController {
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
             user in
-            self.users = user
+            self.user = user
             completed()})
+    }
+    
+}
+
+extension DetailViewController: UITableViewDataSource {
+    // [Dahye's Comment] Specifiy the number of rows
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    // [Dahye's Comment] Customize the rows for showing the post data
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = detailTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+        cell.post = post
+        return cell
     }
     
 }
