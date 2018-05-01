@@ -55,7 +55,8 @@ extension DetailViewController: UITableViewDataSource {
     }
     // [Dahye's Comment] Customize the rows for showing the post data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = detailTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+        let cell = detailTableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
+
         cell.post = post
         return cell
     }
