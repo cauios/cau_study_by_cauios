@@ -8,8 +8,10 @@
 
 import UIKit
 
+
 class ExploreDetailViewController: UIViewController {
 
+    var idDetail: String?
     var titleDetail: String?
     var profileDetail: UIImage?
     var categoryDetail: String?
@@ -19,7 +21,6 @@ class ExploreDetailViewController: UIViewController {
     var locationDetail: String?
     var numofVacanDetail: String?
     var contactDetail: String?
-    var writtingDetail: UIImage?
     var descriptionDetail: String?
     
     @IBOutlet weak var titleTextField: UILabel!
@@ -31,13 +32,22 @@ class ExploreDetailViewController: UIViewController {
     @IBOutlet weak var locationTextField: UILabel!
     @IBOutlet weak var numOfVacanTextField: UILabel!
     @IBOutlet weak var contactTextField: UITextField!
-    @IBOutlet weak var writtingImageView: UIImageView!
     @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var objectiveTextField: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let id = self.idDetail {
+            self.Id.text = id
+        }
+        
         if let titleVal = self.titleDetail {
             self.titleTextField.text = titleVal
+        }
+        
+        if let objectVal = self.objectivesDetail {
+            self.objectiveTextField.text = objectVal
         }
         
         if let profileImageVal = self.profileDetail {
@@ -68,19 +78,15 @@ class ExploreDetailViewController: UIViewController {
             self.contactTextField.text = contactVal
         }
         
-        if let writtingImageVal = self.writtingDetail {
-            self.writtingImageView.image = writtingImageVal
-        }
         
         if let descriptionVal = self.descriptionDetail {
             self.descTextView.text = descriptionVal
         }
-        
-        
+    }
+
         
         
         // Do any additional setup after loading the view.
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -14,7 +14,7 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreObjectivesLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
-    
+        
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
     var post: Post? {

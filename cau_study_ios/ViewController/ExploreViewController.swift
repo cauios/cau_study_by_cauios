@@ -15,15 +15,14 @@ class ExploreViewController: UIViewController {
 
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
-    
-    var appDelegate:AppDelegate? = nil
+    var postId: String!
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
-        exploreTableView.dataSource = self as? UITableViewDataSource
+        exploreTableView.dataSource = self
         loadPost()
     }
     
@@ -75,8 +74,6 @@ class ExploreViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? ExploreDetailViewController
         let contentIndex = self.exploreTableView.indexPath(for: sender as! UITableViewCell)
-  
-
         
         if let ExploreDetailViewController = vc {
             let posts = self.posts
@@ -90,24 +87,14 @@ class ExploreViewController: UIViewController {
             ExploreDetailViewController.numofVacanDetail = posts[contentIndex!.row].numOfVacan
             ExploreDetailViewController.contactDetail = posts[contentIndex!.row].contact
             ExploreDetailViewController.descriptionDetail = posts[contentIndex!.row].description
-            ExploreDetailViewController.writtingDetail =
-                posts[contentIndex!.row].photoUrl
+
            
-            }
-//        var title: String?
-//        var category: String?
-//        var objectives: String?
-//        var eligibility: String?
-//        var duration: String?
-//        var location: String?
-//        var numOfVacan: String?
-//        var contact: String?
-//        var photoUrl: String?
-//        var description: String?
         
-}
+        }
+    
 }
 
+}
 // [Dahye Comment] With extension, we let the exploreViewController promise to implement a few methods in the UItableViewDataSource. This protocol declares some methods that can be adopted to provide some information to tableview object. Basically, those methods can be implemented to decide how our small pieces of papare there are. What info? how the appreance of scene and so on. ExploreViewController must implement these methods.
 
 extension ExploreViewController: UITableViewDataSource {
@@ -123,3 +110,11 @@ extension ExploreViewController: UITableViewDataSource {
         return cell
     }
 }
+
+
+    
+    
+    
+    
+
+
