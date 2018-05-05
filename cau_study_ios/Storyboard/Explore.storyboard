@@ -359,7 +359,7 @@
                                             <constraint firstAttribute="height" constant="1" id="ntw-7g-RDE"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mK4-15-n0w">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mK4-15-n0w">
                                         <rect key="frame" x="8" y="214" width="359" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="T7S-g6-beQ"/>
@@ -375,7 +375,7 @@
                                             <constraint firstAttribute="height" constant="1" id="peU-gJ-hTW"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9SG-Ax-GjP">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9SG-Ax-GjP">
                                         <rect key="frame" x="8" y="265" width="359" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6Ou-n9-WLi"/>
