@@ -21,7 +21,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var eligibilityLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var numOfVacanLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     //ㅅㅈ
     
@@ -41,7 +40,6 @@ class DetailViewController: UIViewController {
         eligibilityLabel.text = posts.eligibility
         durationLabel.text = posts.duration
         locationLabel.text = posts.location
-        numOfVacanLabel.text = posts.numOfVacan
         descriptionLabel.text = posts.description
         //ㅅㅈ
     }
