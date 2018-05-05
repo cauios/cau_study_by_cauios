@@ -233,12 +233,12 @@
                         <outlet property="categoryLabel" destination="A91-a2-xJC" id="Ips-5a-1Mf"/>
                         <outlet property="dateLabel" destination="Sq0-a3-IY0" id="vvk-OL-L3A"/>
                         <outlet property="descriptionLabel" destination="Ffg-Sg-F7w" id="7af-e8-tEq"/>
-                        <outlet property="durationLabel" destination="sxF-7e-4rR" id="oaD-Ks-0lI"/>
                         <outlet property="idLabel" destination="JVi-O7-vxo" id="k0T-a4-h79"/>
                         <outlet property="locationLabel" destination="R2f-GL-MYf" id="Rhg-6u-RX3"/>
                         <outlet property="numOfVacanLabel" destination="3ht-7r-l05" id="M5I-cJ-acP"/>
                         <outlet property="postDetailView" destination="CSd-u0-RVV" id="F1T-sR-jpl"/>
                         <outlet property="tagsLabel" destination="KiA-T9-bwi" id="kMk-Hk-3bQ"/>
+                        <outlet property="timeLabel" destination="sxF-7e-4rR" id="XEV-ZG-Tsg"/>
                         <outlet property="titleLabel" destination="ZnV-QO-fRZ" id="A8L-7Z-oJ9"/>
                     </connections>
                 </viewController>
@@ -471,10 +471,10 @@
                     <connections>
                         <outlet property="categoryTextField" destination="91W-Kw-b77" id="3u2-xR-GQg"/>
                         <outlet property="descriptionTextView" destination="Q6u-xV-Rtr" id="o4p-3k-fJ7"/>
-                        <outlet property="durationTextField" destination="mK4-15-n0w" id="i0L-SC-VOz"/>
                         <outlet property="locationTextField" destination="9SG-Ax-GjP" id="Ga2-Jo-Ht0"/>
                         <outlet property="numOfVacanTextField" destination="CHG-9W-g6x" id="3WQ-2a-zTp"/>
                         <outlet property="tagsTextField" destination="CF9-3I-Aqv" id="WGf-Kc-cbG"/>
+                        <outlet property="timeTextField" destination="mK4-15-n0w" id="ZMm-N2-5IM"/>
                         <outlet property="titleTextField" destination="qt7-MK-hKG" id="poF-vf-mWC"/>
                         <outlet property="uploadButton" destination="D1a-yY-JKU" id="Dqc-mx-sLZ"/>
                     </connections>

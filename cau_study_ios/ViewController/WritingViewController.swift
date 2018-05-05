@@ -21,7 +21,7 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var numOfVacanTextField: UITextField!
-    @IBOutlet weak var durationTextField: UITextField!
+    @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var uploadButton: UIBarButtonItem!
@@ -78,7 +78,7 @@ class WritingViewController: UIViewController {
         }
         let currentUserId = currentUser.uid
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryTextField.text!, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "duration": durationTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text! ], withCompletionBlock: {
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryTextField.text!, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text! ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
@@ -125,12 +125,12 @@ class WritingViewController: UIViewController {
         categoryTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         tagsTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         numOfVacanTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        durationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+        timeTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
         locationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
     }
     
     @objc func textFieldDidChange() {
-         guard let titleText = titleTextField.text, !titleText.isEmpty, let categoryText = categoryTextField.text, !categoryText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let durationText = durationTextField.text, !durationText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty
+         guard let titleText = titleTextField.text, !titleText.isEmpty, let categoryText = categoryTextField.text, !categoryText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let timeText = timeTextField.text, !timeText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty
             else {
             uploadButton.tintColor = .lightGray
             uploadButton.isEnabled = false

@@ -15,7 +15,7 @@ class Post {
     var category: String?
     var tags: String?
     var numOfVacan: String?
-    var duration: String?
+    var time: String?
     var location: String?
     var description: String?
     
@@ -29,7 +29,7 @@ extension Post{
         post.category = dicr["category"] as? String
         post.tags = dicr["tags"] as? String
         post.numOfVacan = dicr["numOfVacan"] as? String
-        post.duration = dicr["duration"] as? String
+        post.time = dicr["time"] as? String
         post.location = dicr["location"] as? String
         post.description = dicr["description"] as? String
         
