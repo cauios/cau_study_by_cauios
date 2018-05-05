@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
-    @IBOutlet weak var eligibilityLabel: UILabel!
+    @IBOutlet weak var numOfVacanLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -37,7 +37,7 @@ class DetailViewController: UIViewController {
         dateLabel.text = " "
         categoryLabel.text = posts.category
         tagsLabel.text = posts.tags
-        eligibilityLabel.text = posts.eligibility
+        numOfVacanLabel.text = posts.numOfVacan
         durationLabel.text = posts.duration
         locationLabel.text = posts.location
         descriptionLabel.text = posts.description
