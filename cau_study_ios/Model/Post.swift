@@ -17,8 +17,6 @@ class Post {
     var eligibility: String?
     var duration: String?
     var location: String?
-    var numOfVacan: String?
-    var contact: String?
     var description: String?
     
 }
@@ -33,8 +31,6 @@ extension Post{
         post.eligibility = dicr["eligibility"] as? String
         post.duration = dicr["duration"] as? String
         post.location = dicr["location"] as? String
-        post.numOfVacan = dicr["numOfVacan"] as? String
-        post.contact = dicr["contact"] as? String
         post.description = dicr["description"] as? String
         
         return post
