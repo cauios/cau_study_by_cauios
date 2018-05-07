@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         print("postId: \(postId)")
         loadPost()
         //ㅅㅈ
-        titleLabel.text = posts.title
+/*        titleLabel.text = posts.title
         idLabel.text = posts.id
         dateLabel.text = " "
         categoryLabel.text = posts.category
@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
         numOfVacanLabel.text = posts.numOfVacan
         timeLabel.text = posts.time
         locationLabel.text = posts.location
-        descriptionLabel.text = posts.description
+        descriptionLabel.text = posts.description*/
         //ㅅㅈ
     }
     // [Dahye's comment] 나중에 id로 한 거 uid로 바꿔야 함. Lec 71 - 1:39 참고
@@ -51,11 +51,10 @@ class DetailViewController: UIViewController {
             guard let postId = post.id else {
                 return
             }
-            self.fetchUser(uid: postId, completed: {
-                self.posts = post
-            })
-        }
+
     }
+    
+
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
@@ -64,4 +63,5 @@ class DetailViewController: UIViewController {
             completed()})
     }
     
+}
 }
