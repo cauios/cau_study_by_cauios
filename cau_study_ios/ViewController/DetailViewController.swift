@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("postId: \(postId)")
         loadPost()
         //ㅅㅈ
         titleLabel.text = posts.title

@@ -27,10 +27,17 @@ class PostApi {
     func observePost(withId id: String, completion: @escaping (Post) -> Void) {
         REF_POSTS.child(id).observeSingleEvent(of: DataEventType.value, with: {
             snapshot in
-            if let dict = snapshot.value as? [String: Any] {
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach({ (child) in
+                if let dicr = child.value as? [String: Any] {
+                    let post = Post.transformPost(dicr: dicr, key: child.key)
+                    completion(post)
+                }
+            })
+ /*           if let dict = snapshot.value as? [String: Any] {
                 let post = Post.transformPost(dicr: dict, key: snapshot.key)
                 completion(post)
-            }
+            }*/
         })
         
     }
