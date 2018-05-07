@@ -34,10 +34,6 @@ class PostApi {
                     completion(post)
                 }
             })
- /*           if let dict = snapshot.value as? [String: Any] {
-                let post = Post.transformPost(dicr: dict, key: snapshot.key)
-                completion(post)
-            }*/
         })
         
     }

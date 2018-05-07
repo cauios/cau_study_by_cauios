@@ -10,20 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet var postDetailView: UIView!
-    
-    //ㅅㅈ
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var tagsLabel: UILabel!
-    @IBOutlet weak var numOfVacanLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    //ㅅㅈ
-    
+
     var postId = ""
     var posts = Post()
     var users = User()
@@ -33,7 +20,7 @@ class DetailViewController: UIViewController {
         print("postId: \(postId)")
         loadPost()
         //ㅅㅈ
-        titleLabel.text = posts.title
+/*        titleLabel.text = posts.title
         idLabel.text = posts.id
         dateLabel.text = " "
         categoryLabel.text = posts.category
@@ -41,7 +28,7 @@ class DetailViewController: UIViewController {
         numOfVacanLabel.text = posts.numOfVacan
         timeLabel.text = posts.time
         locationLabel.text = posts.location
-        descriptionLabel.text = posts.description
+        descriptionLabel.text = posts.description*/
         //ㅅㅈ
     }
     // [Dahye's comment] 나중에 id로 한 거 uid로 바꿔야 함. Lec 71 - 1:39 참고
@@ -51,11 +38,10 @@ class DetailViewController: UIViewController {
             guard let postId = post.id else {
                 return
             }
-            self.fetchUser(uid: postId, completed: {
-                self.posts = post
-            })
-        }
+
     }
+    
+
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
@@ -64,4 +50,5 @@ class DetailViewController: UIViewController {
             completed()})
     }
     
+}
 }
