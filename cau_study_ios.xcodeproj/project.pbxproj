@@ -12,8 +12,13 @@
 		150482282052C6D9005AF8F1 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150482272052C6D9005AF8F1 /* Profile.storyboard */; };
 		1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150482292052C811005AF8F1 /* NotisTableViewController.swift */; };
 		1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504822B2052C876005AF8F1 /* WritingViewController.swift */; };
+		1534874A208C8D81006E789A /* ExploreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15348749208C8D81006E789A /* ExploreApi.swift */; };
+		1534874C208C8EF4006E789A /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534874B208C8EF4006E789A /* PostApi.swift */; };
 		15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A14A352057A8C8008EEB25 /* ExploreViewController.swift */; };
+		15B48A6220A0BCE8002A6D95 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B48A6120A0BCE8002A6D95 /* DetailTableViewCell.swift */; };
+		15D307CC208C3FBC000C3B22 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D307CB208C3FBC000C3B22 /* DetailViewController.swift */; };
 		15D47EB32060D4E7001CFF53 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB22060D4E7001CFF53 /* Post.swift */; };
+		15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */; };
 		404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B134038822380599309DDC06 /* Pods_cau_study_ios.framework */; };
 		E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */; };
 		E39D51C6204EBAB3001D94F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C5204EBAB3001D94F9 /* Assets.xcassets */; };
@@ -27,6 +32,12 @@
 		E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51DD204EBE1F001D94F9 /* Config.swift */; };
 		E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E39D51E1204EBE29001D94F9 /* ProgressHUD.m */; };
 		E39D51E5204EBE29001D94F9 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */; };
+		E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E86382060E123007CBB6D /* ProfileViewController.swift */; };
+		E39E863C206104B2007CBB6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E863A206104B1007CBB6D /* User.swift */; };
+		E39E863D206104B2007CBB6D /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E863B206104B1007CBB6D /* UserApi.swift */; };
+		E39E863F206104EA007CBB6D /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39E863E206104EA007CBB6D /* Api.swift */; };
+		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
+		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +46,13 @@
 		150482272052C6D9005AF8F1 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		150482292052C811005AF8F1 /* NotisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotisTableViewController.swift; sourceTree = "<group>"; };
 		1504822B2052C876005AF8F1 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		15348749208C8D81006E789A /* ExploreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreApi.swift; sourceTree = "<group>"; };
+		1534874B208C8EF4006E789A /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostApi.swift; sourceTree = "<group>"; };
 		15A14A352057A8C8008EEB25 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		15B48A6120A0BCE8002A6D95 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		15D307CB208C3FBC000C3B22 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		15D47EB22060D4E7001CFF53 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
 		7A77189B568BA4FF60DC16BE /* Pods-cau_study_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		B134038822380599309DDC06 /* Pods_cau_study_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cau_study_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFACC3AB4EBE20CAB25F58E /* Pods-cau_study_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,6 +72,12 @@
 		E39D51E1204EBE29001D94F9 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressHUD.m; path = cau_study_ios/ProgressHUD.m; sourceTree = "<group>"; };
 		E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = cau_study_ios/ProgressHUD.bundle; sourceTree = "<group>"; };
 		E39D51E3204EBE29001D94F9 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = cau_study_ios/ProgressHUD.h; sourceTree = "<group>"; };
+		E39E86382060E123007CBB6D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E39E863A206104B1007CBB6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = cau_study_ios/User.swift; sourceTree = "<group>"; };
+		E39E863B206104B1007CBB6D /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserApi.swift; path = cau_study_ios/UserApi.swift; sourceTree = "<group>"; };
+		E39E863E206104EA007CBB6D /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = cau_study_ios/Api.swift; sourceTree = "<group>"; };
+		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +100,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		15D47EB620610898001CFF53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */,
+				15B48A6120A0BCE8002A6D95 /* DetailTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5E45366F5959EDC349EB2602 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +129,16 @@
 		E39D51B2204EBAB3001D94F9 = {
 			isa = PBXGroup;
 			children = (
+				1534874B208C8EF4006E789A /* PostApi.swift */,
+				15348749208C8D81006E789A /* ExploreApi.swift */,
 				E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */,
 				E39D51E3204EBE29001D94F9 /* ProgressHUD.h */,
 				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
 				E39D51DC204EBE1F001D94F9 /* AuthService.swift */,
 				E39D51DD204EBE1F001D94F9 /* Config.swift */,
+				E39E863A206104B1007CBB6D /* User.swift */,
+				E39E863B206104B1007CBB6D /* UserApi.swift */,
+				E39E863E206104EA007CBB6D /* Api.swift */,
 				E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */,
 				E39D51BD204EBAB3001D94F9 /* cau_study_ios */,
 				E39D51BC204EBAB3001D94F9 /* Products */,
@@ -123,6 +159,7 @@
 		E39D51BD204EBAB3001D94F9 /* cau_study_ios */ = {
 			isa = PBXGroup;
 			children = (
+				15D47EB620610898001CFF53 /* Views */,
 				15D47EB12060D49C001CFF53 /* Model */,
 				E39D51D1204EBB23001D94F9 /* ViewController */,
 				E39D51D0204EBB02001D94F9 /* Storyboard */,
@@ -139,6 +176,7 @@
 			children = (
 				E39D51D6204EBC36001D94F9 /* Start.storyboard */,
 				E39D51D8204EBCCC001D94F9 /* Main.storyboard */,
+				E3E299DB206A391C00ECA439 /* Chat.storyboard */,
 				150482232052C6A8005AF8F1 /* Explore.storyboard */,
 				150482252052C6CA005AF8F1 /* Saved.storyboard */,
 				150482272052C6D9005AF8F1 /* Profile.storyboard */,
@@ -150,10 +188,13 @@
 			isa = PBXGroup;
 			children = (
 				E39D51D2204EBC24001D94F9 /* SignInViewController.swift */,
+				E3E299D3206A373000ECA439 /* ChatViewController.swift */,
 				E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */,
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
+				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
+				15D307CB208C3FBC000C3B22 /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -228,6 +269,7 @@
 				E39D51DB204EBDF6001D94F9 /* GoogleService-Info.plist in Resources */,
 				150482282052C6D9005AF8F1 /* Profile.storyboard in Resources */,
 				E39D51D7204EBC36001D94F9 /* Start.storyboard in Resources */,
+				E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */,
 				E39D51D9204EBCCC001D94F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +304,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -269,6 +312,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -284,15 +328,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
+				15D307CC208C3FBC000C3B22 /* DetailViewController.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
+				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
+				E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */,
+				1534874A208C8D81006E789A /* ExploreApi.swift in Sources */,
 				E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				E39D51DF204EBE1F001D94F9 /* Config.swift in Sources */,
+				E39E863F206104EA007CBB6D /* Api.swift in Sources */,
 				15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */,
 				1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */,
 				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
+				E39E863D206104B2007CBB6D /* UserApi.swift in Sources */,
+				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
+				E39E863C206104B2007CBB6D /* User.swift in Sources */,
+				15B48A6220A0BCE8002A6D95 /* DetailTableViewCell.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,10 +479,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bro.cau-study";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "cau_study_ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -444,10 +498,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bro.cau-study";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "cau_study_ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

@@ -10,44 +10,27 @@
 
 import Foundation
 class Post {
+    var id: String?
     var title: String?
     var category: String?
-    var objectives: String?
-    var eligibility: String?
-    var duration: String?
-    var location: String?
+    var tags: String?
     var numOfVacan: String?
-    var contact: String?
-    var photoUrl: String?
+    var time: String?
+    var location: String?
     var description: String?
     
-//    init(titleText: String, categoryText: String, objectivesText: String, eligibilityText: String, durationText: String, locationText: String, numOfVacanText: String, contactText: String, photoUrlString: String, descriptionText: String) {
-//        title = titleText
-//        category = categoryText
-//        objectives = objectivesText
-//        eligibility = eligibilityText
-//        duration = durationText
-//        location = locationText
-//        numOfVacan = numOfVacanText
-//        contact = contactText
-//        photoUrl = photoUrlString
-//        description = descriptionText
-//    }
 }
 
 extension Post{
-    static func transformPost(dicr: [String: Any]) -> Post {
+    static func transformPost(dicr: [String: Any], key: String) -> Post {
         let post = Post()
-        
+        post.id = key
         post.title = dicr["title"] as? String
         post.category = dicr["category"] as? String
-        post.objectives = dicr["objectives"] as? String
-        post.eligibility = dicr["eligibility"] as? String
-        post.duration = dicr["duration"] as? String
-        post.location = dicr["location"] as? String
+        post.tags = dicr["tags"] as? String
         post.numOfVacan = dicr["numOfVacan"] as? String
-        post.contact = dicr["contact"] as? String
-        post.photoUrl = dicr["photoUrl"] as? String
+        post.time = dicr["time"] as? String
+        post.location = dicr["location"] as? String
         post.description = dicr["description"] as? String
         
         return post

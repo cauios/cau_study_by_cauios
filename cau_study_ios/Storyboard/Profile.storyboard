@@ -1,32 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="oth-D8-Heg">
             <objects>
-                <viewController id="FR1-Tb-xoP" sceneMemberID="viewController">
+                <viewController id="FR1-Tb-xoP" customClass="ProfileViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y7x-gD-iYk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="PdD-ct-CsO">
+                                <rect key="frame" x="15" y="79" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="CBN-9K-qy0"/>
+                                    <constraint firstAttribute="height" constant="100" id="gGW-Jr-M5k"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="자기소개를 입력해 주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-A9-1Jb">
+                                <rect key="frame" x="15" y="194" width="340" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="e0c-aF-BMa"/>
+                                    <constraint firstAttribute="height" constant="100" id="zkf-bn-W6x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43N-fi-6RQ">
+                                <rect key="frame" x="180" y="79" width="16.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-hK-Mhy">
+                                <rect key="frame" x="15" y="309" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="저장"/>
+                                <connections>
+                                    <action selector="saveText_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="idU-cV-Rsx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFS-r9-dPy">
+                                <rect key="frame" x="139" y="115" width="100" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AHz-8c-8wr"/>
+                                    <constraint firstAttribute="width" constant="100" id="UeH-ia-7HT"/>
+                                </constraints>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="logOut_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="Iq6-fy-mmg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 쓴글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRY-tY-iZf">
+                                <rect key="frame" x="15" y="354" width="64" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5e-Oi-xef">
+                                <rect key="frame" x="139" y="79" width="26" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN4-z1-e6D">
+                                <rect key="frame" x="109" y="350" width="52" height="30"/>
+                                <state key="normal" title="전체보기"/>
+                                <connections>
+                                    <action selector="viewListAllButton:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="x1L-oe-PMw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mFS-r9-dPy" firstAttribute="top" secondItem="43N-fi-6RQ" secondAttribute="bottom" constant="15" id="0KT-VC-uVd"/>
+                            <constraint firstItem="Pqd-A9-1Jb" firstAttribute="leading" secondItem="grr-Jy-MaL" secondAttribute="leading" constant="15" id="4Yg-DG-Vrb"/>
+                            <constraint firstItem="k5e-Oi-xef" firstAttribute="top" secondItem="grr-Jy-MaL" secondAttribute="top" constant="15" id="4df-CB-gDW"/>
+                            <constraint firstItem="43N-fi-6RQ" firstAttribute="leading" secondItem="k5e-Oi-xef" secondAttribute="trailing" constant="15" id="6Jz-XD-jKK"/>
+                            <constraint firstItem="PdD-ct-CsO" firstAttribute="top" secondItem="grr-Jy-MaL" secondAttribute="top" constant="15" id="6b1-b7-F0Y"/>
+                            <constraint firstItem="43N-fi-6RQ" firstAttribute="top" secondItem="grr-Jy-MaL" secondAttribute="top" constant="15" id="BEF-cA-2hY"/>
+                            <constraint firstItem="yMj-hK-Mhy" firstAttribute="leading" secondItem="Pqd-A9-1Jb" secondAttribute="leading" id="Iw3-F9-jdH"/>
+                            <constraint firstItem="rN4-z1-e6D" firstAttribute="centerY" secondItem="HRY-tY-iZf" secondAttribute="centerY" id="Oj1-hp-2ki"/>
+                            <constraint firstItem="HRY-tY-iZf" firstAttribute="leading" secondItem="grr-Jy-MaL" secondAttribute="leading" constant="15" id="Qi2-8J-0vA"/>
+                            <constraint firstItem="k5e-Oi-xef" firstAttribute="leading" secondItem="PdD-ct-CsO" secondAttribute="trailing" constant="24" id="W7G-Ju-bLs"/>
+                            <constraint firstItem="yMj-hK-Mhy" firstAttribute="top" secondItem="Pqd-A9-1Jb" secondAttribute="bottom" constant="15" id="ZO3-I0-K1D"/>
+                            <constraint firstItem="rN4-z1-e6D" firstAttribute="leading" secondItem="HRY-tY-iZf" secondAttribute="trailing" constant="30" id="fls-57-4yM"/>
+                            <constraint firstItem="yMj-hK-Mhy" firstAttribute="leading" secondItem="grr-Jy-MaL" secondAttribute="leading" constant="15" id="gCt-JS-cww"/>
+                            <constraint firstItem="k5e-Oi-xef" firstAttribute="top" secondItem="PdD-ct-CsO" secondAttribute="top" id="jKv-t3-jkP"/>
+                            <constraint firstItem="PdD-ct-CsO" firstAttribute="leading" secondItem="grr-Jy-MaL" secondAttribute="leading" constant="15" id="lz5-aq-T5G"/>
+                            <constraint firstItem="Pqd-A9-1Jb" firstAttribute="top" secondItem="PdD-ct-CsO" secondAttribute="bottom" constant="15" id="mKr-yd-iXO"/>
+                            <constraint firstItem="HRY-tY-iZf" firstAttribute="top" secondItem="yMj-hK-Mhy" secondAttribute="bottom" constant="15" id="rzf-UX-6MO"/>
+                            <constraint firstItem="mFS-r9-dPy" firstAttribute="leading" secondItem="k5e-Oi-xef" secondAttribute="leading" id="yS0-xz-jz4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="grr-Jy-MaL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gdw-iP-suE"/>
+                    <navigationItem key="navigationItem" id="gdw-iP-suE">
+                        <barButtonItem key="rightBarButtonItem" title="알림" id="mzb-pO-6bd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="idLabel" destination="43N-fi-6RQ" id="ld2-0S-VGl"/>
+                        <outlet property="myListLabel" destination="HRY-tY-iZf" id="X9B-i5-l7h"/>
+                        <outlet property="profileImage" destination="PdD-ct-CsO" id="Mz7-Ax-TeG"/>
+                        <outlet property="saveTextButton" destination="yMj-hK-Mhy" id="HHZ-By-nq3"/>
+                        <outlet property="textField" destination="Pqd-A9-1Jb" id="S1b-Zs-CaX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P70-3O-au5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70" y="3075"/>
+            <point key="canvasLocation" x="69.599999999999994" y="3074.2128935532237"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="lcz-F7-MoZ">
             <objects>
                 <navigationController storyboardIdentifier="ProfileId" automaticallyAdjustsScrollViewInsets="NO" id="msI-PS-hEn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="bfG-hi-hKW"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile" id="bfG-hi-hKW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vuA-ak-H4N">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -42,4 +144,8 @@
             <point key="canvasLocation" x="70.400000000000006" y="2092.353823088456"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Placeholder-image" width="840" height="600"/>
+        <image name="profile" width="38" height="37"/>
+    </resources>
 </document>
