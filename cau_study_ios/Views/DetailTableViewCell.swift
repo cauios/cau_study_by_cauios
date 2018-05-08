@@ -21,6 +21,27 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // 08/05 Dahye implementation
+    
+    
+    var post: Post? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    func updateView() {
+        titleLabel.text = post?.title
+        idLabel.text = post?.id
+        dateLabel.text = " " // [dahye's comment] this should be modified in the future
+        categoryLabel.text = post?.category
+        tagsLabel.text = post?.tags
+        numOfVacanLabel.text = post?.numOfVacan
+        timeLabel.text = post?.time
+        locationLabel.text = post?.location
+        descriptionLabel.text = post?.description
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
