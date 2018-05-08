@@ -12,9 +12,11 @@ class DetailViewController: UIViewController {
     
 
     var postId = ""
-    var posts = Post()
-    var users = User()
+    var post = Post()
+    var user = User()
 
+    @IBOutlet weak var detailTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("postId: \(postId)")
@@ -34,9 +36,14 @@ class DetailViewController: UIViewController {
     // [Dahye's comment] 나중에 id로 한 거 uid로 바꿔야 함. Lec 71 - 1:39 참고
     func loadPost() {
         Api.Post.observePost(withId: postId) {
-            (post) in
-            guard let postId = post.id else {
+            // 08/05 Dahye's way from Lec71
+             (post) in guard let postUid = post.uid else {
                 return
+            }
+            self.fetchUser(uid: postUid, completed: {
+                self.post = post
+                self.detailTableView.reloadData()
+            })
             }
 
     }
@@ -46,9 +53,22 @@ class DetailViewController: UIViewController {
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
             user in
-            self.users = user
+            self.user = user
             completed()})
     }
     
 }
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "DetailTableViewCell"
+        let cell = detailTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! DetailTableViewCell
+        cell.post = post
+        return cell
+    }
+    
 }
