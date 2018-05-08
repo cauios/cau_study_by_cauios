@@ -75,20 +75,6 @@ SPEC REPOS:
     - nanopb
     - SDWebImage
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseAuth
-    - FirebaseCore
-    - FirebaseDatabase
-    - FirebaseInstanceID
-    - FirebaseStorage
-    - GoogleToolboxForMac
-    - GTMSessionFetcher
-    - leveldb-library
-    - nanopb
-
 SPEC CHECKSUMS:
   Firebase: 632216af3ed7f31e3be34776947fdc7546cfb572
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
