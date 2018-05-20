@@ -129,8 +129,6 @@
 		E39D51B2204EBAB3001D94F9 = {
 			isa = PBXGroup;
 			children = (
-				1534874B208C8EF4006E789A /* PostApi.swift */,
-				15348749208C8D81006E789A /* ExploreApi.swift */,
 				E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */,
 				E39D51E3204EBE29001D94F9 /* ProgressHUD.h */,
 				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
@@ -138,6 +136,8 @@
 				E39D51DD204EBE1F001D94F9 /* Config.swift */,
 				E39E863A206104B1007CBB6D /* User.swift */,
 				E39E863B206104B1007CBB6D /* UserApi.swift */,
+				1534874B208C8EF4006E789A /* PostApi.swift */,
+				15348749208C8D81006E789A /* ExploreApi.swift */,
 				E39E863E206104EA007CBB6D /* Api.swift */,
 				E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */,
 				E39D51BD204EBAB3001D94F9 /* cau_study_ios */,

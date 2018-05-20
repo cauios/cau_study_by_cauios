@@ -21,8 +21,9 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+ 
     // 08/05 Dahye implementation
-    
+    // [Dahye 05.20] We must set didSet observer to conveniently update a cell, when there is an updated data.
     
     var post: Post? {
         didSet {
@@ -30,6 +31,8 @@ class DetailTableViewCell: UITableViewCell {
         }
     }
     
+    
+    // [Dahye 5.20] This will be called when the cell receives data.
     func updateView() {
         titleLabel.text = post?.title
         idLabel.text = post?.id
