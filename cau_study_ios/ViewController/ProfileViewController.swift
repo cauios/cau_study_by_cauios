@@ -25,11 +25,14 @@ class ProfileViewController: UIViewController {
     var userId = ""
     var userIntroduce:String = ""
     
+    var posts: [Post]!
+    
     let ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUser()
+        fetchMyPosts()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImage))
         profileImage.addGestureRecognizer(tapGesture)
@@ -54,6 +57,22 @@ class ProfileViewController: UIViewController {
         
         
         }
+    
+    
+    func fetchMyPosts() {
+        guard let currentUser = Auth.auth.currentUser else {
+            return
+        }
+        
+        Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {snapshot in
+            Api.Post.observePost(withId: snapshot.key, completion: {post in
+                self.posts.append(post)
+                // 데이터 리로드 필요한데... 벗 그 뭐냐 테이블뷰를 잡아야해
+            })
+        
+        })
+        
+    }
     
     func updateView() {
         self.idLabel.text = user.email
