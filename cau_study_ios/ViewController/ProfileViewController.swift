@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var myListLabel: UILabel!
     @IBOutlet weak var saveTextButton: UIButton!
     
-    var selectedImage:UIImage?
+    var selectedImage: UIImage?
     
     var user: User!
     var userId = ""
@@ -86,26 +86,25 @@ class ProfileViewController: UIViewController {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
-        
-        
-        
-        
-        /* 사진 업데이트 부분 문제 발생
-        let newProfileImg = selectedImage
-        if let imageData = UIImageJPEGRepresentation(newProfileImg!, 0.1){
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(user.id!)
-         
-                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                    if error != nil {
-                        return
-                    }
-                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                    let usersReference = self.ref.child("users")
-                    let newUserReference = usersReference.child(self.user.id!)
-                    newUserReference.updateChildValues(["profileImageUrl": profileImageUrl!])
-         })
-        }*/
+
     }
+    
+    func profileImageChange() {
+        ProgressHUD.show("Waiting...", interaction: false)
+        
+        if let newProfileImg = selectedImage, let currentUserUid = Auth.auth().currentUser?.uid, let imageData = UIImageJPEGRepresentation(newProfileImg, 0.1) {
+            
+            Api.User.changeProfileImage(currentUserUid: currentUserUid, imageData: imageData, onSuccess: {
+                ProgressHUD.showSuccess("Success")
+                print("서비스")
+            }, onError: {(errorString) in
+                ProgressHUD.showError(errorString!)
+            })
+            
+        }
+
+    }
+    
     
     @IBAction func viewListAllButton(_ sender: Any) {
         //내가 쓴글 전체보기
@@ -144,9 +143,13 @@ class ProfileViewController: UIViewController {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
             print("did Finish Picking Media")
             if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
-                selectedImage = image
-                profileImage.image = image
+                self.selectedImage = image
+                //profileImage.image = selectedImage
+                
             }
             dismiss(animated: true, completion: nil)
+            profileImageChange()
+            fetchUser()
+            updateView()
         }
     }

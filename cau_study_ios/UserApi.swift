@@ -3,6 +3,7 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 class UserApi {
     var REF_USERS = Database.database().reference().child("users")
     
@@ -61,6 +62,26 @@ class UserApi {
             })
         })
     }
+    
+    func changeProfileImage(currentUserUid: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
+        
+        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(currentUserUid)
+        
+        storageRef.putData(imageData,metadata: nil, completion: { (metadata, error) in
+            if error != nil {
+                return
+            }
+            let profileImageUrl = metadata?.downloadURL()?.absoluteString
+            print("이미지 url ")
+            print(profileImageUrl)
+            Api.User.REF_USERS.child(currentUserUid).updateChildValues(["profileImageUrl" : profileImageUrl])
+            onSuccess()
+        })
+        
+    }
+    
+    
+    
     
     /*var CURRENT_USER: User? {
         if let currentUser = Auth.auth().currentUser{
