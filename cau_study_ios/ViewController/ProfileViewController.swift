@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController {
     
     
     func fetchMyPosts() {
-        guard let currentUser = Auth.auth.currentUser else {
+        guard let currentUser = Auth.auth().currentUser else {
             return
         }
         
@@ -86,6 +86,10 @@ class ProfileViewController: UIViewController {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         present(pickerController, animated: true, completion: nil)
+        
+        
+        
+        
         /* 사진 업데이트 부분 문제 발생
         let newProfileImg = selectedImage
         if let imageData = UIImageJPEGRepresentation(newProfileImg!, 0.1){
