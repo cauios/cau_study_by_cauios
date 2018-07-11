@@ -13,10 +13,13 @@ import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var myListLabel: UILabel!
     @IBOutlet weak var saveTextButton: UIButton!
     
     var selectedImage: UIImage?
@@ -26,11 +29,16 @@ class ProfileViewController: UIViewController {
     var userIntroduce:String = ""
     
     var posts: [Post]!
+    var test: [String] = ["1","2"]
     
     let ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableHeaderView = headerView
+        
         fetchUser()
         fetchMyPosts()
         
@@ -41,7 +49,7 @@ class ProfileViewController: UIViewController {
         let bottomLayer = CALayer()
         bottomLayer.frame = CGRect(x: 0, y: -10, width: 1000, height: 0.6)
          bottomLayer.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
-        myListLabel.layer.addSublayer(bottomLayer)
+        
         textField.isEditable = true
         //saveTextButton.isEnabled = false;
     }
@@ -106,10 +114,7 @@ class ProfileViewController: UIViewController {
     }
     
     
-    @IBAction func viewListAllButton(_ sender: Any) {
-        //내가 쓴글 전체보기
-    }
-    
+
     @IBAction func saveText_Button(_ sender: Any) {
         self.userIntroduce = self.textField.text
         user.introduceMyself = self.userIntroduce
@@ -154,3 +159,39 @@ class ProfileViewController: UIViewController {
             //error-> 처음 변경시도 했을때 안됨. 두번째 변경하고 나서 이전에 선택했던 이미지가 들어가있음 => 뷰로드 문제인듯!!!!!!!!!!!!!!!!
         }
     }
+
+
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    //내가 쓴 글 label
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let subview = UIView()
+        subview.backgroundColor = .red
+        subview.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
+        let listLabel = UILabel()
+        listLabel.text = "내가 쓴 글"
+        listLabel.textAlignment = .left
+        listLabel.textColor = .black
+        listLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        subview.addSubview(listLabel)
+        listLabel.translatesAutoresizingMaskIntoConstraints = false
+        listLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        listLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        listLabel.centerXAnchor.constraint(equalTo: listLabel.superview!.centerXAnchor).isActive = true
+        listLabel.centerYAnchor.constraint(equalTo: listLabel.superview!.centerYAnchor).isActive = true
+
+        
+        return subview
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostsTableViewCell", for: indexPath) //as! MyPostsTableViewCell
+        cell.textLabel?.text = "\(indexPath.row)"
+        return cell
+    }
+}

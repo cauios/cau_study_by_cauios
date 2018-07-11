@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pgv-Td-CnQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Iyb-WT-7jf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="321"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="317"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43N-fi-6RQ">
@@ -79,19 +79,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 쓴글" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRY-tY-iZf">
-                                            <rect key="frame" x="15" y="292" width="64" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN4-z1-e6D">
-                                            <rect key="frame" x="87" y="283" width="52" height="30"/>
-                                            <state key="normal" title="전체보기"/>
-                                            <connections>
-                                                <action selector="viewListAllButton:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="x1L-oe-PMw"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-hK-Mhy">
                                             <rect key="frame" x="65" y="238" width="30" height="30"/>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,9 +92,7 @@
                                     <constraints>
                                         <constraint firstItem="PdD-ct-CsO" firstAttribute="leading" secondItem="Iyb-WT-7jf" secondAttribute="leading" constant="15" id="8j3-Lf-0Am"/>
                                         <constraint firstItem="yMj-hK-Mhy" firstAttribute="leading" secondItem="8fg-az-Wt7" secondAttribute="trailing" constant="20" id="Alt-5A-4DL"/>
-                                        <constraint firstItem="HRY-tY-iZf" firstAttribute="leading" secondItem="Iyb-WT-7jf" secondAttribute="leading" constant="15" id="Dg3-Ui-maE"/>
                                         <constraint firstItem="k5e-Oi-xef" firstAttribute="leading" secondItem="PdD-ct-CsO" secondAttribute="trailing" constant="8" id="MQs-XW-ylp"/>
-                                        <constraint firstItem="rN4-z1-e6D" firstAttribute="leading" secondItem="HRY-tY-iZf" secondAttribute="trailing" constant="8" id="OYE-CR-ycm"/>
                                         <constraint firstItem="PdD-ct-CsO" firstAttribute="top" secondItem="Iyb-WT-7jf" secondAttribute="top" constant="15" id="Pd7-b5-idW"/>
                                         <constraint firstItem="43N-fi-6RQ" firstAttribute="leading" secondItem="k5e-Oi-xef" secondAttribute="trailing" constant="8" id="Qch-Gp-mvl"/>
                                         <constraint firstItem="mFS-r9-dPy" firstAttribute="bottom" secondItem="PdD-ct-CsO" secondAttribute="bottom" id="XvY-Np-WyD"/>
@@ -116,16 +101,14 @@
                                         <constraint firstItem="yMj-hK-Mhy" firstAttribute="top" secondItem="8fg-az-Wt7" secondAttribute="top" id="aes-Rf-Zaf"/>
                                         <constraint firstItem="mFS-r9-dPy" firstAttribute="leading" secondItem="k5e-Oi-xef" secondAttribute="leading" id="bG9-w3-vhZ"/>
                                         <constraint firstItem="Pqd-A9-1Jb" firstAttribute="leading" secondItem="PdD-ct-CsO" secondAttribute="leading" id="fel-WB-8Vv"/>
-                                        <constraint firstItem="rN4-z1-e6D" firstAttribute="bottom" secondItem="HRY-tY-iZf" secondAttribute="bottom" id="fgU-o5-8Cd"/>
                                         <constraint firstItem="8fg-az-Wt7" firstAttribute="top" secondItem="Pqd-A9-1Jb" secondAttribute="bottom" constant="8" id="lPU-Wt-Mf3"/>
                                         <constraint firstItem="k5e-Oi-xef" firstAttribute="top" secondItem="PdD-ct-CsO" secondAttribute="top" id="m6K-WA-E7q"/>
                                         <constraint firstItem="8fg-az-Wt7" firstAttribute="leading" secondItem="Pqd-A9-1Jb" secondAttribute="leading" id="wvd-Z9-69g"/>
-                                        <constraint firstAttribute="bottom" secondItem="HRY-tY-iZf" secondAttribute="bottom" constant="8" id="yiN-lP-kaa"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="lKa-tO-Xi8">
-                                        <rect key="frame" x="0.0" y="349" width="375" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyPostsTableViewCell" rowHeight="59" id="lKa-tO-Xi8">
+                                        <rect key="frame" x="0.0" y="345" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lKa-tO-Xi8" id="yUy-Vg-0VK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
@@ -138,10 +121,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Pgv-Td-CnQ" firstAttribute="top" secondItem="y7x-gD-iYk" secondAttribute="top" id="4z3-Q9-9vI"/>
                             <constraint firstItem="Pgv-Td-CnQ" firstAttribute="bottom" secondItem="grr-Jy-MaL" secondAttribute="bottom" id="Nfs-oh-X4Z"/>
                             <constraint firstItem="Pgv-Td-CnQ" firstAttribute="trailing" secondItem="grr-Jy-MaL" secondAttribute="trailing" id="fXP-Ap-AC7"/>
                             <constraint firstItem="Pgv-Td-CnQ" firstAttribute="leading" secondItem="grr-Jy-MaL" secondAttribute="leading" id="jGp-qk-RRQ"/>
+                            <constraint firstItem="Pgv-Td-CnQ" firstAttribute="top" secondItem="grr-Jy-MaL" secondAttribute="top" id="wXP-dR-gWA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="grr-Jy-MaL"/>
                     </view>
@@ -149,10 +132,11 @@
                         <barButtonItem key="rightBarButtonItem" title="알림" id="mzb-pO-6bd"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="headerView" destination="Iyb-WT-7jf" id="Zll-AB-uiP"/>
                         <outlet property="idLabel" destination="43N-fi-6RQ" id="ld2-0S-VGl"/>
-                        <outlet property="myListLabel" destination="HRY-tY-iZf" id="X9B-i5-l7h"/>
                         <outlet property="profileImage" destination="PdD-ct-CsO" id="Mz7-Ax-TeG"/>
                         <outlet property="saveTextButton" destination="yMj-hK-Mhy" id="HHZ-By-nq3"/>
+                        <outlet property="tableView" destination="Pgv-Td-CnQ" id="CyH-A5-hpK"/>
                         <outlet property="textField" destination="Pqd-A9-1Jb" id="S1b-Zs-CaX"/>
                     </connections>
                 </viewController>
