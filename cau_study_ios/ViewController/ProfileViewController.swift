@@ -151,5 +151,6 @@ class ProfileViewController: UIViewController {
             profileImageChange()
             fetchUser()
             updateView()
+            //error-> 처음 변경시도 했을때 안됨. 두번째 변경하고 나서 이전에 선택했던 이미지가 들어가있음 => 뷰로드 문제인듯!!!!!!!!!!!!!!!!
         }
     }
