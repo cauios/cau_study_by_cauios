@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = 100
         tableView.tableHeaderView = headerView
         textField.isUserInteractionEnabled = false
         
