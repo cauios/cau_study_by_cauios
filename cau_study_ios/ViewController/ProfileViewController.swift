@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
     var userId = ""
     var userIntroduce:String = ""
     
-    var posts: [Post]!
+    var posts = [Post]()
     var test: [String] = ["1","2"]
     
     let ref = Database.database().reference()
@@ -70,9 +70,8 @@ class ProfileViewController: UIViewController {
                 self.textField.text = self.userIntroduce
                 self.updateView()
             }
-        
-        
-        }
+
+    }
     
     
     func fetchMyPosts() {
@@ -81,8 +80,9 @@ class ProfileViewController: UIViewController {
         }
         
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: {post in
+            Api.Post.observeMyPosts(withId: snapshot.key, completion: {post in
                 self.posts.append(post)
+                self.tableView.reloadData()
                 // 데이터 리로드 필요한데... 벗 그 뭐냐 테이블뷰를 잡아야해
             })
         
@@ -227,12 +227,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostsTableViewCell", for: indexPath) //as! MyPostsTableViewCell
-        cell.textLabel?.text = "\(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPostsTableViewCell", for: indexPath) as! MyPostsTableViewCell
+        let post = posts[indexPath.row]
+        cell.post = post
         return cell
     }
 }

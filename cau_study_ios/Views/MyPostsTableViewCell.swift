@@ -9,6 +9,23 @@
 import UIKit
 
 class MyPostsTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var exploreTitleLabel: UILabel!
+    @IBOutlet weak var exploreTagsLabel: UILabel!
+    @IBOutlet weak var exploreCategoryLabel: UILabel!
+    
+    var post: Post? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    func updateView() {
+        exploreTitleLabel.text = post?.title
+        exploreCategoryLabel.text = post?.category
+        exploreTagsLabel.text = post?.tags
+ 
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

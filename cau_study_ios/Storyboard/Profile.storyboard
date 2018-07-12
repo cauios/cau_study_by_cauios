@@ -117,14 +117,47 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyPostsTableViewCell" rowHeight="59" id="lKa-tO-Xi8">
-                                        <rect key="frame" x="0.0" y="345" width="375" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyPostsTableViewCell" rowHeight="102" id="lKa-tO-Xi8" customClass="MyPostsTableViewCell" customModule="cau_study_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="345" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lKa-tO-Xi8" id="yUy-Vg-0VK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bml-p2-4l0">
+                                                    <rect key="frame" x="15" y="15" width="44" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr4-PQ-Eum">
+                                                    <rect key="frame" x="15" y="70.5" width="70.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ss-E5-7pe">
+                                                    <rect key="frame" x="15" y="40" width="36.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5ss-E5-7pe" firstAttribute="top" secondItem="bml-p2-4l0" secondAttribute="bottom" constant="-1.5" id="9DX-Ih-dmN"/>
+                                                <constraint firstItem="Xr4-PQ-Eum" firstAttribute="leading" secondItem="yUy-Vg-0VK" secondAttribute="leading" constant="15" id="YPV-rI-MLQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xr4-PQ-Eum" secondAttribute="bottom" constant="10" id="YZx-3h-Ogl"/>
+                                                <constraint firstItem="bml-p2-4l0" firstAttribute="top" secondItem="yUy-Vg-0VK" secondAttribute="top" constant="15" id="ZRV-uS-6l8"/>
+                                                <constraint firstItem="5ss-E5-7pe" firstAttribute="leading" secondItem="bml-p2-4l0" secondAttribute="leading" id="eYl-3j-GHS"/>
+                                                <constraint firstItem="bml-p2-4l0" firstAttribute="leading" secondItem="yUy-Vg-0VK" secondAttribute="leading" constant="15" id="nd3-7r-teG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="exploreCategoryLabel" destination="Xr4-PQ-Eum" id="lhC-Mn-53E"/>
+                                            <outlet property="exploreTagsLabel" destination="5ss-E5-7pe" id="YVo-vk-KoJ"/>
+                                            <outlet property="exploreTitleLabel" destination="bml-p2-4l0" id="hkl-Aw-kDn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
