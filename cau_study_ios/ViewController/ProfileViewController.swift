@@ -57,10 +57,7 @@ class ProfileViewController: UIViewController {
          bottomLayer.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         
         textField.isEditable = true
-        saveTextButton.backgroundColor = .white
-        cancelTextButton.backgroundColor = .white
-        saveTextButton.isUserInteractionEnabled = false
-        cancelTextButton.isUserInteractionEnabled = false
+        disableTextFieldChanged()
  
         
     }
@@ -126,14 +123,7 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func changeText_Button(_ sender: Any) {
-        
-        textField.isUserInteractionEnabled = true
-        changeTextButton.isUserInteractionEnabled = false
-        changeTextButton.backgroundColor = .white
-        saveTextButton.backgroundColor = .lightGray
-        cancelTextButton.backgroundColor = .lightGray
-        saveTextButton.isUserInteractionEnabled = true
-        cancelTextButton.isUserInteractionEnabled = true
+        enableTextFieldChanged()
     }
     
 
@@ -144,17 +134,25 @@ class ProfileViewController: UIViewController {
         let newUserReference = usersReference.child(user.id!)
         newUserReference.updateChildValues(["introduceMyself": user.introduceMyself!])
         
-        textField.isUserInteractionEnabled = false
-        changeTextButton.backgroundColor = .lightGray
-        changeTextButton.isUserInteractionEnabled = true
-        saveTextButton.backgroundColor = .white
-        cancelTextButton.backgroundColor = .white
-        saveTextButton.isUserInteractionEnabled = false
-        cancelTextButton.isUserInteractionEnabled = false
-        print("눨러")
+        disableTextFieldChanged()
+        
     }
     
     @IBAction func cancel_Button(_ sender: Any) {
+        disableTextFieldChanged()
+    }
+    
+    
+    func enableTextFieldChanged() {
+        textField.isUserInteractionEnabled = true
+        changeTextButton.isUserInteractionEnabled = false
+        changeTextButton.backgroundColor = .white
+        saveTextButton.backgroundColor = .lightGray
+        cancelTextButton.backgroundColor = .lightGray
+        saveTextButton.isUserInteractionEnabled = true
+        cancelTextButton.isUserInteractionEnabled = true
+    }
+    func disableTextFieldChanged() {
         textField.isUserInteractionEnabled = false
         changeTextButton.backgroundColor = .lightGray
         changeTextButton.isUserInteractionEnabled = true
@@ -163,8 +161,6 @@ class ProfileViewController: UIViewController {
         saveTextButton.isUserInteractionEnabled = false
         cancelTextButton.isUserInteractionEnabled = false
     }
-    
-    
     
     @IBAction func logOut_Button(_ sender: Any) {
         //print(Auth.auth().currentUser)
