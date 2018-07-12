@@ -36,7 +36,7 @@
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="변경"/>
                                             <connections>
-                                                <action selector="saveText_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="iuf-VM-9iF"/>
+                                                <action selector="changeText_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="5w5-XF-Uzg"/>
                                             </connections>
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="자기소개를 입력해 주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-A9-1Jb">
@@ -84,13 +84,22 @@
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="저장"/>
                                             <connections>
-                                                <action selector="saveText_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="idU-cV-Rsx"/>
+                                                <action selector="saveText_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="PKZ-XQ-wna"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWY-aT-tG0">
+                                            <rect key="frame" x="103" y="238" width="30" height="30"/>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="취소"/>
+                                            <connections>
+                                                <action selector="cancel_Button:" destination="FR1-Tb-xoP" eventType="touchUpInside" id="71s-LK-WKq"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="PdD-ct-CsO" firstAttribute="leading" secondItem="Iyb-WT-7jf" secondAttribute="leading" constant="15" id="8j3-Lf-0Am"/>
+                                        <constraint firstItem="JWY-aT-tG0" firstAttribute="leading" secondItem="yMj-hK-Mhy" secondAttribute="trailing" constant="8" id="8lP-xf-6n9"/>
                                         <constraint firstItem="yMj-hK-Mhy" firstAttribute="leading" secondItem="8fg-az-Wt7" secondAttribute="trailing" constant="20" id="Alt-5A-4DL"/>
                                         <constraint firstItem="k5e-Oi-xef" firstAttribute="leading" secondItem="PdD-ct-CsO" secondAttribute="trailing" constant="8" id="MQs-XW-ylp"/>
                                         <constraint firstItem="PdD-ct-CsO" firstAttribute="top" secondItem="Iyb-WT-7jf" secondAttribute="top" constant="15" id="Pd7-b5-idW"/>
@@ -101,6 +110,7 @@
                                         <constraint firstItem="yMj-hK-Mhy" firstAttribute="top" secondItem="8fg-az-Wt7" secondAttribute="top" id="aes-Rf-Zaf"/>
                                         <constraint firstItem="mFS-r9-dPy" firstAttribute="leading" secondItem="k5e-Oi-xef" secondAttribute="leading" id="bG9-w3-vhZ"/>
                                         <constraint firstItem="Pqd-A9-1Jb" firstAttribute="leading" secondItem="PdD-ct-CsO" secondAttribute="leading" id="fel-WB-8Vv"/>
+                                        <constraint firstItem="JWY-aT-tG0" firstAttribute="top" secondItem="yMj-hK-Mhy" secondAttribute="top" id="j0d-L5-QqG"/>
                                         <constraint firstItem="8fg-az-Wt7" firstAttribute="top" secondItem="Pqd-A9-1Jb" secondAttribute="bottom" constant="8" id="lPU-Wt-Mf3"/>
                                         <constraint firstItem="k5e-Oi-xef" firstAttribute="top" secondItem="PdD-ct-CsO" secondAttribute="top" id="m6K-WA-E7q"/>
                                         <constraint firstItem="8fg-az-Wt7" firstAttribute="leading" secondItem="Pqd-A9-1Jb" secondAttribute="leading" id="wvd-Z9-69g"/>
@@ -132,6 +142,7 @@
                         <barButtonItem key="rightBarButtonItem" title="알림" id="mzb-pO-6bd"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelTextButton" destination="JWY-aT-tG0" id="zqA-pW-o3w"/>
                         <outlet property="changeTextButton" destination="8fg-az-Wt7" id="Cey-ur-hgb"/>
                         <outlet property="headerView" destination="Iyb-WT-7jf" id="Zll-AB-uiP"/>
                         <outlet property="idLabel" destination="43N-fi-6RQ" id="ld2-0S-VGl"/>

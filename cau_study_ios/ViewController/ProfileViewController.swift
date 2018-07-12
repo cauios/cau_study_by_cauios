@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var changeTextButton: UIButton!
     @IBOutlet weak var saveTextButton: UIButton!
+    @IBOutlet weak var cancelTextButton: UIButton!
+    
     
     var selectedImage: UIImage?
     
@@ -42,6 +44,7 @@ class ProfileViewController: UIViewController {
         tableView.tableHeaderView = headerView
         textField.isUserInteractionEnabled = false
         
+        
         fetchUser()
         fetchMyPosts()
         
@@ -54,7 +57,12 @@ class ProfileViewController: UIViewController {
          bottomLayer.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         
         textField.isEditable = true
-        //saveTextButton.isEnabled = false;
+        saveTextButton.backgroundColor = .white
+        cancelTextButton.backgroundColor = .white
+        saveTextButton.isUserInteractionEnabled = false
+        cancelTextButton.isUserInteractionEnabled = false
+ 
+        
     }
     
     func fetchUser() {
@@ -117,6 +125,17 @@ class ProfileViewController: UIViewController {
     }
     
     
+    @IBAction func changeText_Button(_ sender: Any) {
+        
+        textField.isUserInteractionEnabled = true
+        changeTextButton.isUserInteractionEnabled = false
+        changeTextButton.backgroundColor = .white
+        saveTextButton.backgroundColor = .lightGray
+        cancelTextButton.backgroundColor = .lightGray
+        saveTextButton.isUserInteractionEnabled = true
+        cancelTextButton.isUserInteractionEnabled = true
+    }
+    
 
     @IBAction func saveText_Button(_ sender: Any) {
         self.userIntroduce = self.textField.text
@@ -124,7 +143,28 @@ class ProfileViewController: UIViewController {
         let usersReference = self.ref.child("users")
         let newUserReference = usersReference.child(user.id!)
         newUserReference.updateChildValues(["introduceMyself": user.introduceMyself!])
+        
+        textField.isUserInteractionEnabled = false
+        changeTextButton.backgroundColor = .lightGray
+        changeTextButton.isUserInteractionEnabled = true
+        saveTextButton.backgroundColor = .white
+        cancelTextButton.backgroundColor = .white
+        saveTextButton.isUserInteractionEnabled = false
+        cancelTextButton.isUserInteractionEnabled = false
+        print("눨러")
     }
+    
+    @IBAction func cancel_Button(_ sender: Any) {
+        textField.isUserInteractionEnabled = false
+        changeTextButton.backgroundColor = .lightGray
+        changeTextButton.isUserInteractionEnabled = true
+        saveTextButton.backgroundColor = .white
+        cancelTextButton.backgroundColor = .white
+        saveTextButton.isUserInteractionEnabled = false
+        cancelTextButton.isUserInteractionEnabled = false
+    }
+    
+    
     
     @IBAction func logOut_Button(_ sender: Any) {
         //print(Auth.auth().currentUser)
