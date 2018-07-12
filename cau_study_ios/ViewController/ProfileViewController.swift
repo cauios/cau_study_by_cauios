@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var idLabel: UILabel!
+    
+    @IBOutlet weak var changeTextButton: UIButton!
     @IBOutlet weak var saveTextButton: UIButton!
     
     var selectedImage: UIImage?
@@ -38,6 +40,7 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableHeaderView = headerView
+        textField.isUserInteractionEnabled = false
         
         fetchUser()
         fetchMyPosts()
@@ -149,14 +152,16 @@ class ProfileViewController: UIViewController {
             print("did Finish Picking Media")
             if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
                 self.selectedImage = image
-                //profileImage.image = selectedImage
+                self.profileImage.image = image
                 
             }
             dismiss(animated: true, completion: nil)
             profileImageChange()
-            fetchUser()
-            updateView()
-            //error-> 처음 변경시도 했을때 안됨. 두번째 변경하고 나서 이전에 선택했던 이미지가 들어가있음 => 뷰로드 문제인듯!!!!!!!!!!!!!!!!
+            //profileImage.image = selectedImage
+            
+            //fetchUser()
+            print("profileImage",user.profileImageUrl)
+            //error-> 처음 변경시도 했을때 안됨. 두번째 변경하고 나서 이전에 선택했던 이미지가 들어가있음 => 뷰로드 문제인듯!!!!!!!!!!!!!!!! 시간 차인가....
         }
     }
 

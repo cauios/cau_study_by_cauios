@@ -132,6 +132,7 @@
                         <barButtonItem key="rightBarButtonItem" title="알림" id="mzb-pO-6bd"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeTextButton" destination="8fg-az-Wt7" id="Cey-ur-hgb"/>
                         <outlet property="headerView" destination="Iyb-WT-7jf" id="Zll-AB-uiP"/>
                         <outlet property="idLabel" destination="43N-fi-6RQ" id="ld2-0S-VGl"/>
                         <outlet property="profileImage" destination="PdD-ct-CsO" id="Mz7-Ax-TeG"/>
