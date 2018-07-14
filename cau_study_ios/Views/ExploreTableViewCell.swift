@@ -22,6 +22,7 @@ class ExploreTableViewCell: UITableViewCell {
     var delegate: ExploreTableViewCellDelegate?
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
+    // [Dahye 05.20] We must set didSet observer to conveniently update a cell, when there is an updated data.
     var post: Post? {
         didSet {
             updateView()

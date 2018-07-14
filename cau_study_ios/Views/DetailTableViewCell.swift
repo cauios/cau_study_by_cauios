@@ -21,6 +21,30 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+ 
+    // 08/05 Dahye implementation
+    // [Dahye 05.20] We must set didSet observer to conveniently update a cell, when there is an updated data.
+    
+    var post: Post? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    
+    // [Dahye 5.20] This will be called when the cell receives data.
+    func updateView() {
+        titleLabel.text = post?.title
+        idLabel.text = post?.id
+        dateLabel.text = " " // [dahye's comment] this should be modified in the future
+        categoryLabel.text = post?.category
+        tagsLabel.text = post?.tags
+        numOfVacanLabel.text = post?.numOfVacan
+        timeLabel.text = post?.time
+        locationLabel.text = post?.location
+        descriptionLabel.text = post?.description
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
