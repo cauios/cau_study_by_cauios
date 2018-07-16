@@ -38,7 +38,8 @@ class ProfileViewController: UIViewController {
     let ref = Database.database().reference()
     
     //자기소개 글자수 제한
-    let textLimitLength = 30
+    let textLimitLength = 100
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
-        tableView.tableHeaderView = headerView
+        //tableView.tableHeaderView = headerView
         textField.isUserInteractionEnabled = false
         
         
@@ -61,7 +62,7 @@ class ProfileViewController: UIViewController {
         bottomLayer.frame = CGRect(x: 0, y: -10, width: 1000, height: 0.6)
          bottomLayer.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         
-        //error: 텍스트 필드 자동 줄바꿈...
+        
         adjustTextViewHeight(textView: textField)
         textField.isEditable = true
         disableTextFieldChanged()
@@ -69,12 +70,26 @@ class ProfileViewController: UIViewController {
         
     }
     
+    //다이나믹 헤더뷰
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard let dynamicHeaderView = tableView.tableHeaderView else {
+            return
+        }
+        let size = dynamicHeaderView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        if dynamicHeaderView.frame.size.height != size.height {
+            dynamicHeaderView.frame.size.height = size.height
+        }
+        tableView.tableHeaderView = dynamicHeaderView
+        tableView.layoutIfNeeded()
+    }
+    
 
     
     //다이나믹 텍스트뷰
     func adjustTextViewHeight(textView: UITextView) {
-        textView.translatesAutoresizingMaskIntoConstraints = true
-        textView.sizeToFit()
+        let newSize = textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.greatestFiniteMagnitude))
+        textView.frame.size = CGSize(width: max(newSize.width, textView.frame.width), height: newSize.height)
         textView.isScrollEnabled = false
     }
     
@@ -140,7 +155,6 @@ class ProfileViewController: UIViewController {
     
     @IBAction func changeText_Button(_ sender: Any) {
         enableTextFieldChanged()
-        textField.frame.size.height = 100
         
     }
     
@@ -155,12 +169,14 @@ class ProfileViewController: UIViewController {
         disableTextFieldChanged()
         adjustTextViewHeight(textView: textField)
         
+        
     }
     
     @IBAction func cancel_Button(_ sender: Any) {
         disableTextFieldChanged()
         self.textField.text = self.userIntroduce
         adjustTextViewHeight(textView: textField)
+        
     }
     
     
