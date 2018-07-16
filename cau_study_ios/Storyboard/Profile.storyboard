@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Iyb-WT-7jf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="317"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="288"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43N-fi-6RQ">
@@ -44,7 +44,6 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="340" id="e0c-aF-BMa"/>
-                                                <constraint firstAttribute="height" constant="100" id="zkf-bn-W6x"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -113,12 +112,13 @@
                                         <constraint firstItem="JWY-aT-tG0" firstAttribute="top" secondItem="yMj-hK-Mhy" secondAttribute="top" id="j0d-L5-QqG"/>
                                         <constraint firstItem="8fg-az-Wt7" firstAttribute="top" secondItem="Pqd-A9-1Jb" secondAttribute="bottom" constant="8" id="lPU-Wt-Mf3"/>
                                         <constraint firstItem="k5e-Oi-xef" firstAttribute="top" secondItem="PdD-ct-CsO" secondAttribute="top" id="m6K-WA-E7q"/>
+                                        <constraint firstAttribute="bottom" secondItem="8fg-az-Wt7" secondAttribute="bottom" constant="20" id="oOc-4e-NO1"/>
                                         <constraint firstItem="8fg-az-Wt7" firstAttribute="leading" secondItem="Pqd-A9-1Jb" secondAttribute="leading" id="wvd-Z9-69g"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyPostsTableViewCell" rowHeight="102" id="lKa-tO-Xi8" customClass="MyPostsTableViewCell" customModule="cau_study_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="345" width="375" height="102"/>
+                                        <rect key="frame" x="0.0" y="316" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lKa-tO-Xi8" id="yUy-Vg-0VK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
