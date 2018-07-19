@@ -111,12 +111,21 @@ class ProfileViewController: UIViewController {
         }
         
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {snapshot in
+            print(snapshot.key)
             Api.Post.observeMyPosts(withId: snapshot.key, completion: {post in
                 self.posts.append(post)
                 self.tableView.reloadData()
-                // 데이터 리로드 필요한데... 벗 그 뭐냐 테이블뷰를 잡아야해
+                
             })
+            
         
+        })
+        Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.tableView.reloadData()
+            }
         })
         
     }
@@ -273,6 +282,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         cell.post = post
         return cell
     }
+    
+    //delete post
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let deleteCell = posts[indexPath.row]
+            Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
+            Api.MyPosts.REF_MYPOSTS.child(self.user.id!).child(deleteCell.id!).removeValue()
+            
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
 }
 
 //글자 수 제한
