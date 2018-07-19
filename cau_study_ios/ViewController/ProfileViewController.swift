@@ -33,7 +33,6 @@ class ProfileViewController: UIViewController {
     var userIntroduce:String = ""
     
     var posts = [Post]()
-    var test: [String] = ["1","2"]
     
     let ref = Database.database().reference()
     
@@ -47,7 +46,6 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
-        //tableView.tableHeaderView = headerView
         textField.isUserInteractionEnabled = false
         
         
@@ -109,7 +107,7 @@ class ProfileViewController: UIViewController {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        
+        //추가된 포스트 리로드
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {snapshot in
             print(snapshot.key)
             Api.Post.observeMyPosts(withId: snapshot.key, completion: {post in
@@ -120,6 +118,7 @@ class ProfileViewController: UIViewController {
             
         
         })
+        //삭제된 포스트 리로드
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
@@ -144,7 +143,7 @@ class ProfileViewController: UIViewController {
         present(pickerController, animated: true, completion: nil)
 
     }
-    
+    //프로필 이미지 변경
     func profileImageChange() {
         ProgressHUD.show("Waiting...", interaction: false)
         
@@ -161,13 +160,13 @@ class ProfileViewController: UIViewController {
 
     }
     
-    
+    //자기소개 변경
     @IBAction func changeText_Button(_ sender: Any) {
         enableTextFieldChanged()
         
     }
     
-
+    //자기소개 저장
     @IBAction func saveText_Button(_ sender: Any) {
         self.userIntroduce = self.textField.text
         user.introduceMyself = self.userIntroduce
@@ -180,7 +179,7 @@ class ProfileViewController: UIViewController {
         
         
     }
-    
+    //자기소개 취소
     @IBAction func cancel_Button(_ sender: Any) {
         disableTextFieldChanged()
         self.textField.text = self.userIntroduce
@@ -209,24 +208,18 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func logOut_Button(_ sender: Any) {
-        //print(Auth.auth().currentUser)
         do{
             try Auth.auth().signOut()
         } catch let logoutError{
             print(logoutError)
         }
-        //print(Auth.auth().currentUser)
         
         let storyboard = UIStoryboard(name: "Start", bundle: nil)
         let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
         self.present(signInVC, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
-    }
+    
 }
 
     extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -239,11 +232,8 @@ class ProfileViewController: UIViewController {
             }
             dismiss(animated: true, completion: nil)
             profileImageChange()
-            //profileImage.image = selectedImage
-            
-            //fetchUser()
             print("profileImage",user.profileImageUrl)
-            //error-> 처음 변경시도 했을때 안됨. 두번째 변경하고 나서 이전에 선택했던 이미지가 들어가있음 => 뷰로드 문제인듯!!!!!!!!!!!!!!!! 시간 차인가....
+            
         }
     }
 
@@ -294,7 +284,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
             Api.MyPosts.REF_MYPOSTS.child(self.user.id!).child(deleteCell.id!).removeValue()
             
-            // handle delete (by removing the data from your array and updating the tableview)
         }
     }
     
