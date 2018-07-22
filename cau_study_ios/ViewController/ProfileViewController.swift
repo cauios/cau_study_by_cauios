@@ -219,6 +219,21 @@ class ProfileViewController: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     
+    @IBAction func testBtn(_ sender: Any) {
+//        print("click")
+//        Auth.auth().currentUser?.updateEmail(to: user.email!, completion: {error in
+//            print(error?.localizedDescription)
+//            return
+//        })
+//        Auth.auth().currentUser?.sendEmailVerification(completion: {error in
+//            print(error?.localizedDescription)
+//            return
+//        })
+//        Auth.auth().sendPasswordReset(withEmail: user.email!, completion: {error in
+//            print(error?.localizedDescription)
+//        })
+        
+    }
     
 }
 

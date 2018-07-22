@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="097-w8-9Hf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="097-w8-9Hf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Noteworthy.ttc">
-            <string>Noteworthy-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Sign In View Controller-->
         <scene sceneID="RI3-P6-dN8">
@@ -81,15 +77,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ht6-Xt-z2q">
+                                <rect key="frame" x="16" y="584" width="343" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Forgot password?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="QFT-hU-Gkf" kind="presentation" id="W1L-yz-Wps"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KuY-oV-9Ln" firstAttribute="centerX" secondItem="ZQP-ls-Eqm" secondAttribute="centerX" id="0mG-Sm-c8q"/>
+                            <constraint firstItem="tFT-Jw-Wy3" firstAttribute="top" secondItem="Ht6-Xt-z2q" secondAttribute="bottom" constant="-3" id="Cug-Y2-J2H"/>
                             <constraint firstItem="tFT-Jw-Wy3" firstAttribute="leading" secondItem="ZQP-ls-Eqm" secondAttribute="leading" id="Fav-rE-3tl"/>
                             <constraint firstItem="KuY-oV-9Ln" firstAttribute="centerY" secondItem="ZQP-ls-Eqm" secondAttribute="centerY" id="MqA-0h-79O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ht6-Xt-z2q" secondAttribute="trailing" id="Pmy-Zk-CHw"/>
                             <constraint firstAttribute="trailing" secondItem="KuY-oV-9Ln" secondAttribute="trailing" constant="20" id="Vme-jA-JyJ"/>
                             <constraint firstItem="J8p-q5-1YG" firstAttribute="top" secondItem="rdv-cb-WF9" secondAttribute="bottom" constant="91" id="Xtr-9F-dLG"/>
                             <constraint firstItem="J8p-q5-1YG" firstAttribute="centerX" secondItem="ZQP-ls-Eqm" secondAttribute="centerX" id="eco-7Q-YSi"/>
+                            <constraint firstItem="Ht6-Xt-z2q" firstAttribute="leading" secondItem="ZQP-ls-Eqm" secondAttribute="leadingMargin" id="nRc-Na-B4x"/>
                             <constraint firstAttribute="trailing" secondItem="tFT-Jw-Wy3" secondAttribute="trailing" id="oZ3-fg-qsl"/>
                             <constraint firstItem="KuY-oV-9Ln" firstAttribute="leading" secondItem="ZQP-ls-Eqm" secondAttribute="leading" constant="20" id="u0r-EI-No9"/>
                             <constraint firstItem="kor-sC-4NC" firstAttribute="top" secondItem="tFT-Jw-Wy3" secondAttribute="bottom" id="wcu-O6-ymb"/>
@@ -104,7 +113,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2j-Pg-9gI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="-66"/>
+            <point key="canvasLocation" x="-626.39999999999998" y="-66.11694152923539"/>
+        </scene>
+        <!--Forgot User Info View Controller-->
+        <scene sceneID="sUb-Jf-NFY">
+            <objects>
+                <viewController id="QFT-hU-Gkf" customClass="ForgotUserInfoViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GRK-12-D5C"/>
+                        <viewControllerLayoutGuide type="bottom" id="hMp-il-S4w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jQf-yC-d43">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입하신 이메일을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCv-dB-vlT">
+                                <rect key="frame" x="45" y="89" width="220" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eVc-Ex-ZQM">
+                                <rect key="frame" x="45" y="230" width="277" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Y-E3-XeM">
+                                <rect key="frame" x="45" y="201" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-kr-hrJ">
+                                <rect key="frame" x="133" y="303" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendEmailBtn:" destination="QFT-hU-Gkf" eventType="touchUpInside" id="K7z-sN-DtT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 변경 메일을 보내드립니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFG-qk-gRB">
+                                <rect key="frame" x="45" y="118" width="239" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXh-2b-rLb">
+                                <rect key="frame" x="16" y="28" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="취소"/>
+                                <connections>
+                                    <action selector="cancelBtn:" destination="QFT-hU-Gkf" eventType="touchUpInside" id="3eL-Ak-EIb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="eVc-Ex-ZQM" id="91r-ZM-S4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEE-NP-TSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261.60000000000002" y="-457.42128935532236"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="zMU-I9-LHe">
@@ -207,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40x-c8-q1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="854"/>
+            <point key="canvasLocation" x="-626" y="850"/>
         </scene>
         <!--TabBarId-->
         <scene sceneID="B3f-EJ-SUh">
