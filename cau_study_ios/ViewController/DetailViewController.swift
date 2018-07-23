@@ -13,7 +13,8 @@ import FirebaseAuth
 class DetailViewController: UIViewController {
     
 
-    var postId: String! // [Dahye 05.20] it will be set to the corresponding postId, after the segue transition.
+   // var postId: String! // [Dahye 05.20] it will be set to the corresponding postId, after the segue transition.
+    var postId = ""
     var post = Post()
     var user = User()
 
@@ -56,25 +57,7 @@ class DetailViewController: UIViewController {
     }*/
     
     func loadPost() {
-        // [Dahye 05.20]
-        let postRef = Database.database().reference().child("posts").child(self.postId)
-        postRef.observeSingleEvent (
-            of: .value, with: {
-                snapshotPost in
-                if let dict = snapshotPost.value as? [String: Any] {
-                    let postDetail = Post.transformPost(dicr: dict, key: self.postId)
-                    self.fetchUser(uid: postDetail.uid!, completed: {
-                        return
-                    })
-                }
-                /* let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
-                arraySnapshot.forEach({ (child) in
-                    if let dicr = child.value as? [String: Any] {
-                        let post = Post.transformPost(dicr: dicr, key: child.key)
-                    }
-                })
-        }*/
-        })
+        // [Dahye 0723]
         
     }
  
