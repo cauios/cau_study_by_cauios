@@ -268,7 +268,54 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjg-Lz-k4i">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="변경할 비밀번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnC-BE-yEQ">
+                                        <rect key="frame" x="15" y="237" width="345" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="한번 더 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Q9-9F-5Hy">
+                                        <rect key="frame" x="15" y="286.5" width="345" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lO3-BL-i1h">
+                                        <rect key="frame" x="152.5" y="372" width="70" height="38"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="1LR-CJ-mFm"/>
+                                            <constraint firstAttribute="height" constant="38" id="rtP-y5-ud0"/>
+                                        </constraints>
+                                        <state key="normal" title="변경">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changPasswordBtn:" destination="RDZ-68-xXh" eventType="touchUpInside" id="z4d-jr-UzY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="변경할 비밀번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npO-Ty-hT8">
+                                        <rect key="frame" x="78" y="147" width="219.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jnC-BE-yEQ" firstAttribute="leading" secondItem="tjg-Lz-k4i" secondAttribute="leading" constant="15" id="3q6-0K-g9h"/>
+                                    <constraint firstItem="npO-Ty-hT8" firstAttribute="centerX" secondItem="tjg-Lz-k4i" secondAttribute="centerX" id="6nd-Lu-zkb"/>
+                                    <constraint firstItem="6Q9-9F-5Hy" firstAttribute="top" secondItem="jnC-BE-yEQ" secondAttribute="bottom" constant="19.5" id="DD9-J4-HpS"/>
+                                    <constraint firstAttribute="trailing" secondItem="jnC-BE-yEQ" secondAttribute="trailing" constant="15" id="Klx-Ci-pEG"/>
+                                    <constraint firstItem="6Q9-9F-5Hy" firstAttribute="centerX" secondItem="tjg-Lz-k4i" secondAttribute="centerX" id="OGp-C8-Z6a"/>
+                                    <constraint firstItem="jnC-BE-yEQ" firstAttribute="top" secondItem="npO-Ty-hT8" secondAttribute="bottom" constant="69" id="OLh-bZ-79J"/>
+                                    <constraint firstItem="lO3-BL-i1h" firstAttribute="centerX" secondItem="tjg-Lz-k4i" secondAttribute="centerX" id="WqN-FV-ZID"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Q9-9F-5Hy" secondAttribute="trailing" constant="15" id="YfJ-Qo-0tq"/>
+                                    <constraint firstItem="6Q9-9F-5Hy" firstAttribute="leading" secondItem="tjg-Lz-k4i" secondAttribute="leading" constant="15" id="dLy-3j-Q33"/>
+                                    <constraint firstItem="lO3-BL-i1h" firstAttribute="top" secondItem="6Q9-9F-5Hy" secondAttribute="bottom" constant="55.5" id="h9Z-fk-HJG"/>
+                                    <constraint firstItem="6Q9-9F-5Hy" firstAttribute="centerY" secondItem="tjg-Lz-k4i" secondAttribute="centerY" id="yJc-oD-Khi"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="470-6b-QcA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -329,10 +376,13 @@
                         <viewLayoutGuide key="safeArea" id="o8g-mX-trW"/>
                     </view>
                     <connections>
+                        <outlet property="changeBtn" destination="lO3-BL-i1h" id="cs3-au-hur"/>
                         <outlet property="changePasswordView" destination="tjg-Lz-k4i" id="Phj-oY-TNg"/>
                         <outlet property="configureUserView" destination="8gC-Pa-lpK" id="QGI-Sl-C4F"/>
+                        <outlet property="confirmNewPasswordTextField" destination="6Q9-9F-5Hy" id="PBb-Oo-qw6"/>
                         <outlet property="descriptionLabel" destination="Lat-tl-Wll" id="XRw-v9-hWZ"/>
                         <outlet property="doneBtn" destination="pxi-qX-AP5" id="M1G-pF-TWa"/>
+                        <outlet property="newPasswordTextField" destination="jnC-BE-yEQ" id="wVm-EG-WFh"/>
                         <outlet property="passwordTextField" destination="t5K-8c-E7a" id="hXd-XL-3xS"/>
                     </connections>
                 </viewController>
