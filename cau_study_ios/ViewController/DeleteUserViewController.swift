@@ -68,6 +68,7 @@ class DeleteUserViewController: UIViewController {
     
     //delete
     @IBAction func deletaUserButton(_ sender: Any) {
+        
         reauthentication(password: passwordTextField.text!)
         
     }
@@ -96,6 +97,11 @@ class DeleteUserViewController: UIViewController {
             ProgressHUD.showError(errorMessage)
             
         })
+        do{
+            try Auth.auth().signOut()
+        } catch let logoutError{
+            print(logoutError)
+        }
         let storyboard = UIStoryboard(name: "Start", bundle: nil)
         let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
         self.present(signInVC, animated: true, completion: nil)
