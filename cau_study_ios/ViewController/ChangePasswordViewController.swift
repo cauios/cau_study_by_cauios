@@ -79,7 +79,9 @@ class ChangePasswordViewController: UIViewController {
             Auth.auth().currentUser?.updatePassword(to: password!, completion: {error in
                 if error != nil {
                     ProgressHUD.showError(error?.localizedDescription)
+                    return
                 }
+                _ = self.navigationController?.popToRootViewController(animated: true)
             })
         } else {
             let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
