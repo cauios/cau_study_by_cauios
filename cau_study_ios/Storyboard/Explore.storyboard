@@ -101,6 +101,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDb-Fu-eNa">
+                                                    <rect key="frame" x="318" y="52" width="38" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="like"/>
+                                                    <connections>
+                                                        <segue destination="IlF-AT-Z6T" kind="show" identifier="save" id="Qpa-os-mV5"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -281,6 +289,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uO-Wz-KcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2306" y="1824"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="b2D-WX-Au5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Saved" storyboardName="Saved" id="IlF-AT-Z6T" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTT-SJ-iNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1801" y="2174"/>
         </scene>
         <!--Writing View Controller-->
         <scene sceneID="XaD-D3-0lO">
@@ -519,6 +535,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="like" width="38" height="36"/>
         <image name="list" width="36" height="36"/>
         <image name="notification_nobackcolor" width="36" height="47"/>
         <image name="write_nobackcolor" width="38" height="38"/>
