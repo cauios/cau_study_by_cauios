@@ -106,7 +106,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="like"/>
                                                     <connections>
-                                                        <segue destination="IlF-AT-Z6T" kind="show" id="y1x-7P-cdf"/>
+                                                        <segue destination="IlF-AT-Z6T" kind="show" identifier="save" id="Qpa-os-mV5"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

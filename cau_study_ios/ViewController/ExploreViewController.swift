@@ -102,6 +102,8 @@ extension ExploreViewController: UITableViewDataSource {
         cell.post = post
         cell.delegate = self
         return cell
+        
+                
     }
 }
 

@@ -10,6 +10,11 @@ import UIKit
 
 class SavedTableViewController: UITableViewController {
 
+    @IBOutlet weak var saveTitle: UILabel!
+    @IBOutlet weak var saveTag: UILabel!
+    @IBOutlet weak var saveCategory: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
