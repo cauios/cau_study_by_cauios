@@ -24,6 +24,7 @@
 		D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF18210471830057203F /* UserSettingViewController.swift */; };
 		D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */; };
 		D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */; };
+		D3896ED72105944C00C96C58 /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */; };
 		D39D723320F4B9D100B0C157 /* MyPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D723220F4B9D100B0C157 /* MyPostsApi.swift */; };
 		E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */; };
 		E39D51C6204EBAB3001D94F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C5204EBAB3001D94F9 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		D31AEF18210471830057203F /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableViewCell.swift; sourceTree = "<group>"; };
 		D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotUserInfoViewController.swift; sourceTree = "<group>"; };
+		D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		D39D723220F4B9D100B0C157 /* MyPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsApi.swift; sourceTree = "<group>"; };
 		DDFACC3AB4EBE20CAB25F58E /* Pods-cau_study_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.release.xcconfig"; sourceTree = "<group>"; };
 		E39D51BB204EBAB3001D94F9 /* cau_study_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cau_study_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +210,7 @@
 				D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */,
 				D31AEF18210471830057203F /* UserSettingViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
+				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
 				15D307CB208C3FBC000C3B22 /* DetailViewController.swift */,
 			);
@@ -351,6 +354,7 @@
 				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
 				E39E86392060E124007CBB6D /* ProfileViewController.swift in Sources */,
 				1534874A208C8D81006E789A /* ExploreApi.swift in Sources */,
+				D3896ED72105944C00C96C58 /* DeleteUserViewController.swift in Sources */,
 				E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				D39D723320F4B9D100B0C157 /* MyPostsApi.swift in Sources */,

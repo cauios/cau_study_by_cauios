@@ -22,6 +22,12 @@ class UserSettingViewController: UIViewController {
         tableView.dataSource = self
 
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "DeleteUserViewController" {
+//
+//        }
+//    }
 
 
 }
@@ -37,5 +43,11 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = list[indexPath.row]
+        if selectedCell == "비밀번호 변경" {
+            performSegue(withIdentifier: "DeleteUserViewController", sender: selectedCell)
+        }
+    }
 
 }
