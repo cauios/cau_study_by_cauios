@@ -419,6 +419,9 @@
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="deletaUserButton:" destination="190-tN-Mzz" eventType="touchUpInside" id="JiH-P5-EvX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="email :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGR-7S-z1G">
                                 <rect key="frame" x="16" y="159" width="50" height="21"/>
@@ -439,19 +442,36 @@
                                     <constraint firstAttribute="height" constant="35" id="dhM-UY-hit"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="password :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dz-mz-FtL">
+                                <rect key="frame" x="16" y="188" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xoi-G4-qKI">
+                                <rect key="frame" x="106" y="183" width="254" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oHF-rp-VID" firstAttribute="centerY" secondItem="LGg-3Y-OZG" secondAttribute="centerY" id="0Nm-9V-RKb"/>
                             <constraint firstItem="VGR-7S-z1G" firstAttribute="top" secondItem="h4P-Jb-bHb" secondAttribute="bottom" constant="24" id="3PE-y7-7WV"/>
+                            <constraint firstItem="xoi-G4-qKI" firstAttribute="leading" secondItem="3Dz-mz-FtL" secondAttribute="trailing" constant="8" id="3b4-V4-auo"/>
+                            <constraint firstItem="xoi-G4-qKI" firstAttribute="centerY" secondItem="3Dz-mz-FtL" secondAttribute="centerY" id="7zM-I4-2hV"/>
                             <constraint firstItem="a0N-Fz-0kf" firstAttribute="trailing" secondItem="h4P-Jb-bHb" secondAttribute="trailing" constant="8" id="BzQ-FN-014"/>
                             <constraint firstItem="FKX-Bb-Qd3" firstAttribute="leading" secondItem="VGR-7S-z1G" secondAttribute="trailing" constant="8" id="JUQ-Ex-82J"/>
                             <constraint firstItem="FKX-Bb-Qd3" firstAttribute="centerY" secondItem="VGR-7S-z1G" secondAttribute="centerY" id="NRx-Rk-qgT"/>
                             <constraint firstItem="1bf-Me-eO8" firstAttribute="leading" secondItem="a0N-Fz-0kf" secondAttribute="leading" constant="123" id="T7p-Mn-I2U"/>
                             <constraint firstItem="oHF-rp-VID" firstAttribute="leading" secondItem="a0N-Fz-0kf" secondAttribute="leading" constant="8" id="WG8-XL-DWQ"/>
                             <constraint firstItem="VGR-7S-z1G" firstAttribute="leading" secondItem="h4P-Jb-bHb" secondAttribute="leading" id="bJG-R4-wTg"/>
+                            <constraint firstItem="3Dz-mz-FtL" firstAttribute="top" secondItem="VGR-7S-z1G" secondAttribute="bottom" constant="8" id="cW8-8n-NKq"/>
                             <constraint firstItem="jul-NC-Dld" firstAttribute="centerY" secondItem="1bf-Me-eO8" secondAttribute="centerY" id="fTS-fJ-gkT"/>
+                            <constraint firstItem="3Dz-mz-FtL" firstAttribute="leading" secondItem="VGR-7S-z1G" secondAttribute="leading" id="fXX-U9-UzU"/>
                             <constraint firstItem="h4P-Jb-bHb" firstAttribute="top" secondItem="a0N-Fz-0kf" secondAttribute="top" constant="30" id="kCH-JA-pVr"/>
+                            <constraint firstItem="a0N-Fz-0kf" firstAttribute="trailing" secondItem="xoi-G4-qKI" secondAttribute="trailing" constant="15" id="kYP-zW-047"/>
                             <constraint firstItem="oHF-rp-VID" firstAttribute="top" secondItem="1bf-Me-eO8" secondAttribute="bottom" constant="32.5" id="lRs-N6-bCL"/>
                             <constraint firstItem="a0N-Fz-0kf" firstAttribute="trailing" secondItem="oHF-rp-VID" secondAttribute="trailing" constant="8" id="ogA-LI-zbD"/>
                             <constraint firstItem="h4P-Jb-bHb" firstAttribute="leading" secondItem="a0N-Fz-0kf" secondAttribute="leading" constant="15" id="rRl-GZ-lXX"/>
@@ -463,6 +483,7 @@
                         <outlet property="agreeBtn" destination="jul-NC-Dld" id="J87-3U-kHy"/>
                         <outlet property="deleteBtn" destination="oHF-rp-VID" id="NAP-2a-knK"/>
                         <outlet property="emailLabel" destination="FKX-Bb-Qd3" id="9pz-pc-pok"/>
+                        <outlet property="passwordTextField" destination="xoi-G4-qKI" id="E4Y-nl-gr7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x9T-4V-8xC" userLabel="First Responder" sceneMemberID="firstResponder"/>
