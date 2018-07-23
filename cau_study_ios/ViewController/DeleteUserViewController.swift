@@ -14,27 +14,51 @@ class DeleteUserViewController: UIViewController {
     @IBOutlet weak var agreeBtn: UIImageView!
     @IBOutlet weak var deleteBtn: UIButton!
     
+    var state = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        Api.User.observeCurrentUser(completion: {user in
+            self.emailLabel.text = user.email
+        })
+        deleteBtn.isUserInteractionEnabled = false
+        deleteBtn.backgroundColor = .lightGray
+        
+        if state {
+            configureAgree()
+        } else {
+            configureDisagree()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func configureAgree() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.agree))
+        agreeBtn.addGestureRecognizer(tapGesture)
+        agreeBtn.isUserInteractionEnabled = true
+        agreeBtn.image = UIImage(named: "checkmark")
+        
     }
-    */
+    
+    func configureDisagree() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.disagree))
+        agreeBtn.addGestureRecognizer(tapGesture)
+        agreeBtn.isUserInteractionEnabled = true
+        agreeBtn.image = UIImage(named: "uncheckmark")
+    }
+    
+    @objc func agree() {
+        deleteBtn.isUserInteractionEnabled = false
+        deleteBtn.backgroundColor = .lightGray
+        state = true
+        configureDisagree()
+    }
+    
+    @objc func disagree() {
+        deleteBtn.isUserInteractionEnabled = true
+        deleteBtn.backgroundColor = .black
+        state = false
+        configureAgree()
+    }
 
+    
 }

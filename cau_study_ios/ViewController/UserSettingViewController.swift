@@ -45,7 +45,7 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = list[indexPath.row]
-        if selectedCell == "비밀번호 변경" {
+        if selectedCell == "계정 탈퇴" {
             performSegue(withIdentifier: "DeleteUserViewController", sender: selectedCell)
         }
     }
