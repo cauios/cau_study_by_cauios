@@ -58,6 +58,15 @@ class DetailViewController: UIViewController {
     
     func loadPost() {
         // [Dahye 0723]
+        Api.Post.observePost(withId: postId) { (post) in
+            guard let postUid = post.uid else {
+                return
+            }
+            self.fetchUser(uid: postUid, completed: {
+                self.post = post
+                self.detailTableView.reloadData()
+            })
+        }
         
     }
  
@@ -68,7 +77,8 @@ class DetailViewController: UIViewController {
         Api.User.observeUser(withId: uid, completion: {
             user in
             self.user = user
-            completed()})
+            completed()
+        })
     }
     
 }
@@ -81,6 +91,7 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = detailTableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
         cell.post = post
+
         // cell.user = user [Dahye 05.20] in the future, we should add user info in the DetailTableViewCell as well!
         return cell
     }
