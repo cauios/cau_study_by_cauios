@@ -251,26 +251,94 @@
                     <connections>
                         <outlet property="tableView" destination="nBd-Go-BqM" id="sOg-1H-HTu"/>
                         <segue destination="190-tN-Mzz" kind="show" identifier="DeleteUserViewController" id="ar7-HC-Sf6"/>
+                        <segue destination="RDZ-68-xXh" kind="show" identifier="ChangePasswordViewController" id="zuz-VX-J4s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYN-4r-aeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="285.60000000000002" y="3049.9250374812596"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Password View Controller-->
         <scene sceneID="Qyz-PY-gAe">
             <objects>
-                <viewController id="RDZ-68-xXh" sceneMemberID="viewController">
+                <viewController id="RDZ-68-xXh" customClass="ChangePasswordViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8gC-Pa-lpK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjg-Lz-k4i">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="470-6b-QcA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-8c-E7a">
+                                        <rect key="frame" x="15" y="318" width="345" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxi-qX-AP5">
+                                        <rect key="frame" x="152.5" y="391" width="70" height="38"/>
+                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="H29-uP-itt"/>
+                                            <constraint firstAttribute="width" constant="70" id="Tch-V2-yUN"/>
+                                        </constraints>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="configureBtn:" destination="RDZ-68-xXh" eventType="touchUpInside" id="dXk-Zf-Osa"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="본인 확인을 위해 비밀번호를 한번 더 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-tl-Wll">
+                                        <rect key="frame" x="15" y="209" width="345" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="t5K-8c-E7a" firstAttribute="top" secondItem="Lat-tl-Wll" secondAttribute="bottom" constant="88" id="06g-aT-NRE"/>
+                                    <constraint firstItem="Lat-tl-Wll" firstAttribute="leading" secondItem="470-6b-QcA" secondAttribute="leading" constant="15" id="LPT-JU-14p"/>
+                                    <constraint firstItem="t5K-8c-E7a" firstAttribute="centerX" secondItem="470-6b-QcA" secondAttribute="centerX" id="M4f-Qv-mx3"/>
+                                    <constraint firstItem="t5K-8c-E7a" firstAttribute="centerX" secondItem="470-6b-QcA" secondAttribute="centerX" id="Sdg-7D-Z7N"/>
+                                    <constraint firstItem="pxi-qX-AP5" firstAttribute="top" secondItem="t5K-8c-E7a" secondAttribute="bottom" constant="43" id="ZxY-wj-jbd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lat-tl-Wll" secondAttribute="trailing" constant="15" id="a3J-Ui-ayS"/>
+                                    <constraint firstAttribute="trailing" secondItem="t5K-8c-E7a" secondAttribute="trailing" constant="15" id="n2p-4H-CfE"/>
+                                    <constraint firstItem="t5K-8c-E7a" firstAttribute="leading" secondItem="470-6b-QcA" secondAttribute="leading" constant="15" id="p6N-9e-sE9"/>
+                                    <constraint firstItem="pxi-qX-AP5" firstAttribute="centerX" secondItem="470-6b-QcA" secondAttribute="centerX" id="pza-hm-oFA"/>
+                                    <constraint firstItem="t5K-8c-E7a" firstAttribute="centerY" secondItem="470-6b-QcA" secondAttribute="centerY" id="unO-Yo-d4Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="470-6b-QcA" firstAttribute="top" secondItem="8gC-Pa-lpK" secondAttribute="top" id="3gY-Kw-pZy"/>
+                            <constraint firstItem="tjg-Lz-k4i" firstAttribute="top" secondItem="o8g-mX-trW" secondAttribute="top" id="3ld-8M-3mT"/>
+                            <constraint firstItem="tjg-Lz-k4i" firstAttribute="leading" secondItem="o8g-mX-trW" secondAttribute="leading" id="5G2-CG-fqA"/>
+                            <constraint firstItem="470-6b-QcA" firstAttribute="trailing" secondItem="o8g-mX-trW" secondAttribute="trailing" id="TvO-l8-Yxp"/>
+                            <constraint firstItem="470-6b-QcA" firstAttribute="leading" secondItem="o8g-mX-trW" secondAttribute="leading" id="e0r-g5-BIb"/>
+                            <constraint firstItem="o8g-mX-trW" firstAttribute="trailing" secondItem="tjg-Lz-k4i" secondAttribute="trailing" id="f3F-dg-SGQ"/>
+                            <constraint firstItem="o8g-mX-trW" firstAttribute="bottom" secondItem="tjg-Lz-k4i" secondAttribute="bottom" id="lms-nY-Tcr"/>
+                            <constraint firstItem="470-6b-QcA" firstAttribute="bottom" secondItem="o8g-mX-trW" secondAttribute="bottom" id="y4H-or-fpU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o8g-mX-trW"/>
                     </view>
+                    <connections>
+                        <outlet property="changePasswordView" destination="tjg-Lz-k4i" id="Phj-oY-TNg"/>
+                        <outlet property="configureUserView" destination="8gC-Pa-lpK" id="QGI-Sl-C4F"/>
+                        <outlet property="descriptionLabel" destination="Lat-tl-Wll" id="XRw-v9-hWZ"/>
+                        <outlet property="doneBtn" destination="pxi-qX-AP5" id="M1G-pF-TWa"/>
+                        <outlet property="passwordTextField" destination="t5K-8c-E7a" id="hXd-XL-3xS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4E7-4u-ty4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="3476"/>
+            <point key="canvasLocation" x="1109.5999999999999" y="3475.4122938530736"/>
         </scene>
         <!--Delete User View Controller-->
         <scene sceneID="ukU-sp-nzi">
@@ -298,7 +366,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="HOb-YV-VKa"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Delete">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
