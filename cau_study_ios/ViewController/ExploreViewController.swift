@@ -34,6 +34,8 @@ class ExploreViewController: UIViewController {
         
     }
     
+    
+    
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
             user in
@@ -41,6 +43,9 @@ class ExploreViewController: UIViewController {
             completed()})
     }
     
+    // [Dahye 15.20] prepare method will be called right before the transition which is a perfect place to send the data on the destination view controller.
+    // [Dahye 05.20] prepare method should be implemented in the file where the performSegue is implemented.
+    // [Dahye 05.20] We should note that the data passed along is a string Id. So we need to convert the sender parameter of type any into string.
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Open_DetailSegue" {
@@ -108,6 +113,7 @@ extension ExploreViewController: UITableViewDataSource {
 
 extension ExploreViewController: ExploreTableViewCellDelegate {
     
+    // [Dahye 05.20] this sender will actually be passed to prepare for segue method.
     func goToDetailVC(postId: String) {
         performSegue(withIdentifier: "Open_DetailSegue", sender: postId)
     }

@@ -9,32 +9,36 @@
 // Post.swift deals with a class whose instances hold the data od a post we retreive from the database.
 
 import Foundation
+
+
 class Post {
+    // [Dahye Comment] set the class's properties and allocate their types
+    var uid: String?
     var id: String?
     var title: String?
     var category: String?
     var tags: String?
-    var eligibility: String?
-    var duration: String?
-    var location: String?
     var numOfVacan: String?
-    var contact: String?
-    var description: String?
-    
+    var time: String?
+    var location: String?
+    var description: String? // e.g. type이 optional String으로 설정되어 있음!
 }
+
+
 
 extension Post{
     static func transformPost(dicr: [String: Any], key: String) -> Post {
+        // [Dahye comment] Then, set it to the corresponding value in input data when creating the post instance
         let post = Post()
+        
+        post.uid = dicr["uid"] as? String
         post.id = key
         post.title = dicr["title"] as? String
         post.category = dicr["category"] as? String
         post.tags = dicr["tags"] as? String
-        post.eligibility = dicr["eligibility"] as? String
-        post.duration = dicr["duration"] as? String
-        post.location = dicr["location"] as? String
         post.numOfVacan = dicr["numOfVacan"] as? String
-        post.contact = dicr["contact"] as? String
+        post.time = dicr["time"] as? String
+        post.location = dicr["location"] as? String
         post.description = dicr["description"] as? String
         
         return post

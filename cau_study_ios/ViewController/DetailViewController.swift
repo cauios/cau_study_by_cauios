@@ -7,62 +7,99 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet var postDetailView: UIView!
-    
-    //ㅅㅈ
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var tagsLabel: UILabel!
-    @IBOutlet weak var eligibilityLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var numOfVacanLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    //ㅅㅈ
-    
-    var postId = ""
-    var posts = Post()
-    var users = User()
 
+    var postId: String! // [Dahye 05.20] it will be set to the corresponding postId, after the segue transition.
+    var post = Post()
+    var user = User()
+
+    @IBOutlet weak var detailTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("postId: \(postId)")
+        // [Dahye 05.20] set the datasource of the detailTableView to the DetailViewController(right here). So let it feed the data from the protocal to the DetailViewController implemented.
+        detailTableView.dataSource = self
+        // [Dahye 05.20] let cells to know how to update itself, given the data they are fed.
         loadPost()
         //ㅅㅈ
-        titleLabel.text = posts.title
+/*        titleLabel.text = posts.title
         idLabel.text = posts.id
         dateLabel.text = " "
         categoryLabel.text = posts.category
         tagsLabel.text = posts.tags
-        eligibilityLabel.text = posts.eligibility
-        durationLabel.text = posts.duration
-        locationLabel.text = posts.location
         numOfVacanLabel.text = posts.numOfVacan
-        descriptionLabel.text = posts.description
+        timeLabel.text = posts.time
+        locationLabel.text = posts.location
+        descriptionLabel.text = posts.description*/
         //ㅅㅈ
     }
     // [Dahye's comment] 나중에 id로 한 거 uid로 바꿔야 함. Lec 71 - 1:39 참고
+    /* [Dahye 05.20] commented out to try another way.
     func loadPost() {
         Api.Post.observePost(withId: postId) {
-            (post) in
-            guard let postId = post.id else {
+         
+            // 08/05 Dahye's way from Lec71
+             (post) in guard let postUid = post.uid else {
                 return
             }
-            self.fetchUser(uid: postId, completed: {
-                self.posts = post
+            self.fetchUser(uid: postUid, completed: {
+                self.post = post
+                self.detailTableView.reloadData()
             })
-        }
+            }
+
+    }*/
+    
+    func loadPost() {
+        // [Dahye 05.20]
+        let postRef = Database.database().reference().child("posts").child(self.postId)
+        postRef.observeSingleEvent (
+            of: .value, with: {
+                snapshotPost in
+                if let dict = snapshotPost.value as? [String: Any] {
+                    let postDetail = Post.transformPost(dicr: dict, key: self.postId)
+                    self.fetchUser(uid: postDetail.uid!, completed: {
+                        return
+                    })
+                }
+                /* let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+                arraySnapshot.forEach({ (child) in
+                    if let dicr = child.value as? [String: Any] {
+                        let post = Post.transformPost(dicr: dicr, key: child.key)
+                    }
+                })
+        }*/
+        })
+        
     }
+ 
+    
+
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
             user in
-            self.users = user
+            self.user = user
             completed()})
+    }
+    
+}
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = detailTableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
+        cell.post = post
+        // cell.user = user [Dahye 05.20] in the future, we should add user info in the DetailTableViewCell as well!
+        return cell
     }
     
 }

@@ -41,11 +41,13 @@ class AuthService {
         
     }
     
+
+    
     static func setUserInfomation(profileImageUrl: String, username: String, email: String, uid: String, onSuccess: @escaping () -> Void) {
         let ref = Database.database().reference()
         let usersReference = ref.child("users")
         let newUserReference = usersReference.child(uid)
-        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl])
+        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl, "introduceMyself": "자기소개를 입력해주세요"])
         onSuccess()
     }
     
