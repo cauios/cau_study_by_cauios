@@ -48,12 +48,17 @@ class PostViewController: UIViewController {
         postTimeLabel.text = post?.time
         postLocationLabel.text = post?.location
         postDescriptionLabel.text = post?.description
+        setPostDescriptionLabelSize()
     }
     
     func loadPost() {
         Api.Post.observePost(withId: postId!, completion: {post in
             self.post = post
         })
+    }
+    
+    func setPostDescriptionLabelSize() {
+        postScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor).isActive = true
     }
   
 
