@@ -22,6 +22,7 @@
 		D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */; };
 		D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF18210471830057203F /* UserSettingViewController.swift */; };
 		D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */; };
+		D37815FD210749DF00833D57 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37815FC210749DF00833D57 /* SavedTableViewCell.swift */; };
 		D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */; };
 		D3896ED72105944C00C96C58 /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */; };
 		D3896ED921059E6700C96C58 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */; };
@@ -48,7 +49,6 @@
 		E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4C210713A0006B072E /* ChatModel.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
-		FE34425220F32D340015A1FA /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE34425120F32D340015A1FA /* SavedTableViewCell.swift */; };
 		FEE9B86C20EA372000FA3A61 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9B86B20EA372000FA3A61 /* SavedTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +69,7 @@
 		D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		D31AEF18210471830057203F /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableViewCell.swift; sourceTree = "<group>"; };
+		D37815FC210749DF00833D57 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedTableViewCell.swift; path = cau_study_ios/Views/SavedTableViewCell.swift; sourceTree = "<group>"; };
 		D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotUserInfoViewController.swift; sourceTree = "<group>"; };
 		D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 				15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */,
 				D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */,
 				D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */,
-				15B48A6120A0BCE8002A6D95 /* DetailTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +145,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D37815FB210749A000833D57 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				FE34425120F32D340015A1FA /* SavedTableViewCell.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		DACADF49795A8E4C515CA152 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +164,7 @@
 		E39D51B2204EBAB3001D94F9 = {
 			isa = PBXGroup;
 			children = (
+				D37815FC210749DF00833D57 /* SavedTableViewCell.swift */,
 				E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */,
 				E39D51E3204EBE29001D94F9 /* ProgressHUD.h */,
 				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
@@ -173,6 +182,7 @@
 				5E45366F5959EDC349EB2602 /* Pods */,
 				DACADF49795A8E4C515CA152 /* Frameworks */,
 				E39D51E0204EBE28001D94F9 /* cau_study_ios-Bridging-Header.h */,
+				D37815FB210749A000833D57 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -372,15 +382,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37815FD210749DF00833D57 /* SavedTableViewCell.swift in Sources */,
 				E3B49A4A21071391006B072E /* PeopleViewController.swift in Sources */,
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
-				15D307CC208C3FBC000C3B22 /* DetailViewController.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
 				FEE9B86C20EA372000FA3A61 /* SavedTableViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
-				FE34425220F32D340015A1FA /* SavedTableViewCell.swift in Sources */,
 				E3B49A4921071391006B072E /* DestinationMessageCell.swift in Sources */,
 				E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */,
 				1504822C2052C876005AF8F1 /* WritingViewController.swift in Sources */,
@@ -402,7 +411,6 @@
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
-				15B48A6220A0BCE8002A6D95 /* DetailTableViewCell.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,
 				D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */,
 				D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */,

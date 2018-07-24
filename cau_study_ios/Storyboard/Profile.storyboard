@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--PostViewController-->
+        <scene sceneID="jFM-Mi-1NC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Explore" referencedIdentifier="PostViewController" id="WcP-y6-eA6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6uW-gl-Vo9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-260" y="3551"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="oth-D8-Heg">
             <objects>
@@ -198,6 +206,7 @@
                         <outlet property="saveTextButton" destination="yMj-hK-Mhy" id="HHZ-By-nq3"/>
                         <outlet property="tableView" destination="Pgv-Td-CnQ" id="CyH-A5-hpK"/>
                         <outlet property="textField" destination="Pqd-A9-1Jb" id="S1b-Zs-CaX"/>
+                        <segue destination="WcP-y6-eA6" kind="show" identifier="PostViewController" id="xCE-v5-mBZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P70-3O-au5" userLabel="First Responder" sceneMemberID="firstResponder"/>
