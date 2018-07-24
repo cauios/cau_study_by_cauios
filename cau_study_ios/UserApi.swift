@@ -66,16 +66,22 @@ class UserApi {
     func changeProfileImage(currentUserUid: String, imageData: Data, onSuccess: @escaping () -> Void, onError:  @escaping (_ errorMessage: String?) -> Void) {
         
         let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(currentUserUid)
-        
+        //형재 firebase 5버전 이상을 위한 수정
         storageRef.putData(imageData,metadata: nil, completion: { (metadata, error) in
             if error != nil {
+                print("Couldn't Upload Image")
                 return
+            }else {
+                print("Uploaded")
+                storageRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    Api.User.REF_USERS.child(currentUserUid).updateChildValues(["profileImageUrl" : url!.absoluteString])
+                    onSuccess()
+                })
             }
-            let profileImageUrl = metadata?.downloadURL()?.absoluteString
-            print("이미지 url ")
-            print(profileImageUrl)
-            Api.User.REF_USERS.child(currentUserUid).updateChildValues(["profileImageUrl" : profileImageUrl])
-            onSuccess()
         })
         
     }
@@ -84,12 +90,12 @@ class UserApi {
     
     
     /*var CURRENT_USER: User? {
-        if let currentUser = Auth.auth().currentUser{
-            return currentUser
-        }
-        
-        return nil
-    }//이부분 수정*/
+     if let currentUser = Auth.auth().currentUser{
+     return currentUser
+     }
+     
+     return nil
+     }//이부분 수정*/
     
     
     var REF_CURRENT_USER: DatabaseReference? {
@@ -100,3 +106,4 @@ class UserApi {
         return REF_USERS.child(currentUser.uid)
     }
 }
+
