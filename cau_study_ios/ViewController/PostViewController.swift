@@ -9,8 +9,9 @@
 import UIKit
 
 class PostViewController: UIViewController {
-    
-    @IBOutlet weak var postView: UIView!
+   //[Dahye 0724]
+   // @IBOutlet weak var postView: UIView!
+    @IBOutlet weak var postScrollView: UIScrollView!
     
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postUidLabel: UILabel!
