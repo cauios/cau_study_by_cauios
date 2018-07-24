@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ExploreTableViewCellDelegate {
-    func goToDetailVC(postId: String)
+    func goToPostVC(postId: String)
 }
 
 class ExploreTableViewCell: UITableViewCell {
@@ -44,7 +44,7 @@ class ExploreTableViewCell: UITableViewCell {
     
     @objc func exploreTitleLabel_TouchUpInside(){
         if let id = post?.id {
-            delegate?.goToDetailVC(postId: id)
+            delegate?.goToPostVC(postId: id)
         }
     }
     

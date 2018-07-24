@@ -48,10 +48,10 @@ class ExploreViewController: UIViewController {
     // [Dahye 05.20] We should note that the data passed along is a string Id. So we need to convert the sender parameter of type any into string.
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Open_DetailSegue" {
-            let detailVC = segue.destination as! DetailViewController
+        if segue.identifier == "Open_PostSegue" {
+            let postVC = segue.destination as! PostViewController
             let postId = sender as! String
-            detailVC.postId = postId
+            postVC.postId = postId
         }
     }
                       
@@ -107,6 +107,8 @@ extension ExploreViewController: UITableViewDataSource {
         cell.post = post
         cell.delegate = self
         return cell
+        
+                
     }
 }
 
@@ -114,8 +116,8 @@ extension ExploreViewController: UITableViewDataSource {
 extension ExploreViewController: ExploreTableViewCellDelegate {
     
     // [Dahye 05.20] this sender will actually be passed to prepare for segue method.
-    func goToDetailVC(postId: String) {
-        performSegue(withIdentifier: "Open_DetailSegue", sender: postId)
+    func goToPostVC(postId: String) {
+        performSegue(withIdentifier: "Open_PostSegue", sender: postId)
     }
     
 }
