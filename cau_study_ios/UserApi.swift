@@ -86,6 +86,15 @@ class UserApi {
         
     }
     
+    func deleteUserProfile(userId: String, onSuccess: @escaping () -> Void, onError: @escaping(_ errorMessage: String?) -> Void) {
+        let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("profile_image").child(userId)
+        storageRef.delete(completion: {error in
+            if error != nil {
+                return
+            }
+            onSuccess()
+        })
+    }
     
     
     
