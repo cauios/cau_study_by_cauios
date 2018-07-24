@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
     var userIntroduce:String = ""
     
     var posts = [Post]()
+    var selectedCellId: String?
     
     let ref = Database.database().reference()
     
@@ -219,6 +220,17 @@ class ProfileViewController: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     
+    @IBAction func testBtn(_ sender: Any) {
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostViewController" {
+            let cell = sender as? MyPostsTableViewCell
+            let vc = segue.destination as! PostViewController
+            vc.postId = self.selectedCellId
+        }
+    }
     
 }
 
@@ -285,6 +297,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             Api.MyPosts.REF_MYPOSTS.child(self.user.id!).child(deleteCell.id!).removeValue()
             
         }
+    }
+    
+    
+    //detail view
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = posts[indexPath.row]
+        if let selectedCellId = selectedCell.id {
+            self.selectedCellId = selectedCellId
+            performSegue(withIdentifier: "PostViewController", sender: self)
+        }
+        
+        
+        
     }
     
 }
