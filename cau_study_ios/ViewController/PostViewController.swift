@@ -23,6 +23,11 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postLocationLabel: UILabel!
     @IBOutlet weak var postDescriptionLabel: UILabel!
     
+    //[Dahye 0725]
+    
+    @IBOutlet weak var postViewToolBar: UIToolbar!
+    @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
+    
     
     var postId: String?
     var post: Post? {
@@ -34,7 +39,9 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         loadPost()
 
-        // Do any additional setup after loading the view.
+        // Dahye: Customize the bottom toolbar button
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        postViewToolBar.setItems([flexibleSpace, sendAMessageButton, flexibleSpace], animated: true)
     }
 
     
