@@ -74,7 +74,7 @@ class DeleteUserViewController: UIViewController {
     }
     
     func deleteDatabase() {
-        if let userId = currenterUser?.id {
+        if let userId = currenterUser?.uid {
             self.uid = userId
             Api.MyPosts.REF_MYPOSTS.child(userId).observe(.childAdded, with: { snapshot in
                 Api.Post.REF_POSTS.child(snapshot.key).removeValue()

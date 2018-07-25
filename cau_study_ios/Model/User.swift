@@ -6,7 +6,7 @@ class User {
     var email: String?
     var profileImageUrl: String?
     var username: String?
-    var id: String?
+    var uid: String?
     var introduceMyself: String?
 }
 
@@ -17,7 +17,7 @@ extension User {
         user.profileImageUrl = dict["profileImageUrl"] as? String
         user.username = dict["username"] as? String
         user.introduceMyself = dict["introduceMyself"] as? String
-        user.id = key
+        user.uid = key
         return user
     }
 }
