@@ -37,6 +37,7 @@ class PostViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+
         loadPost()
 
         // Dahye: Customize the bottom toolbar button
