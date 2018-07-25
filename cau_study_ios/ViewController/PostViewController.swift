@@ -31,7 +31,6 @@ class PostViewController: UIViewController {
     
     //[Dahye 0725]
     var user: User!
-    var userId = ""
     //
     
     var post: Post? {
@@ -72,9 +71,9 @@ class PostViewController: UIViewController {
     // See the lecture 71
    /*
     func fetchUser() {
-        Api.User.ob
+        Api.User.observeUser(withId: post.uid, completion: <#T##(User) -> Void#>)
     }
- */
+*/
     
     // Dahye: Make the description label dynamically resizing
     func setPostDescriptionLabelSize() {
