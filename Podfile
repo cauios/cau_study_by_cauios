@@ -9,7 +9,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'SDWebImage'
-pod 'JSQMessagesViewController'
+
 pod 'SnapKit', '~> 4.0.0'
 pod 'ObjectMapper', '~> 3.3'
 
