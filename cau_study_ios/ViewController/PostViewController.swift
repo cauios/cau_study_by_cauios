@@ -9,10 +9,9 @@
 import UIKit
 
 class PostViewController: UIViewController {
-   //[Dahye 0724]
-   // @IBOutlet weak var postView: UIView!
-    @IBOutlet weak var postScrollView: UIScrollView!
     
+    // postScrollView factors
+    @IBOutlet weak var postScrollView: UIScrollView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postUidLabel: UILabel!
     @IBOutlet weak var postDateLabel: UILabel!
@@ -23,13 +22,18 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postLocationLabel: UILabel!
     @IBOutlet weak var postDescriptionLabel: UILabel!
     
-    //[Dahye 0725]
-    
+    // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
     
     
     var postId: String?
+    
+    //[Dahye 0725]
+    var user: User!
+    var userId = ""
+    //
+    
     var post: Post? {
         didSet {
             updateView()
@@ -64,7 +68,15 @@ class PostViewController: UIViewController {
             self.post = post
         })
     }
+    // [Dahye 0725] This should be implemented in cooperation with Minjung
+    // See the lecture 71
+   /*
+    func fetchUser() {
+        Api.User.ob
+    }
+ */
     
+    // Dahye: Make the description label dynamically resizing
     func setPostDescriptionLabelSize() {
         postScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor).isActive = true
     }
