@@ -69,7 +69,7 @@
 		D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		D31AEF18210471830057203F /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableViewCell.swift; sourceTree = "<group>"; };
-		D37815FC210749DF00833D57 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedTableViewCell.swift; path = cau_study_ios/Views/SavedTableViewCell.swift; sourceTree = "<group>"; };
+		D37815FC210749DF00833D57 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotUserInfoViewController.swift; sourceTree = "<group>"; };
 		D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 		15D47EB620610898001CFF53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D37815FC210749DF00833D57 /* SavedTableViewCell.swift */,
 				15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */,
 				D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */,
 				D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */,
@@ -164,7 +165,6 @@
 		E39D51B2204EBAB3001D94F9 = {
 			isa = PBXGroup;
 			children = (
-				D37815FC210749DF00833D57 /* SavedTableViewCell.swift */,
 				E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */,
 				E39D51E3204EBE29001D94F9 /* ProgressHUD.h */,
 				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
