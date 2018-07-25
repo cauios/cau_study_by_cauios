@@ -49,6 +49,7 @@
 		E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4C210713A0006B072E /* ChatModel.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
+		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
 		FEE9B86C20EA372000FA3A61 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9B86B20EA372000FA3A61 /* SavedTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		FED3976621087D1F007F9E9E /* SavedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApi.swift; sourceTree = "<group>"; };
 		FEE9B86B20EA372000FA3A61 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 				E39E863B206104B1007CBB6D /* UserApi.swift */,
 				D39D723220F4B9D100B0C157 /* MyPostsApi.swift */,
 				1534874B208C8EF4006E789A /* PostApi.swift */,
+				FED3976621087D1F007F9E9E /* SavedApi.swift */,
 				15348749208C8D81006E789A /* ExploreApi.swift */,
 				E39E863E206104EA007CBB6D /* Api.swift */,
 				E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */,
@@ -408,6 +411,7 @@
 				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
 				E39E863D206104B2007CBB6D /* UserApi.swift in Sources */,
 				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
+				FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
