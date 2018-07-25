@@ -172,7 +172,7 @@ class ProfileViewController: UIViewController {
         self.userIntroduce = self.textField.text
         user.introduceMyself = self.userIntroduce
         let usersReference = self.ref.child("users")
-        let newUserReference = usersReference.child(user.id!)
+        let newUserReference = usersReference.child(user.uid!)
         newUserReference.updateChildValues(["introduceMyself": user.introduceMyself!])
         
         disableTextFieldChanged()
@@ -294,7 +294,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let deleteCell = posts[indexPath.row]
             Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
-            Api.MyPosts.REF_MYPOSTS.child(self.user.id!).child(deleteCell.id!).removeValue()
+            Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
             
         }
     }

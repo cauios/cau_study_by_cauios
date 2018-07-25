@@ -93,7 +93,7 @@
 		E39D51E2204EBE29001D94F9 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ProgressHUD.bundle; path = cau_study_ios/ProgressHUD.bundle; sourceTree = "<group>"; };
 		E39D51E3204EBE29001D94F9 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressHUD.h; path = cau_study_ios/ProgressHUD.h; sourceTree = "<group>"; };
 		E39E86382060E123007CBB6D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E39E863A206104B1007CBB6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = cau_study_ios/User.swift; sourceTree = "<group>"; };
+		E39E863A206104B1007CBB6D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E39E863B206104B1007CBB6D /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserApi.swift; path = cau_study_ios/UserApi.swift; sourceTree = "<group>"; };
 		E39E863E206104EA007CBB6D /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = cau_study_ios/Api.swift; sourceTree = "<group>"; };
 		E3B49A4621071390006B072E /* DestinationMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationMessageCell.swift; sourceTree = "<group>"; };
@@ -122,6 +122,7 @@
 		15D47EB12060D49C001CFF53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E39E863A206104B1007CBB6D /* User.swift */,
 				E3B49A4C210713A0006B072E /* ChatModel.swift */,
 				15D47EB22060D4E7001CFF53 /* Post.swift */,
 			);
@@ -172,7 +173,6 @@
 				E39D51E1204EBE29001D94F9 /* ProgressHUD.m */,
 				E39D51DC204EBE1F001D94F9 /* AuthService.swift */,
 				E39D51DD204EBE1F001D94F9 /* Config.swift */,
-				E39E863A206104B1007CBB6D /* User.swift */,
 				E39E863B206104B1007CBB6D /* UserApi.swift */,
 				D39D723220F4B9D100B0C157 /* MyPostsApi.swift */,
 				1534874B208C8EF4006E789A /* PostApi.swift */,
