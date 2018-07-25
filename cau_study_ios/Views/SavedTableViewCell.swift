@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol SavedTableViewCellDelegate {
-    func goToDetailVC(postId: String)
-}
 
 class SavedTableViewCell: UITableViewCell {
 
@@ -18,46 +15,35 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var saveTags: UILabel!
     @IBOutlet weak var saveCategory: UILabel!
     
-    var delegate: SavedTableViewCellDelegate?
-
+    @IBOutlet weak var savedLikeImageview: UIImageView!
     
-    // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
     var post: Post? {
         didSet {
             updateView()
         }
     }
-    
-    
-    // [Dahye Comment] Fetch newly posting data from FB
+        
     func updateView() {
         saveTitle.text = post?.title
         saveCategory.text = post?.category
         saveTags.text = post?.tags
-        
-        let tapGestureForExploreTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.saveTitleLabel_TouchUpInside))
-        
-        saveTitle.addGestureRecognizer(tapGestureForExploreTitleLabel)
-        saveTitle.isUserInteractionEnabled = true
+    
     }
     
-    @objc func saveTitleLabel_TouchUpInside(){
-        if let id = post?.id {
-            delegate?.goToDetailVC(postId: id)
-        }
-    }
-    
-    
-    
+
+        
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+            
         // Configure the view for the selected state
     }
-
+        
 }
+

@@ -21,7 +21,8 @@ class Post {
     var numOfVacan: String?
     var time: String?
     var location: String?
-    var description: String? // e.g. type이 optional String으로 설정되어 있음!
+    var description: String?
+    var saved: Dictionary<String, Any>?// e.g. type이 optional String으로 설정되어 있음!
 }
 
 
@@ -40,6 +41,7 @@ extension Post{
         post.time = dicr["time"] as? String
         post.location = dicr["location"] as? String
         post.description = dicr["description"] as? String
+        post.saved = dicr["saved"] as? Dictionary
         
         return post
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -101,20 +101,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDb-Fu-eNa">
-                                                    <rect key="frame" x="318" y="52" width="38" height="36"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-8e-nVT">
+                                                    <rect key="frame" x="335" y="11" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="like"/>
-                                                    <connections>
-                                                        <segue destination="IlF-AT-Z6T" kind="show" identifier="save" id="Qpa-os-mV5"/>
-                                                    </connections>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="exploreCategoryLabel" destination="7AT-GY-PqU" id="mho-PY-Hhi"/>
                                             <outlet property="exploreTagsLabel" destination="1xB-Es-Ae6" id="Y7I-87-aW3"/>
                                             <outlet property="exploreTitleLabel" destination="4Dy-qK-db6" id="8LA-3m-tkV"/>
+                                            <outlet property="savedLikeImageView" destination="zRR-8e-nVT" id="s3s-Vt-Yhp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -319,14 +316,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uO-Wz-KcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2306" y="1824"/>
-        </scene>
-        <!--Saved-->
-        <scene sceneID="b2D-WX-Au5">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Saved" storyboardName="Saved" id="IlF-AT-Z6T" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QTT-SJ-iNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1801" y="2174"/>
         </scene>
         <!--Writing View Controller-->
         <scene sceneID="XaD-D3-0lO">
