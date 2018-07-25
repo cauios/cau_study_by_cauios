@@ -153,7 +153,7 @@
         <!--Post View Controller-->
         <scene sceneID="Qm2-3I-4ug">
             <objects>
-                <viewController storyboardIdentifier="PostViewController" id="FfP-bz-Hmj" customClass="PostViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostViewController" hidesBottomBarWhenPushed="YES" id="FfP-bz-Hmj" customClass="PostViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x8M-sE-HsK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,12 +259,21 @@
                                     <constraint firstItem="Iek-Xa-K3b" firstAttribute="trailing" secondItem="pc5-hj-zfL" secondAttribute="trailing" id="yeH-nA-3n7"/>
                                 </constraints>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pt4-iC-e35">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="8UH-UB-BKY"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pt4-iC-e35" firstAttribute="leading" secondItem="oWN-EF-hWm" secondAttribute="leading" id="953-DD-ckW"/>
                             <constraint firstItem="tRQ-4v-2tQ" firstAttribute="height" secondItem="x8M-sE-HsK" secondAttribute="height" id="9PV-av-M35"/>
+                            <constraint firstItem="oWN-EF-hWm" firstAttribute="bottom" secondItem="pt4-iC-e35" secondAttribute="bottom" id="Cmo-qr-VOw"/>
                             <constraint firstItem="tRQ-4v-2tQ" firstAttribute="leading" secondItem="oWN-EF-hWm" secondAttribute="leading" id="cWq-7Q-XNc"/>
                             <constraint firstItem="tRQ-4v-2tQ" firstAttribute="bottom" secondItem="oWN-EF-hWm" secondAttribute="bottom" id="dgZ-G6-UQ4"/>
+                            <constraint firstItem="pt4-iC-e35" firstAttribute="trailing" secondItem="oWN-EF-hWm" secondAttribute="trailing" id="iCD-Ov-eeG"/>
                             <constraint firstItem="tRQ-4v-2tQ" firstAttribute="width" secondItem="x8M-sE-HsK" secondAttribute="width" id="r83-tF-Afr"/>
                             <constraint firstItem="oWN-EF-hWm" firstAttribute="trailing" secondItem="tRQ-4v-2tQ" secondAttribute="trailing" id="utx-FE-PLr"/>
                         </constraints>
@@ -298,6 +307,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tgg-dn-P18">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="hvP-RY-GmE" kind="relationship" relationship="rootViewController" id="RSo-jD-MGs"/>
                     </connections>
@@ -539,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Eg-cg-NS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3116" y="2681.1094452773614"/>
+            <point key="canvasLocation" x="-3274" y="2683"/>
         </scene>
     </scenes>
     <resources>
