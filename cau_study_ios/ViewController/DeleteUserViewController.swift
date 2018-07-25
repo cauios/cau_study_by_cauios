@@ -19,6 +19,7 @@ class DeleteUserViewController: UIViewController {
     var uid: String?
     var state = false
     var posts = [String]()
+    var currentUser = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,10 +88,13 @@ class DeleteUserViewController: UIViewController {
     }
     func deleteStroage() {
         Api.User.deleteUserProfile(userId: uid!, onSuccess: {
-            Auth.auth().currentUser?.delete(completion: {error in
+            let user = self.currentUser
+            user?.delete(completion: {error in
                 if error != nil {
                     ProgressHUD.showError(error?.localizedDescription)
                     return
+                } else {
+                    print("delete successfully")
                 }
             })
         }, onError: {errorMessage in
