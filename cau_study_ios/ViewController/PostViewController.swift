@@ -53,9 +53,8 @@ class PostViewController: UIViewController {
     func updateView() {
         
         // [0726] Dahye: Add timestamp property
-        if let timestamp = post?.timestamp {
-            print(timestamp) // Dahye: here we use optional chaining because old posts don't have timestamps
-        }
+        // here we use optional chaining because old posts don't have timestamps
+
         
         postTitleLabel.text = post?.title
         //postUidLabel.text = post?.uid
@@ -67,7 +66,42 @@ class PostViewController: UIViewController {
         postTimeLabel.text = post?.time
         postLocationLabel.text = post?.location
         postDescriptionLabel.text = post?.description
+        if let timestamp = post?.timestamp {
+            print(timestamp)
+            let timestampDate = Date(timeIntervalSince1970: TimeInterval(timestamp))
+            let now = Date()
+            let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
+            let timeDiff = Calendar.current.dateComponents(components, from: timestampDate, to: now)
+            
+            var postTimestampText = ""
+            
+            // [0726] Dahye: Handle each case
+            
+            if timeDiff.second! <= 0 {
+                postTimestampText = "Now"
+            }
+            if timeDiff.second! > 0 && timeDiff.minute! == 0 {
+                postTimestampText = (timeDiff.second == 1) ? "\(timeDiff.second!) second ago" : "\(timeDiff.second!) seconds ago"
+            }
+            if timeDiff.minute! > 0 && timeDiff.hour! == 0 {
+                postTimestampText = (timeDiff.minute == 1) ? "\(timeDiff.minute!) minute ago" : "\(timeDiff.minute!) minutes ago"
+            }
+            if timeDiff.hour! > 0 && timeDiff.day! == 0 {
+                postTimestampText = (timeDiff.hour == 1) ? "\(timeDiff.hour!) hour ago" : "\(timeDiff.hour!) hours ago"
+            }
+            if timeDiff.day! > 0 && timeDiff.weekOfMonth! == 0 {
+                postTimestampText = (timeDiff.day == 1) ? "\(timeDiff.day!) day ago" : "\(timeDiff.day!) days ago"
+            }
+            if timeDiff.weekOfMonth! > 0 {
+                postTimestampText = (timeDiff.weekOfMonth == 1) ? "\(timeDiff.weekOfMonth!) week ago" : "\(timeDiff.weekOfMonth!) weeks ago"
+            }
+
+            postTimestampLabel.text = postTimestampText
+            
+            
+        }
         setPostDescriptionLabelSize()
+        
     }
     /* 잘 된 애
     func loadPost() {

@@ -96,7 +96,7 @@ class WritingViewController: UIViewController {
         // [0726] Dahye: Codes related to the timestamp are added this moment
         // value of "timestamp" would be self.timestamp or timestamp
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": self.timestamp ], withCompletionBlock: {
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
