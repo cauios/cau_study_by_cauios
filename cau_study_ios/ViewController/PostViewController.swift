@@ -51,6 +51,12 @@ class PostViewController: UIViewController {
 
     
     func updateView() {
+        
+        // [0726] Dahye: Add timestamp property
+        if let timestamp = post?.timestamp {
+            print(timestamp) // Dahye: here we use optional chaining because old posts don't have timestamps
+        }
+        
         postTitleLabel.text = post?.title
         //postUidLabel.text = post?.uid
         postUidLabel.text = user.username
