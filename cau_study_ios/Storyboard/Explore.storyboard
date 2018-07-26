@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -176,10 +176,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-5C-HS6">
-                                        <rect key="frame" x="165" y="98.5" width="35" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tS4-5C-HS6">
+                                        <rect key="frame" x="165" y="98.5" width="81" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqy-v7-6VC">
@@ -278,13 +278,13 @@
                     </view>
                     <connections>
                         <outlet property="postCategoryLabel" destination="mqy-v7-6VC" id="El8-fo-1WZ"/>
-                        <outlet property="postDateLabel" destination="tS4-5C-HS6" id="Nth-y6-F9Y"/>
                         <outlet property="postDescriptionLabel" destination="xDb-io-fw2" id="a7c-l6-Wt3"/>
                         <outlet property="postLocationLabel" destination="pWv-3l-u5R" id="XI3-K7-k6h"/>
                         <outlet property="postNumOfVacanLabel" destination="AWo-Gi-qcT" id="8Vu-9I-Y4v"/>
                         <outlet property="postScrollView" destination="tRQ-4v-2tQ" id="S2J-7t-5TC"/>
                         <outlet property="postTagsLabel" destination="IXd-oH-WE7" id="7og-F8-xSq"/>
                         <outlet property="postTimeLabel" destination="Iek-Xa-K3b" id="QdA-uv-qML"/>
+                        <outlet property="postTimestampLabel" destination="tS4-5C-HS6" id="dqe-05-Y46"/>
                         <outlet property="postTitleLabel" destination="pc5-hj-zfL" id="rSh-i7-3ax"/>
                         <outlet property="postUidLabel" destination="V1M-Bf-Wj0" id="opb-ap-bsz"/>
                         <outlet property="postViewToolBar" destination="pt4-iC-e35" id="y5a-Wk-yU3"/>

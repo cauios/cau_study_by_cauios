@@ -14,7 +14,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postScrollView: UIScrollView!
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var postUidLabel: UILabel!
-    @IBOutlet weak var postDateLabel: UILabel!
+    @IBOutlet weak var postTimestampLabel: UILabel!
     @IBOutlet weak var postCategoryLabel: UILabel!
     @IBOutlet weak var postTagsLabel: UILabel!
     @IBOutlet weak var postNumOfVacanLabel: UILabel!
@@ -60,7 +60,7 @@ class PostViewController: UIViewController {
         postTitleLabel.text = post?.title
         //postUidLabel.text = post?.uid
         postUidLabel.text = user.username
-        postDateLabel.text = " " // [dahye's comment] this should be modified in the future
+        postTimestampLabel.text = " " // [dahye's comment] this should be modified in the future
         postCategoryLabel.text = post?.category
         postTagsLabel.text = post?.tags
         postNumOfVacanLabel.text = post?.numOfVacan
