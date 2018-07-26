@@ -27,6 +27,9 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var uploadButton: UIBarButtonItem!
     
+     // [0726] Dahye: Codes related to the timestamp are added this moment
+    let timestamp = Int(Date().timeIntervalSince1970)
+    
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
         self.handleTextField()
@@ -79,6 +82,16 @@ class WritingViewController: UIViewController {
         }
         let currentUserId = currentUser.uid
         
+        let words = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+        
+        for var word in words! {
+            if word.hasPrefix("#"){
+                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
+                newHasfTagReF.updateChildValues([newPostId: true])
+            }
+        }
+        
         var categoryText = ""
         if categorySC.selectedSegmentIndex == 0 {
             categoryText = "학업"
@@ -90,12 +103,16 @@ class WritingViewController: UIViewController {
             categoryText = "어학"
         }
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text! ], withCompletionBlock: {
+        // [0726] Dahye: Codes related to the timestamp are added this moment
+        // value of "timestamp" would be self.timestamp or timestamp
+        
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return // withCompletionBlock closure에서 한 것은, if we failed to push this url on the DB, we'll recieve a non zero error object. If we catch the error, we can simply report that to the user as we did before using ProgressHUD.showError method.
             }
+            
             
             //민정
             let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
@@ -180,16 +197,6 @@ class WritingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

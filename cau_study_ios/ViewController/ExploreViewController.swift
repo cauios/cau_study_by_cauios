@@ -26,12 +26,20 @@ class ExploreViewController: UIViewController {
     func loadPost() {
         Api.Post.observePosts{
             (post) in
-            self.posts.append(post)
-            print(self.posts)
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
             self.exploreTableView.reloadData()
             
         }
         
+        // Dahye: reload posts after deletion of post in profileView is operated
+        Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
     }
     
     
@@ -39,7 +47,8 @@ class ExploreViewController: UIViewController {
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
             user in
-            self.users.append(user)
+            //self.users.append(user)
+            self.users.insert(user, at: 0)
             completed()})
     }
     
