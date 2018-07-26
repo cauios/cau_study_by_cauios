@@ -32,6 +32,14 @@ class ExploreViewController: UIViewController {
             
         }
         
+        // Dahye: reload posts after deletion of post in profileView is operated
+        Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
     }
     
     
