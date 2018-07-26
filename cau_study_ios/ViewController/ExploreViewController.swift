@@ -26,8 +26,8 @@ class ExploreViewController: UIViewController {
     func loadPost() {
         Api.Post.observePosts{
             (post) in
-            self.posts.append(post)
-            print(self.posts)
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
             self.exploreTableView.reloadData()
             
         }
@@ -39,7 +39,8 @@ class ExploreViewController: UIViewController {
     func fetchUser(uid: String, completed: @escaping() -> Void) {
         Api.User.observeUser(withId: uid, completion: {
             user in
-            self.users.append(user)
+            //self.users.append(user)
+            self.users.insert(user, at: 0)
             completed()})
     }
     
