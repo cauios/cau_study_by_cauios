@@ -27,6 +27,9 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var uploadButton: UIBarButtonItem!
     
+     // [0726] Dahye: Codes related to the timestamp are added this moment
+    let timestamp = Int(Date().timeIntervalSince1970)
+    
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
         self.handleTextField()
@@ -90,12 +93,16 @@ class WritingViewController: UIViewController {
             categoryText = "어학"
         }
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text! ], withCompletionBlock: {
+        // [0726] Dahye: Codes related to the timestamp are added this moment
+        // value of "timestamp" would be self.timestamp or timestamp
+        
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": self.timestamp ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return // withCompletionBlock closure에서 한 것은, if we failed to push this url on the DB, we'll recieve a non zero error object. If we catch the error, we can simply report that to the user as we did before using ProgressHUD.showError method.
             }
+            
             
             //민정
             let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
