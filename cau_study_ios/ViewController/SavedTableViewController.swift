@@ -10,9 +10,9 @@ import UIKit
 
 class SavedTableViewController: UITableViewController {
 
-    @IBOutlet weak var saveTitle: UILabel!
-    @IBOutlet weak var saveTag: UILabel!
-    @IBOutlet weak var saveCategory: UILabel!
+   
+    var posts = [Post]()
+    var selectedCellId: String?
     
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class SavedTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,5 +96,16 @@ class SavedTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = posts[indexPath.row]
+        if let selectedCellId = selectedCell.id {
+            self.selectedCellId = selectedCellId
+            performSegue(withIdentifier: "PostViewController", sender: self)
+        }
+        
+        
+        
+    }
 
 }
