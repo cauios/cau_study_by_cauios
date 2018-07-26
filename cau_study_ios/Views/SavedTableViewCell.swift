@@ -15,12 +15,14 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var saveTags: UILabel!
     @IBOutlet weak var saveCategory: UILabel!
     
-    @IBOutlet weak var savedLikeImageview: UIImageView!
-    
     var post: Post? {
         didSet {
             updateView()
         }
+    }
+    
+    func loadPost() {
+        
     }
         
     func updateView() {

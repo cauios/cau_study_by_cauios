@@ -46,14 +46,41 @@ class ExploreTableViewCell: UITableViewCell {
             UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
             savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
                 savedLikeImageView.isUserInteractionEnabled = true
+        
+        if let currentUser = Auth.auth().currentUser {
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.uid!).observeSingleEvent(of: .value) { snapshot in
+                if let _ = snapshot.value as? NSNull {
+                    self.savedLikeImageView.image = UIImage(named: "like")
+                } else {
+                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
+                    
+                }
+            }
+            
+        }
+        
 
     }
-    // hohyun COmment Saved newly posing data from DB
+    // hohyun COmment s
  
     @objc func savedLikeImageView_TouchUpInside(){
-        if let currentUser = Auth.auth().currentUser{
-            Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(post!.uid!).setValue(true)
+        if let currentUser = Auth.auth().currentUser {
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.uid!).observeSingleEvent(of: .value) { snapshot in
+                if let _ = snapshot.value as? NSNull {
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.uid!).setValue(true)
+                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
+                }
+                else {
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.uid!).removeValue()
+                    self.savedLikeImageView.image = UIImage(named: "like")
+
+                    
+                }
+            }
+            
         }
+        
+    
     }
     
     
