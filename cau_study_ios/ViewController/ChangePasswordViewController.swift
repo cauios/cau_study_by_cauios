@@ -92,6 +92,7 @@ class ChangePasswordViewController: UIViewController {
         }
 
     }
+    //touch anywhere, keyboard dismissed
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -127,6 +128,12 @@ extension ChangePasswordViewController: UITextFieldDelegate {
             }
         }
         return newLength <= 15
+    }
+    
+    //키보드 return 클릭시 키보드 사라짐
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }
