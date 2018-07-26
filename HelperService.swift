@@ -10,9 +10,16 @@
  This is smiliar to the AuthService class except for different purposes.
 
  This file has been created referenced by Lec 49
+ 
+ This file should be implemented in the future to follow the MVC principles.
  */
 
 import Foundation
 class HelperService {
+    
+    // Dahye: This method will uplopad data to the storage then store post information on the DB.
+   /*
+    static func sendDataToDatabase()
+    */
     
 }
