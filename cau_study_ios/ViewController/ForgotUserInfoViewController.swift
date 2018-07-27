@@ -11,9 +11,11 @@ import FirebaseAuth
 
 class ForgotUserInfoViewController: UIViewController {
 
+    @IBOutlet weak var ForgotBgImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
+        self.view.insertSubview(ForgotBgImageView, at: 0)
         super.viewDidLoad()
         emailTextField.isUserInteractionEnabled = true
 

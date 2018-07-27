@@ -10,6 +10,7 @@ import Foundation
 struct Api {
     static var User = UserApi()
     static var Post = PostApi()
+    static var Saved = SavedApi()
     static var MyPosts = MyPostsApi()
     static var HashTag = HashTagApi()
 }
