@@ -48,7 +48,7 @@ class ExploreTableViewCell: UITableViewCell {
                 savedLikeImageView.isUserInteractionEnabled = true
         
         if let currentUser = Auth.auth().currentUser {
-            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.uid!).observeSingleEvent(of: .value) { snapshot in
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
                     self.savedLikeImageView.image = UIImage(named: "like")
                 } else {
@@ -65,17 +65,17 @@ class ExploreTableViewCell: UITableViewCell {
  
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {
-            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.uid!).observeSingleEvent(of: .value) { snapshot in
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
-                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.uid!).setValue(true)
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.savedLikeImageView.image = UIImage(named: "likeSelected")
-                    Api.Saved.REF_MYPOSTS.child(currentUser.uid).child(self.post!.uid!).setValue(true)
+                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
                     
                 }
                 else {
-                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.uid!).removeValue()
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
                     self.savedLikeImageView.image = UIImage(named: "like")
-                    Api.Saved.REF_MYPOSTS.child(currentUser.uid).child(self.post!.uid!).removeValue()
+                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
                     
 
                     

@@ -10,6 +10,6 @@ import Foundation
 import FirebaseDatabase
 
 class SavedApi {
-    var REF_MYPOSTS = Database.database().reference().child("saved")
+    var REF_SAVED = Database.database().reference().child("saved")
     
 }
