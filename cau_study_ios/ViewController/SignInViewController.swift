@@ -7,10 +7,12 @@ import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var loginBgImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     override func viewDidLoad() {
+        self.view.insertSubview(loginBgImageView, at: 0)
         super.viewDidLoad()
         emailTextField.backgroundColor = UIColor.clear
         emailTextField.tintColor = UIColor.white
