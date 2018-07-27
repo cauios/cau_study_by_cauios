@@ -52,7 +52,7 @@
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
 		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
 		FED3976D2109FFF3007F9E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED3976C2109FFF2007F9E9E /* Assets.xcassets */; };
-		FEE9B86C20EA372000FA3A61 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE9B86B20EA372000FA3A61 /* SavedTableViewController.swift */; };
+		FED3976F210B0373007F9E9E /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976E210B0373007F9E9E /* SavedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,7 +108,7 @@
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		FED3976621087D1F007F9E9E /* SavedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApi.swift; sourceTree = "<group>"; };
 		FED3976C2109FFF2007F9E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FEE9B86B20EA372000FA3A61 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
+		FED3976E210B0373007F9E9E /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +248,7 @@
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
-				FEE9B86B20EA372000FA3A61 /* SavedTableViewController.swift */,
+				FED3976E210B0373007F9E9E /* SavedViewController.swift */,
 				539A28412106037E00FD118A /* PostViewController.swift */,
 			);
 			path = ViewController;
@@ -392,7 +392,6 @@
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
-				FEE9B86C20EA372000FA3A61 /* SavedTableViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				E3B49A4921071391006B072E /* DestinationMessageCell.swift in Sources */,
@@ -417,6 +416,7 @@
 				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
 				FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
+				FED3976F210B0373007F9E9E /* SavedViewController.swift in Sources */,
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,
