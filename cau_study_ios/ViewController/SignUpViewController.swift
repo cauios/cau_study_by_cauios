@@ -7,6 +7,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 class SignUpViewController: UIViewController {
+   
+    @IBOutlet weak var signUpImageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,8 +19,8 @@ class SignUpViewController: UIViewController {
     var selectedImage: UIImage?
     
     override func viewDidLoad() {
+        self.view.insertSubview(signUpImageView, at: 0)
         super.viewDidLoad()
-        
         usernameTextField.backgroundColor = UIColor.clear
         usernameTextField.tintColor = UIColor.white
         usernameTextField.textColor = UIColor.white
