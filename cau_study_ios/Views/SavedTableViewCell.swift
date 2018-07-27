@@ -62,11 +62,10 @@ class SavedTableViewCell: UITableViewCell {
                 }
                 else {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
-                    self.savedLikeImageView.image = UIImage(named: "like")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
-                    
-                    
-                    
+                    self.savedLikeImageView.image = UIImage(named: "like")
+
+
                 }
             }
             

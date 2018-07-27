@@ -24,9 +24,13 @@ class ExploreViewController: UIViewController {
         addNavBarImage()
         exploreTableView.dataSource = self
         loadPost()
+
     }
     
     func loadPost() {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
         Api.Post.observePosts{
             (post) in
             //self.posts.append(post) Dahye: This shows the new post on the bottom
@@ -43,6 +47,13 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
         }
         })
+        
+      // saved에서 하트를 두번 눌러서 제거되면 saved api에서 확인해서 바로 explore 하트에도 이를 반영한다.
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            self.exploreTableView.reloadData()
+    
+        })
+   
      
     }
     
