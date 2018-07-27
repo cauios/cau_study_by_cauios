@@ -308,9 +308,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             self.selectedCellId = selectedCellId
             performSegue(withIdentifier: "PostViewController", sender: self)
         }
-        
-        
-        
     }
 
     

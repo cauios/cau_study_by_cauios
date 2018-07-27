@@ -61,7 +61,7 @@ class ExploreTableViewCell: UITableViewCell {
         
 
     }
-    // hohyun COmment s
+    // hohyun Comment saved like button activate!
  
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {

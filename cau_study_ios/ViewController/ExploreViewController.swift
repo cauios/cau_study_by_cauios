@@ -98,10 +98,6 @@ class ExploreViewController: UIViewController {
 
 
 
-
-
-
-
 // [Dahye Comment] With extension, we let the exploreViewController promise to implement a few methods in the UItableViewDataSource. This protocol declares some methods that can be adopted to provide some information to tableview object. Basically, those methods can be implemented to decide how our small pieces of papare there are. What info? how the appreance of scene and so on. ExploreViewController must implement these methods.
 
 extension ExploreViewController: UITableViewDataSource {
