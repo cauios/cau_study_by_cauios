@@ -19,6 +19,7 @@ class SavedViewController: UIViewController {
     var posts = [Post]()
     var user: User!
     var userId = ""
+    var selectedCellId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,7 @@ class SavedViewController: UIViewController {
                 
                 
             })
-        /*
+        
         //삭제된 포스트 리로드
             Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
                 let snapId = snap.key
@@ -63,7 +64,7 @@ class SavedViewController: UIViewController {
                     self.posts.remove(at: index)
                     self.tableView.reloadData()
                 }
-            }) */
+            })
             
         }
         
@@ -72,7 +73,15 @@ class SavedViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostViewController" {
+            let cell = sender as? MyPostsTableViewCell
+            let vc = segue.destination as! PostViewController
+            vc.postId = self.selectedCellId
+        }
+    }
     
+}
 
     /*
     // MARK: - Navigation
@@ -84,7 +93,6 @@ class SavedViewController: UIViewController {
     }
     */
 
-}
 
 
 
@@ -102,19 +110,18 @@ extension SavedViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-////    //detail view
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedCell = posts[indexPath.row]
-//        if let selectedCellId = selectedCell.id {
-//            self.selectedCellId = selectedCellId
-//            performSegue(withIdentifier: "SavedTableViewCell", sender: self)
-//        }
-////
-////
-////
-////    }
+//    //detail view
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = posts[indexPath.row]
+        if let selectedCellId = selectedCell.id {
+            self.selectedCellId = selectedCellId
+            performSegue(withIdentifier: "PostViewController", sender: self)
+        }
+//
+//
+//
+   }
     
 }
-
 
 
