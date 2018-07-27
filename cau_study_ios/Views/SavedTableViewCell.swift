@@ -23,6 +23,7 @@ class SavedTableViewCell: UITableViewCell {
             updateView()
         }
     }
+    
     var delegate: ExploreTableViewCellDelegate?
     
     func updateView() {
@@ -30,7 +31,6 @@ class SavedTableViewCell: UITableViewCell {
         saveCategory.text = post?.category
         saveTags.text = post?.tags
 
-        
         let tapGestureForSavedTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.savedTitleLabel_TouchUpInside))
         
         saveTitle.addGestureRecognizer(tapGestureForSavedTitleLabel)
@@ -47,6 +47,7 @@ class SavedTableViewCell: UITableViewCell {
                     self.savedLikeImageView.image = UIImage(named: "like")
                 } else {
                     self.savedLikeImageView.image = UIImage(named: "likeSelected")
+
                     
                 }
             }
@@ -66,8 +67,9 @@ class SavedTableViewCell: UITableViewCell {
                 }
                 else {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
-
+                    self.savedLikeImageView.image = UIImage(named: "like")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
+                    
                     
                     
                 }
@@ -101,4 +103,3 @@ class SavedTableViewCell: UITableViewCell {
     }
         
 }
-

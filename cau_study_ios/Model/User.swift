@@ -8,6 +8,7 @@ class User {
     var username: String?
     var uid: String?
     var introduceMyself: String?
+    var saved: String?
 }
 
 extension User {
