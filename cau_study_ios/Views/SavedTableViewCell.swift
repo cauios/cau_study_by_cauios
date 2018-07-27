@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 
 class SavedTableViewCell: UITableViewCell {
@@ -15,20 +16,19 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var saveTags: UILabel!
     @IBOutlet weak var saveCategory: UILabel!
     
+    
     var post: Post? {
         didSet {
             updateView()
         }
     }
     
-    func loadPost() {
-        
-    }
         
     func updateView() {
         saveTitle.text = post?.title
         saveCategory.text = post?.category
         saveTags.text = post?.tags
+    
     
     }
     

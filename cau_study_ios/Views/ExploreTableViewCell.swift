@@ -69,10 +69,14 @@ class ExploreTableViewCell: UITableViewCell {
                 if let _ = snapshot.value as? NSNull {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.uid!).setValue(true)
                     self.savedLikeImageView.image = UIImage(named: "likeSelected")
+                    Api.Saved.REF_MYPOSTS.child(currentUser.uid).child(self.post!.uid!).setValue(true)
+                    
                 }
                 else {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.uid!).removeValue()
                     self.savedLikeImageView.image = UIImage(named: "like")
+                    Api.Saved.REF_MYPOSTS.child(currentUser.uid).child(self.post!.uid!).removeValue()
+                    
 
                     
                 }
