@@ -53,7 +53,11 @@ class ExploreViewController: UIViewController {
             self.exploreTableView.reloadData()
     
         })
-   
+        
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {snap in
+            self.exploreTableView.reloadData()
+            
+        })
      
     }
     
