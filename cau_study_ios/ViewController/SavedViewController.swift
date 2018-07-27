@@ -7,51 +7,54 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 
 class SavedViewController: UIViewController {
 
-    @IBOutlet var savedTableView: UITableView!
+    @IBOutlet var tableView: UITableView!
+    
     var posts = [Post]()
     var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        savedTableView.dataSource = self
-        loadPost()
-
+        tableView.delegate = self
+        tableView.dataSource = self
+        fetchSaved()
         // Do any additional setup after loading the view.
     }
-
+    func fetchSaved() {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        //추가된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {snapshot in
+            print(snapshot.key)
+            Api.Post.observeMyPosts(withId: snapshot.key, completion: {post in
+                self.posts.insert(post, at:0)
+                self.tableView.reloadData()
+                
+            })
+            
+            
+        })
+        //삭제된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.tableView.reloadData()
+            }
+        })
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func loadPost() {
-        Api.Post.observePosts{
-            (post) in
-            //self.posts.append(post) Dahye: This shows the new post on the bottom
-            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
-            self.savedTableView.reloadData()
-            
-        }
-        
-        // Dahye: reload posts after deletion of post in profileView is operated
-        Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
-            let snapId = snap.key
-            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                self.posts.remove(at: index)
-                self.savedTableView.reloadData()
-            }
-        })
-    }
-    func fetchUser(uid: String, completed: @escaping () -> Void ) {
-        Api.User.observeUser(withId: uid, completion: {
-            user in
-            self.users = [user]
-            completed()
-        })
-    }
+
     /*
     // MARK: - Navigation
 
@@ -64,22 +67,35 @@ class SavedViewController: UIViewController {
 
 }
 
-extension SavedViewController: UITableViewDataSource {
-    // [Dahye Comment] how many cells?
+
+
+
+extension SavedViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
-    // [Dahye Comment] What does the each cell look like?
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = savedTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! SavedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SavedTableViewCell", for: indexPath) as! SavedTableViewCell
         let post = posts[indexPath.row]
         cell.post = post
         return cell
-        
-        
     }
-}
 
+//    //detail view
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedCell = posts[indexPath.row]
+//        if let selectedCellId = selectedCell.id {
+//            self.selectedCellId = selectedCellId
+//            performSegue(withIdentifier: "SavedTableViewCell", sender: self)
+//        }
+//
+//
+//
+//    }
+    
+}
 
 
 
