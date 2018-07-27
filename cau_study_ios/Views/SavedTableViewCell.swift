@@ -31,11 +31,6 @@ class SavedTableViewCell: UITableViewCell {
         saveCategory.text = post?.category
         saveTags.text = post?.tags
 
-        let tapGestureForSavedTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.savedTitleLabel_TouchUpInside))
-        
-        saveTitle.addGestureRecognizer(tapGestureForSavedTitleLabel)
-            saveTitle.isUserInteractionEnabled = true
-        
         let tapGestureForSavedLikeImageView =
             UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
         savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
@@ -78,13 +73,6 @@ class SavedTableViewCell: UITableViewCell {
         }
         
         
-    }
-    
-    
-    @objc func savedTitleLabel_TouchUpInside(){
-        if let id = post?.id {
-            delegate?.goToPostVC(postId: id)
-        }
     }
     
 
