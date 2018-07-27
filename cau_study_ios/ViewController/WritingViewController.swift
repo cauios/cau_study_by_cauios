@@ -82,6 +82,16 @@ class WritingViewController: UIViewController {
         }
         let currentUserId = currentUser.uid
         
+        let words = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+        
+        for var word in words! {
+            if word.hasPrefix("#"){
+                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
+                newHasfTagReF.updateChildValues([newPostId: true])
+            }
+        }
+        
         var categoryText = ""
         if categorySC.selectedSegmentIndex == 0 {
             categoryText = "학업"
