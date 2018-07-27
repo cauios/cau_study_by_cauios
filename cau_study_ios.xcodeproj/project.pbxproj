@@ -20,6 +20,7 @@
 		404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B134038822380599309DDC06 /* Pods_cau_study_ios.framework */; };
 		5387594C2109DEC400C6BB50 /* HelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5387594B2109DEC400C6BB50 /* HelperService.swift */; };
 		539A28422106037E00FD118A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A28412106037E00FD118A /* PostViewController.swift */; };
+		AC113406210A26FC0009262A /* HashTagApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC113405210A26FC0009262A /* HashTagApi.swift */; };
 		D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */; };
 		D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF18210471830057203F /* UserSettingViewController.swift */; };
 		D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */; };
@@ -68,6 +69,7 @@
 		5387594B2109DEC400C6BB50 /* HelperService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperService.swift; sourceTree = "<group>"; };
 		539A28412106037E00FD118A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7A77189B568BA4FF60DC16BE /* Pods-cau_study_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		AC113405210A26FC0009262A /* HashTagApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagApi.swift; sourceTree = "<group>"; };
 		B134038822380599309DDC06 /* Pods_cau_study_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cau_study_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		D31AEF18210471830057203F /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				FED3976621087D1F007F9E9E /* SavedApi.swift */,
 				15348749208C8D81006E789A /* ExploreApi.swift */,
 				E39E863E206104EA007CBB6D /* Api.swift */,
+				AC113405210A26FC0009262A /* HashTagApi.swift */,
 				E39D51DA204EBDF6001D94F9 /* GoogleService-Info.plist */,
 				E39D51BD204EBAB3001D94F9 /* cau_study_ios */,
 				E39D51BC204EBAB3001D94F9 /* Products */,
@@ -408,6 +411,7 @@
 				E39E863F206104EA007CBB6D /* Api.swift in Sources */,
 				15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */,
 				1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */,
+				AC113406210A26FC0009262A /* HashTagApi.swift in Sources */,
 				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
 				E39E863D206104B2007CBB6D /* UserApi.swift in Sources */,
 				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
