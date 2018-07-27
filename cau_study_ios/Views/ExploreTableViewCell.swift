@@ -37,6 +37,13 @@ class ExploreTableViewCell: UITableViewCell {
         exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
         
+        Api.Saved.REF_SAVED.observe(.childRemoved, with: {snapshot in
+            
+            self.savedLikeImageView.image = UIImage(named: "like")
+            
+        })
+        
+        
         let tapGestureForExploreTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.exploreTitleLabel_TouchUpInside))
         
     exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
@@ -61,7 +68,7 @@ class ExploreTableViewCell: UITableViewCell {
         
 
     }
-    // hohyun COmment s
+    // hohyun Comment saved like button activate!
  
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {
@@ -70,6 +77,7 @@ class ExploreTableViewCell: UITableViewCell {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.savedLikeImageView.image = UIImage(named: "likeSelected")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    
                     
                 }
                 else {

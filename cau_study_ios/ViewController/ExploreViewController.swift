@@ -16,6 +16,9 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
     var users = [User]()
+    
+    var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
@@ -38,10 +41,10 @@ class ExploreViewController: UIViewController {
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
                 self.exploreTableView.reloadData()
-            }
+        }
         })
+     
     }
-    
     
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
@@ -94,10 +97,6 @@ class ExploreViewController: UIViewController {
     
 
 }
-
-
-
-
 
 
 

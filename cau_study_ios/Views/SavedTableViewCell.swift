@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 
 class SavedTableViewCell: UITableViewCell {
@@ -15,7 +16,7 @@ class SavedTableViewCell: UITableViewCell {
     @IBOutlet weak var saveTitle: UILabel!
     @IBOutlet weak var saveTags: UILabel!
     @IBOutlet weak var saveCategory: UILabel!
-    
+    @IBOutlet weak var savedLikeImageView: UIImageView!
     
     var post: Post? {
         didSet {
@@ -23,13 +24,55 @@ class SavedTableViewCell: UITableViewCell {
         }
     }
     
-        
+    var delegate: ExploreTableViewCellDelegate?
+    
     func updateView() {
         saveTitle.text = post?.title
         saveCategory.text = post?.category
         saveTags.text = post?.tags
+
+        let tapGestureForSavedLikeImageView =
+            UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
+        savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
+        savedLikeImageView.isUserInteractionEnabled = true
+        
+        if let currentUser = Auth.auth().currentUser {
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
+                if let _ = snapshot.value as? NSNull {
+                    self.savedLikeImageView.image = UIImage(named: "like")
+                } else {
+                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
+
+                    
+                }
+            }
+            
+        }
     
+    }
     
+    @objc func savedLikeImageView_TouchUpInside(){
+        if let currentUser = Auth.auth().currentUser {
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
+                if let _ = snapshot.value as? NSNull {
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
+                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
+                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    
+                }
+                else {
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
+                    self.savedLikeImageView.image = UIImage(named: "like")
+                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
+                    
+                    
+                    
+                }
+            }
+            
+        }
+        
+        
     }
     
 
@@ -48,4 +91,3 @@ class SavedTableViewCell: UITableViewCell {
     }
         
 }
-

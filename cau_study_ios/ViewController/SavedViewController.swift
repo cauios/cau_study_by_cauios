@@ -13,12 +13,11 @@ import FirebaseAuth
 class SavedViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
-    
+
+
     var postId: String?
-    
     var posts = [Post]()
     var user: User!
-    var userId = ""
     var selectedCellId: String?
 
     override func viewDidLoad() {
