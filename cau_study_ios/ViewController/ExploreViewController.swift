@@ -19,6 +19,28 @@ class ExploreViewController: UIViewController {
     
     var post: Post?
     
+    
+    // [0728 Dahye] Classify accroding to he Category
+    
+    var selectedSeg = 0
+    
+    @IBAction func categorySegToupUpInside(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            selectedSeg = 1
+        }
+        if sender.selectedSegmentIndex == 1 {
+            selectedSeg = 2
+        }
+        if sender.selectedSegmentIndex == 2 {
+            selectedSeg = 3
+        }
+        if sender.selectedSegmentIndex == 3 {
+            selectedSeg = 4
+        }
+        self.exploreTableView.reloadData()
+    }
+    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
@@ -125,13 +147,15 @@ extension ExploreViewController: UITableViewDataSource {
     }
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//[0728 Dahye] Mute for a while to try implementation for segmented
         let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self
         return cell
+ 
+
         
-                
     }
 }
 

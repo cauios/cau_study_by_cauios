@@ -72,18 +72,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yHH-0l-FnM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <color key="barTintColor" red="0.97646790742874146" green="0.97645264863967896" blue="0.97647160291671753" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ggI-Yp-4Ou">
+                                <rect key="frame" x="0.0" y="120" width="375" height="29"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="학업"/>
+                                    <segment title="취업"/>
+                                    <segment title="어학"/>
+                                </segments>
+                                <connections>
+                                    <action selector="categorySegToupUpInside:" destination="hvP-RY-GmE" eventType="valueChanged" id="0C6-GZ-aS4"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="17i-FL-xRd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="148" width="375" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="yHH-0l-FnM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="96" id="zFy-Et-aDU" customClass="ExploreTableViewCell" customModule="cau_study_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="375" height="96"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zFy-Et-aDU" id="2XS-lp-Q9z">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -145,8 +157,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="17i-FL-xRd" firstAttribute="leading" secondItem="qh9-zy-1B3" secondAttribute="leading" id="1tf-I4-SNL"/>
+                            <constraint firstItem="yHH-0l-FnM" firstAttribute="leading" secondItem="qh9-zy-1B3" secondAttribute="leading" id="3Vd-9G-vya"/>
+                            <constraint firstItem="17i-FL-xRd" firstAttribute="top" secondItem="ggI-Yp-4Ou" secondAttribute="bottom" id="IjG-tY-WeQ"/>
                             <constraint firstItem="17i-FL-xRd" firstAttribute="trailing" secondItem="qh9-zy-1B3" secondAttribute="trailing" id="KO9-QC-Jd4"/>
-                            <constraint firstItem="17i-FL-xRd" firstAttribute="top" secondItem="qh9-zy-1B3" secondAttribute="top" id="Ycc-3a-gKN"/>
+                            <constraint firstAttribute="trailing" secondItem="ggI-Yp-4Ou" secondAttribute="trailing" id="Vlz-Vk-V9C"/>
+                            <constraint firstItem="ggI-Yp-4Ou" firstAttribute="leading" secondItem="qh9-zy-1B3" secondAttribute="leading" id="eny-EV-2Wf"/>
+                            <constraint firstItem="ggI-Yp-4Ou" firstAttribute="top" secondItem="yHH-0l-FnM" secondAttribute="bottom" id="jvG-Mw-htR"/>
+                            <constraint firstItem="yHH-0l-FnM" firstAttribute="top" secondItem="H9R-q3-QaS" secondAttribute="bottom" id="oPq-C9-XCD"/>
+                            <constraint firstAttribute="trailing" secondItem="yHH-0l-FnM" secondAttribute="trailing" id="qFC-Os-UjH"/>
                             <constraint firstItem="17i-FL-xRd" firstAttribute="bottom" secondItem="ZzG-SY-uj6" secondAttribute="top" id="yxe-ll-Ptc"/>
                         </constraints>
                     </view>
