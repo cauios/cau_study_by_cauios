@@ -13,4 +13,33 @@ class CategoryApi {
     var REF_CATEGORY_ACADEMIC = Database.database().reference().child("category").child("academic")
     var REF_CATEGORY_EMPLPREP = Database.database().reference().child("category").child("emplprep")
     var REF_CATEGORY_LANGUAGE = Database.database().reference().child("category").child("language")
+
+    func observeAcaPosts(completion: @escaping (Post) -> Void) {
+        REF_CATEGORY_ACADEMIC.observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPost(dicr: dict, key: snapshot.key)
+                completion(newPost)
+            }
+        }
+    }
+    
+    func observeEmpPosts(completion: @escaping (Post) -> Void) {
+        REF_CATEGORY_EMPLPREP.observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPost(dicr: dict, key: snapshot.key)
+                completion(newPost)
+            }
+        }
+    }
+    
+    func observeLanPosts(completion: @escaping (Post) -> Void) {
+        REF_CATEGORY_LANGUAGE.observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPost(dicr: dict, key: snapshot.key)
+                completion(newPost)
+            }
+        }
+    }
+
 }
+

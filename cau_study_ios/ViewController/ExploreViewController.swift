@@ -16,6 +16,11 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
     var users = [User]()
+    // [0728 Dahye] Declare array for each category
+    var acaPosts = [Post]()
+    var empPosts = [Post]()
+    var lanPosts = [Post]()
+    //
     
     var post: Post?
     
@@ -82,6 +87,47 @@ class ExploreViewController: UIViewController {
         })
      
     }
+    //[0728 Dahye] load Academic Posts
+    func loadAcaPost() {
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+        Api.Category.observeAcaPosts {
+            (post) in
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.acaPosts.insert(post, at: 0) // Dahye: Show the new post on the top
+            self.exploreTableView.reloadData()
+        }
+    }
+    //
+    
+    //[0728 Dahye] load Employment Preperation Posts
+    func loadEmpPost() {
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+        Api.Category.observeAcaPosts {
+            (post) in
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.empPosts.insert(post, at: 0) // Dahye: Show the new post on the top
+            self.exploreTableView.reloadData()
+        }
+    }
+    //
+
+    //[0728 Dahye] load Language Posts
+    func loadLanPost() {
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+        Api.Category.observeAcaPosts {
+            (post) in
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.lanPosts.insert(post, at: 0) // Dahye: Show the new post on the top
+            self.exploreTableView.reloadData()
+        }
+    }
+    //
     
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
