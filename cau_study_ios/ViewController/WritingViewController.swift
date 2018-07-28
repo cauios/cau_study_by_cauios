@@ -82,6 +82,7 @@ class WritingViewController: UIViewController {
         }
         let currentUserId = currentUser.uid
         
+        
         let words = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         
         for var word in words! {
@@ -91,16 +92,24 @@ class WritingViewController: UIViewController {
                 newHasfTagReF.updateChildValues([newPostId: true])
             }
         }
+        // [0728 Dahye] constants for adding newPostId into ecah category node
+        let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
+        let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
+        let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
+        
         
         var categoryText = ""
         if categorySC.selectedSegmentIndex == 0 {
             categoryText = "학업"
+            postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         else if categorySC.selectedSegmentIndex == 1 {
             categoryText = "취업"
+            postIntoCateEmpl.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         else if categorySC.selectedSegmentIndex == 2 {
             categoryText = "어학"
+            postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
