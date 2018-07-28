@@ -43,12 +43,18 @@ class PostViewController: UIViewController {
     //
     
     override func viewDidLoad() {
+        
+        // hohyun: make imageview as a right bar button!!!
+        let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
+        self.navigationItem.rightBarButtonItem = barButton
 
         loadPost()
+        
 
         // Dahye: Customize the bottom toolbar button
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         postViewToolBar.setItems([flexibleSpace, sendAMessageButton, flexibleSpace], animated: true)
+        
     }
 
     

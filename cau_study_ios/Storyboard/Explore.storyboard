@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -160,7 +159,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="exploreTableView" destination="17i-FL-xRd" id="bVP-a0-M3m"/>
-                        <segue destination="FfP-bz-Hmj" kind="show" identifier="Open_PostSegue" id="Nsq-Ix-G0W"/>
+                        <segue destination="FfP-bz-Hmj" kind="show" identifier="Open_PostSegue" id="LOA-C6-f2l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbb-Tm-NYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,6 +241,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="yd3-60-W76">
+                                        <rect key="frame" x="350" y="5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="3DA-t6-Bdc"/>
+                                            <constraint firstAttribute="width" constant="20" id="Mbf-eq-S2m"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -267,7 +273,9 @@
                                     <constraint firstItem="AWo-Gi-qcT" firstAttribute="centerX" secondItem="tRQ-4v-2tQ" secondAttribute="centerX" id="Zpp-O4-QOT"/>
                                     <constraint firstItem="tS4-5C-HS6" firstAttribute="top" secondItem="pc5-hj-zfL" secondAttribute="bottom" constant="8" id="cAb-rM-afq"/>
                                     <constraint firstItem="AWo-Gi-qcT" firstAttribute="leading" secondItem="tRQ-4v-2tQ" secondAttribute="leading" constant="20" id="ek1-Fa-oHE"/>
+                                    <constraint firstItem="yd3-60-W76" firstAttribute="top" secondItem="tRQ-4v-2tQ" secondAttribute="top" constant="5" id="fJi-vG-KTQ"/>
                                     <constraint firstItem="xDb-io-fw2" firstAttribute="leading" secondItem="tRQ-4v-2tQ" secondAttribute="leading" constant="20" id="gd3-16-rem"/>
+                                    <constraint firstAttribute="trailing" secondItem="yd3-60-W76" secondAttribute="trailing" constant="5" id="gri-rj-dEx"/>
                                     <constraint firstAttribute="trailing" secondItem="IXd-oH-WE7" secondAttribute="trailing" constant="20" id="i07-xn-XlB"/>
                                     <constraint firstItem="xDb-io-fw2" firstAttribute="centerX" secondItem="tRQ-4v-2tQ" secondAttribute="centerX" id="kVb-xf-531"/>
                                     <constraint firstItem="pWv-3l-u5R" firstAttribute="leading" secondItem="tRQ-4v-2tQ" secondAttribute="leading" constant="20" id="kgu-I8-GuH"/>
@@ -286,13 +294,6 @@
                                     <barButtonItem title="Send A Message" id="8UH-UB-BKY"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="yd3-60-W76">
-                                <rect key="frame" x="350" y="30" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="M5N-KR-gan"/>
-                                    <constraint firstAttribute="width" constant="25" id="lgJ-ID-Vim"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -306,17 +307,12 @@
                             <constraint firstAttribute="trailing" secondItem="tRQ-4v-2tQ" secondAttribute="trailing" id="utx-FE-PLr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jwu-Un-qP8">
-                        <connections>
-                            <outlet property="titleView" destination="yd3-60-W76" id="q6H-OX-OCx"/>
-                        </connections>
-                    </navigationItem>
                     <connections>
                         <outlet property="postCategoryLabel" destination="mqy-v7-6VC" id="El8-fo-1WZ"/>
                         <outlet property="postDescriptionLabel" destination="xDb-io-fw2" id="a7c-l6-Wt3"/>
                         <outlet property="postLocationLabel" destination="pWv-3l-u5R" id="XI3-K7-k6h"/>
                         <outlet property="postNumOfVacanLabel" destination="AWo-Gi-qcT" id="8Vu-9I-Y4v"/>
-                        <outlet property="postSavedLikeImageView" destination="yd3-60-W76" id="NCt-IP-EQS"/>
+                        <outlet property="postSavedLikeImageView" destination="yd3-60-W76" id="R4d-kj-Pms"/>
                         <outlet property="postScrollView" destination="tRQ-4v-2tQ" id="S2J-7t-5TC"/>
                         <outlet property="postTagsLabel" destination="IXd-oH-WE7" id="7og-F8-xSq"/>
                         <outlet property="postTimeLabel" destination="Iek-Xa-K3b" id="QdA-uv-qML"/>
