@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class PostViewController: UIViewController {
     
@@ -26,6 +27,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postViewToolBar: UIToolbar!
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
     
+    @IBOutlet weak var postSavedLikeImageView: UIImageView!
     
     var postId: String?
     
@@ -102,6 +104,54 @@ class PostViewController: UIViewController {
         }
         setPostDescriptionLabelSize()
         
+        let tapGestureForSavedLikeImageView =
+            UITapGestureRecognizer(target: self, action: #selector(self.postSavedLikeImageView_TouchUpInside))
+        postSavedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
+        postSavedLikeImageView.isUserInteractionEnabled = true
+        
+        if let currentUser = Auth.auth().currentUser {
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
+                if let _ = snapshot.value as? NSNull {
+                    self.postSavedLikeImageView.image = UIImage(named: "like")
+                } else {
+                    self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                    
+                }
+            }
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    // hohyun Comment saved like button activate!
+    
+    @objc func postSavedLikeImageView_TouchUpInside(){
+        if let currentUser = Auth.auth().currentUser {
+            Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
+                if let _ = snapshot.value as? NSNull {
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
+                    self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    
+                    
+                }
+                else {
+                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
+                    self.postSavedLikeImageView.image = UIImage(named: "like")
+                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
+                    
+                    
+                    
+                }
+            }
+            
+        }
+        
+        
     }
     /* 잘 된 애
     func loadPost() {
@@ -122,6 +172,8 @@ class PostViewController: UIViewController {
                 self.post = post
             })
         })
+        
+        
     }
     
     func fetchUser(uid: String, completed: @escaping () -> Void ) {
