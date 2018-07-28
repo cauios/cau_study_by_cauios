@@ -11,6 +11,7 @@ import FirebaseAuth
 class ChangePasswordViewController: UIViewController {
     
     @IBOutlet var configureUserView: UIView!
+    @IBOutlet weak var configureUserPasswordView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var doneBtn: UIButton!
@@ -24,6 +25,9 @@ class ChangePasswordViewController: UIViewController {
     var secondTextFieldisFilled = false
 
     override func viewDidLoad() {
+        self.tabBarController?.tabBar.isHidden = true
+        configureUserPasswordView.backgroundColor = UIColor(patternImage: UIImage(named: "2-3bg")!)
+        changePasswordView.backgroundColor = UIColor(patternImage: UIImage(named: "2-3bg")!)
         super.viewDidLoad()
         passwordTextField.delegate = self
         newPasswordTextField.delegate = self

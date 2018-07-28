@@ -42,7 +42,7 @@ class DeleteUserViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.agree))
         agreeBtn.addGestureRecognizer(tapGesture)
         agreeBtn.isUserInteractionEnabled = true
-        agreeBtn.image = UIImage(named: "checkmark")
+        agreeBtn.image = UIImage(named: "unactiveCheck")
         
     }
     
@@ -50,7 +50,7 @@ class DeleteUserViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.disagree))
         agreeBtn.addGestureRecognizer(tapGesture)
         agreeBtn.isUserInteractionEnabled = true
-        agreeBtn.image = UIImage(named: "uncheckmark")
+        agreeBtn.image = UIImage(named: "activeCheck")
     }
     
     @objc func agree() {

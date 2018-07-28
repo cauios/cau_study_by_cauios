@@ -41,6 +41,10 @@ class ProfileViewController: UIViewController {
     //자기소개 글자수 제한
     let textLimitLength = 100
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -221,9 +225,7 @@ class ProfileViewController: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     
-    @IBAction func testBtn(_ sender: Any) {
-
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostViewController" {
