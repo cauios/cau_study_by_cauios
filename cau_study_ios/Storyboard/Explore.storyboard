@@ -375,7 +375,7 @@
                         <barButtonItem key="leftBarButtonItem" image="write_nobackcolor" id="svc-r2-l5S">
                             <connections>
                                 <action selector="writeTouchUpInside:" destination="hvP-RY-GmE" id="peR-9g-5wt"/>
-                                <segue destination="fBO-um-o01" kind="presentation" id="Lx9-zU-TyU"/>
+                                <segue destination="fBO-um-o01" kind="presentation" identifier="Open_WritingSegue" id="Lx9-zU-TyU"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="notification_nobackcolor" id="hhP-cy-djt">

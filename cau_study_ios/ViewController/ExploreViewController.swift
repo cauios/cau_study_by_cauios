@@ -12,9 +12,8 @@ import FirebaseDatabase
 import SDWebImage
 
 
-
 class ExploreViewController: UIViewController {
-    
+
  
     @IBAction func writeTouchUpInside(_ sender: Any) {
        
@@ -228,6 +227,10 @@ class ExploreViewController: UIViewController {
             let postId = sender as! String
             postVC.postId = postId
         }
+        if segue.identifier == "Open_WritingSegue" {
+            let writingVC = segue.destination as! WritingViewController
+            writingVC.delegate = self
+        }
     }
                       
     
@@ -343,4 +346,13 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
     
 }
 
+extension ExploreViewController: dismissHandler {
+    func showAllCateAfterDismiss() {
+        allCateButton.sendActions(for: .touchUpInside)
+        self.exploreTableView.reloadData()
+        print("Connected with writingView")
+    }
+    
+
+}
 

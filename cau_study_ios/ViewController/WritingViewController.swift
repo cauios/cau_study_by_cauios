@@ -11,10 +11,26 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 
-class WritingViewController: UIViewController {
+
+// [0729 Dahye] For set allCate after dismiss
+protocol dismissHandler {
+    func showAllCateAfterDismiss()
+}
+
+//
+class WritingViewController: UIViewController, dismissHandler {
     
+    // [0729 Dahye]
+    let segSelected = 1
+    var delegate: dismissHandler?
 
-
+    
+    // [0729 Dahye]
+    func showAllCateAfterDismiss() {
+  
+    }
+    
+    
     // Outlets
     
 
@@ -38,6 +54,10 @@ class WritingViewController: UIViewController {
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
         
+        // [0729 Dahye]
+        if delegate != nil {
+            delegate?.showAllCateAfterDismiss()
+        }
         
         self.dismiss(animated: true, completion: nil)
 
