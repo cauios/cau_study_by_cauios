@@ -12,9 +12,8 @@ import FirebaseDatabase
 import SDWebImage
 
 
-
 class ExploreViewController: UIViewController {
-    
+
  
     @IBAction func writeTouchUpInside(_ sender: Any) {
        
@@ -33,93 +32,83 @@ class ExploreViewController: UIViewController {
     
 
     var post: Post?
+    
+    var selectedSeg: Int?
 
 
+    
+    // [0729 Dahye] Outlets for buttons
 
+    @IBOutlet weak var allCateButton: UIButton!
+    @IBOutlet weak var acaCateButton: UIButton!
+    @IBOutlet weak var empCateButton: UIButton!
+    @IBOutlet weak var lanCateButton: UIButton!
     
-    
-    
-    // [0728 Dahye] Classify accroding to he Category
-    
-    var selectedSeg = 1
-    
-    @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
-    @IBAction func categorySegToupUpInside(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            selectedSeg = 1
-            posts = [Post]()
-            Api.Post.observePosts{
-                (post) in
-                //self.posts.append(post) Dahye: This shows the new post on the bottom
-                self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
-                self.exploreTableView.reloadData()
-                
-            }
-            loadPost()
+     // [0729 Dahye] Actions for buttons
+    @IBAction func allCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 1
+        Api.Post.observePosts{
+            (post) in
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
             self.exploreTableView.reloadData()
-        }
-        if sender.selectedSegmentIndex == 1 {
-            selectedSeg = 2
-            posts = [Post]()
-            Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
-                snapshot in
-                print(snapshot.key)
-                Api.Post.observePost(withId: snapshot.key, completion: { post in
-                    
-                    self.posts.insert(post, at: 0)
-                    self.exploreTableView.reloadData()
-                })
-            })
-            //loadAcaPost()
-            //posts = [Post]()
-            //self.exploreTableView.reloadData()
             
         }
-        if sender.selectedSegmentIndex == 2 {
-            selectedSeg = 3
-            posts = [Post]()
-            Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
-                snapshot in
-                print(snapshot.key)
-                Api.Post.observePost(withId: snapshot.key, completion: { post in
-                    
-                    self.posts.insert(post, at: 0)
-                    self.exploreTableView.reloadData()
-                })
-            })
-           // loadEmpPost()
-           // posts = [Post]()
-           // self.exploreTableView.reloadData()
-            
-        }
-        if sender.selectedSegmentIndex == 3 {
-            selectedSeg = 4
-            posts = [Post]()
-            Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
-                snapshot in
-                print(snapshot.key)
-                Api.Post.observePost(withId: snapshot.key, completion: { post in
-                    
-                    self.posts.insert(post, at: 0)
-                    self.exploreTableView.reloadData()
-                })
-            })
-          //  loadLanPost()
-          //  posts = [Post]()
-          //  self.exploreTableView.reloadData()
-            
-        }
+        loadPost()
         self.exploreTableView.reloadData()
     }
-    //
+    @IBAction func acaCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 2
+        Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+        self.exploreTableView.reloadData()
+        
+    }
+    
+    @IBAction func empCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 3
+        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+        self.exploreTableView.reloadData()
+    }
+    @IBAction func lanCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 4
+        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+        self.exploreTableView.reloadData()
+}
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
         exploreTableView.dataSource = self
-        // [0729 Dahye]
-        self.categorySegmentedControl.selectedSegmentIndex = 0
-        //
+
         loadPost()
         self.exploreTableView.reloadData()
 
@@ -238,6 +227,10 @@ class ExploreViewController: UIViewController {
             let postId = sender as! String
             postVC.postId = postId
         }
+        if segue.identifier == "Open_WritingSegue" {
+            let writingVC = segue.destination as! WritingViewController
+            writingVC.delegate = self
+        }
     }
                       
     
@@ -353,4 +346,13 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
     
 }
 
+extension ExploreViewController: dismissHandler {
+    func showAllCateAfterDismiss() {
+        allCateButton.sendActions(for: .touchUpInside)
+        self.exploreTableView.reloadData()
+        print("Connected with writingView")
+    }
+    
+
+}
 
