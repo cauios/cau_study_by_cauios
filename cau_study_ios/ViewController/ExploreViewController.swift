@@ -35,13 +35,24 @@ class ExploreViewController: UIViewController {
     var post: Post?
 
 
+    
+    // [0729 Dahye] Outlets for buttons
 
+    @IBOutlet weak var allCateButton: UIButton!
+    @IBOutlet weak var acaCateButton: UIButton!
+    @IBOutlet weak var empCateButton: UIButton!
+    @IBOutlet weak var lanCateButton: UIButton!
     
+     // [0729 Dahye] Actions for buttons
+    @IBAction func allCateTouchUpInside(_ sender: Any) {
+    }
+    @IBAction func acaCateTouchUpInside(_ sender: Any) {
+    }
+    @IBAction func empCateTouchUpInside(_ sender: Any) {
+    }
+    @IBAction func lanCateTouchUpInside(_ sender: Any) {
+    }
     
-    
-    // [0728 Dahye] Classify accroding to he Category
-    
-    var selectedSeg = 1
     
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
     @IBAction func categorySegToupUpInside(_ sender: UISegmentedControl) {

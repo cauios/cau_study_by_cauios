@@ -86,18 +86,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KK4-VN-0b1">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="전체"/>
+                                                <connections>
+                                                    <action selector="allCateTouchUpInside:" destination="hvP-RY-GmE" eventType="touchUpInside" id="eAy-A3-IS9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bn0-UF-jB0">
                                                 <rect key="frame" x="96" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="학업"/>
+                                                <connections>
+                                                    <action selector="acaCateTouchUpInside:" destination="hvP-RY-GmE" eventType="touchUpInside" id="EGU-MN-jOA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sH-qZ-it0">
                                                 <rect key="frame" x="192" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="취업"/>
+                                                <connections>
+                                                    <action selector="empCateTouchUpInside:" destination="hvP-RY-GmE" eventType="touchUpInside" id="eOH-vu-oKj"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFJ-Vq-GKD">
                                                 <rect key="frame" x="288" y="0.0" width="30" height="30"/>
                                                 <state key="normal" title="어학"/>
+                                                <connections>
+                                                    <action selector="lanCateTouchUpInside:" destination="hvP-RY-GmE" eventType="touchUpInside" id="RoH-dG-3Kh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -373,7 +385,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="acaCateButton" destination="Bn0-UF-jB0" id="OEh-Mj-IfO"/>
+                        <outlet property="allCateButton" destination="KK4-VN-0b1" id="4g8-K1-urh"/>
+                        <outlet property="empCateButton" destination="8sH-qZ-it0" id="hHf-Rs-jTQ"/>
                         <outlet property="exploreTableView" destination="17i-FL-xRd" id="bVP-a0-M3m"/>
+                        <outlet property="lanCateButton" destination="yFJ-Vq-GKD" id="RGj-rx-joK"/>
                         <segue destination="FfP-bz-Hmj" kind="show" identifier="Open_PostSegue" id="LOA-C6-f2l"/>
                     </connections>
                 </viewController>
