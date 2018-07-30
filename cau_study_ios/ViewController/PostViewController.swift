@@ -120,6 +120,7 @@ class PostViewController: UIViewController {
                 if let _ = snapshot.value as? NSNull {
                     self.postSavedLikeImageView.image = UIImage(named: "like")
                 } else {
+                    
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     
                 }
@@ -131,7 +132,19 @@ class PostViewController: UIViewController {
         
     }
     
-    
+    func showAlert() {
+        // UIAlertController를 생성해야 한다. style은 .alert로 해준다.
+        let alertController = UIAlertController(title: "목록 삭제", message: "저장 목록에서 삭제하시겠습니까?", preferredStyle: .alert)
+        // style이 .cancel이면 bold체. handler가 nil일 경우에는 아무 일이 일어나지 않고 닫힌다.
+            alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: {alertAction in print("확인")}))
+            // style이 .destructive면 빨간색 text color
+            alertController.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {
+                alertAction in
+                
+            }))
+            // 실제로 화면에 보여주기 위해서는 present 메서드가 필요하다. animated : true/false로 해놓으면 애니메이션 효과가 있고/없다. present가 완료되어 화면이 보여지면 completion의 코드가 실행된다.
+            self.present(alertController, animated: true, completion: nil)
+    }
     
     // hohyun Comment saved like button activate!
     
@@ -146,6 +159,7 @@ class PostViewController: UIViewController {
                     
                 }
                 else {
+                    self.showAlert()
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
                     self.postSavedLikeImageView.image = UIImage(named: "like")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
