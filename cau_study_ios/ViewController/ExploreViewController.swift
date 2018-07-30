@@ -11,19 +11,119 @@ import FirebaseAuth
 import FirebaseDatabase
 import SDWebImage
 
+
 class ExploreViewController: UIViewController {
+
+ 
+    @IBAction func writeTouchUpInside(_ sender: Any) {
+       
+    }
+    
+    //
 
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
     var users = [User]()
+    // [0728 Dahye] Declare array for each category
+    var acaPosts = [Post]()
+    var empPosts = [Post]()
+    var lanPosts = [Post]()
+    //
     
+
     var post: Post?
+    
+    var selectedSeg: Int?
+
+
+    
+    // [0729 Dahye] Outlets for buttons
+
+    @IBOutlet weak var allCateButton: UIButton!
+    @IBOutlet weak var acaCateButton: UIButton!
+    @IBOutlet weak var empCateButton: UIButton!
+    @IBOutlet weak var lanCateButton: UIButton!
+    
+     // [0729 Dahye] Actions for buttons
+    @IBAction func allCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 1
+        Api.Post.observePosts{
+            (post) in
+            //self.posts.append(post) Dahye: This shows the new post on the bottom
+            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
+            self.exploreTableView.reloadData()
+            
+        }
+    }
+    @IBAction func acaCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 2
+        Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+        self.exploreTableView.reloadData()
+        
+    }
+    
+    @IBAction func empCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 3
+        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+        self.exploreTableView.reloadData()
+    }
+    @IBAction func lanCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
+        selectedSeg = 4
+        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+        self.exploreTableView.reloadData()
+}
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarImage()
         exploreTableView.dataSource = self
+
         loadPost()
+        self.exploreTableView.reloadData()
+
+//        if selectedSeg == 1 {
+//            loadPost()
+//            self.exploreTableView.reloadData()
+//        }
+//        if selectedSeg == 2 {
+//            loadAcaPost()
+//            self.exploreTableView.reloadData()
+//        }
+//        if selectedSeg == 3 {
+//            self.exploreTableView.reloadData()
+//        } else {
+//            loadLanPost()
+//            self.exploreTableView.reloadData()
+//        }
 
     }
     
@@ -60,6 +160,51 @@ class ExploreViewController: UIViewController {
         })
      
     }
+    /* [0729 Dahye] Useless stuffs!
+    //[0728 Dahye] load Academic Posts
+    func loadAcaPost() {
+        Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
+            snapshot in
+            Api.Post.observeMyPosts(withId: snapshot.key, completion: { post in
+                self.acaPosts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+                print(post.id!)
+            })
+        })
+
+}
+    //
+    
+    //[0728 Dahye] load Employment Preperation Posts
+    func loadEmpPost() {
+
+        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observeMyPosts(withId: snapshot.key, completion: {
+                post in
+                self.empPosts.insert(post, at:0)
+                self.exploreTableView.reloadData()
+            })
+        })
+
+    }
+
+ [0728 Dahye] load Language Posts
+    func loadLanPost() {
+
+        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observeMyPosts(withId: snapshot.key, completion: {
+                post in
+                self.lanPosts.insert(post, at:0)
+                self.exploreTableView.reloadData()
+            })
+        })
+    }
+ */
+
     
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
@@ -79,6 +224,10 @@ class ExploreViewController: UIViewController {
             let postVC = segue.destination as! PostViewController
             let postId = sender as! String
             postVC.postId = postId
+        }
+        if segue.identifier == "Open_WritingSegue" {
+            let writingVC = segue.destination as! WritingViewController
+            writingVC.delegate = self
         }
     }
                       
@@ -121,17 +270,67 @@ class ExploreViewController: UIViewController {
 extension ExploreViewController: UITableViewDataSource {
     // [Dahye Comment] how many cells?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /* original
         return posts.count
+ */
+        if selectedSeg == 1 {
+            print(posts.count)
+            return posts.count
+        }
+        if selectedSeg == 2 {
+
+            print(acaPosts.count)
+            return posts.count
+        }
+        if selectedSeg == 3 {
+            print(empPosts.count)
+            return posts.count
+        } else {
+            print(lanPosts.count)
+            return posts.count
+        }
     }
+    
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//[0728 Dahye] Mute for a while to try implementation for segmented
         let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self
-        return cell
         
-                
+        // [0728 Dahye] other tables too!
+        let cell2 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellAca", for: indexPath) as! ExploreTableViewCell
+        let acaPost = posts[indexPath.row]
+        cell2.post = acaPost
+        cell2.delegate = self
+        
+        let cell3 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEmp", for: indexPath) as! ExploreTableViewCell
+        let empPost = posts[indexPath.row]
+        cell3.post = empPost
+        cell3.delegate = self
+
+        let cell4 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellLan", for: indexPath) as! ExploreTableViewCell
+        let lanPost = posts[indexPath.row]
+        cell4.post = lanPost
+        cell4.delegate = self
+
+        if selectedSeg == 1 {
+            return cell
+        }
+        if selectedSeg == 2 {
+            return cell2
+        }
+        if selectedSeg == 3 {
+            return cell3
+        } else {
+            return cell4
+        }
+        
+        
+ 
+
+        
     }
 }
 
@@ -145,4 +344,13 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
     
 }
 
+extension ExploreViewController: dismissHandler {
+    func showAllCateAfterDismiss() {
+        allCateButton.sendActions(for: .touchUpInside)
+        self.exploreTableView.reloadData()
+        print("Connected with writingView")
+    }
+    
+
+}
 

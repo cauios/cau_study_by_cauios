@@ -11,9 +11,26 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 
-class WritingViewController: UIViewController {
 
+// [0729 Dahye] For set allCate after dismiss
+protocol dismissHandler {
+    func showAllCateAfterDismiss()
+}
 
+//
+class WritingViewController: UIViewController, dismissHandler {
+    
+    // [0729 Dahye]
+    let segSelected = 1
+    var delegate: dismissHandler?
+
+    
+    // [0729 Dahye]
+    func showAllCateAfterDismiss() {
+  
+    }
+    
+    
     // Outlets
     
 
@@ -36,6 +53,13 @@ class WritingViewController: UIViewController {
         view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
+        
+        // [0729 Dahye]
+        if delegate != nil {
+            delegate?.showAllCateAfterDismiss()
+        }
+        
+        self.dismiss(animated: true, completion: nil)
 
 /*
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
@@ -82,6 +106,7 @@ class WritingViewController: UIViewController {
         }
         let currentUserId = currentUser.uid
         
+        
         let words = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         
         for var word in words! {
@@ -91,16 +116,24 @@ class WritingViewController: UIViewController {
                 newHasfTagReF.updateChildValues([newPostId: true])
             }
         }
+        // [0728 Dahye] constants for adding newPostId into ecah category node
+        let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
+        let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
+        let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
+        
         
         var categoryText = ""
         if categorySC.selectedSegmentIndex == 0 {
             categoryText = "학업"
+            postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         else if categorySC.selectedSegmentIndex == 1 {
             categoryText = "취업"
+            postIntoCateEmpl.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         else if categorySC.selectedSegmentIndex == 2 {
             categoryText = "어학"
+            postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
@@ -132,7 +165,6 @@ class WritingViewController: UIViewController {
             
             // [Dahye comment] after successfully push the writing data into the DB, switch to the explore view. In this case I just used the 'dimiss method'. Note that 'self.tabBarController?.selectedIndex = 0' can not switch to the explore because the connection here is 'modally'. 'self.tabBarController?.selectedIndex = 0' could work when the view is contained in the tabController.
             
-            self.dismiss(animated: true, completion: nil)
         })
     }
     
@@ -146,6 +178,7 @@ class WritingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //empty()
         handleTextField()
     }

@@ -13,4 +13,5 @@ struct Api {
     static var Saved = SavedApi()
     static var MyPosts = MyPostsApi()
     static var HashTag = HashTagApi()
+    static var Category = CategoryApi()
 }

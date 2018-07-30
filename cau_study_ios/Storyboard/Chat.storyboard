@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ji5-QK-sCq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="610"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" id="txx-Ri-ZnR" customClass="MyMessageCellTableViewCell" customModule="cau_study_ios" customModuleProvider="target">
@@ -63,15 +63,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_blue" translatesAutoresizingMaskIntoConstraints="NO" id="CtO-Q6-xTy">
+                                                    <rect key="frame" x="308" y="4" width="67" height="42"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GH-ex-dtC">
                                                     <rect key="frame" x="318" y="14" width="42" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_blue" translatesAutoresizingMaskIntoConstraints="NO" id="CtO-Q6-xTy">
-                                                    <rect key="frame" x="308" y="4" width="67" height="42"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CtO-Q6-xTy" firstAttribute="trailing" secondItem="8GH-ex-dtC" secondAttribute="trailing" constant="15" id="DZv-aY-9GD"/>
@@ -95,15 +95,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_gray" translatesAutoresizingMaskIntoConstraints="NO" id="RVM-0L-dfP">
+                                                    <rect key="frame" x="50" y="4" width="67" height="36"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-Hm-lmN">
                                                     <rect key="frame" x="65" y="14" width="42" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_gray" translatesAutoresizingMaskIntoConstraints="NO" id="RVM-0L-dfP">
-                                                    <rect key="frame" x="50" y="4" width="67" height="36"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29c-tQ-5Bh">
                                                     <rect key="frame" x="11" y="4" width="28" height="28"/>
                                                     <constraints>
@@ -136,7 +136,7 @@
                                         <connections>
                                             <outlet property="imageview_profile" destination="29c-tQ-5Bh" id="f3P-q7-CPZ"/>
                                             <outlet property="labelName" destination="d7E-fK-cCK" id="JQX-pm-QDk"/>
-                                            <outlet property="label_message" destination="RVM-0L-dfP" id="ZGf-i3-hBZ"/>
+                                            <outlet property="label_message" destination="6xw-Hm-lmN" id="CWk-4l-7lO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -147,13 +147,13 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E79-59-6QV">
-                                <rect key="frame" x="8" y="577" width="315" height="30"/>
+                                <rect key="frame" x="8" y="617" width="315" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEl-jQ-q7f">
-                                <rect key="frame" x="331" y="577" width="36" height="30"/>
+                                <rect key="frame" x="331" y="617" width="36" height="30"/>
                                 <state key="normal" title="Send"/>
                             </button>
                         </subviews>
@@ -164,7 +164,7 @@
                             <constraint firstItem="E79-59-6QV" firstAttribute="leading" secondItem="CJJ-f3-iAu" secondAttribute="leading" constant="8" id="P5W-f7-8tW"/>
                             <constraint firstItem="ji5-QK-sCq" firstAttribute="trailing" secondItem="CJJ-f3-iAu" secondAttribute="trailing" id="fc5-wl-NZV"/>
                             <constraint firstItem="ji5-QK-sCq" firstAttribute="leading" secondItem="CJJ-f3-iAu" secondAttribute="leading" id="ocN-vg-fHY"/>
-                            <constraint firstItem="CJJ-f3-iAu" firstAttribute="bottom" secondItem="cEl-jQ-q7f" secondAttribute="bottom" constant="60" id="oxh-DF-Xy8"/>
+                            <constraint firstItem="CJJ-f3-iAu" firstAttribute="bottom" secondItem="cEl-jQ-q7f" secondAttribute="bottom" constant="20" id="oxh-DF-Xy8"/>
                             <constraint firstItem="cEl-jQ-q7f" firstAttribute="leading" secondItem="E79-59-6QV" secondAttribute="trailing" constant="8" id="tcZ-O8-dUW"/>
                             <constraint firstItem="cEl-jQ-q7f" firstAttribute="top" secondItem="ji5-QK-sCq" secondAttribute="bottom" constant="7" id="v3G-Yy-blJ"/>
                             <constraint firstItem="ji5-QK-sCq" firstAttribute="top" secondItem="Axr-Sl-aJ8" secondAttribute="top" id="w4j-ou-DGb"/>
@@ -173,6 +173,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hgD-Lh-Te6"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="oxh-DF-Xy8" id="ZhN-VD-YKd"/>
                         <outlet property="sendButton" destination="cEl-jQ-q7f" id="XzZ-qK-eRp"/>
                         <outlet property="tableview" destination="ji5-QK-sCq" id="wa0-89-J4e"/>
                         <outlet property="textField_message" destination="E79-59-6QV" id="20H-zs-eLq"/>
