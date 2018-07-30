@@ -23,7 +23,8 @@ class Post {
     var location: String?
     var description: String?
     var saved: Dictionary<String, Any>?// e.g. type이 optional String으로 설정되어 있음!
-    var timestamp: Int? // [0726] Dahye
+    var timestamp: Int?
+    var wanted: Bool?// [0726] Dahye
 }
 
 
@@ -43,7 +44,8 @@ extension Post{
         post.location = dicr["location"] as? String
         post.description = dicr["description"] as? String
         post.saved = dicr["saved"] as? Dictionary
-        post.timestamp = dicr["timestamp"] as? Int // [0726] Dahye
+        post.timestamp = dicr["timestamp"] as? Int
+        post.wanted = dicr["wanted"] as? Bool// [0726] Dahye
         return post
     }
 }
