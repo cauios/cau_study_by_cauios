@@ -777,7 +777,9 @@
                                                             <constraint firstAttribute="height" constant="70" id="PI6-dZ-NwO"/>
                                                             <constraint firstAttribute="width" constant="70" id="fal-rJ-Yx6"/>
                                                         </constraints>
-                                                        <state key="normal" title="어학" backgroundImage="yellowbutton"/>
+                                                        <state key="normal" title="어학" backgroundImage="yellowbutton">
+                                                            <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="lanCateWtTouchUpInside:" destination="fBO-um-o01" eventType="touchUpInside" id="Gci-7z-VKY"/>
                                                         </connections>
