@@ -55,8 +55,6 @@ class ExploreViewController: UIViewController {
             self.exploreTableView.reloadData()
             
         }
-        loadPost()
-        self.exploreTableView.reloadData()
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
         posts = [Post]()
