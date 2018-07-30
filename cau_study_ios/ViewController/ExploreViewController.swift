@@ -240,7 +240,7 @@ class ExploreViewController: UIViewController {
     func addNavBarImage() {
         let navController = navigationController!
         
-        let image = #imageLiteral(resourceName: "logo_cau")
+        let image = #imageLiteral(resourceName: "logo")
         let imageView = UIImageView(image: image)
         
         let bannerWidth = navController.navigationBar.frame.size.width / 2
