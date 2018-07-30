@@ -1,19 +1,18 @@
 //
-//  DestinationMessageCell.swift
+//  CustomCell.swift
 //  cau_study_ios
 //
-//  Created by 신형재 on 14/07/2018.
+//  Created by 신형재 on 31/07/2018.
 //  Copyright © 2018 신형재. All rights reserved.
 //
 
 import UIKit
 
-class DestinationMessageCell: UITableViewCell {
+class CustomCell: UITableViewCell {
 
-    
-    @IBOutlet weak var label_message: UILabel!
-    @IBOutlet weak var imageview_profile: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var label_title: UILabel!
+    @IBOutlet weak var label_lastmessage: UILabel!
     @IBOutlet weak var label_timestamp: UILabel!
     
     

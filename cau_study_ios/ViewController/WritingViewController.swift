@@ -53,12 +53,21 @@ class WritingViewController: UIViewController, dismissHandler {
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
     }
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 2
+        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
+        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
     // Declare this to show the timestamp
@@ -116,6 +125,7 @@ class WritingViewController: UIViewController, dismissHandler {
         if selectedCate == 1 {
             categoryText = "학업"
             postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            
         }
         else if selectedCate == 2 {
             categoryText = "취업"
@@ -171,6 +181,10 @@ class WritingViewController: UIViewController, dismissHandler {
         super.viewDidLoad()
         uploadButton.isEnabled = false
         handleTextField()
+        
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
     }
     
     // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.

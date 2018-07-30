@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import SnapKit
 
+//현재 사용하지 않는 기능임...참고용
 class PeopleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var tableview : UITableView!
