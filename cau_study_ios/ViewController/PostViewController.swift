@@ -159,17 +159,17 @@ class PostViewController: UIViewController {
         
     }
     
-//    //username 터치시
-//    @objc func touchUsernameAction() {
-//        self.performSegue(withIdentifier: "WriterInfoViewController", sender: self)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "WriterInfoViewController" {
-//            let vc = segue.destination as! WriterInfoViewController
-//            vc.user = self.user
-//        }
-//    }
+    //username 터치시
+    @objc func touchUsernameAction() {
+        self.performSegue(withIdentifier: "WriterInfoViewController", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "WriterInfoViewController" {
+            let vc = segue.destination as! WriterInfoViewController
+            vc.user = self.user
+        }
+    }
     
     
     // hohyun Comment saved like button activate!
