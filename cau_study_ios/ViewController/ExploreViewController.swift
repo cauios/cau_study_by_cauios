@@ -46,30 +46,31 @@ class ExploreViewController: UIViewController {
     
      // [0729 Dahye] Actions for buttons
     @IBAction func allCateTouchUpInside(_ sender: Any) {
-        posts = [Post]()
+//        posts = [Post]()
+//        selectedSeg = 1
+//        Api.Post.observePosts{
+//            (post) in
+//            //self.posts.append(post) Dahye: This shows the new post on the bottom
+//            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
+//            self.exploreTableView.reloadData()
+//
+//        }
         selectedSeg = 1
-        Api.Post.observePosts{
-            (post) in
-            //self.posts.append(post) Dahye: This shows the new post on the bottom
-            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
-            self.exploreTableView.reloadData()
-            
-        }
-        loadPost()
-        self.exploreTableView.reloadData()
-    }
-    @IBAction func acaCateTouchUpInside(_ sender: Any) {
-        posts = [Post]()
-        selectedSeg = 2
-        Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
+        Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
-            print(snapshot.key)
             Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
                 self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
+            
         })
+            self.exploreTableView.reloadData()
+
+    }
+    @IBAction func acaCateTouchUpInside(_ sender: Any) {
+//        posts = [Post]()
+        selectedSeg = 2
+        loadAcaPost()
         self.exploreTableView.reloadData()
         
     }
@@ -77,35 +78,38 @@ class ExploreViewController: UIViewController {
     @IBAction func empCateTouchUpInside(_ sender: Any) {
         posts = [Post]()
         selectedSeg = 3
-        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
-                self.posts.insert(post, at: 0)
-                self.exploreTableView.reloadData()
-            })
-        })
+        loadEmpPost()
+//        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
+//            snapshot in
+//            print(snapshot.key)
+//            Api.Post.observePost(withId: snapshot.key, completion: { post in
+//
+//                self.posts.insert(post, at: 0)
+//                self.exploreTableView.reloadData()
+//            })
+//        })
         self.exploreTableView.reloadData()
     }
     @IBAction func lanCateTouchUpInside(_ sender: Any) {
         posts = [Post]()
         selectedSeg = 4
-        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
-                self.posts.insert(post, at: 0)
-                self.exploreTableView.reloadData()
-            })
-        })
+        loadLanPost()
+//        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
+//            snapshot in
+//            print(snapshot.key)
+//            Api.Post.observePost(withId: snapshot.key, completion: { post in
+//
+//                self.posts.insert(post, at: 0)
+//                self.exploreTableView.reloadData()
+//            })
+//        })
         self.exploreTableView.reloadData()
 }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedSeg = 1
         addNavBarImage()
         exploreTableView.dataSource = self
 
@@ -162,15 +166,16 @@ class ExploreViewController: UIViewController {
         })
      
     }
-    /* [0729 Dahye] Useless stuffs!
+
     //[0728 Dahye] load Academic Posts
     func loadAcaPost() {
         Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
             snapshot in
-            Api.Post.observeMyPosts(withId: snapshot.key, completion: { post in
-                self.acaPosts.insert(post, at: 0)
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
-                print(post.id!)
             })
         })
 
@@ -179,33 +184,31 @@ class ExploreViewController: UIViewController {
     
     //[0728 Dahye] load Employment Preperation Posts
     func loadEmpPost() {
-
         Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
             snapshot in
             print(snapshot.key)
-            Api.Post.observeMyPosts(withId: snapshot.key, completion: {
-                post in
-                self.empPosts.insert(post, at:0)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
         })
-
     }
 
- [0728 Dahye] load Language Posts
+ //[0728 Dahye] load Language Posts
     func loadLanPost() {
 
         Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
             snapshot in
             print(snapshot.key)
-            Api.Post.observeMyPosts(withId: snapshot.key, completion: {
-                post in
-                self.lanPosts.insert(post, at:0)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
         })
     }
- */
+
 
     
     
@@ -217,9 +220,7 @@ class ExploreViewController: UIViewController {
             completed()})
     }
     
-    // [Dahye 15.20] prepare method will be called right before the transition which is a perfect place to send the data on the destination view controller.
-    // [Dahye 05.20] prepare method should be implemented in the file where the performSegue is implemented.
-    // [Dahye 05.20] We should note that the data passed along is a string Id. So we need to convert the sender parameter of type any into string.
+    // [Dahye 5.20] prepare method will be called right before the transition which is a perfect place to send the data on the destination view controller. prepare method should be implemented in the file where the performSegue is implemented. We should note that the data passed along is a string Id. So we need to convert the sender parameter of type any into string.
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Open_PostSegue" {
@@ -239,7 +240,7 @@ class ExploreViewController: UIViewController {
     func addNavBarImage() {
         let navController = navigationController!
         
-        let image = #imageLiteral(resourceName: "logo_cau")
+        let image = #imageLiteral(resourceName: "logo")
         let imageView = UIImageView(image: image)
         
         let bannerWidth = navController.navigationBar.frame.size.width / 2
@@ -276,27 +277,32 @@ extension ExploreViewController: UITableViewDataSource {
         return posts.count
  */
         if selectedSeg == 1 {
-            print(posts.count)
+            print(posts.count, "count all")
             return posts.count
         }
         if selectedSeg == 2 {
 
-            print(acaPosts.count)
+            print(posts.count, "count aca")
             return posts.count
         }
         if selectedSeg == 3 {
-            print(empPosts.count)
-            return posts.count
-        } else {
-            print(lanPosts.count)
+            print(posts.count, "count emp")
             return posts.count
         }
+        if selectedSeg == 4 {
+            print(posts.count, "count lan")
+            return posts.count
+        } else {
+            print("return nothing")
+            return 0
+        }
+        
     }
     
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //[0728 Dahye] Mute for a while to try implementation for segmented
-        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+     /*   let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
         cell.post = post
         cell.delegate = self
@@ -318,6 +324,63 @@ extension ExploreViewController: UITableViewDataSource {
         cell4.delegate = self
 
         if selectedSeg == 1 {
+            cell.post = post
+            cell.delegate = self
+            return cell
+        }
+        if selectedSeg == 2 {
+            cell2.post = post
+            cell2.delegate = self
+            return cell2
+        }
+        if selectedSeg == 3 {
+            cell3.post = post
+            cell3.delegate = self
+            return cell3
+        } else {
+            cell4.post = post
+            cell4.delegate = self
+            return cell4
+        } */
+        
+        // [0730 Dahye]
+        let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
+        let cell2 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellAca", for: indexPath) as! ExploreTableViewCell
+        let cell3 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEmp", for: indexPath) as! ExploreTableViewCell
+        let cell4 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellLan", for: indexPath) as! ExploreTableViewCell
+        let post = posts[indexPath.row]
+        
+        
+        
+        if selectedSeg == 1 {
+            cell.post = post
+            print("cell")
+            cell.delegate = self
+            print("cell.deleg")
+            return cell
+        }
+        if selectedSeg == 2 {
+            cell2.post = post
+            print("cell2")
+            cell2.delegate = self
+            print("cell2.deleg")
+            return cell2
+        }
+        if selectedSeg == 3 {
+            cell3.post = post
+            print("cell3")
+            cell3.delegate = self
+            print("cell3,deleg")
+            return cell3
+        } else {
+            cell4.post = post
+            print("cell4")
+            cell4.delegate = self
+            print("cell4.deleg")
+            return cell4
+        }
+        /*
+        if selectedSeg == 1 {
             return cell
         }
         if selectedSeg == 2 {
@@ -328,8 +391,8 @@ extension ExploreViewController: UITableViewDataSource {
         } else {
             return cell4
         }
-        
-        
+        */
+
  
 
         

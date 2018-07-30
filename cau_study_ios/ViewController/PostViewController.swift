@@ -47,16 +47,23 @@ class PostViewController: UIViewController {
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
         self.navigationItem.rightBarButtonItem = barButton
-
+        
         loadPost()
         
-
+        
         // Dahye: Customize the bottom toolbar button
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         postViewToolBar.setItems([flexibleSpace, sendAMessageButton, flexibleSpace], animated: true)
         
+        
+        //for username touch
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchUsernameAction))
+        postUidLabel.addGestureRecognizer(tapGesture)
+        postUidLabel.isUserInteractionEnabled = true
+        
     }
     
+
     //newbro : sendbutton clicked
     @IBAction func SendMessageTouchUpinside(_ sender: Any) {
         self.performSegue(withIdentifier: "GoChatVC", sender:nil)
@@ -70,12 +77,13 @@ class PostViewController: UIViewController {
             }
         }
     }
+
     
     func updateView() {
         
         // [0726] Dahye: Add timestamp property
         // here we use optional chaining because old posts don't have timestamps
-
+        
         
         postTitleLabel.text = post?.title
         //postUidLabel.text = post?.uid
@@ -116,7 +124,7 @@ class PostViewController: UIViewController {
             if timeDiff.weekOfMonth! > 0 {
                 postTimestampText = (timeDiff.weekOfMonth == 1) ? "\(timeDiff.weekOfMonth!) week ago" : "\(timeDiff.weekOfMonth!) weeks ago"
             }
-
+            
             postTimestampLabel.text = postTimestampText
             
             
@@ -133,6 +141,7 @@ class PostViewController: UIViewController {
                 if let _ = snapshot.value as? NSNull {
                     self.postSavedLikeImageView.image = UIImage(named: "like")
                 } else {
+                    
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     
                 }
@@ -143,8 +152,29 @@ class PostViewController: UIViewController {
         }
         
     }
+
     
-    
+    func showAlert() {
+        // UIAlertController를 생성해야 한다. style은 .alert로 해준다.
+        let alertController = UIAlertController(title: "목록 삭제", message: "저장 목록에서 삭제하시겠습니까?", preferredStyle: .alert)
+        // style이 .cancel이면 bold체. handler가 nil일 경우에는 아무 일이 일어나지 않고 닫힌다.
+            alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: {alertAction in
+                NSLog("OK Pressed")
+            }))
+            // style이 .destructive면 빨간색 text color
+            alertController.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {
+                alertAction in
+                NSLog("Delete Pressed")
+                Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
+                self.postSavedLikeImageView.image = UIImage(named: "like")
+                Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
+                
+            // 실제로 화면에 보여주기 위해서는 present 메서드가 필요하다. animated : true/false로 해놓으면 애니메이션 효과가 있고/없다. present가 완료되어 화면이 보여지면 completion의 코드가 실행된다.
+                
+    }))
+        self.present(alertController, animated: true, completion: nil)
+
+    }
     
     // hohyun Comment saved like button activate!
     
@@ -155,10 +185,9 @@ class PostViewController: UIViewController {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
-                    
-                    
                 }
                 else {
+                    self.showAlert()
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
                     self.postSavedLikeImageView.image = UIImage(named: "like")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
@@ -172,13 +201,26 @@ class PostViewController: UIViewController {
         
         
     }
-    /* 잘 된 애
-    func loadPost() {
-        Api.Post.observePost(withId: postId!, completion: {post in
-            self.post = post
-        })
+    
+    //username 터치시
+    @objc func touchUsernameAction() {
+        self.performSegue(withIdentifier: "WriterInfoViewController", sender: self)
     }
- */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "WriterInfoViewController" {
+            let vc = segue.destination as! WriterInfoViewController
+            vc.user = self.user
+        }
+    }
+    
+    /* 잘 된 애
+     func loadPost() {
+     Api.Post.observePost(withId: postId!, completion: {post in
+     self.post = post
+     })
+     }
+     */
     // [Dahye 0725] This should be implemented in cooperation with Minjung
     // See the lecture 71
     //[Dahye 0725] just try~
@@ -207,6 +249,7 @@ class PostViewController: UIViewController {
     func setPostDescriptionLabelSize() {
         postScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor).isActive = true
     }
-  
-
+    
+    
 }
+
