@@ -2,6 +2,7 @@
 
 import Foundation
 
+
 class User {
     var email: String?
     var profileImageUrl: String?
@@ -10,6 +11,7 @@ class User {
     var introduceMyself: String?
     var saved: String?
 }
+
 
 extension User {
     static func transformUser(dict: [String: Any], key: String) -> User {
