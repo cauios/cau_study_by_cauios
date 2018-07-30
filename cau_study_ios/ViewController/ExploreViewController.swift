@@ -46,15 +46,6 @@ class ExploreViewController: UIViewController {
     
      // [0729 Dahye] Actions for buttons
     @IBAction func allCateTouchUpInside(_ sender: Any) {
-//        posts = [Post]()
-//        selectedSeg = 1
-//        Api.Post.observePosts{
-//            (post) in
-//            //self.posts.append(post) Dahye: This shows the new post on the bottom
-//            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
-//            self.exploreTableView.reloadData()
-//
-//        }
         selectedSeg = 1
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
@@ -79,30 +70,12 @@ class ExploreViewController: UIViewController {
         posts = [Post]()
         selectedSeg = 3
         loadEmpPost()
-//        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
-//            snapshot in
-//            print(snapshot.key)
-//            Api.Post.observePost(withId: snapshot.key, completion: { post in
-//
-//                self.posts.insert(post, at: 0)
-//                self.exploreTableView.reloadData()
-//            })
-//        })
         self.exploreTableView.reloadData()
     }
     @IBAction func lanCateTouchUpInside(_ sender: Any) {
         posts = [Post]()
         selectedSeg = 4
         loadLanPost()
-//        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
-//            snapshot in
-//            print(snapshot.key)
-//            Api.Post.observePost(withId: snapshot.key, completion: { post in
-//
-//                self.posts.insert(post, at: 0)
-//                self.exploreTableView.reloadData()
-//            })
-//        })
         self.exploreTableView.reloadData()
 }
 
@@ -115,22 +88,6 @@ class ExploreViewController: UIViewController {
 
         loadPost()
         self.exploreTableView.reloadData()
-
-//        if selectedSeg == 1 {
-//            loadPost()
-//            self.exploreTableView.reloadData()
-//        }
-//        if selectedSeg == 2 {
-//            loadAcaPost()
-//            self.exploreTableView.reloadData()
-//        }
-//        if selectedSeg == 3 {
-//            self.exploreTableView.reloadData()
-//        } else {
-//            loadLanPost()
-//            self.exploreTableView.reloadData()
-//        }
-
     }
     
     func loadPost() {
@@ -301,47 +258,7 @@ extension ExploreViewController: UITableViewDataSource {
     
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//[0728 Dahye] Mute for a while to try implementation for segmented
-     /*   let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
-        let post = posts[indexPath.row]
-        cell.post = post
-        cell.delegate = self
-        
-        // [0728 Dahye] other tables too!
-        let cell2 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellAca", for: indexPath) as! ExploreTableViewCell
-        let acaPost = posts[indexPath.row]
-        cell2.post = acaPost
-        cell2.delegate = self
-        
-        let cell3 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEmp", for: indexPath) as! ExploreTableViewCell
-        let empPost = posts[indexPath.row]
-        cell3.post = empPost
-        cell3.delegate = self
 
-        let cell4 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellLan", for: indexPath) as! ExploreTableViewCell
-        let lanPost = posts[indexPath.row]
-        cell4.post = lanPost
-        cell4.delegate = self
-
-        if selectedSeg == 1 {
-            cell.post = post
-            cell.delegate = self
-            return cell
-        }
-        if selectedSeg == 2 {
-            cell2.post = post
-            cell2.delegate = self
-            return cell2
-        }
-        if selectedSeg == 3 {
-            cell3.post = post
-            cell3.delegate = self
-            return cell3
-        } else {
-            cell4.post = post
-            cell4.delegate = self
-            return cell4
-        } */
         
         // [0730 Dahye]
         let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell

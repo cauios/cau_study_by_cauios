@@ -76,6 +76,10 @@ class PostViewController: UIViewController {
                 destinationVC.viewWillAppear(true)
             }
         }
+        if segue.identifier == "WriterInfoViewController" {
+            let vc = segue.destination as! WriterInfoViewController
+            vc.user = self.user
+        }
     }
 
     
@@ -206,13 +210,7 @@ class PostViewController: UIViewController {
     @objc func touchUsernameAction() {
         self.performSegue(withIdentifier: "WriterInfoViewController", sender: self)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "WriterInfoViewController" {
-            let vc = segue.destination as! WriterInfoViewController
-            vc.user = self.user
-        }
-    }
+
     
     /* 잘 된 애
      func loadPost() {
