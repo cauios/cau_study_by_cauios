@@ -203,11 +203,38 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func doNotWantedAction(at indexPath: IndexPath) -> UIContextualAction {
         let selectedCell = posts[indexPath.row]
-        let action = UIContextualAction(style: .normal, title: "Do Not Wanted", handler: {(action, view, completion) in
-            
-            completion(true)
-        })
-        return action
+        if selectedCell.wanted! {
+            let action = UIContextualAction(style: .normal, title: "Do Not Wanted", handler: {(action, view, completion) in
+                let cellId = selectedCell.id
+                Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(false, withCompletionBlock: { err,ref  in
+                    if err != nil {
+                        ProgressHUD.showError(err?.localizedDescription)
+                        return
+                    }
+                    self.posts[indexPath.row].wanted = false
+                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                    completion(true)
+                })
+
+            })
+            return action
+        } else {
+            let action = UIContextualAction(style: .normal, title: "Wanted", handler: {(action, view, completion) in
+                let cellId = selectedCell.id
+                Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(true, withCompletionBlock: { err,ref  in
+                    if err != nil {
+                        ProgressHUD.showError(err?.localizedDescription)
+                        return
+                    }
+                    self.posts[indexPath.row].wanted = true
+                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                    completion(true)
+                })
+                
+            })
+            return action
+        }
+    
     }
     
     
