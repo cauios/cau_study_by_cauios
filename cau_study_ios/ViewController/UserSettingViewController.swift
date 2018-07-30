@@ -24,11 +24,7 @@ class UserSettingViewController: UIViewController {
 
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "DeleteUserViewController" {
-//
-//        }
-//    }
+
 
 
 }
@@ -71,7 +67,7 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    
+    //cell touched
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let selectedCell = list[indexPath.row]
@@ -97,10 +93,22 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
         } else  {
             let selectedCellSecond = serviceList[indexPath.row]
             if selectedCellSecond == "공지사항" {
+                let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                let alertController = UIAlertController(title: "??", message: "업데이트 예정입니다.", preferredStyle: .alert)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
                 
             } else if selectedCellSecond == "FAQ 도움말" {
+                let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                let alertController = UIAlertController(title: "??", message: "업데이트 예정입니다.", preferredStyle: .alert)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
                 
             } else if selectedCellSecond == "문의 피드백 보내기" {
+                let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                let alertController = UIAlertController(title: "??", message: "업데이트 예정입니다.", preferredStyle: .alert)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
                 
             }
         }

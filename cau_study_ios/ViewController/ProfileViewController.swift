@@ -136,34 +136,11 @@ class ProfileViewController: UIViewController {
             self.profileImage.sd_setImage(with: photoUrl)
         }
     }
-    
-//
-//
-//
-//    func enableTextFieldChanged() {
-//        textField.isUserInteractionEnabled = true
-//        changeTextButton.isUserInteractionEnabled = false
-//        changeTextButton.backgroundColor = .white
-//        saveTextButton.backgroundColor = .lightGray
-//        cancelTextButton.backgroundColor = .lightGray
-//        saveTextButton.isUserInteractionEnabled = true
-//        cancelTextButton.isUserInteractionEnabled = true
-//    }
-//    func disableTextFieldChanged() {
-//        textField.isUserInteractionEnabled = false
-//        changeTextButton.backgroundColor = .lightGray
-//        changeTextButton.isUserInteractionEnabled = true
-//        saveTextButton.backgroundColor = .white
-//        cancelTextButton.backgroundColor = .white
-//        saveTextButton.isUserInteractionEnabled = false
-//        cancelTextButton.isUserInteractionEnabled = false
-//    }
 
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostViewController" {
-            let cell = sender as? MyPostsTableViewCell
             let vc = segue.destination as! PostViewController
             vc.postId = self.selectedCellId
         }
@@ -183,7 +160,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         listLabel.text = "내가 쓴 글"
         listLabel.textAlignment = .left
         listLabel.textColor = .black
-        listLabel.font = UIFont.systemFont(ofSize: 15)
+        listLabel.font = UIFont.systemFont(ofSize: 17)
         
         subview.addSubview(listLabel)
         listLabel.translatesAutoresizingMaskIntoConstraints = false
