@@ -185,13 +185,40 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            let deleteCell = posts[indexPath.row]
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if (editingStyle == UITableViewCellEditingStyle.delete) {
+//            let deleteCell = posts[indexPath.row]
+//            Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
+//            Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
+//
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doNotWanted = doNotWantedAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [doNotWanted, delete])
+    }
+    
+    
+    func doNotWantedAction(at indexPath: IndexPath) -> UIContextualAction {
+        let selectedCell = posts[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Do Not Wanted", handler: {(action, view, completion) in
+            
+            completion(true)
+        })
+        return action
+    }
+    
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let deleteCell = posts[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "Delete", handler: {(action, view, completion) in
             Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
             Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
-            
-        }
+            completion(true)
+            })
+        return action
     }
     
     
