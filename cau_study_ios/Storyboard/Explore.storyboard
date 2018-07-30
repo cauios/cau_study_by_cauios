@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -830,20 +830,33 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CEn-WF-1uY">
-                                        <rect key="frame" x="81" y="67" width="273" height="29"/>
-                                        <segments>
-                                            <segment title="학업"/>
-                                            <segment title="취업"/>
-                                            <segment title="어학"/>
-                                        </segments>
-                                    </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lT3-8f-vud">
                                         <rect key="frame" x="8" y="71" width="59" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFP-Y5-Tmx">
+                                        <rect key="frame" x="140" y="66" width="30" height="30"/>
+                                        <state key="normal" title="학업"/>
+                                        <connections>
+                                            <action selector="acaCateWtTouchUpInside:" destination="fBO-um-o01" eventType="touchUpInside" id="8vg-ri-yhC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGo-2U-Fsa">
+                                        <rect key="frame" x="194" y="66" width="30" height="30"/>
+                                        <state key="normal" title="취업"/>
+                                        <connections>
+                                            <action selector="empCateWtTouchUpInside:" destination="fBO-um-o01" eventType="touchUpInside" id="zKV-jU-usi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-Oq-ZC4">
+                                        <rect key="frame" x="248" y="68" width="30" height="30"/>
+                                        <state key="normal" title="어학"/>
+                                        <connections>
+                                            <action selector="lanCateWtTouchUpInside:" destination="fBO-um-o01" eventType="touchUpInside" id="Gci-7z-VKY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -852,16 +865,18 @@
                                     <constraint firstItem="5Vh-yh-o2K" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="2DJ-xZ-Qhe"/>
                                     <constraint firstItem="9SG-Ax-GjP" firstAttribute="top" secondItem="0TJ-8i-c2i" secondAttribute="bottom" constant="5" id="2kW-8z-Yry"/>
                                     <constraint firstAttribute="trailing" secondItem="mK4-15-n0w" secondAttribute="trailing" constant="8" id="3Vu-l8-LSF"/>
-                                    <constraint firstAttribute="trailing" secondItem="CEn-WF-1uY" secondAttribute="trailing" constant="21" id="8aQ-J5-NQI"/>
+                                    <constraint firstItem="jGo-2U-Fsa" firstAttribute="leading" secondItem="fFP-Y5-Tmx" secondAttribute="trailing" constant="24" id="4Ka-8Y-dwN"/>
                                     <constraint firstItem="gRK-RS-uwt" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="9D8-1R-9lD"/>
-                                    <constraint firstItem="CEn-WF-1uY" firstAttribute="leading" secondItem="lT3-8f-vud" secondAttribute="trailing" constant="14" id="9tU-SK-1te"/>
+                                    <constraint firstItem="lT3-8f-vud" firstAttribute="centerY" secondItem="jGo-2U-Fsa" secondAttribute="centerY" id="ARi-pH-uVS"/>
                                     <constraint firstItem="gRK-RS-uwt" firstAttribute="top" secondItem="9SG-Ax-GjP" secondAttribute="bottom" constant="5" id="ASV-ga-dyj"/>
                                     <constraint firstAttribute="trailing" secondItem="Q6u-xV-Rtr" secondAttribute="trailing" constant="8" id="Ams-sP-xlU"/>
+                                    <constraint firstItem="0ca-Oq-ZC4" firstAttribute="leading" secondItem="jGo-2U-Fsa" secondAttribute="trailing" constant="24" id="B5I-rJ-ILp"/>
                                     <constraint firstItem="CHG-9W-g6x" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="B9m-tw-PhA"/>
                                     <constraint firstAttribute="bottom" secondItem="Q6u-xV-Rtr" secondAttribute="bottom" constant="10" id="FG9-ux-Tge"/>
                                     <constraint firstAttribute="trailing" secondItem="CHG-9W-g6x" secondAttribute="trailing" constant="8" id="Fnk-Gd-Uel"/>
                                     <constraint firstItem="DRe-xy-Gfc" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="Fxd-ay-HKu"/>
                                     <constraint firstAttribute="trailing" secondItem="CF9-3I-Aqv" secondAttribute="trailing" constant="8" id="IGk-uL-G6H"/>
+                                    <constraint firstItem="fFP-Y5-Tmx" firstAttribute="leading" secondItem="lT3-8f-vud" secondAttribute="trailing" constant="73" id="IkB-j2-HdE"/>
                                     <constraint firstAttribute="trailing" secondItem="gRK-RS-uwt" secondAttribute="trailing" constant="8" id="Mja-9u-zuc"/>
                                     <constraint firstItem="5Vh-yh-o2K" firstAttribute="leading" secondItem="lT3-8f-vud" secondAttribute="leading" id="SGp-bf-ugg"/>
                                     <constraint firstAttribute="trailing" secondItem="5Vh-yh-o2K" secondAttribute="trailing" constant="8" id="Trv-Lz-aqM"/>
@@ -873,7 +888,6 @@
                                     <constraint firstItem="DRe-xy-Gfc" firstAttribute="top" secondItem="CF9-3I-Aqv" secondAttribute="bottom" constant="5" id="cqe-F7-VES"/>
                                     <constraint firstAttribute="trailing" secondItem="0TJ-8i-c2i" secondAttribute="trailing" constant="8" id="eLB-Kf-OP2"/>
                                     <constraint firstItem="qt7-MK-hKG" firstAttribute="top" secondItem="kHY-SX-QIk" secondAttribute="top" constant="10" id="eeW-6m-9vi"/>
-                                    <constraint firstItem="5Vh-yh-o2K" firstAttribute="top" secondItem="CEn-WF-1uY" secondAttribute="bottom" constant="11" id="gcM-6I-HBL"/>
                                     <constraint firstItem="f9l-mw-9Gn" firstAttribute="top" secondItem="gRK-RS-uwt" secondAttribute="bottom" constant="5" id="j8f-dU-r2G"/>
                                     <constraint firstItem="0TJ-8i-c2i" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="kXF-na-kh5"/>
                                     <constraint firstItem="Q6u-xV-Rtr" firstAttribute="top" secondItem="f9l-mw-9Gn" secondAttribute="bottom" constant="5" id="lG4-OV-XZN"/>
@@ -881,14 +895,16 @@
                                     <constraint firstItem="Q6u-xV-Rtr" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="lu5-X7-BrW"/>
                                     <constraint firstItem="BFW-xO-UrP" firstAttribute="top" secondItem="qt7-MK-hKG" secondAttribute="bottom" constant="5" id="m13-Gz-Duw"/>
                                     <constraint firstItem="fIh-iY-QgW" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="mhF-ye-NZq"/>
+                                    <constraint firstItem="5Vh-yh-o2K" firstAttribute="top" secondItem="lT3-8f-vud" secondAttribute="bottom" constant="14" id="nKh-MI-DQg"/>
+                                    <constraint firstItem="5Vh-yh-o2K" firstAttribute="top" secondItem="0ca-Oq-ZC4" secondAttribute="bottom" constant="8" symbolic="YES" id="nQS-zc-Rbt"/>
                                     <constraint firstAttribute="trailing" secondItem="9SG-Ax-GjP" secondAttribute="trailing" constant="8" id="oFT-v9-MxT"/>
                                     <constraint firstAttribute="trailing" secondItem="BFW-xO-UrP" secondAttribute="trailing" constant="8" id="p8J-3M-gXi"/>
                                     <constraint firstItem="CF9-3I-Aqv" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="q8d-qU-8Qy"/>
                                     <constraint firstItem="mK4-15-n0w" firstAttribute="top" secondItem="fIh-iY-QgW" secondAttribute="bottom" constant="5" id="qAX-jr-pZw"/>
                                     <constraint firstItem="mK4-15-n0w" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="rrM-tk-Qys"/>
+                                    <constraint firstItem="lT3-8f-vud" firstAttribute="centerY" secondItem="fFP-Y5-Tmx" secondAttribute="centerY" id="uAo-fh-eB2"/>
                                     <constraint firstAttribute="trailing" secondItem="fIh-iY-QgW" secondAttribute="trailing" constant="8" id="uJc-ZI-CiP"/>
                                     <constraint firstItem="BFW-xO-UrP" firstAttribute="leading" secondItem="kHY-SX-QIk" secondAttribute="leading" constant="8" id="xM9-si-DRZ"/>
-                                    <constraint firstItem="CEn-WF-1uY" firstAttribute="centerY" secondItem="lT3-8f-vud" secondAttribute="centerY" id="yXi-XC-EKB"/>
                                     <constraint firstAttribute="trailing" secondItem="DRe-xy-Gfc" secondAttribute="trailing" constant="8" id="zXg-da-Qdl"/>
                                 </constraints>
                             </view>
@@ -907,8 +923,10 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="categorySC" destination="CEn-WF-1uY" id="N36-Hd-fVR"/>
+                        <outlet property="acaCateWtButton" destination="fFP-Y5-Tmx" id="hMF-3I-PSf"/>
                         <outlet property="descriptionTextView" destination="Q6u-xV-Rtr" id="o4p-3k-fJ7"/>
+                        <outlet property="empCateWtButton" destination="jGo-2U-Fsa" id="TdB-6r-T8j"/>
+                        <outlet property="lanCateWtButton" destination="0ca-Oq-ZC4" id="paF-Ce-gtS"/>
                         <outlet property="locationTextField" destination="9SG-Ax-GjP" id="Ga2-Jo-Ht0"/>
                         <outlet property="numOfVacanTextField" destination="CHG-9W-g6x" id="3WQ-2a-zTp"/>
                         <outlet property="tagsTextField" destination="CF9-3I-Aqv" id="WGf-Kc-cbG"/>
@@ -929,6 +947,6 @@
         <image name="write_nobackcolor" width="38" height="38"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mGy-9W-0rS"/>
+        <segue reference="LOA-C6-f2l"/>
     </inferredMetricsTieBreakers>
 </document>

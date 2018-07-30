@@ -36,7 +36,7 @@ class WritingViewController: UIViewController, dismissHandler {
 
     @IBOutlet weak var titleTextField: UITextField!
     //@IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var categorySC: UISegmentedControl!
+
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var numOfVacanTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
@@ -44,7 +44,24 @@ class WritingViewController: UIViewController, dismissHandler {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var uploadButton: UIBarButtonItem!
     
-     // [0726] Dahye: Codes related to the timestamp are added this moment
+    // [0731 Dahye] About category buttons
+    var selectedCate = 1
+    
+    @IBOutlet weak var acaCateWtButton: UIButton!
+    @IBOutlet weak var empCateWtButton: UIButton!
+    @IBOutlet weak var lanCateWtButton: UIButton!
+    
+    @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 1
+    }
+    @IBAction func empCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 2
+    }
+    @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 3
+    }
+    
+    // Declare this to show the timestamp
     let timestamp = Int(Date().timeIntervalSince1970)
     
     // Buttons
@@ -94,18 +111,21 @@ class WritingViewController: UIViewController, dismissHandler {
         
         
         var categoryText = ""
-        if categorySC.selectedSegmentIndex == 0 {
+        
+
+        if selectedCate == 1 {
             categoryText = "학업"
             postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
-        else if categorySC.selectedSegmentIndex == 1 {
+        else if selectedCate == 2 {
             categoryText = "취업"
             postIntoCateEmpl.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
-        else if categorySC.selectedSegmentIndex == 2 {
+        else if selectedCate == 3 {
             categoryText = "어학"
             postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
+
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
         // value of "timestamp" would be self.timestamp or timestamp
