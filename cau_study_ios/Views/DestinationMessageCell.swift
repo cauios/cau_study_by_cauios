@@ -11,7 +11,7 @@ import UIKit
 class DestinationMessageCell: UITableViewCell {
 
     
-    @IBOutlet weak var label_message: UIImageView!
+    @IBOutlet weak var label_message: UILabel!
     @IBOutlet weak var imageview_profile: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     

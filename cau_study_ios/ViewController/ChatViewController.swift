@@ -14,31 +14,100 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     public var destinationUid: String? //내가 채팅할 상대의 id
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var uid :String?
     var chatRoomUid :String?
     var comments : [ChatModel.Comment] = []
+    var userModel : User?
+    
     @IBOutlet weak var textField_message: UITextField!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let view = tableview.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath)
-        view.textLabel?.text = self.comments[indexPath.row].message
-        
-        return view
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
-        print("5번 포인트")
         checkChatRoom()
+        self.tabBarController?.tabBar.isHidden = true
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 
+    
+    //시작시 작동, 키보드가 나타나고 사라지는 코드(옵저버)
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    //종료시 작동
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false  //탭바다시노출
+        NotificationCenter.default.removeObserver(self)  //옵저버 제거
+        
+    }
+    
+    @objc func keyboardWillShow(notification : Notification){
+        if let keyboardSize = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue{
+            self.bottomConstraint.constant = keyboardSize.height
+        }
+        UIView.animate(withDuration: 0, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: {
+            (complete) in
+            //대화가있으면 제일 밑으로 내려준다
+            if self.comments.count > 0 {
+                self.tableview.scrollToRow(at: IndexPath(item: self.comments.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+            }
+        })
+    }
+    
+    @objc func keyboardWillHide(notification: Notification){
+        self.bottomConstraint.constant = 20
+        self.view.layoutIfNeeded()
+    }
+    
+    //다른곳 눌러도 키보드 다시 내려가도록 코딩, viewDidLoad에서 호출
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if(self.comments[indexPath.row].uid == uid){
+            let view = tableview.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCellTableViewCell
+            view.label_message.text = self.comments[indexPath.row].message
+            view.label_message.numberOfLines = 0
+            return view
+        }else{
+            let view = tableview.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
+            view.labelName.text = userModel?.username
+            view.label_message.text = self.comments[indexPath.row].message
+            view.label_message.numberOfLines = 0
+            
+            let url = URL(string: (self.userModel?.profileImageUrl)!)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, err) in
+                DispatchQueue.main.async {
+                    view.imageview_profile.image = UIImage(data: data!)
+                    view.imageview_profile.layer.cornerRadius = view.imageview_profile.frame.width/2
+                    view.imageview_profile.clipsToBounds = true
+                }
+            }).resume()
+            return view
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,7 +116,6 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @objc func createRoom(){
-        print("4번 포인트")
         let createRoomInfo :Dictionary<String,Any> = [
             "users" :[
                 uid!: true,
@@ -67,7 +135,10 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     "uid":uid!,
                     "message":textField_message.text!
             ]
-            Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {
+                (err, ref) in
+                self.textField_message.text = "" //메세지 보낸다음에 지워준다
+            })
         }
     }
 
@@ -81,13 +152,28 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                         if(chatModel?.users[self.destinationUid!] == true){
                             self.chatRoomUid=item.key
                             self.sendButton.isEnabled = true
-                            self.getMessageList()
+                            self.getDestinationInfo()
                     }
                 }
                 
             }
             
         })
+    }
+    
+    func getDestinationInfo(){
+         /*기존코드 Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+            self.userModel = User()
+            self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
+            self.getMessageList()
+        })
+         */
+        Api.User.observeUser(withId: uid!, completion: { user in
+            self.userModel = User()
+            self.userModel = user
+            self.getMessageList()
+            })
+        //왜 되는지 모르곘음;;;;
     }
     
     func getMessageList(){
@@ -99,6 +185,11 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 self.comments.append(comment!)
             }
             self.tableview.reloadData()
+            
+            //상대방데이터가 넘어올때도 최하단으로 내려준다.
+            if self.comments.count > 0 {
+                self.tableview.scrollToRow(at: IndexPath(item: self.comments.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+            }
         })
     }
     /*
