@@ -131,19 +131,28 @@ class PostViewController: UIViewController {
         }
         
     }
+
     
     func showAlert() {
         // UIAlertController를 생성해야 한다. style은 .alert로 해준다.
         let alertController = UIAlertController(title: "목록 삭제", message: "저장 목록에서 삭제하시겠습니까?", preferredStyle: .alert)
         // style이 .cancel이면 bold체. handler가 nil일 경우에는 아무 일이 일어나지 않고 닫힌다.
-            alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: {alertAction in print("확인")}))
+            alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: {alertAction in
+                NSLog("OK Pressed")
+            }))
             // style이 .destructive면 빨간색 text color
             alertController.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {
                 alertAction in
+                NSLog("Delete Pressed")
+                Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
+                self.postSavedLikeImageView.image = UIImage(named: "like")
+                Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
                 
-            }))
             // 실제로 화면에 보여주기 위해서는 present 메서드가 필요하다. animated : true/false로 해놓으면 애니메이션 효과가 있고/없다. present가 완료되어 화면이 보여지면 completion의 코드가 실행된다.
-            self.present(alertController, animated: true, completion: nil)
+                
+    }))
+        self.present(alertController, animated: true, completion: nil)
+
     }
     
     // hohyun Comment saved like button activate!
@@ -155,8 +164,6 @@ class PostViewController: UIViewController {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
-                    
-                    
                 }
                 else {
                     self.showAlert()
