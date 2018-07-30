@@ -364,7 +364,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dWf-ZG-Ir8">
-                        <barButtonItem key="leftBarButtonItem" image="write_nobackcolor" id="svc-r2-l5S">
+                        <barButtonItem key="leftBarButtonItem" image="write" id="svc-r2-l5S">
                             <connections>
                                 <action selector="writeTouchUpInside:" destination="hvP-RY-GmE" id="peR-9g-5wt"/>
                                 <segue destination="fBO-um-o01" kind="presentation" identifier="Open_WritingSegue" id="Lx9-zU-TyU"/>
@@ -936,7 +936,7 @@
         <image name="like" width="46" height="41"/>
         <image name="list" width="36" height="36"/>
         <image name="notification_nobackcolor" width="36" height="47"/>
-        <image name="write_nobackcolor" width="38" height="38"/>
+        <image name="write" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LOA-C6-f2l"/>
