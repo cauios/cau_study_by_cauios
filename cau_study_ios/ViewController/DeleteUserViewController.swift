@@ -13,7 +13,8 @@ class DeleteUserViewController: UIViewController {
 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var agreeBtn: UIImageView!
-    @IBOutlet weak var deleteBtn: UIButton!
+
+    @IBOutlet weak var deleteBarBtnItem: UIBarButtonItem!
     @IBOutlet weak var passwordTextField: UITextField!
     var currenterUser: User?
     var uid: String?
@@ -28,8 +29,7 @@ class DeleteUserViewController: UIViewController {
             self.emailLabel.text = user.email
             self.currenterUser = user
         })
-        deleteBtn.isUserInteractionEnabled = false
-        deleteBtn.backgroundColor = .lightGray
+        deleteBarBtnItem.isEnabled = false
         
         if state {
             configureAgree()
@@ -54,25 +54,22 @@ class DeleteUserViewController: UIViewController {
     }
     
     @objc func agree() {
-        deleteBtn.isUserInteractionEnabled = false
-        deleteBtn.backgroundColor = .lightGray
+        deleteBarBtnItem.isEnabled = false
         state = true
         configureDisagree()
     }
     
     @objc func disagree() {
-        deleteBtn.isUserInteractionEnabled = true
-        deleteBtn.backgroundColor = .black
+        deleteBarBtnItem.isEnabled = true
         state = false
         configureAgree()
     }
     
     //delete
-    @IBAction func deletaUserButton(_ sender: Any) {
-        
+    @IBAction func deleteUserBarBtn(_ sender: Any) {
         reauthentication(password: passwordTextField.text!)
-        
     }
+   
     
     func deleteDatabase() {
         if let userId = currenterUser?.uid {

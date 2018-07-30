@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserSettingViewController: UIViewController {
     
@@ -81,6 +82,21 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
             performSegue(withIdentifier: "ChangeProfileViewController", sender: selectedCell)
             
         } else if selectedCell == "로그아웃" {
+            do{
+                try Auth.auth().signOut()
+            } catch let logoutError{
+                print(logoutError)
+            }
+            
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+            self.present(signInVC, animated: true, completion: nil)
+            
+        } else if selectedCell == "FAQ 도움말" {
+            
+        } else if selectedCell == "문의 피드백 보내기" {
+            
+        } else if selectedCell == "공지사항" {
             
         }
     }
