@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchUser()
+         self.tabBarController?.tabBar.isHidden = false
     }
     
     

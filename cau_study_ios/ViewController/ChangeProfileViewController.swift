@@ -85,10 +85,14 @@ class ChangeProfileViewController: UIViewController {
         if self.usernameTextField.text.count >= 4 {
             currentUser?.username = self.usernameTextField.text
             currentUser?.introduceMyself = self.descriptionTextField.text
-            let usersReference = Api.User.REF_USERS
-            let newUserReference = usersReference.child((currentUser?.uid!)!)
             
-            newUserReference.updateChildValues(["introduceMyself": currentUser?.introduceMyself!,"username": currentUser?.username!])
+            Api.User.changeProfileInfo(currentUserUid: (currentUser?.uid)!, introduceString: (currentUser?.introduceMyself)!, username: (currentUser?.username)!, onSuccess: {
+                ProgressHUD.showSuccess()
+                _ = self.navigationController?.popToRootViewController(animated: true)
+                
+                }, onError: {errorStr in
+                ProgressHUD.showError(errorStr)
+            })
             
         } else {
             ProgressHUD.showError("유저 닉네임은 4글자 이상이어야 합니다.")
