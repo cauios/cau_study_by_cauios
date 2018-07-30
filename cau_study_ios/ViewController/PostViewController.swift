@@ -131,12 +131,12 @@ class PostViewController: UIViewController {
                     
                 }
             }
-            
-            
-            
+
         }
         
     }
+    
+    
     func showAlert() {
         // UIAlertController를 생성해야 한다. style은 .alert로 해준다.
         let alertController = UIAlertController(title: "목록 삭제", message: "저장 목록에서 삭제하시겠습니까?", preferredStyle: .alert)
