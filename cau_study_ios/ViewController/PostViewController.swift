@@ -56,7 +56,20 @@ class PostViewController: UIViewController {
         postViewToolBar.setItems([flexibleSpace, sendAMessageButton, flexibleSpace], animated: true)
         
     }
-
+    
+    //newbro : sendbutton clicked
+    @IBAction func SendMessageTouchUpinside(_ sender: Any) {
+        self.performSegue(withIdentifier: "GoChatVC", sender:nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoChatVC" {
+            if let destinationVC = segue.destination as? ChatViewController {
+                destinationVC.destinationUid = user.uid
+                destinationVC.viewWillAppear(true)
+            }
+        }
+    }
     
     func updateView() {
         

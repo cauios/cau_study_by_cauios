@@ -11,6 +11,7 @@ import UIKit
 class MyMessageCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label_message: UILabel!
+    @IBOutlet weak var label_timestamp: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

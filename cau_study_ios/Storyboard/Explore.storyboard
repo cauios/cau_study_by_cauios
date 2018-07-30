@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -522,7 +522,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pt4-iC-e35">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Send A Message" id="8UH-UB-BKY"/>
+                                    <barButtonItem title="Send A Message" id="8UH-UB-BKY">
+                                        <connections>
+                                            <action selector="SendMessageTouchUpinside:" destination="FfP-bz-Hmj" id="BZW-j4-ks0"/>
+                                            <segue destination="lx0-ew-sa5" kind="show" identifier="GoChatVC" id="A3c-r7-qs8"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -551,12 +556,20 @@
                         <outlet property="postTitleLabel" destination="pc5-hj-zfL" id="rSh-i7-3ax"/>
                         <outlet property="postUidLabel" destination="V1M-Bf-Wj0" id="opb-ap-bsz"/>
                         <outlet property="postViewToolBar" destination="pt4-iC-e35" id="y5a-Wk-yU3"/>
-                        <outlet property="sendAMessageButton" destination="8UH-UB-BKY" id="lHV-tJ-uxx"/>
+                        <outlet property="sendAMessageButton" destination="8UH-UB-BKY" id="Ka7-Oh-6he"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyU-qe-xzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1492" y="3391.7541229385311"/>
+        </scene>
+        <!--ChatViewController-->
+        <scene sceneID="sEa-Cs-5vJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" referencedIdentifier="ChatViewController" id="lx0-ew-sa5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZe-fr-WKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1426" y="3839"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ysa-qV-wIA">
