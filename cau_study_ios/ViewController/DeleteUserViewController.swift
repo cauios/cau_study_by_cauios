@@ -13,7 +13,8 @@ class DeleteUserViewController: UIViewController {
 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var agreeBtn: UIImageView!
-    @IBOutlet weak var deleteBtn: UIButton!
+
+    @IBOutlet weak var deleteBarBtnItem: UIBarButtonItem!
     @IBOutlet weak var passwordTextField: UITextField!
     var currenterUser: User?
     var uid: String?
@@ -28,14 +29,18 @@ class DeleteUserViewController: UIViewController {
             self.emailLabel.text = user.email
             self.currenterUser = user
         })
-        deleteBtn.isUserInteractionEnabled = false
-        deleteBtn.backgroundColor = .lightGray
+        deleteBarBtnItem.isEnabled = false
         
         if state {
             configureAgree()
         } else {
             configureDisagree()
         }
+        
+        //키보드 화면 가릴때
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     func configureAgree() {
@@ -54,25 +59,22 @@ class DeleteUserViewController: UIViewController {
     }
     
     @objc func agree() {
-        deleteBtn.isUserInteractionEnabled = false
-        deleteBtn.backgroundColor = .lightGray
+        deleteBarBtnItem.isEnabled = false
         state = true
         configureDisagree()
     }
     
     @objc func disagree() {
-        deleteBtn.isUserInteractionEnabled = true
-        deleteBtn.backgroundColor = .black
+        deleteBarBtnItem.isEnabled = true
         state = false
         configureAgree()
     }
     
     //delete
-    @IBAction func deletaUserButton(_ sender: Any) {
-        
+    @IBAction func deleteUserBarBtn(_ sender: Any) {
         reauthentication(password: passwordTextField.text!)
-        
     }
+   
     
     func deleteDatabase() {
         if let userId = currenterUser?.uid {
@@ -128,6 +130,23 @@ class DeleteUserViewController: UIViewController {
     //touch anywhere, keyboard dismissed
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //content showing when keyboard showed
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
 }

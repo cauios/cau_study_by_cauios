@@ -24,8 +24,11 @@ class ExploreTableViewCell: UITableViewCell {
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
     // [Dahye 05.20] We must set didSet observer to conveniently update a cell, when there is an updated data.
+    var posts = [Post]()
+
     var post: Post? {
         didSet {
+         
             updateView()
         }
     }
@@ -36,6 +39,9 @@ class ExploreTableViewCell: UITableViewCell {
         exploreTitleLabel.text = post?.title
         exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
+        
+  
+        
         
         let tapGestureForExploreTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.exploreTitleLabel_TouchUpInside))
         
@@ -56,12 +62,12 @@ class ExploreTableViewCell: UITableViewCell {
                     
                 }
             }
-            
-        }
+         
         
 
     }
-    // hohyun COmment s
+    }
+    // hohyun Comment saved like button activate!
  
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {
@@ -70,6 +76,7 @@ class ExploreTableViewCell: UITableViewCell {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.savedLikeImageView.image = UIImage(named: "likeSelected")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    
                     
                 }
                 else {
@@ -97,6 +104,8 @@ class ExploreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       
+
         // Initialization code
     }
 

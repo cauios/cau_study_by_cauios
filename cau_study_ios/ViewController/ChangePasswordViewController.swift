@@ -13,28 +13,38 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet var configureUserView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var doneBtn: UIButton!
+    
     
     @IBOutlet weak var changePasswordView: UIView!
     @IBOutlet weak var newPasswordTextField: UITextField!
+
     @IBOutlet weak var confirmNewPasswordTextField: UITextField!
     @IBOutlet weak var changeBtn: UIButton!
     
+    var configureTextFieldisFilled = false
     var firstTextFieldisFilled = false
     var secondTextFieldisFilled = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+        changePasswordView.backgroundColor = UIColor(patternImage: UIImage(named: "2-3bg")!)
+        
         passwordTextField.delegate = self
         newPasswordTextField.delegate = self
         confirmNewPasswordTextField.delegate = self
+        //텍스트필드 태그
+        passwordTextField.tag = 0
         newPasswordTextField.tag = 1
         confirmNewPasswordTextField.tag = 2
         
-        doneBtn.isUserInteractionEnabled = false
-        doneBtn.backgroundColor = .lightGray
-        changeBtn.isUserInteractionEnabled = false
-        changeBtn.backgroundColor = .lightGray
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        
+        //키보드 화면 가릴때
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+  
         
     }
     
@@ -51,20 +61,22 @@ class ChangePasswordViewController: UIViewController {
             if error != nil {
                 ProgressHUD.showError(error?.localizedDescription)
                 return
-            } else {
-                self.configureUserView.addSubview(self.changePasswordView)
             }
+            self.changeNewPassword()
+            
         })
     }
+    
     func checkTextField() {
-        if firstTextFieldisFilled == true && secondTextFieldisFilled == true {
-            changeBtn.isUserInteractionEnabled = true
-            changeBtn.backgroundColor = .black
+        if firstTextFieldisFilled && secondTextFieldisFilled && configureTextFieldisFilled {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            
         } else {
-            changeBtn.isUserInteractionEnabled = false
-            changeBtn.backgroundColor = .lightGray
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            
         }
     }
+    
     func checkEqual() -> Bool{
         if newPasswordTextField.text == confirmNewPasswordTextField.text {
             return true
@@ -73,7 +85,13 @@ class ChangePasswordViewController: UIViewController {
         }
     }
     
-    @IBAction func changPasswordBtn(_ sender: Any) {
+    @IBAction func changePsswrdBtn(_ sender: Any) {
+        let passwordInput = passwordTextField.text
+        reauthentication(password: passwordInput!)
+        
+        
+    }
+    func changeNewPassword() {
         if checkEqual() {
             let password = newPasswordTextField.text
             Auth.auth().currentUser?.updatePassword(to: password!, completion: {error in
@@ -85,16 +103,33 @@ class ChangePasswordViewController: UIViewController {
             })
         } else {
             let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            let alertController = UIAlertController(title: "??", message: "비밀번호가 일치하지 않습니다", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "??", message: "변경할 비밀번호가 일치하지 않습니다", preferredStyle: .alert)
             alertController.addAction(alertAction)
             self.present(alertController, animated: true, completion: nil)
-            
         }
-
     }
+    
+   
     //touch anywhere, keyboard dismissed
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //content showing when keyboard showed
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
 
 
@@ -106,8 +141,8 @@ extension ChangePasswordViewController: UITextFieldDelegate {
         let newLength = (textField.text?.count)! + string.count - range.length
         if newLength > 1 {
             if textField.tag == 0 {
-                doneBtn.isUserInteractionEnabled = true
-                doneBtn.backgroundColor = .black
+                configureTextFieldisFilled = true
+                checkTextField()
             } else if textField.tag == 1 {
                 firstTextFieldisFilled = true
                 checkTextField()
@@ -117,8 +152,8 @@ extension ChangePasswordViewController: UITextFieldDelegate {
             }
         } else {
             if textField.tag == 0 {
-                doneBtn.isUserInteractionEnabled = false
-                doneBtn.backgroundColor = .lightGray
+                configureTextFieldisFilled = false
+                checkTextField()
             } else if textField.tag == 1 {
                 firstTextFieldisFilled = false
                 checkTextField()
