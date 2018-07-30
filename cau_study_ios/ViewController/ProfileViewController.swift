@@ -22,10 +22,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var idLabel: UILabel!
     
-    @IBOutlet weak var changeTextButton: UIButton!
-    @IBOutlet weak var saveTextButton: UIButton!
-    @IBOutlet weak var cancelTextButton: UIButton!
-    
     
     var selectedImage: UIImage?
     
