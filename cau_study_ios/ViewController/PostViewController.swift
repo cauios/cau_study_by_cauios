@@ -55,6 +55,12 @@ class PostViewController: UIViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         postViewToolBar.setItems([flexibleSpace, sendAMessageButton, flexibleSpace], animated: true)
         
+        
+        //for username touch
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchUsernameAction))
+        postUidLabel.addGestureRecognizer(tapGesture)
+        postUidLabel.isUserInteractionEnabled = true
+        
     }
     
     
@@ -180,6 +186,19 @@ class PostViewController: UIViewController {
         
         
     }
+    
+    //username 터치시
+    @objc func touchUsernameAction() {
+        self.performSegue(withIdentifier: "WriterInfoViewController", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "WriterInfoViewController" {
+            let vc = segue.destination as! WriterInfoViewController
+            vc.user = self.user
+        }
+    }
+    
     /* 잘 된 애
      func loadPost() {
      Api.Post.observePost(withId: postId!, completion: {post in
