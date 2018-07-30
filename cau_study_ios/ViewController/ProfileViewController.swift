@@ -41,6 +41,11 @@ class ProfileViewController: UIViewController {
     //자기소개 글자수 제한
     let textLimitLength = 100
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchUser()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
