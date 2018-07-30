@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,8 +77,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blankProfile" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-Tb-S9r">
-                                <rect key="frame" x="222" y="194" width="30" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-Tb-S9r">
+                                <rect key="frame" x="207" y="179" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Kd3-2V-meT"/>
                                     <constraint firstAttribute="width" constant="30" id="Q8o-Rk-EOp"/>
@@ -91,7 +90,6 @@
                             <constraint firstItem="gdA-Lz-LEh" firstAttribute="leading" secondItem="ths-Ow-gAO" secondAttribute="trailing" constant="8" id="32H-oz-QQI"/>
                             <constraint firstItem="gdA-Lz-LEh" firstAttribute="centerY" secondItem="ths-Ow-gAO" secondAttribute="centerY" id="4DJ-mt-Ny1"/>
                             <constraint firstItem="cYp-US-SvU" firstAttribute="leading" secondItem="3rU-Ax-MpP" secondAttribute="leading" id="7aA-BO-7ha"/>
-                            <constraint firstItem="1wp-Tb-S9r" firstAttribute="centerY" secondItem="gP7-sy-1df" secondAttribute="bottom" id="CIg-DX-FWm"/>
                             <constraint firstItem="cYp-US-SvU" firstAttribute="top" secondItem="YsB-1n-WKl" secondAttribute="bottom" constant="25" id="INW-oP-2FM"/>
                             <constraint firstItem="YsB-1n-WKl" firstAttribute="centerY" secondItem="AXk-vV-Heu" secondAttribute="centerY" id="IZ1-wl-7FA"/>
                             <constraint firstItem="gdA-Lz-LEh" firstAttribute="trailing" secondItem="YsB-1n-WKl" secondAttribute="trailing" id="KaM-5w-7Mb"/>
@@ -106,9 +104,10 @@
                             <constraint firstItem="gdA-Lz-LEh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gP7-sy-1df" secondAttribute="bottom" constant="34" id="jsc-VB-uNR"/>
                             <constraint firstItem="YsB-1n-WKl" firstAttribute="centerX" secondItem="AXk-vV-Heu" secondAttribute="centerX" id="oUA-xQ-qB1"/>
                             <constraint firstItem="YsB-1n-WKl" firstAttribute="leading" secondItem="tdh-tO-HjW" secondAttribute="leading" constant="70" id="sOb-bV-gRy"/>
-                            <constraint firstItem="1wp-Tb-S9r" firstAttribute="centerX" secondItem="gP7-sy-1df" secondAttribute="trailing" id="tft-yR-oNp"/>
                             <constraint firstItem="3rU-Ax-MpP" firstAttribute="leading" secondItem="ths-Ow-gAO" secondAttribute="leading" id="tsC-6J-CV3"/>
+                            <constraint firstItem="1wp-Tb-S9r" firstAttribute="centerY" secondItem="gP7-sy-1df" secondAttribute="centerY" constant="35" id="tzD-OS-cHD"/>
                             <constraint firstItem="3rU-Ax-MpP" firstAttribute="top" secondItem="ths-Ow-gAO" secondAttribute="bottom" constant="25" id="u0U-d0-iiO"/>
+                            <constraint firstItem="1wp-Tb-S9r" firstAttribute="centerX" secondItem="gP7-sy-1df" secondAttribute="centerX" constant="35" id="uDp-Xl-Thz"/>
                             <constraint firstItem="R5E-rg-gB9" firstAttribute="leading" secondItem="YsB-1n-WKl" secondAttribute="leading" id="ugj-Ev-A7o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tdh-tO-HjW"/>
@@ -566,8 +565,8 @@
     </scenes>
     <resources>
         <image name="Placeholder-image" width="840" height="600"/>
-        <image name="blankProfile" width="80" height="80"/>
         <image name="blanksetting" width="25" height="25"/>
+        <image name="edit" width="30" height="29"/>
         <image name="noti" width="25" height="25"/>
         <image name="profile" width="38" height="37"/>
         <image name="unactiveCheck" width="28" height="28"/>
