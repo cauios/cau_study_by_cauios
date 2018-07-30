@@ -50,6 +50,7 @@
 		E3B49A4A21071391006B072E /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4721071390006B072E /* PeopleViewController.swift */; };
 		E3B49A4B21071391006B072E /* MyMessageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */; };
 		E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4C210713A0006B072E /* ChatModel.swift */; };
+		E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
 		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
@@ -107,6 +108,7 @@
 		E3B49A4721071390006B072E /* PeopleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageCellTableViewCell.swift; sourceTree = "<group>"; };
 		E3B49A4C210713A0006B072E /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewTableViewCell.swift; sourceTree = "<group>"; };
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +146,9 @@
 				15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */,
 				D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */,
 				D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */,
+				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
+				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
+				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,8 +246,6 @@
 			children = (
 				E39D51D2204EBC24001D94F9 /* SignInViewController.swift */,
 				E3E299D3206A373000ECA439 /* ChatViewController.swift */,
-				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
-				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
 				E3B49A4721071390006B072E /* PeopleViewController.swift */,
 				E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */,
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
@@ -398,6 +401,7 @@
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
+				E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				E3B49A4921071391006B072E /* DestinationMessageCell.swift in Sources */,
