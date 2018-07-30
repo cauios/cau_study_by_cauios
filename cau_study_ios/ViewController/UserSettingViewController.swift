@@ -73,32 +73,38 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell = list[indexPath.row]
-        if selectedCell == "계정 탈퇴" {
-            performSegue(withIdentifier: "DeleteUserViewController", sender: selectedCell)
-        } else if selectedCell == "비밀번호 변경" {
-            performSegue(withIdentifier: "ChangePasswordViewController", sender: selectedCell)
-        } else if selectedCell == "프로필 변경" {
-            performSegue(withIdentifier: "ChangeProfileViewController", sender: selectedCell)
-            
-        } else if selectedCell == "로그아웃" {
-            do{
-                try Auth.auth().signOut()
-            } catch let logoutError{
-                print(logoutError)
+        if indexPath.section == 1 {
+            let selectedCell = list[indexPath.row]
+            if selectedCell == "계정 탈퇴" {
+                performSegue(withIdentifier: "DeleteUserViewController", sender: selectedCell)
+            } else if selectedCell == "비밀번호 변경" {
+                performSegue(withIdentifier: "ChangePasswordViewController", sender: selectedCell)
+            } else if selectedCell == "프로필 변경" {
+                performSegue(withIdentifier: "ChangeProfileViewController", sender: selectedCell)
+                
+            } else if selectedCell == "로그아웃" {
+                do{
+                    try Auth.auth().signOut()
+                } catch let logoutError{
+                    print(logoutError)
+                }
+                
+                let storyboard = UIStoryboard(name: "Start", bundle: nil)
+                let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
+                self.present(signInVC, animated: true, completion: nil)
+                
             }
-            
-            let storyboard = UIStoryboard(name: "Start", bundle: nil)
-            let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-            self.present(signInVC, animated: true, completion: nil)
-            
-        } else if selectedCell == "FAQ 도움말" {
-            
-        } else if selectedCell == "문의 피드백 보내기" {
-            
-        } else if selectedCell == "공지사항" {
-            
+        } else  {
+            let selectedCellSecond = serviceList[indexPath.row]
+            if selectedCellSecond == "공지사항" {
+                
+            } else if selectedCellSecond == "FAQ 도움말" {
+                
+            } else if selectedCellSecond == "문의 피드백 보내기" {
+                
+            }
         }
+        
     }
     
 }
