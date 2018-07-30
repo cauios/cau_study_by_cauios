@@ -22,10 +22,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var idLabel: UILabel!
     
-    @IBOutlet weak var changeTextButton: UIButton!
-    @IBOutlet weak var saveTextButton: UIButton!
-    @IBOutlet weak var cancelTextButton: UIButton!
-    
     
     var selectedImage: UIImage?
     
@@ -35,16 +31,16 @@ class ProfileViewController: UIViewController {
     
     var posts = [Post]()
     var selectedCellId: String?
-    
-    let ref = Database.database().reference()
-    
-    //자기소개 글자수 제한
-    let textLimitLength = 100
+ 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchUser()
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
@@ -54,9 +50,7 @@ class ProfileViewController: UIViewController {
         fetchUser()
         fetchMyPosts()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleSelectProfileImage))
-        profileImage.addGestureRecognizer(tapGesture)
-        profileImage.isUserInteractionEnabled = true
+       
         
         let bottomLayer = CALayer()
         bottomLayer.frame = CGRect(x: 0, y: -10, width: 1000, height: 0.6)
@@ -64,8 +58,8 @@ class ProfileViewController: UIViewController {
         
         
         adjustTextViewHeight(textView: textField)
-        textField.isEditable = true
-        disableTextFieldChanged()
+
+
  
         
     }
@@ -138,96 +132,11 @@ class ProfileViewController: UIViewController {
             self.profileImage.sd_setImage(with: photoUrl)
         }
     }
-    
-    @objc func handleSelectProfileImage() {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        present(pickerController, animated: true, completion: nil)
 
-    }
-    //프로필 이미지 변경
-    func profileImageChange() {
-        ProgressHUD.show("Waiting...", interaction: false)
-        
-        if let newProfileImg = selectedImage, let currentUserUid = Auth.auth().currentUser?.uid, let imageData = UIImageJPEGRepresentation(newProfileImg, 0.1) {
-            
-            Api.User.changeProfileImage(currentUserUid: currentUserUid, imageData: imageData, onSuccess: {
-                ProgressHUD.showSuccess("Success")
-                print("서비스")
-            }, onError: {(errorString) in
-                ProgressHUD.showError(errorString!)
-            })
-            
-        }
 
-    }
-    
-    //자기소개 변경
-    @IBAction func changeText_Button(_ sender: Any) {
-        enableTextFieldChanged()
-        
-    }
-    
-    //자기소개 저장
-    @IBAction func saveText_Button(_ sender: Any) {
-        self.userIntroduce = self.textField.text
-        user.introduceMyself = self.userIntroduce
-        let usersReference = self.ref.child("users")
-        let newUserReference = usersReference.child(user.uid!)
-        newUserReference.updateChildValues(["introduceMyself": user.introduceMyself!])
-        
-        disableTextFieldChanged()
-        adjustTextViewHeight(textView: textField)
-        
-        
-    }
-    //자기소개 취소
-    @IBAction func cancel_Button(_ sender: Any) {
-        disableTextFieldChanged()
-        self.textField.text = self.userIntroduce
-        adjustTextViewHeight(textView: textField)
-        
-    }
-    
-    
-    func enableTextFieldChanged() {
-        textField.isUserInteractionEnabled = true
-        changeTextButton.isUserInteractionEnabled = false
-        changeTextButton.backgroundColor = .white
-        saveTextButton.backgroundColor = .lightGray
-        cancelTextButton.backgroundColor = .lightGray
-        saveTextButton.isUserInteractionEnabled = true
-        cancelTextButton.isUserInteractionEnabled = true
-    }
-    func disableTextFieldChanged() {
-        textField.isUserInteractionEnabled = false
-        changeTextButton.backgroundColor = .lightGray
-        changeTextButton.isUserInteractionEnabled = true
-        saveTextButton.backgroundColor = .white
-        cancelTextButton.backgroundColor = .white
-        saveTextButton.isUserInteractionEnabled = false
-        cancelTextButton.isUserInteractionEnabled = false
-    }
-    
-    @IBAction func logOut_Button(_ sender: Any) {
-        do{
-            try Auth.auth().signOut()
-        } catch let logoutError{
-            print(logoutError)
-        }
-        
-        let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-        self.present(signInVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func testBtn(_ sender: Any) {
-
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostViewController" {
-            let cell = sender as? MyPostsTableViewCell
             let vc = segue.destination as! PostViewController
             vc.postId = self.selectedCellId
         }
@@ -235,34 +144,19 @@ class ProfileViewController: UIViewController {
     
 }
 
-    extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-            print("did Finish Picking Media")
-            if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
-                self.selectedImage = image
-                self.profileImage.image = image
-                
-            }
-            dismiss(animated: true, completion: nil)
-            profileImageChange()
-            print("profileImage",user.profileImageUrl)
-            
-        }
-    }
-
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     //내가 쓴 글 label
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let subview = UIView()
-        subview.backgroundColor = .red
+        subview.backgroundColor = .lightGray
         subview.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
         let listLabel = UILabel()
         listLabel.text = "내가 쓴 글"
         listLabel.textAlignment = .left
         listLabel.textColor = .black
-        listLabel.font = UIFont.systemFont(ofSize: 15)
+        listLabel.font = UIFont.systemFont(ofSize: 17)
         
         subview.addSubview(listLabel)
         listLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -291,13 +185,67 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            let deleteCell = posts[indexPath.row]
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if (editingStyle == UITableViewCellEditingStyle.delete) {
+//            let deleteCell = posts[indexPath.row]
+//            Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
+//            Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
+//
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doNotWanted = doNotWantedAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [doNotWanted, delete])
+    }
+    
+    
+    func doNotWantedAction(at indexPath: IndexPath) -> UIContextualAction {
+        let selectedCell = posts[indexPath.row]
+        if selectedCell.wanted! {
+            let action = UIContextualAction(style: .normal, title: "Do Not Wanted", handler: {(action, view, completion) in
+                let cellId = selectedCell.id
+                Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(false, withCompletionBlock: { err,ref  in
+                    if err != nil {
+                        ProgressHUD.showError(err?.localizedDescription)
+                        return
+                    }
+                    self.posts[indexPath.row].wanted = false
+                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                    completion(true)
+                })
+
+            })
+            return action
+        } else {
+            let action = UIContextualAction(style: .normal, title: "Wanted", handler: {(action, view, completion) in
+                let cellId = selectedCell.id
+                Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(true, withCompletionBlock: { err,ref  in
+                    if err != nil {
+                        ProgressHUD.showError(err?.localizedDescription)
+                        return
+                    }
+                    self.posts[indexPath.row].wanted = true
+                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                    completion(true)
+                })
+                
+            })
+            return action
+        }
+    
+    }
+    
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let deleteCell = posts[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "Delete", handler: {(action, view, completion) in
             Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
             Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
-            
-        }
+            completion(true)
+            })
+        return action
     }
     
     
@@ -309,22 +257,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             performSegue(withIdentifier: "PostViewController", sender: self)
         }
     }
-
-    
-    
+ 
     
 }
-
-//글자 수 제한
-extension ProfileViewController: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let currentText = textField.text!
-        guard let stringRange = Range(range, in: currentText) else {
-            return false
-        }
-        let changedText = currentText.replacingCharacters(in: stringRange, with: text)
-        return changedText.count <= textLimitLength
-    }
-}
-
 

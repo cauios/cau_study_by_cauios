@@ -49,8 +49,6 @@ class SavedViewController: UIViewController {
                     post in
                     self.posts.insert(post, at: 0)
                     self.tableView.reloadData()
-                    print(post.id!)
-                    
                 })
                 
                 
