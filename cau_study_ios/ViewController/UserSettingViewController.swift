@@ -13,7 +13,7 @@ class UserSettingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var serviceList = ["공지사항","FAQ 도움말","문의 피드백 보내기"]
-    var list = ["프로필 사진 변경","자기소개 글 변경","비밀번호 변경","로그아웃","계정 탈퇴"]
+    var list = ["프로필 변경","비밀번호 변경","로그아웃","계정 탈퇴"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -81,9 +81,8 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
             performSegue(withIdentifier: "DeleteUserViewController", sender: selectedCell)
         } else if selectedCell == "비밀번호 변경" {
             performSegue(withIdentifier: "ChangePasswordViewController", sender: selectedCell)
-        } else if selectedCell == "프로필 사진 변경" {
-            
-        } else if selectedCell == "자기소개 글 변경" {
+        } else if selectedCell == "프로필 변경" {
+            performSegue(withIdentifier: "ChangeProfileViewController", sender: selectedCell)
             
         } else if selectedCell == "로그아웃" {
             

@@ -23,6 +23,7 @@ class DeleteUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.tabBarController?.tabBar.isHidden = true
         passwordTextField.delegate = self
         Api.User.observeCurrentUser(completion: {user in
             self.emailLabel.text = user.email
