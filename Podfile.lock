@@ -35,6 +35,7 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.2.0)
+  - HMSegmentedControl (1.5.5)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - HMSegmentedControl
   - ObjectMapper (~> 3.3)
   - SDWebImage
   - SnapKit (~> 4.0.0)
@@ -67,6 +69,7 @@ SPEC REPOS:
     - FirebaseStorage
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - HMSegmentedControl
     - leveldb-library
     - nanopb
     - ObjectMapper
@@ -83,12 +86,13 @@ SPEC CHECKSUMS:
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: e2d58c01654293dd38f041bf912440cf47ece276
+PODFILE CHECKSUM: 5b573b50d1d7cacfff9bbea08620656de3f20845
 
 COCOAPODS: 1.5.3

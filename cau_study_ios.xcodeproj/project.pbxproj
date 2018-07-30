@@ -53,9 +53,10 @@
 		E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
+		FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */; };
 		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
 		FED3976D2109FFF3007F9E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED3976C2109FFF2007F9E9E /* Assets.xcassets */; };
-		FED3976F210B0373007F9E9E /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976E210B0373007F9E9E /* SavedViewController.swift */; };
+		FEE96801210F7F12007C5AFA /* SavedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,9 +113,10 @@
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		FED3976621087D1F007F9E9E /* SavedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApi.swift; sourceTree = "<group>"; };
 		FED3976C2109FFF2007F9E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FED3976E210B0373007F9E9E /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */,
 				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
 				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
+				FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */,
 				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
 			);
 			path = Views;
@@ -257,7 +260,7 @@
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
-				FED3976E210B0373007F9E9E /* SavedViewController.swift */,
+				FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */,
 				539A28412106037E00FD118A /* PostViewController.swift */,
 			);
 			path = ViewController;
@@ -368,6 +371,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/HMSegmentedControl/HMSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -378,6 +382,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -398,6 +403,7 @@
 			files = (
 				D37815FD210749DF00833D57 /* SavedTableViewCell.swift in Sources */,
 				E3B49A4A21071391006B072E /* PeopleViewController.swift in Sources */,
+				FEE96801210F7F12007C5AFA /* SavedCollectionViewCell.swift in Sources */,
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
@@ -415,6 +421,7 @@
 				E3B49A4B21071391006B072E /* MyMessageCellTableViewCell.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				D39D723320F4B9D100B0C157 /* MyPostsApi.swift in Sources */,
+				FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */,
 				D3896ED921059E6700C96C58 /* ChangePasswordViewController.swift in Sources */,
 				5387594C2109DEC400C6BB50 /* HelperService.swift in Sources */,
 				DE5F16D4210F077000152210 /* ChangeProfileViewController.swift in Sources */,
@@ -428,7 +435,6 @@
 				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
 				FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
-				FED3976F210B0373007F9E9E /* SavedViewController.swift in Sources */,
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,

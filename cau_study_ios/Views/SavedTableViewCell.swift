@@ -51,6 +51,8 @@ class SavedTableViewCell: UITableViewCell {
     
     }
     
+
+    
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
@@ -90,3 +92,4 @@ class SavedTableViewCell: UITableViewCell {
     }
         
 }
+
