@@ -49,7 +49,7 @@ class WritingViewController: UIViewController, dismissHandler {
     
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
-        self.handleTextField()
+        print("Uploaded")
         view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
@@ -61,35 +61,6 @@ class WritingViewController: UIViewController, dismissHandler {
         
         self.dismiss(animated: true, completion: nil)
 
-/*
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            let photoIdString = NSUUID().uuidString
-            print(photoIdString)
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(photoIdString)
-            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-                self.sendDataToDatabase()
-                
-            })
-        } else {
-            ProgressHUD.showError("All blanks must be filled in1")
-        } */
-        /*
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            let titleIdString = NSUUID().uuidString
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(titleIdString)
-            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-                let titleUrl = metadata?.downloadURL()?.absoluteString
-                self.sendDataToDatabase(titleUrl: titleUrl!) // titleUrl unwarpping 필요한 이유? b.c. titleUrl is an optional string while in the sendData method we ask for a string input
-            })
-        } */
     }
     
     func sendDataToDatabase() {
@@ -178,8 +149,7 @@ class WritingViewController: UIViewController, dismissHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //empty()
+        uploadButton.isEnabled = false
         handleTextField()
     }
     
