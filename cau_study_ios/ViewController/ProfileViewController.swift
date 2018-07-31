@@ -22,10 +22,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var idLabel: UILabel!
     
-    @IBOutlet weak var changeTextButton: UIButton!
-    @IBOutlet weak var saveTextButton: UIButton!
-    @IBOutlet weak var cancelTextButton: UIButton!
-    
     
     var selectedImage: UIImage?
     
@@ -136,34 +132,11 @@ class ProfileViewController: UIViewController {
             self.profileImage.sd_setImage(with: photoUrl)
         }
     }
-    
-//
-//
-//
-//    func enableTextFieldChanged() {
-//        textField.isUserInteractionEnabled = true
-//        changeTextButton.isUserInteractionEnabled = false
-//        changeTextButton.backgroundColor = .white
-//        saveTextButton.backgroundColor = .lightGray
-//        cancelTextButton.backgroundColor = .lightGray
-//        saveTextButton.isUserInteractionEnabled = true
-//        cancelTextButton.isUserInteractionEnabled = true
-//    }
-//    func disableTextFieldChanged() {
-//        textField.isUserInteractionEnabled = false
-//        changeTextButton.backgroundColor = .lightGray
-//        changeTextButton.isUserInteractionEnabled = true
-//        saveTextButton.backgroundColor = .white
-//        cancelTextButton.backgroundColor = .white
-//        saveTextButton.isUserInteractionEnabled = false
-//        cancelTextButton.isUserInteractionEnabled = false
-//    }
 
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostViewController" {
-            let cell = sender as? MyPostsTableViewCell
             let vc = segue.destination as! PostViewController
             vc.postId = self.selectedCellId
         }
@@ -183,7 +156,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         listLabel.text = "내가 쓴 글"
         listLabel.textAlignment = .left
         listLabel.textColor = .black
-        listLabel.font = UIFont.systemFont(ofSize: 15)
+        listLabel.font = UIFont.systemFont(ofSize: 17)
         
         subview.addSubview(listLabel)
         listLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -212,13 +185,67 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            let deleteCell = posts[indexPath.row]
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if (editingStyle == UITableViewCellEditingStyle.delete) {
+//            let deleteCell = posts[indexPath.row]
+//            Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
+//            Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
+//
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doNotWanted = doNotWantedAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [doNotWanted, delete])
+    }
+    
+    
+    func doNotWantedAction(at indexPath: IndexPath) -> UIContextualAction {
+        let selectedCell = posts[indexPath.row]
+        if selectedCell.wanted! {
+            let action = UIContextualAction(style: .normal, title: "Do Not Wanted", handler: {(action, view, completion) in
+                let cellId = selectedCell.id
+                Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(false, withCompletionBlock: { err,ref  in
+                    if err != nil {
+                        ProgressHUD.showError(err?.localizedDescription)
+                        return
+                    }
+                    self.posts[indexPath.row].wanted = false
+                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                    completion(true)
+                })
+
+            })
+            return action
+        } else {
+            let action = UIContextualAction(style: .normal, title: "Wanted", handler: {(action, view, completion) in
+                let cellId = selectedCell.id
+                Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(true, withCompletionBlock: { err,ref  in
+                    if err != nil {
+                        ProgressHUD.showError(err?.localizedDescription)
+                        return
+                    }
+                    self.posts[indexPath.row].wanted = true
+                    self.tableView.reloadRows(at: [indexPath], with: .left)
+                    completion(true)
+                })
+                
+            })
+            return action
+        }
+    
+    }
+    
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let deleteCell = posts[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "Delete", handler: {(action, view, completion) in
             Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
             Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
-            
-        }
+            completion(true)
+            })
+        return action
     }
     
     

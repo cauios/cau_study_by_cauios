@@ -16,16 +16,11 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    
     var uid :String?
     var chatRoomUid :String?
     var comments : [ChatModel.Comment] = []
     var userModel : User?
-    
-    @IBOutlet weak var textField_message: UITextField!
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +37,13 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //시작시 작동, 키보드가 나타나고 사라지는 코드(옵저버)
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     //종료시 작동
     override func viewWillDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false  //탭바다시노출
         NotificationCenter.default.removeObserver(self)  //옵저버 제거
-        
+        self.tabBarController?.tabBar.isHidden = false  //탭바다시노출
     }
     
     @objc func keyboardWillShow(notification : Notification){
@@ -77,12 +71,21 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.view.endEditing(true)
     }
     
+    @IBOutlet weak var textField_message: UITextField!
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(self.comments[indexPath.row].uid == uid){
             let view = tableview.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCellTableViewCell
             view.label_message.text = self.comments[indexPath.row].message
             view.label_message.numberOfLines = 0
+            
+            if let time = self.comments[indexPath.row].timestamp{
+                view.label_timestamp.text = time.toDayTime
+            }
             return view
         }else{
             let view = tableview.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
@@ -98,10 +101,13 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     view.imageview_profile.clipsToBounds = true
                 }
             }).resume()
+            
+            if let time = self.comments[indexPath.row].timestamp{
+                view.label_timestamp.text = time.toDayTime
+            }
+            
             return view
         }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -133,13 +139,17 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             let value :Dictionary<String,Any> = [
                     "uid":uid!,
-                    "message":textField_message.text!
+                    "message":textField_message.text!,
+                    "timestamp":ServerValue.timestamp()
+                //현재시간에서1970년정도 뺀 밀리초가 저장됨(변환해야한다) 맨아래 extension Int했다.
             ]
-            Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {
+            if textField_message.text! != ""
+            { Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {
                 (err, ref) in
                 self.textField_message.text = "" //메세지 보낸다음에 지워준다
             })
-        }
+                }
+            }
     }
 
     func checkChatRoom(){
@@ -168,7 +178,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.getMessageList()
         })
          */
-        Api.User.observeUser(withId: uid!, completion: { user in
+        Api.User.observeUser(withId: destinationUid!, completion: { user in
             self.userModel = User()
             self.userModel = user
             self.getMessageList()
@@ -202,4 +212,14 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     */
 
+}
+
+extension Int{
+    var toDayTime : String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
+        let date = Date(timeIntervalSince1970: Double(self)/1000)
+        return dateFormatter.string(from: date)
+    }
 }

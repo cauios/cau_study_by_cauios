@@ -14,6 +14,7 @@ class DestinationMessageCell: UITableViewCell {
     @IBOutlet weak var label_message: UILabel!
     @IBOutlet weak var imageview_profile: UIImageView!
     @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var label_timestamp: UILabel!
     
     
     override func awakeFromNib() {

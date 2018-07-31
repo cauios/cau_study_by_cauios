@@ -36,13 +36,18 @@ class DeleteUserViewController: UIViewController {
         } else {
             configureDisagree()
         }
+        
+        //키보드 화면 가릴때
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     func configureAgree() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.agree))
         agreeBtn.addGestureRecognizer(tapGesture)
         agreeBtn.isUserInteractionEnabled = true
-        agreeBtn.image = UIImage(named: "checkmark")
+        agreeBtn.image = UIImage(named: "activeCheck")
         
     }
     
@@ -50,7 +55,7 @@ class DeleteUserViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.disagree))
         agreeBtn.addGestureRecognizer(tapGesture)
         agreeBtn.isUserInteractionEnabled = true
-        agreeBtn.image = UIImage(named: "uncheckmark")
+        agreeBtn.image = UIImage(named: "unactiveCheck")
     }
     
     @objc func agree() {
@@ -125,6 +130,23 @@ class DeleteUserViewController: UIViewController {
     //touch anywhere, keyboard dismissed
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //content showing when keyboard showed
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
 }

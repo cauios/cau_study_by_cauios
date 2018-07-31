@@ -36,7 +36,7 @@ class WritingViewController: UIViewController, dismissHandler {
 
     @IBOutlet weak var titleTextField: UITextField!
     //@IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var categorySC: UISegmentedControl!
+
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var numOfVacanTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
@@ -44,12 +44,38 @@ class WritingViewController: UIViewController, dismissHandler {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var uploadButton: UIBarButtonItem!
     
-     // [0726] Dahye: Codes related to the timestamp are added this moment
+    // [0731 Dahye] About category buttons
+    var selectedCate = 1
+    
+    @IBOutlet weak var acaCateWtButton: UIButton!
+    @IBOutlet weak var empCateWtButton: UIButton!
+    @IBOutlet weak var lanCateWtButton: UIButton!
+    
+    @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 1
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+    }
+    @IBAction func empCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 2
+        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+    }
+    @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 3
+        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+    }
+    
+    // Declare this to show the timestamp
     let timestamp = Int(Date().timeIntervalSince1970)
     
     // Buttons
     @IBAction func uploadButton_Click(_ sender: Any) {
-        self.handleTextField()
+        print("Uploaded")
         view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
@@ -61,35 +87,6 @@ class WritingViewController: UIViewController, dismissHandler {
         
         self.dismiss(animated: true, completion: nil)
 
-/*
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            let photoIdString = NSUUID().uuidString
-            print(photoIdString)
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(photoIdString)
-            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-                self.sendDataToDatabase()
-                
-            })
-        } else {
-            ProgressHUD.showError("All blanks must be filled in1")
-        } */
-        /*
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            let titleIdString = NSUUID().uuidString
-            let storageRef = Storage.storage().reference(forURL: Config.STORAGE_ROOF_REF).child("posts").child(titleIdString)
-            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-                let titleUrl = metadata?.downloadURL()?.absoluteString
-                self.sendDataToDatabase(titleUrl: titleUrl!) // titleUrl unwarpping 필요한 이유? b.c. titleUrl is an optional string while in the sendData method we ask for a string input
-            })
-        } */
     }
     
     func sendDataToDatabase() {
@@ -123,23 +120,27 @@ class WritingViewController: UIViewController, dismissHandler {
         
         
         var categoryText = ""
-        if categorySC.selectedSegmentIndex == 0 {
+        
+
+        if selectedCate == 1 {
             categoryText = "학업"
             postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            
         }
-        else if categorySC.selectedSegmentIndex == 1 {
+        else if selectedCate == 2 {
             categoryText = "취업"
             postIntoCateEmpl.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
-        else if categorySC.selectedSegmentIndex == 2 {
+        else if selectedCate == 3 {
             categoryText = "어학"
             postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
+
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
         // value of "timestamp" would be self.timestamp or timestamp
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp ], withCompletionBlock: {
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp, "wanted": true ], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
@@ -178,9 +179,12 @@ class WritingViewController: UIViewController, dismissHandler {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //empty()
+        uploadButton.isEnabled = false
         handleTextField()
+        
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
     }
     
     // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
