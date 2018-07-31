@@ -17,11 +17,13 @@ class ExploreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
-    @IBOutlet weak var exploreCategoryLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-
     @IBOutlet weak var exploreCateImageView: UIImageView!
     
+    //[0731 Dahye] Add outlets
+    
+    @IBOutlet weak var exploreUnameLabel: UILabel!
+    @IBOutlet weak var exploreTimestampLabel: UILabel!
     
     var delegate: ExploreTableViewCellDelegate?
     
@@ -41,7 +43,6 @@ class ExploreTableViewCell: UITableViewCell {
     // [Dahye Comment] Fetch newly posting data from FB
     func updateView() {
         exploreTitleLabel.text = post?.title
-        exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
         
         // [0731 Dahye] for category image
