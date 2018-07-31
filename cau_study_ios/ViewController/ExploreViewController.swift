@@ -53,6 +53,7 @@ class ExploreViewController: UIViewController {
             //self.posts.append(post) Dahye: This shows the new post on the bottom
             self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
             self.exploreTableView.reloadData()
+            
         }
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
