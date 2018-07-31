@@ -22,6 +22,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postTimeLabel: UILabel!
     @IBOutlet weak var postLocationLabel: UILabel!
     @IBOutlet weak var postDescriptionLabel: UILabel!
+    @IBOutlet weak var postCategoryImage: UIImageView!
+    @IBOutlet weak var postCategoryBar: UIView!
     
     // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
@@ -77,8 +79,8 @@ class PostViewController: UIViewController {
             }
         }
         if segue.identifier == "WriterInfoViewController" {
-            let vc = segue.destination as! WriterInfoViewController
-            vc.user = self.user
+            //let vc = segue.destination as! WriterInfoViewController
+            //vc.user = self.user
         }
     }
 
@@ -94,6 +96,24 @@ class PostViewController: UIViewController {
         postUidLabel.text = user.username
         postTimestampLabel.text = " " // [dahye's comment] this should be modified in the future
         postCategoryLabel.text = post?.category
+        if(postCategoryLabel.text == "학업") {
+            postCategoryImage.image = #imageLiteral(resourceName: "stulogo")
+            let color = UIColor(red: 00/255, green: 122/255, blue: 255/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "취업") {
+            postCategoryImage.image = #imageLiteral(resourceName: "joblogo")
+            let color = UIColor(red: 255/255, green: 46/255, blue: 85/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "어학") {
+            postCategoryImage.image = #imageLiteral(resourceName: "lanlogo")
+            let color = UIColor(red: 255/255, green: 204/255, blue: 00/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
         postTagsLabel.text = post?.tags
         postNumOfVacanLabel.text = post?.numOfVacan
         postTimeLabel.text = post?.time
