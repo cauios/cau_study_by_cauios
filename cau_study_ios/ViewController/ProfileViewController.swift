@@ -197,7 +197,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
     }
-    
+   
     
     //detail view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

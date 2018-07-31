@@ -14,7 +14,8 @@ class SavedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var saveTitle: UILabel!
     @IBOutlet weak var saveTags: UILabel!
-    
+    @IBOutlet weak var saveCategory: UIImageView!
+
     var post: Post? {
         didSet {
             updateView()
@@ -26,7 +27,17 @@ class SavedCollectionViewCell: UICollectionViewCell {
     func updateView() {
         saveTitle.text = post?.title
         saveTags.text = post?.tags
-      
+        
+        switch post?.category {
+        case "어학":
+            saveCategory.image = UIImage(named: "collan")
+        case "학업":
+            saveCategory.image = UIImage(named: "colstu")
+        case "취업":
+            saveCategory.image = UIImage(named: "coljob")
+        default:
+            saveCategory.image = UIImage(named: "greybutton")
+    }
     }
     
     
@@ -40,5 +51,4 @@ class SavedCollectionViewCell: UICollectionViewCell {
     }
     
    
-    
 }

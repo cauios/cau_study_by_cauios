@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/statstics/Documents/GitHub/cau_study_by_cauios/cau_study_ios/ViewController/PostCollectionViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:cau_study_ios.xcodeproj">
    </FileRef>
    <FileRef

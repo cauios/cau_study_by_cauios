@@ -11,29 +11,35 @@ import FirebaseAuth
 
 
 class SavedCollectionViewController: UIViewController {
+
     @IBOutlet weak var collectionView: UICollectionView!
-    
+//
+//    @IBOutlet weak var navi: UINavigationBar!
+//
+//    @IBOutlet weak var buttonBar: UIView!
     var postId: String?
     var posts = [Post]()
     var user: User!
     var selectedCellId: String?
     
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let logo = UIImage(named: "logo.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
 
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         fetchUser()
         fetchSaved()
         
-        
+       
     }
-
+    
+    
+    
+    
+    
     func fetchUser() {
         Api.User.observeCurrentUser { (user) in
             self.user = user
@@ -73,45 +79,62 @@ class SavedCollectionViewController: UIViewController {
     }
     
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostViewController" {
-            let cell = sender as? MyPostsTableViewCell
             let vc = segue.destination as! PostViewController
             vc.postId = self.selectedCellId
         }
     }
-    
 }
+
 
 
 
 extension SavedCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return posts.count
     }
+
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostViewController", for: n)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SavedCollectionViewCell", for: indexPath) as! SavedCollectionViewCell
         let post = posts[indexPath.row]
         cell.post = post
         return cell
     }
     
+    
+    
     //    //detail view
-    func collectionView(_ collectionView: UICollectionView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = posts[indexPath.row]
         if let selectedCellId = selectedCell.id {
             self.selectedCellId = selectedCellId
             performSegue(withIdentifier: "PostViewController", sender: self)
         }
-        //
     }
     
 }
 
+extension SavedCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width / 3 - 1, height: collectionView.frame.size.width / 3 - 1)
+    }
+    
+}
