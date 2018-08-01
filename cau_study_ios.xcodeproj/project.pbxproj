@@ -598,7 +598,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = cau_study_ios/cau_study_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
@@ -618,7 +618,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = cau_study_ios/cau_study_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;

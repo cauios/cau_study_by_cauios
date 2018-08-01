@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
