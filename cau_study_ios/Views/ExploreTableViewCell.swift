@@ -17,9 +17,14 @@ class ExploreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
-    @IBOutlet weak var exploreCategoryLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-
+    @IBOutlet weak var exploreCateImageView: UIImageView!
+    
+    //[0731 Dahye] Add outlets
+    
+    @IBOutlet weak var exploreUnameLabel: UILabel!
+    @IBOutlet weak var exploreTimestampLabel: UILabel!
+    
     var delegate: ExploreTableViewCellDelegate?
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
@@ -34,12 +39,22 @@ class ExploreTableViewCell: UITableViewCell {
     }
     
     
+    
     // [Dahye Comment] Fetch newly posting data from FB
     func updateView() {
         exploreTitleLabel.text = post?.title
-        exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
         
+        // [0731 Dahye] for category image
+        if post?.category == "학업" {
+            exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+        }
+        if post?.category == "취업" {
+            exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+        }
+        if post?.category == "어학" {
+            exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+        }
   
         
         
