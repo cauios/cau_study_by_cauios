@@ -10,6 +10,7 @@ class User {
     var uid: String?
     var introduceMyself: String?
     var saved: String?
+    var pushToken: String?
 }
 
 
@@ -21,6 +22,7 @@ extension User {
         user.username = dict["username"] as? String
         user.introduceMyself = dict["introduceMyself"] as? String
         user.uid = key
+        user.pushToken = dict["pushToken"] as? String
         return user
     }
 }
