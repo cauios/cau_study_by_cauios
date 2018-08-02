@@ -52,9 +52,8 @@
 		E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
-		FEC522A2211028F100856F75 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC522A1211028F100856F75 /* PostCollectionViewCell.swift */; };
-		FEC522A421102A1300856F75 /* PostCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC522A321102A1200856F75 /* PostCollectionViewController.swift */; };
-		FEC522A82110448C00856F75 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC522A72110448C00856F75 /* MasterViewController.swift */; };
+		FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1693082112C15B00A411FE /* PostCollectionViewController.swift */; };
+		FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC522A72110448C00856F75 /* ParentViewController.swift */; };
 		FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */; };
 		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
 		FED3976D2109FFF3007F9E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED3976C2109FFF2007F9E9E /* Assets.xcassets */; };
@@ -113,10 +112,9 @@
 		E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewTableViewCell.swift; sourceTree = "<group>"; };
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		FE1693082112C15B00A411FE /* PostCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewController.swift; sourceTree = "<group>"; };
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
-		FEC522A1211028F100856F75 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
-		FEC522A321102A1200856F75 /* PostCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostCollectionViewController.swift; path = /Users/statstics/Documents/GitHub/cau_study_by_cauios/cau_study_ios/ViewController/PostCollectionViewController.swift; sourceTree = "<absolute>"; };
-		FEC522A72110448C00856F75 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		FEC522A72110448C00856F75 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		FED3976621087D1F007F9E9E /* SavedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApi.swift; sourceTree = "<group>"; };
 		FED3976C2109FFF2007F9E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
 				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
 				FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */,
-				FEC522A1211028F100856F75 /* PostCollectionViewCell.swift */,
 				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
 			);
 			path = Views;
@@ -255,13 +252,13 @@
 				E3E299D3206A373000ECA439 /* ChatViewController.swift */,
 				E3B49A4721071390006B072E /* PeopleViewController.swift */,
 				E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */,
-				FEC522A72110448C00856F75 /* MasterViewController.swift */,
-				FEC522A321102A1200856F75 /* PostCollectionViewController.swift */,
+				FEC522A72110448C00856F75 /* ParentViewController.swift */,
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */,
 				D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */,
 				D31AEF18210471830057203F /* UserSettingViewController.swift */,
+				FE1693082112C15B00A411FE /* PostCollectionViewController.swift */,
 				D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
@@ -377,10 +374,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/HMSegmentedControl/HMSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -388,10 +385,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -412,9 +409,9 @@
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
-				FEC522A82110448C00856F75 /* MasterViewController.swift in Sources */,
+				FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */,
+				FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */,
 				E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */,
-				FEC522A421102A1300856F75 /* PostCollectionViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				E3B49A4921071391006B072E /* DestinationMessageCell.swift in Sources */,
@@ -428,7 +425,6 @@
 				E3B49A4B21071391006B072E /* MyMessageCellTableViewCell.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				D39D723320F4B9D100B0C157 /* MyPostsApi.swift in Sources */,
-				FEC522A2211028F100856F75 /* PostCollectionViewCell.swift in Sources */,
 				FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */,
 				D3896ED921059E6700C96C58 /* ChangePasswordViewController.swift in Sources */,
 				5387594C2109DEC400C6BB50 /* HelperService.swift in Sources */,
@@ -583,7 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
+				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
@@ -602,7 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3LX9ZMAYN8;
+				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;

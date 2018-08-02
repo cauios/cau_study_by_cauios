@@ -37,7 +37,19 @@ class SavedCollectionViewCell: UICollectionViewCell {
             saveCategory.image = UIImage(named: "coljob")
         default:
             saveCategory.image = UIImage(named: "greybutton")
-    }
+
+//            switch post?.category {
+//            case "어학":
+//                saveCategory.image = UIImage(named: "finlan")
+//            case "학업":
+//                saveCategory.image = UIImage(named: "finstu")
+//            case "취업":
+//                saveCategory.image = UIImage(named: "finjob")
+//            default:
+//                saveCategory.image = UIImage(named: "greybutton")
+//
+//            }
+        }
     }
     
     

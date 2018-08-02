@@ -11,7 +11,7 @@ pod 'Firebase/Storage'
 pod 'SDWebImage'
 
 
-
+pod 'XLPagerTabStrip', '~> 8.0'
 pod 'SnapKit', '~> 4.0.0'
 pod 'ObjectMapper', '~> 3.3'
 
