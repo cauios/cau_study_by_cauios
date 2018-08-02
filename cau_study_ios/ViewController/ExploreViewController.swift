@@ -46,8 +46,9 @@ class ExploreViewController: UIViewController {
     
      // [0729 Dahye] Actions for buttons
     @IBAction func allCateTouchUpInside(_ sender: Any) {
-        posts = [Post]()
         selectedSeg = 1
+        posts = [Post]()
+        self.exploreTableView.reloadData()
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -56,65 +57,58 @@ class ExploreViewController: UIViewController {
             })
             
         })
-            self.exploreTableView.reloadData()
+           // self.exploreTableView.reloadData()
 
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
-        posts = [Post]()
         selectedSeg = 2
-        loadAcaPost()
+        posts = [Post]()
         self.exploreTableView.reloadData()
+        loadAcaPost()
         
     }
     
     @IBAction func empCateTouchUpInside(_ sender: Any) {
-        posts = [Post]()
         selectedSeg = 3
-        loadEmpPost()
+        posts = [Post]()
         self.exploreTableView.reloadData()
+        loadEmpPost()
     }
     @IBAction func lanCateTouchUpInside(_ sender: Any) {
-        posts = [Post]()
         selectedSeg = 4
-        loadLanPost()
+        posts = [Post]()
         self.exploreTableView.reloadData()
+        loadLanPost()
 }
 
     
     override func viewDidLoad() {
+        selectedSeg = 1
         super.viewDidLoad()
         selectedSeg = 1
         addNavBarImage()
         exploreTableView.dataSource = self
 
         loadPost()
-        self.exploreTableView.reloadData()
+       // self.exploreTableView.reloadData()
     }
     
     func loadPost() {
-        posts = [Post]()
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-//        Api.Post.observePosts{
-//            (post) in
-//            //self.posts.append(post) Dahye: This shows the new post on the bottom
-//            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
-//            self.exploreTableView.reloadData()
-//
-//        }
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: { post in
                 self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
-            
+
         })
-        self.exploreTableView.reloadData()
+        //self.exploreTableView.reloadData()
 
         
-        // Dahye: reload posts after deletion of post in profileView is operated
+     //    Dahye: reload posts after deletion of post in profileView is operated
         Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
@@ -122,18 +116,17 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
         }
         })
-        
-      // saved에서 하트를 두번 눌러서 제거되면 saved api에서 확인해서 바로 explore 하트에도 이를 반영한다.
+
+     //  saved에서 하트를 두번 눌러서 제거되면 saved api에서 확인해서 바로 explore 하트에도 이를 반영한다.
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             self.exploreTableView.reloadData()
-    
+
         })
-        
+
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {snap in
             self.exploreTableView.reloadData()
-            
+
         })
-     
     }
 
     //[0728 Dahye] load Academic Posts
@@ -340,8 +333,9 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
 
 extension ExploreViewController: dismissHandler {
     func showAllCateAfterDismiss() {
-        allCateButton.sendActions(for: .touchUpInside)
-        self.exploreTableView.reloadData()
+        selectedSeg = 1
+        //allCateButton.sendActions(for: .touchUpInside)
+        //self.exploreTableView.reloadData()
         print("Connected with writingView")
     }
     
