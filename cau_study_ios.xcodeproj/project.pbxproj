@@ -30,6 +30,8 @@
 		D3896ED921059E6700C96C58 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */; };
 		D39D723320F4B9D100B0C157 /* MyPostsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39D723220F4B9D100B0C157 /* MyPostsApi.swift */; };
 		DE5F16D4210F077000152210 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */; };
+		DE5F16D6210F561900152210 /* WriterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F16D5210F561900152210 /* WriterInfoViewController.swift */; };
+		DE5F16D8210F577B00152210 /* WriterPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */; };
 		E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */; };
 		E39D51C9204EBAB3001D94F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C7204EBAB3001D94F9 /* LaunchScreen.storyboard */; };
 		E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51D2204EBC24001D94F9 /* SignInViewController.swift */; };
@@ -50,6 +52,8 @@
 		E3B49A4B21071391006B072E /* MyMessageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */; };
 		E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4C210713A0006B072E /* ChatModel.swift */; };
 		E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */; };
+		E3D8A9E2210F4E3900DA7222 /* ChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */; };
+		E3D8A9E4210F600D00DA7222 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9E3210F600D00DA7222 /* CustomCell.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
 		FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1693082112C15B00A411FE /* PostCollectionViewController.swift */; };
@@ -86,6 +90,8 @@
 		D39D723220F4B9D100B0C157 /* MyPostsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsApi.swift; sourceTree = "<group>"; };
 		DDFACC3AB4EBE20CAB25F58E /* Pods-cau_study_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cau_study_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.release.xcconfig"; sourceTree = "<group>"; };
 		DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
+		DE5F16D5210F561900152210 /* WriterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterInfoViewController.swift; sourceTree = "<group>"; };
+		DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterPostsTableViewCell.swift; sourceTree = "<group>"; };
 		E39D51BB204EBAB3001D94F9 /* cau_study_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cau_study_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E39D51C8204EBAB3001D94F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 		E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageCellTableViewCell.swift; sourceTree = "<group>"; };
 		E3B49A4C210713A0006B072E /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewTableViewCell.swift; sourceTree = "<group>"; };
+		E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsViewController.swift; sourceTree = "<group>"; };
+		E3D8A9E3210F600D00DA7222 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		E3D8A9E52111832100DA7222 /* cau_study_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cau_study_ios.entitlements; sourceTree = "<group>"; };
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		FE1693082112C15B00A411FE /* PostCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewController.swift; sourceTree = "<group>"; };
@@ -150,9 +159,11 @@
 				D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */,
 				D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */,
 				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
+				DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */,
 				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
 				FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */,
 				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
+				E3D8A9E3210F600D00DA7222 /* CustomCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +231,7 @@
 		E39D51BD204EBAB3001D94F9 /* cau_study_ios */ = {
 			isa = PBXGroup;
 			children = (
+				E3D8A9E52111832100DA7222 /* cau_study_ios.entitlements */,
 				15D47EB620610898001CFF53 /* Views */,
 				15D47EB12060D49C001CFF53 /* Model */,
 				E39D51D1204EBB23001D94F9 /* ViewController */,
@@ -257,6 +269,7 @@
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */,
 				D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */,
+				DE5F16D5210F561900152210 /* WriterInfoViewController.swift */,
 				D31AEF18210471830057203F /* UserSettingViewController.swift */,
 				FE1693082112C15B00A411FE /* PostCollectionViewController.swift */,
 				D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */,
@@ -265,6 +278,7 @@
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
 				FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */,
 				539A28412106037E00FD118A /* PostViewController.swift */,
+				E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -305,6 +319,14 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -375,6 +397,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
@@ -386,6 +409,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
@@ -433,6 +457,7 @@
 				E39E863F206104EA007CBB6D /* Api.swift in Sources */,
 				15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */,
 				1504822A2052C811005AF8F1 /* NotisTableViewController.swift in Sources */,
+				DE5F16D8210F577B00152210 /* WriterPostsTableViewCell.swift in Sources */,
 				AC113406210A26FC0009262A /* HashTagApi.swift in Sources */,
 				E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */,
 				E39E863D206104B2007CBB6D /* UserApi.swift in Sources */,
@@ -443,6 +468,7 @@
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,
 				D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */,
+				DE5F16D6210F561900152210 /* WriterInfoViewController.swift in Sources */,
 				D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = cau_study_ios/cau_study_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
@@ -597,6 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = cau_study_ios/cau_study_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;

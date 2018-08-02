@@ -805,8 +805,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E4DD95323C54A78F879DAB0F1508B8E7;
-			remoteInfo = nanopb;
+			remoteGlobalIDString = C60D48C24AC5107F932D1778161FE56E;
+			remoteInfo = FirebaseAuth;
 		};
 		27793F7FC03BA00EB4B704EFCC71B143 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -819,8 +819,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 488CA9079247B8F25888405871FCF2F4;
-			remoteInfo = GoogleToolboxForMac;
+			remoteGlobalIDString = 42FD17D195FA3B5B05CE79F0B6CF447D;
+			remoteInfo = FirebaseCore;
 		};
 		58473D5EE63888F60D92444B285E06E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1811,6 +1811,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		005B07E2EC2E2667A0E266233717E69F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6527D24D8CDD42424D7346F23CAFCF0 /* Foundation.framework in Frameworks */,
+				C9E525B1A3A9F9D3005A8AA0DF5EF838 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0198FA18AFD05D58E0B276AB54513085 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1855,11 +1864,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		971041836592E28ADEEDA495A96A62A2 /* Frameworks */ = {
+		2426100865A32974AAF720D1C14445FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F333DF6E858B07AEBCB2DBF2A99976 /* Foundation.framework in Frameworks */,
+				D26C2562B69322C173B65C1E5D7ADC54 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,7 +2017,7 @@
 				2DD3FF90CD83E05F4E86392A4A4B82F9 /* SystemConfiguration.framework */,
 				6DBED69B1AB80FAD6B88E234F4886682 /* UIKit.framework */,
 			);
-			name = iOS;
+			name = decode;
 			sourceTree = "<group>";
 		};
 		30FE2CC8CCE8EE0BC1D67C659670DB82 /* Frameworks */ = {
@@ -2229,8 +2238,8 @@
 				ED14A1B6D634AE048DBEC21FE511B11F /* FIRVerifyPhoneNumberResponse.m */,
 				74D138CB835319C083A228A5284E13ED /* Support Files */,
 			);
-			name = FirebaseAuth;
-			path = FirebaseAuth;
+			name = "Support Files";
+			path = "../Target Support Files/FirebaseAuth";
 			sourceTree = "<group>";
 		};
 		4972CD7C4ED6AA873759440E2FDF1791 /* Products */ = {
@@ -2580,7 +2589,7 @@
 				3D1AB3049D51D108A3055345C40E49F6 /* Info.plist */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/GoogleToolboxForMac";
+			path = "../Target Support Files/Protobuf";
 			sourceTree = "<group>";
 		};
 		9F62EB242DC8DB7D50386992F1743336 /* FirebaseAnalytics */ = {
@@ -2985,7 +2994,7 @@
 				319F560BBF979A3253D9CA6D86C72FE4 /* FirebaseCoreDiagnostics.framework */,
 				69F0BC7CE90201818821ABE333D459AE /* FirebaseNanoPB.framework */,
 			);
-			name = Frameworks;
+			name = "NSData+zlib";
 			sourceTree = "<group>";
 		};
 		CF7FE73D057BD020C73C7C33D89C7811 /* GoogleToolboxForMac */ = {
@@ -3318,6 +3327,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		512A7C15C03708EB1D836FB34698259C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				474EAAE3E6E55EA60F6AE9BA8D5F26A8 /* Pods-cau_study_ios-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F0E122F42B85DD5B2E3EC401F906D2D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				108A3B606F2373F8807C06F9DBEEE406 /* SnapKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		713967F8D863A1A928AD85454879889E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -3406,6 +3431,86 @@
 				14142048FBB16F9D90F5CD5C28940FDA /* GTMSessionFetcherLogging.h in Headers */,
 				D437740C5E94C79E4E2E6804724D5281 /* GTMSessionFetcherService.h in Headers */,
 				97133E8F3B5BFCD61BE11B33382D5383 /* GTMSessionUploadFetcher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8EA62F348DC1E8EDB9DB19CBD5766C07 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F963D9235235205BC18EC1D38F307DB /* NSButton+WebCache.h in Headers */,
+				F969025AF3A3684B48B753ED34B4B31D /* NSData+ImageContentType.h in Headers */,
+				453DEA6BF295DDFF8F48B91B68A03D95 /* NSImage+WebCache.h in Headers */,
+				54B56D23EF1B33A466A1C53D958A5305 /* SDAnimatedImageRep.h in Headers */,
+				5B65AE8B2F0D817448CAF0A3ECC5D641 /* SDImageCache.h in Headers */,
+				D579A6F4038F3A9627FC9DDFF3E68722 /* SDImageCacheConfig.h in Headers */,
+				AA9A47BD70D09A29D9B75491446706A9 /* SDWebImage-umbrella.h in Headers */,
+				DF15214DE4FCFD238F8C7FDD10D09245 /* SDWebImageCoder.h in Headers */,
+				36EBA44AE673D8590562DF077E8ED4A2 /* SDWebImageCoderHelper.h in Headers */,
+				0381FD2AC6EAD79BBADF3FE0A9A3DA64 /* SDWebImageCodersManager.h in Headers */,
+				6540EDEE66F805525F0D82C16D94D8ED /* SDWebImageCompat.h in Headers */,
+				1D7649429EF240D3995131AA843B03D2 /* SDWebImageDownloader.h in Headers */,
+				3E938BA60532F0E9403D90FA6E324F56 /* SDWebImageDownloaderOperation.h in Headers */,
+				F9D4E6AE7CB619429C0009C704DD11D6 /* SDWebImageFrame.h in Headers */,
+				C819D66B29F86FF2C5F69C8303BC2DEC /* SDWebImageGIFCoder.h in Headers */,
+				1E62D333C4442E11CD0409CD3524855B /* SDWebImageImageIOCoder.h in Headers */,
+				51A4C3465B18ECFDD6FA499B1F90260F /* SDWebImageManager.h in Headers */,
+				7B04D069569AC8DD94A80AF6DFA569F3 /* SDWebImageOperation.h in Headers */,
+				EBF6FF8A66FE2F24A6C9FE4308A01C93 /* SDWebImagePrefetcher.h in Headers */,
+				50CD7B2B79EF8C006D05C1C55112A981 /* SDWebImageTransition.h in Headers */,
+				A3BA23F8983033140845F498CE9B55B4 /* UIButton+WebCache.h in Headers */,
+				9E0ACE065A8F5F38DF354D0386EA4A35 /* UIImage+ForceDecode.h in Headers */,
+				28CE29F35DFA1594231000B384203073 /* UIImage+GIF.h in Headers */,
+				9BE17D62D1A462B0DCE8D74016FAE687 /* UIImage+MultiFormat.h in Headers */,
+				95F6324629D7A6BBCBF5915DC33DCFE9 /* UIImageView+HighlightedWebCache.h in Headers */,
+				55A721681128FBE89E04B5941B222C92 /* UIImageView+WebCache.h in Headers */,
+				F6C702F83877FE3B5696930AC2A36753 /* UIView+WebCache.h in Headers */,
+				5C83FB32397C31C36A260FDFEDD298CD /* UIView+WebCacheOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9790CA7915FABEADB3DCAB41EA6DA713 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656854336332EFBCD5A6099E453FB099 /* FirebaseMessaging-umbrella.h in Headers */,
+				D65C3E5FE6CD3D5F245563041F6CC438 /* FirebaseMessaging.h in Headers */,
+				A012A0CF2237C7B806839266FC7BEC0B /* FirebaseMessaging.h in Headers */,
+				9DCD93B67A8D11312A18F81F2D1F39E8 /* FIRMessaging+FIRApp.h in Headers */,
+				0F46C7EEC3AD245186321E1A08AEB8FF /* FIRMessaging.h in Headers */,
+				3D3091CD44FE2EE9E59FC52B7B107079 /* FIRMessaging_Private.h in Headers */,
+				C99BBA799851A2C6ED53BEC830349DD2 /* FIRMessagingCheckinService.h in Headers */,
+				C12BE67E3AC303B82C165D1692502EE3 /* FIRMessagingClient.h in Headers */,
+				22B12BB1925ACC8E17C8BD7A17AD2E51 /* FIRMessagingCodedInputStream.h in Headers */,
+				3C45C0BF190BB9B484B96373304F590A /* FIRMessagingConnection.h in Headers */,
+				3CF514DDF3AFAB9C3EE39C6CAD887DF1 /* FIRMessagingConstants.h in Headers */,
+				2634701757952E284BFD0E14413488C4 /* FIRMessagingContextManagerService.h in Headers */,
+				3ACDEACE68668EC1AB86BB08E2713D88 /* FIRMessagingDataMessageManager.h in Headers */,
+				98559288B6CD8FFF15E3059BF357F51D /* FIRMessagingDefines.h in Headers */,
+				46332974D0E9E7FCB045594A4EBD7BEF /* FIRMessagingDelayedMessageQueue.h in Headers */,
+				D390719D0F6BAD87D6813CBDD61F8BF2 /* FIRMessagingInternalUtilities.h in Headers */,
+				F7730CBD262DC2DC390462B916750AFC /* FIRMessagingLogger.h in Headers */,
+				A97C8D2732F77B6E9872B1CB66493531 /* FIRMessagingPacketQueue.h in Headers */,
+				50CA7F4E583FE4E612A90DB05B95C7E5 /* FIRMessagingPendingTopicsList.h in Headers */,
+				258D4240CF889BDF8F263BF243626C05 /* FIRMessagingPersistentSyncMessage.h in Headers */,
+				33ACA59D67F3448FD048AD664ED0C04E /* FIRMessagingPubSub.h in Headers */,
+				6890853DF0891FA6CD4886E6EA92B959 /* FIRMessagingPubSubRegistrar.h in Headers */,
+				A91ED97542C114D4AC0CE5BE37D8204E /* FIRMessagingReceiver.h in Headers */,
+				3CF5D53265DC6551D2E43094CE009327 /* FIRMessagingRegistrar.h in Headers */,
+				2A9DC75BC66F92E730AD62B9D60FC8CB /* FIRMessagingRemoteNotificationsProxy.h in Headers */,
+				F80D306095D95B1B54DFD68AC5E7655A /* FIRMessagingRmq2PersistentStore.h in Headers */,
+				6364F75BCD08AAAEAB758F27B8AEC5FF /* FIRMessagingRmqManager.h in Headers */,
+				E690DF01106A4D6FF6167A7F40C5D03C /* FIRMessagingSecureSocket.h in Headers */,
+				82B034F60347225A8A416EB387C53C9C /* FIRMessagingSyncMessageManager.h in Headers */,
+				42598D7D663CBEB8BB4C72AD153CF5FD /* FIRMessagingTopicOperation.h in Headers */,
+				DD444CAB98BF9FEE22FA50D6089EF0BD /* FIRMessagingTopicsCommon.h in Headers */,
+				3C64136DE56820E0AD81F2BC1EA598D1 /* FIRMessagingUtilities.h in Headers */,
+				5CC4166B7FDDB56CAD7A5D6401EC5BE1 /* FIRMessagingVersionUtilities.h in Headers */,
+				7C8F8C7E1FF2CE7D7223289504D098FB /* FIRMMessageCode.h in Headers */,
+				E5E24C7F54008BDF81343CF3828B77E5 /* GtalkCore.pbobjc.h in Headers */,
+				2003C4BE3545C7A539D49FA875CCAF1D /* GtalkExtensions.pbobjc.h in Headers */,
+				584494D3647A6FAF0AD58A74A0C45926 /* NSDictionary+FIRMessaging.h in Headers */,
+				51BCE076DB7BE39BD300271FC9CED045 /* NSError+FIRMessaging.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3635,6 +3740,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		207722DD37A54AC3AA747E7B5ADE78FF /* FirebaseMessaging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F501BF086C3B44A8B8742B96FB61FB7 /* Build configuration list for PBXNativeTarget "FirebaseMessaging" */;
+			buildPhases = (
+				9A660E265423AA11A936BDAA609A3000 /* Sources */,
+				005B07E2EC2E2667A0E266233717E69F /* Frameworks */,
+				9790CA7915FABEADB3DCAB41EA6DA713 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0773EC270AE27CFA9FEFE4E3E11DAEA /* PBXTargetDependency */,
+				DCB572734D4F57BB603D81D77E0932B9 /* PBXTargetDependency */,
+				CE2823A42D9F0DC78261D47F4950CB75 /* PBXTargetDependency */,
+			);
+			name = FirebaseMessaging;
+			productName = FirebaseMessaging;
+			productReference = B19F0CE142FF91EC99B015584CE8DCAB /* FirebaseMessaging.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		42FD17D195FA3B5B05CE79F0B6CF447D /* FirebaseCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76E36A017433028082C6A5D329A28BDD /* Build configuration list for PBXNativeTarget "FirebaseCore" */;
@@ -3921,6 +4046,7 @@
 				C60D48C24AC5107F932D1778161FE56E /* FirebaseAuth */,
 				42FD17D195FA3B5B05CE79F0B6CF447D /* FirebaseCore */,
 				62FABD757FE4DF7B87CB5ACCAE424F36 /* FirebaseDatabase */,
+				207722DD37A54AC3AA747E7B5ADE78FF /* FirebaseMessaging */,
 				B5A07D77102F973A81C4933A2891A386 /* FirebaseStorage */,
 				488CA9079247B8F25888405871FCF2F4 /* GoogleToolboxForMac */,
 				C71013989C387BAAD69BFE01570495EB /* GTMSessionFetcher */,
@@ -3978,6 +4104,40 @@
 				5026ED56C9FBD939FB94D86D955C60E7 /* FIRStorageUpdateMetadataTask.m in Sources */,
 				F4B7C69422A2087F1C9C92584429B478 /* FIRStorageUploadTask.m in Sources */,
 				B164E8EF6F80C9E71B62EF0AA068973E /* FIRStorageUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CE7985008C5E0058DBB2E6B42637BD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66C8BCEDBC088D51827BB03FA8E51260 /* NSButton+WebCache.m in Sources */,
+				2C1F4F96E5A85C8796C80ED2D1A683AC /* NSData+ImageContentType.m in Sources */,
+				C2E752CC8EBE63EB34E8CF434D8B6FDD /* NSImage+WebCache.m in Sources */,
+				26CF9DFF3B545CE89A840A75E9A9D86D /* SDAnimatedImageRep.m in Sources */,
+				14044E08FA183A9E54CD043489580861 /* SDImageCache.m in Sources */,
+				7E2475CB2FA8C1AAF5D49190B1A56DC7 /* SDImageCacheConfig.m in Sources */,
+				82A6562F451990447AF46E85AD62C640 /* SDWebImage-dummy.m in Sources */,
+				2DA83A59F0546F0E6DBC5827D7ECA5F4 /* SDWebImageCoder.m in Sources */,
+				2D2A7375BD19D0FD1C2D1DB6F41A286F /* SDWebImageCoderHelper.m in Sources */,
+				9BB30A2AA3E999F46B9BA14F75593712 /* SDWebImageCodersManager.m in Sources */,
+				05C0B3A99E8E039C0743DEF8FD012CCD /* SDWebImageCompat.m in Sources */,
+				7C031FC164DB6625B9EC827FADF67724 /* SDWebImageDownloader.m in Sources */,
+				FF0D9FB4F9B967A4B8A817469478BC0E /* SDWebImageDownloaderOperation.m in Sources */,
+				17EFF4EC6E3FFC73AB5ED33DD06F9D49 /* SDWebImageFrame.m in Sources */,
+				FBF79669E31659C29F45BB2E791C9D9D /* SDWebImageGIFCoder.m in Sources */,
+				DDAE63F578FD7E4A5F00AC6DB1F97291 /* SDWebImageImageIOCoder.m in Sources */,
+				B57EDC43ED16E7CCAA39664BC9377215 /* SDWebImageManager.m in Sources */,
+				79FEBDB929537BC34C1CAE304592FC27 /* SDWebImagePrefetcher.m in Sources */,
+				34576CF2C2B58FE934E4B4091B10D75B /* SDWebImageTransition.m in Sources */,
+				936EFA1CD8647FD6D9DBB2B444CEB04C /* UIButton+WebCache.m in Sources */,
+				14F9DC8B07C7AED7A5A79A73E8FF42CE /* UIImage+ForceDecode.m in Sources */,
+				7A2F9169B910EFC80F60866A025646AE /* UIImage+GIF.m in Sources */,
+				6FFC11311BCB59817A84D841874738AC /* UIImage+MultiFormat.m in Sources */,
+				ED7EFB8A3D18C84302B676E0DE68B248 /* UIImageView+HighlightedWebCache.m in Sources */,
+				314EB28B8FDE2A706B35393CB73CA35F /* UIImageView+WebCache.m in Sources */,
+				4E5190A11420EEF530FE1AC60EDBB15C /* UIView+WebCache.m in Sources */,
+				034BF8345E293C4244E46B2D5E0C08EC /* UIView+WebCacheOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4089,6 +4249,48 @@
 				0D3C851619493E588B15999257678E42 /* GTMSessionFetcherLogging.m in Sources */,
 				47656E4D3981F8FCB5033EC9E13915FD /* GTMSessionFetcherService.m in Sources */,
 				AB56501BE479E580CE858A0E403A44CF /* GTMSessionUploadFetcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BB7982E6420A176D50094DCD6FD6317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3655189DA0039825D50F08045816F453 /* Constraint.swift in Sources */,
+				66F62DC5D81CB41E6421F93BC8F097EE /* ConstraintAttributes.swift in Sources */,
+				86492B09672E2701234E0818359CF79A /* ConstraintConfig.swift in Sources */,
+				4BF94939C2F6639B0EAC96D45616C90F /* ConstraintConstantTarget.swift in Sources */,
+				7BFCA9EBE9EBDFD04600D3D14C9D788C /* ConstraintDescription.swift in Sources */,
+				B85614F3F85B48C0387279407074E5CA /* ConstraintDSL.swift in Sources */,
+				33D68721FAD74A074429E78D57763768 /* ConstraintInsets.swift in Sources */,
+				678926827C88D0FBF856CAC205B56D0C /* ConstraintInsetTarget.swift in Sources */,
+				0F981ADEBFA6827383260CB65BE61FF5 /* ConstraintItem.swift in Sources */,
+				DCF4F98813A20CB3A2C00D6E492AECC1 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				7101C4324BB0C4B55D946620C233FEE0 /* ConstraintLayoutGuide.swift in Sources */,
+				2AB6F9E9D490CA92E7E70A899906A375 /* ConstraintLayoutGuideDSL.swift in Sources */,
+				81DA06789641FA3A4F4DC696B075351A /* ConstraintLayoutSupport.swift in Sources */,
+				8EEDD3AA7E6647000D9FE7F06146C42D /* ConstraintLayoutSupportDSL.swift in Sources */,
+				E4F2BB89527511B4F625D07015CEF1DD /* ConstraintMaker.swift in Sources */,
+				D577025F9612509E957ED30DE3F8C28D /* ConstraintMakerEditable.swift in Sources */,
+				CDF1E818889541661CE2FB8E67F3F29C /* ConstraintMakerExtendable.swift in Sources */,
+				9A14F47C24BC987878FA0E0429BE84A3 /* ConstraintMakerFinalizable.swift in Sources */,
+				4C4A4B16726629AEDEDB5511FE6D6D4F /* ConstraintMakerPriortizable.swift in Sources */,
+				127A6E502AF5BB48AF88CF37ED007933 /* ConstraintMakerRelatable.swift in Sources */,
+				EC8DDCD4179080983F718BCEDFF8CC7B /* ConstraintMultiplierTarget.swift in Sources */,
+				48AE221663F7223D2E84C8D9ABE7FAB9 /* ConstraintOffsetTarget.swift in Sources */,
+				D8BE7A196BCDCBFB7E9EF5C2FA5B06B6 /* ConstraintPriority.swift in Sources */,
+				B1B1515CC744E1BCD1A15BA63277F3A6 /* ConstraintPriorityTarget.swift in Sources */,
+				80DA44C21A8DF23D3D187E17F7AB67F4 /* ConstraintRelatableTarget.swift in Sources */,
+				43836E8653522EB4348128C3CA5050F9 /* ConstraintRelation.swift in Sources */,
+				9A92B2E57361E4ACD871E4EC520B5B6A /* ConstraintView+Extensions.swift in Sources */,
+				8A7E2A80AB04FC5E8653811730D3B596 /* ConstraintView.swift in Sources */,
+				89F8DD23A4710017F1C4FFE900F3CBD2 /* ConstraintViewDSL.swift in Sources */,
+				B92774B406E9F3C5F15F8FF66277C8E0 /* Debugging.swift in Sources */,
+				D2A04B9CDF9A44FE0C1A97AABD67447A /* LayoutConstraint.swift in Sources */,
+				2B235FFE0E2BE2B2B3E068341AB54DB0 /* LayoutConstraintItem.swift in Sources */,
+				AF5CD56939EA1D09704F75A78B53F822 /* SnapKit-dummy.m in Sources */,
+				2831DBFA1473A3C194E09EFB6C3D3101 /* Typealiases.swift in Sources */,
+				1B3F0F06ADA1F75BB8A7D13E87FF55D8 /* UILayoutSupport+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4495,11 +4697,11 @@
 			target = CD6C9FB6B052E1CF663F8A56041EA163 /* ObjectMapper */;
 			targetProxy = E92D4E7D837A1C91BD3971D071B5350F /* PBXContainerItemProxy */;
 		};
-		78A659337BAA6F988242D0FD77091D49 /* PBXTargetDependency */ = {
+		6B3FD1602644CB7D4872D014768FAED3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = GoogleToolboxForMac;
-			target = 488CA9079247B8F25888405871FCF2F4 /* GoogleToolboxForMac */;
-			targetProxy = 8259DCBFC79F7A391B707A14D37A4BBA /* PBXContainerItemProxy */;
+			name = "leveldb-library";
+			target = 9938F3058E6013FAB6444C41E86DC9E9 /* leveldb-library */;
+			targetProxy = 7CD0DB59246813F461A21362EBAD02D4 /* PBXContainerItemProxy */;
 		};
 		843727179BE9F1EF1101209C81BCCD57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4567,11 +4769,17 @@
 			target = C71013989C387BAAD69BFE01570495EB /* GTMSessionFetcher */;
 			targetProxy = DB2E3F2C0454296FF33CBAADD861D95D /* PBXContainerItemProxy */;
 		};
-		E72FBC7E0753B819717A2A9892837243 /* PBXTargetDependency */ = {
+		DCB572734D4F57BB603D81D77E0932B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleToolboxForMac;
+			target = 488CA9079247B8F25888405871FCF2F4 /* GoogleToolboxForMac */;
+			targetProxy = 410FC1B84ECFB1F248A7A3A129BCDF07 /* PBXContainerItemProxy */;
+		};
+		E62517A45EB4E1100C8F3F4CF023329D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FirebaseCore;
 			target = 42FD17D195FA3B5B05CE79F0B6CF447D /* FirebaseCore */;
-			targetProxy = A350891F4802A66EDE7A4AC4DFF98279 /* PBXContainerItemProxy */;
+			targetProxy = 30D19E648A4681E6482B608AC1A75B33 /* PBXContainerItemProxy */;
 		};
 		ECB4E34A75C6F9EF1E6F088A13AB1948 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4582,6 +4790,37 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0132823F4FA64F072311136BB9BA20BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD379C157905492A7025E4DFCBF67269 /* Protobuf.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Protobuf/Protobuf-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Protobuf/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Protobuf/Protobuf.modulemap";
+				PRODUCT_MODULE_NAME = Protobuf;
+				PRODUCT_NAME = Protobuf;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		02F80962165561548E60689EDD7B9B7A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D245BBCBBDF108B1A7671BFEE4BA0AA /* GTMSessionFetcher.xcconfig */;
@@ -4647,7 +4886,7 @@
 		};
 		08DCEECB267ABEEE7E382A779F100D91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED432DFB0BDD047F5D921CC5AAE95ABE /* nanopb.xcconfig */;
+			baseConfigurationReference = 0DFE1682B04F7E41DB1232D319E5DFAF /* nanopb.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4669,6 +4908,38 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0FADA76250589904F9B914866E213D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED432DFB0BDD047F5D921CC5AAE95ABE /* nanopb.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SnapKit/SnapKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SnapKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
+				PRODUCT_MODULE_NAME = SnapKit;
+				PRODUCT_NAME = SnapKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4917,38 +5188,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		490884F399F39D661D71A833887067CB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D60B4E987CB70BB969F6D24827118D9F /* ObjectMapper.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ObjectMapper/ObjectMapper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ObjectMapper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ObjectMapper/ObjectMapper.modulemap";
-				PRODUCT_MODULE_NAME = ObjectMapper;
-				PRODUCT_NAME = ObjectMapper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4960,7 +5199,7 @@
 		};
 		4FA338D757D7DCEABA345B1E66BA02F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DE2EBED5DE5D9FA7C01E57CD8C09EBF /* FirebaseAuth.xcconfig */;
+			baseConfigurationReference = D60B4E987CB70BB969F6D24827118D9F /* ObjectMapper.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -4982,6 +5221,42 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		634D69DD4735416105E227AE252F82C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE2EBED5DE5D9FA7C01E57CD8C09EBF /* FirebaseAuth.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-cau_study_ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -5475,10 +5750,11 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		E76D259A577847BD9C172B100C24D120 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -5507,11 +5783,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		EA3DF6AC8540CFF9A0D1765736DF842C /* Release */ = {
 			isa = XCBuildConfiguration;

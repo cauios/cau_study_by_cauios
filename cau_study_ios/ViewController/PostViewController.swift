@@ -22,6 +22,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postTimeLabel: UILabel!
     @IBOutlet weak var postLocationLabel: UILabel!
     @IBOutlet weak var postDescriptionLabel: UILabel!
+    @IBOutlet weak var postCategoryImage: UIImageView!
+    @IBOutlet weak var postCategoryBar: UIView!
     
     // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
@@ -47,14 +49,39 @@ class PostViewController: UIViewController {
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
         self.navigationItem.rightBarButtonItem = barButton
-
+        
         loadPost()
         
-
+        
         // Dahye: Customize the bottom toolbar button
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         postViewToolBar.setItems([flexibleSpace, sendAMessageButton, flexibleSpace], animated: true)
         
+        
+        //for username touch
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchUsernameAction))
+        postUidLabel.addGestureRecognizer(tapGesture)
+        postUidLabel.isUserInteractionEnabled = true
+        
+    }
+    
+
+    //newbro : sendbutton clicked
+    @IBAction func SendMessageTouchUpinside(_ sender: Any) {
+        self.performSegue(withIdentifier: "GoChatVC", sender:nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoChatVC" {
+            if let destinationVC = segue.destination as? ChatViewController {
+                destinationVC.destinationUid = user.uid
+                destinationVC.viewWillAppear(true)
+            }
+        }
+        if segue.identifier == "WriterInfoViewController" {
+            let vc = segue.destination as! WriterInfoViewController
+            vc.user = self.user
+        }
     }
 
     
@@ -62,13 +89,31 @@ class PostViewController: UIViewController {
         
         // [0726] Dahye: Add timestamp property
         // here we use optional chaining because old posts don't have timestamps
-
+        
         
         postTitleLabel.text = post?.title
         //postUidLabel.text = post?.uid
         postUidLabel.text = user.username
         postTimestampLabel.text = " " // [dahye's comment] this should be modified in the future
         postCategoryLabel.text = post?.category
+        if(postCategoryLabel.text == "학업") {
+            postCategoryImage.image = #imageLiteral(resourceName: "stulogo")
+            let color = UIColor(red: 00/255, green: 122/255, blue: 255/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "취업") {
+            postCategoryImage.image = #imageLiteral(resourceName: "joblogo")
+            let color = UIColor(red: 255/255, green: 46/255, blue: 85/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "어학") {
+            postCategoryImage.image = #imageLiteral(resourceName: "lanlogo")
+            let color = UIColor(red: 255/255, green: 192/255, blue: 00/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
         postTagsLabel.text = post?.tags
         postNumOfVacanLabel.text = post?.numOfVacan
         postTimeLabel.text = post?.time
@@ -103,7 +148,7 @@ class PostViewController: UIViewController {
             if timeDiff.weekOfMonth! > 0 {
                 postTimestampText = (timeDiff.weekOfMonth == 1) ? "\(timeDiff.weekOfMonth!) week ago" : "\(timeDiff.weekOfMonth!) weeks ago"
             }
-
+            
             postTimestampLabel.text = postTimestampText
             
             
@@ -180,13 +225,20 @@ class PostViewController: UIViewController {
         
         
     }
-    /* 잘 된 애
-    func loadPost() {
-        Api.Post.observePost(withId: postId!, completion: {post in
-            self.post = post
-        })
+    
+    //username 터치시
+    @objc func touchUsernameAction() {
+        self.performSegue(withIdentifier: "WriterInfoViewController", sender: self)
     }
- */
+
+    
+    /* 잘 된 애
+     func loadPost() {
+     Api.Post.observePost(withId: postId!, completion: {post in
+     self.post = post
+     })
+     }
+     */
     // [Dahye 0725] This should be implemented in cooperation with Minjung
     // See the lecture 71
     //[Dahye 0725] just try~
@@ -215,6 +267,7 @@ class PostViewController: UIViewController {
     func setPostDescriptionLabelSize() {
         postScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor).isActive = true
     }
-  
-
+    
+    
 }
+

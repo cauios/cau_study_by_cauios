@@ -13,6 +13,7 @@ class MyPostsTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
+    @IBOutlet weak var exploreWanted: UILabel!
     
     var post: Post? {
         didSet {
@@ -24,6 +25,13 @@ class MyPostsTableViewCell: UITableViewCell {
         exploreTitleLabel.text = post?.title
         exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
+        
+        if ((post?.wanted = true) != nil) {
+            exploreWanted.text = "모집중"
+        } else {
+            exploreWanted.text = "모집마감"
+        }
+        
  
     }
 
