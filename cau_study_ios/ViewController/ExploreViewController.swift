@@ -35,7 +35,9 @@ class ExploreViewController: UIViewController {
     
     var selectedSeg: Int?
 
-
+//[0802]
+    var timer = Timer()
+    let delay = 0.2
     
     // [0729 Dahye] Outlets for buttons
 
@@ -48,7 +50,6 @@ class ExploreViewController: UIViewController {
     @IBAction func allCateTouchUpInside(_ sender: Any) {
         selectedSeg = 1
         posts = [Post]()
-        self.exploreTableView.reloadData()
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -85,7 +86,6 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         selectedSeg = 1
         super.viewDidLoad()
-        selectedSeg = 1
         addNavBarImage()
         exploreTableView.dataSource = self
 
@@ -333,12 +333,14 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
 
 extension ExploreViewController: dismissHandler {
     func showAllCateAfterDismiss() {
-        selectedSeg = 1
-        //allCateButton.sendActions(for: .touchUpInside)
-        //self.exploreTableView.reloadData()
+       // timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
         print("Connected with writingView")
     }
     
+    @objc func delayedAction() {
+        allCateButton.sendActions(for: .touchUpInside)
+    }
 
 }
 

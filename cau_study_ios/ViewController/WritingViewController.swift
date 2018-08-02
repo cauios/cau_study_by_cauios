@@ -79,13 +79,13 @@ class WritingViewController: UIViewController, dismissHandler {
         view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
-        
         // [0729 Dahye]
         if delegate != nil {
             delegate?.showAllCateAfterDismiss()
         }
-        
         self.dismiss(animated: true, completion: nil)
+        
+
 
     }
     
