@@ -46,6 +46,7 @@ class ExploreViewController: UIViewController {
     
      // [0729 Dahye] Actions for buttons
     @IBAction func allCateTouchUpInside(_ sender: Any) {
+        posts = [Post]()
         selectedSeg = 1
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
@@ -59,7 +60,7 @@ class ExploreViewController: UIViewController {
 
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
-//        posts = [Post]()
+        posts = [Post]()
         selectedSeg = 2
         loadAcaPost()
         self.exploreTableView.reloadData()
@@ -91,16 +92,27 @@ class ExploreViewController: UIViewController {
     }
     
     func loadPost() {
+        posts = [Post]()
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        Api.Post.observePosts{
-            (post) in
-            //self.posts.append(post) Dahye: This shows the new post on the bottom
-            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
-            self.exploreTableView.reloadData()
+//        Api.Post.observePosts{
+//            (post) in
+//            //self.posts.append(post) Dahye: This shows the new post on the bottom
+//            self.posts.insert(post, at: 0) // Dahye: Show the new post on the top
+//            self.exploreTableView.reloadData()
+//
+//        }
+        Api.Post.REF_POSTS.observe(.childAdded, with: {
+            snapshot in
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
             
-        }
+        })
+        self.exploreTableView.reloadData()
+
         
         // Dahye: reload posts after deletion of post in profileView is operated
         Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
