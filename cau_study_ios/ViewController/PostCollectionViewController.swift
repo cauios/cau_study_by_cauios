@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class PostCollectionViewController: UIViewController {
+class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,9 @@ class PostCollectionViewController: UIViewController {
     }
     
 
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "컬렉션")
+    }
     /*
     // MARK: - Navigation
 
