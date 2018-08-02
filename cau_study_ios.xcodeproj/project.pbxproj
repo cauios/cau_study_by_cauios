@@ -25,7 +25,6 @@
 		D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */; };
 		D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF18210471830057203F /* UserSettingViewController.swift */; };
 		D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */; };
-		D37815FD210749DF00833D57 /* SavedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37815FC210749DF00833D57 /* SavedTableViewCell.swift */; };
 		D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */; };
 		D3896ED72105944C00C96C58 /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */; };
 		D3896ED921059E6700C96C58 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */; };
@@ -57,9 +56,12 @@
 		E3D8A9E4210F600D00DA7222 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9E3210F600D00DA7222 /* CustomCell.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
+		FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1693082112C15B00A411FE /* PostCollectionViewController.swift */; };
+		FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC522A72110448C00856F75 /* ParentViewController.swift */; };
+		FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */; };
 		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
 		FED3976D2109FFF3007F9E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED3976C2109FFF2007F9E9E /* Assets.xcassets */; };
-		FED3976F210B0373007F9E9E /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976E210B0373007F9E9E /* SavedViewController.swift */; };
+		FEE96801210F7F12007C5AFA /* SavedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +84,6 @@
 		D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTableViewCell.swift; sourceTree = "<group>"; };
 		D31AEF18210471830057203F /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableViewCell.swift; sourceTree = "<group>"; };
-		D37815FC210749DF00833D57 /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
 		D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotUserInfoViewController.swift; sourceTree = "<group>"; };
 		D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -120,10 +121,13 @@
 		E3D8A9E52111832100DA7222 /* cau_study_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cau_study_ios.entitlements; sourceTree = "<group>"; };
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		FE1693082112C15B00A411FE /* PostCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewController.swift; sourceTree = "<group>"; };
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		FEC522A72110448C00856F75 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		FED3976621087D1F007F9E9E /* SavedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApi.swift; sourceTree = "<group>"; };
 		FED3976C2109FFF2007F9E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FED3976E210B0373007F9E9E /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,13 +155,13 @@
 		15D47EB620610898001CFF53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D37815FC210749DF00833D57 /* SavedTableViewCell.swift */,
 				15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */,
 				D30286BE20F5F5680054D6B2 /* MyPostsTableViewCell.swift */,
 				D31AEF1A210473CB0057203F /* UserSettingTableViewCell.swift */,
 				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
 				DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */,
 				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
+				FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */,
 				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
 				E3D8A9E3210F600D00DA7222 /* CustomCell.swift */,
 			);
@@ -260,17 +264,19 @@
 				E3E299D3206A373000ECA439 /* ChatViewController.swift */,
 				E3B49A4721071390006B072E /* PeopleViewController.swift */,
 				E39D51D3204EBC24001D94F9 /* SignUpViewController.swift */,
+				FEC522A72110448C00856F75 /* ParentViewController.swift */,
 				150482292052C811005AF8F1 /* NotisTableViewController.swift */,
 				1504822B2052C876005AF8F1 /* WritingViewController.swift */,
 				DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */,
 				D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */,
 				DE5F16D5210F561900152210 /* WriterInfoViewController.swift */,
 				D31AEF18210471830057203F /* UserSettingViewController.swift */,
+				FE1693082112C15B00A411FE /* PostCollectionViewController.swift */,
 				D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
-				FED3976E210B0373007F9E9E /* SavedViewController.swift */,
+				FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */,
 				539A28412106037E00FD118A /* PostViewController.swift */,
 				E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */,
 			);
@@ -394,6 +400,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -405,6 +412,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -420,13 +428,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D37815FD210749DF00833D57 /* SavedTableViewCell.swift in Sources */,
-				E3D8A9E4210F600D00DA7222 /* CustomCell.swift in Sources */,
 				E3B49A4A21071391006B072E /* PeopleViewController.swift in Sources */,
+				FEE96801210F7F12007C5AFA /* SavedCollectionViewCell.swift in Sources */,
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
-				E3D8A9E2210F4E3900DA7222 /* ChatRoomsViewController.swift in Sources */,
+				FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */,
+				FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */,
 				E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
@@ -441,6 +449,7 @@
 				E3B49A4B21071391006B072E /* MyMessageCellTableViewCell.swift in Sources */,
 				E39D51D5204EBC24001D94F9 /* SignUpViewController.swift in Sources */,
 				D39D723320F4B9D100B0C157 /* MyPostsApi.swift in Sources */,
+				FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */,
 				D3896ED921059E6700C96C58 /* ChangePasswordViewController.swift in Sources */,
 				5387594C2109DEC400C6BB50 /* HelperService.swift in Sources */,
 				DE5F16D4210F077000152210 /* ChangeProfileViewController.swift in Sources */,
@@ -455,7 +464,6 @@
 				1534874C208C8EF4006E789A /* PostApi.swift in Sources */,
 				FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */,
 				E39D51DE204EBE1F001D94F9 /* AuthService.swift in Sources */,
-				FED3976F210B0373007F9E9E /* SavedViewController.swift in Sources */,
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,
@@ -598,7 +606,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = cau_study_ios/cau_study_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
@@ -618,7 +626,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = cau_study_ios/cau_study_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
