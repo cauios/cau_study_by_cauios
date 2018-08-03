@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var chattableview: UITableView!
     
     var uid: String!
     var chatrooms : [ChatModel]! = []

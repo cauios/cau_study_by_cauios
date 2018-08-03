@@ -289,7 +289,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CDj-hm-6K5"/>
                     <connections>
-                        <outlet property="tableview" destination="rbO-U8-jaH" id="cVZ-nq-2y5"/>
+                        <outlet property="chattableview" destination="rbO-U8-jaH" id="gPu-qO-Xbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK3-fR-KPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
