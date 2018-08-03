@@ -10,11 +10,12 @@ import UIKit
 
 class CustomCell: UITableViewCell {
 
-    @IBOutlet weak var imageview: UIImageView!
+  
     @IBOutlet weak var label_title: UILabel!
+    
+    @IBOutlet weak var imageVIEW: UIImageView!
     @IBOutlet weak var label_lastmessage: UILabel!
     @IBOutlet weak var label_timestamp: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

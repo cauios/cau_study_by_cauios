@@ -200,7 +200,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="cte-nC-nsa" id="bYK-Hz-nKW"/>
                         <outlet property="sendButton" destination="cEl-jQ-q7f" id="XzZ-qK-eRp"/>
-                        <outlet property="tableview" destination="ji5-QK-sCq" id="wa0-89-J4e"/>
+                        <outlet property="tableview" destination="ji5-QK-sCq" id="OuJ-4F-8QA"/>
                         <outlet property="textField_message" destination="E79-59-6QV" id="20H-zs-eLq"/>
                     </connections>
                 </viewController>
@@ -220,7 +220,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RowCell" rowHeight="70" id="7NB-xm-0bu" customClass="CustomCell" customModule="cau_study_ios" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RowCell" rowHeight="70" id="7NB-xm-0bu" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7NB-xm-0bu" id="CEk-dh-dZ2">
@@ -265,10 +265,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageview" destination="uNu-rw-efd" id="ahy-KY-Y0h"/>
-                                            <outlet property="label_lastmessage" destination="7ls-CH-Sfd" id="GBt-FQ-IrL"/>
-                                            <outlet property="label_timestamp" destination="RUX-hZ-TSk" id="psQ-Vc-XOH"/>
-                                            <outlet property="label_title" destination="QCe-k1-7OI" id="y9N-kE-Wqk"/>
+                                            <outlet property="imageVIEW" destination="uNu-rw-efd" id="s1U-d1-qLe"/>
+                                            <outlet property="label_lastmessage" destination="7ls-CH-Sfd" id="I22-BT-iGy"/>
+                                            <outlet property="label_timestamp" destination="RUX-hZ-TSk" id="Kf6-TU-dZa"/>
+                                            <outlet property="label_title" destination="QCe-k1-7OI" id="1Sf-yP-1Kq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -289,7 +289,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CDj-hm-6K5"/>
                     <connections>
-                        <outlet property="tableview" destination="rbO-U8-jaH" id="klR-4M-pvN"/>
+                        <outlet property="tableview" destination="rbO-U8-jaH" id="cVZ-nq-2y5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK3-fR-KPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
