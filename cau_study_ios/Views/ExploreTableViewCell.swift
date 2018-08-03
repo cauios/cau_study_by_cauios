@@ -48,32 +48,32 @@ class ExploreTableViewCell: UITableViewCell {
         // [0731 Dahye] for category image
         if post?.category == "학업" {
             if post?.wanted == false {
-                exploreCateImageView.image = #imageLiteral(resourceName: "finstu")
-                exploreFinImageView.image = #imageLiteral(resourceName: "fin")
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finstu")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
                 
             } else {
-                exploreCateImageView.image = #imageLiteral(resourceName: "catstu")
-                exploreFinImageView.image = nil
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+                exploreFinImageView?.image = nil
             }
         }
         if post?.category == "취업" {
             if post?.wanted == false {
-                exploreCateImageView.image = #imageLiteral(resourceName: "finjob")
-                exploreFinImageView.image = #imageLiteral(resourceName: "fin")
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finjob")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
                 
             } else {
-                exploreCateImageView.image = #imageLiteral(resourceName: "catjob")
-                exploreFinImageView.image = nil
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+                exploreFinImageView?.image = nil
             }
         }
         if post?.category == "어학" {
             if post?.wanted == false {
-                exploreCateImageView.image = #imageLiteral(resourceName: "finlan")
-                exploreFinImageView.image = #imageLiteral(resourceName: "fin")
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finlan")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
                 
             } else {
-                exploreCateImageView.image = #imageLiteral(resourceName: "catlan")
-                exploreFinImageView.image = nil
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+                exploreFinImageView?.image = nil
             }
         }
         

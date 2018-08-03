@@ -24,7 +24,9 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postDescriptionLabel: UILabel!
     @IBOutlet weak var postCategoryImage: UIImageView!
     @IBOutlet weak var postCategoryBar: UIView!
+    @IBOutlet weak var postFinImageView: UIImageView!
     
+
     // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
@@ -115,6 +117,14 @@ class PostViewController: UIViewController {
             postCategoryBar.backgroundColor = color
         }
         postTagsLabel.text = post?.tags
+        
+        // [0803 Dahye] Show if it is finished or not
+        if post?.wanted == false {
+            postFinImageView.image = #imageLiteral(resourceName: "fin")
+        } else {
+            postFinImageView.image = nil
+        }
+        
         postNumOfVacanLabel.text = post?.numOfVacan
         postTimeLabel.text = post?.time
         postLocationLabel.text = post?.location
