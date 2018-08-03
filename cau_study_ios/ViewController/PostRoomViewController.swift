@@ -29,25 +29,27 @@ class PostRoomViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         switch data {
         case "lanBtn":
             loadLanPost()
+            self.title = "어학"
         case "stuBtn":
             loadAcaPost()
+            self.title = "학업"
         case "jobBtn":
             loadEmpPost()
+            self.title = "취업"
         case "finBtn":
             loadFinPost() //모집마감은 어떻게 처리할지 고민!!
+            self.title = "마감"
         default:
             break
         }
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
     }
-    
+   
  
     
     
@@ -144,7 +146,7 @@ class PostRoomViewController: UIViewController {
     }
     
     func loadFinPost() {
-        Api.Post.REF_POSTS.child("wanted").observe(.childAdded, with: {
+        Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: { post in
                 self.posts.insert(post, at: 0)
