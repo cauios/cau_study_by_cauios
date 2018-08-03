@@ -40,11 +40,11 @@ class SavedCollectionViewCell: UICollectionViewCell {
         } else {
             switch post?.category {
             case "어학":
-                saveCategory.image = UIImage(named: "finlan")
+                saveCategory.image = UIImage(named: "fincollan")
             case "학업":
-                saveCategory.image = UIImage(named: "finstu")
+                saveCategory.image = UIImage(named: "fincolstu")
             default:
-                saveCategory.image = UIImage(named: "finjob")
+                saveCategory.image = UIImage(named: "fincoljob")
             }
         }
 

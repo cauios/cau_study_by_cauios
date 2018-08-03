@@ -40,14 +40,14 @@ class PostCollectionViewCell: UICollectionViewCell {
         }else{
                 switch post?.category {
             case "어학":
-                postCategory.image = UIImage(named: "finlan")
+                postCategory.image = UIImage(named: "fincollan")
             case "학업":
-                postCategory.image = UIImage(named: "finstu")
+                postCategory.image = UIImage(named: "fincolstu")
             case "취업":
-                postCategory.image = UIImage(named: "finjob")
+                postCategory.image = UIImage(named: "fincoljob")
                 default: break
             }
-     
+
     }
     }
     
