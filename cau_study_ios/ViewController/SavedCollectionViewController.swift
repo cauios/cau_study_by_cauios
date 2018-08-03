@@ -17,10 +17,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     
 
     @IBOutlet weak var collectionView: UICollectionView!
-//
-//    @IBOutlet weak var navi: UINavigationBar!
-//
-//    @IBOutlet weak var buttonBar: UIView!
+
     var postId: String?
     var posts = [Post]()
     var user: User!
@@ -77,8 +74,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
                 
             }
             
-        }
-        )
+        })
         
     }
     

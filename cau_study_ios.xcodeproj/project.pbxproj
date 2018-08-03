@@ -52,11 +52,13 @@
 		E3B49A4B21071391006B072E /* MyMessageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */; };
 		E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B49A4C210713A0006B072E /* ChatModel.swift */; };
 		E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */; };
-		E3D8A9E621134F6D00DA7222 /* ChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */; };
-		E3D8A9E72113502F00DA7222 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D8A9E3210F600D00DA7222 /* CustomCell.swift */; };
 		E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E299D3206A373000ECA439 /* ChatViewController.swift */; };
 		E3E299DC206A391C00ECA439 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E299DB206A391C00ECA439 /* Chat.storyboard */; };
 		FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1693082112C15B00A411FE /* PostCollectionViewController.swift */; };
+		FE652091211327B100DACA6C /* ChatRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE652090211327B100DACA6C /* ChatRoomsViewController.swift */; };
+		FE6520932113293400DACA6C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6520922113293400DACA6C /* CustomCell.swift */; };
+		FE6520952113D81900DACA6C /* PostRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6520942113D81900DACA6C /* PostRoomViewController.swift */; };
+		FE6520972113D87600DACA6C /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6520962113D87600DACA6C /* PostCollectionViewCell.swift */; };
 		FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC522A72110448C00856F75 /* ParentViewController.swift */; };
 		FECDC4B6210F7A310062CDC1 /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */; };
 		FED3976721087D1F007F9E9E /* SavedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED3976621087D1F007F9E9E /* SavedApi.swift */; };
@@ -116,13 +118,15 @@
 		E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMessageCellTableViewCell.swift; sourceTree = "<group>"; };
 		E3B49A4C210713A0006B072E /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewTableViewCell.swift; sourceTree = "<group>"; };
-		E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsViewController.swift; sourceTree = "<group>"; };
-		E3D8A9E3210F600D00DA7222 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		E3D8A9E52111832100DA7222 /* cau_study_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cau_study_ios.entitlements; sourceTree = "<group>"; };
 		E3E299D3206A373000ECA439 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E3E299DB206A391C00ECA439 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		FE1693082112C15B00A411FE /* PostCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewController.swift; sourceTree = "<group>"; };
 		FE34425120F32D340015A1FA /* SavedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewCell.swift; sourceTree = "<group>"; };
+		FE652090211327B100DACA6C /* ChatRoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomsViewController.swift; sourceTree = "<group>"; };
+		FE6520922113293400DACA6C /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		FE6520942113D81900DACA6C /* PostRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRoomViewController.swift; sourceTree = "<group>"; };
+		FE6520962113D87600DACA6C /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		FEC522A72110448C00856F75 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		FED3976621087D1F007F9E9E /* SavedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedApi.swift; sourceTree = "<group>"; };
@@ -161,9 +165,10 @@
 				E3B49A4621071390006B072E /* DestinationMessageCell.swift */,
 				DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */,
 				E3B49A4821071390006B072E /* MyMessageCellTableViewCell.swift */,
+				FE6520962113D87600DACA6C /* PostCollectionViewCell.swift */,
 				FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */,
 				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
-				E3D8A9E3210F600D00DA7222 /* CustomCell.swift */,
+				FE6520922113293400DACA6C /* CustomCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,14 +276,15 @@
 				D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */,
 				DE5F16D5210F561900152210 /* WriterInfoViewController.swift */,
 				D31AEF18210471830057203F /* UserSettingViewController.swift */,
-				FE1693082112C15B00A411FE /* PostCollectionViewController.swift */,
 				D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
+				FE652090211327B100DACA6C /* ChatRoomsViewController.swift */,
 				E39E86382060E123007CBB6D /* ProfileViewController.swift */,
+				FE1693082112C15B00A411FE /* PostCollectionViewController.swift */,
+				FE6520942113D81900DACA6C /* PostRoomViewController.swift */,
 				FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */,
 				539A28412106037E00FD118A /* PostViewController.swift */,
-				E3D8A9E1210F4E3900DA7222 /* ChatRoomsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -395,7 +401,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -407,7 +413,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -430,13 +436,14 @@
 			files = (
 				E3B49A4A21071391006B072E /* PeopleViewController.swift in Sources */,
 				FEE96801210F7F12007C5AFA /* SavedCollectionViewCell.swift in Sources */,
-				E3D8A9E72113502F00DA7222 /* CustomCell.swift in Sources */,
+				FE6520932113293400DACA6C /* CustomCell.swift in Sources */,
 				15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */,
 				D31AEF1B210473CB0057203F /* UserSettingTableViewCell.swift in Sources */,
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
 				FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */,
 				FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */,
 				E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */,
+				FE6520952113D81900DACA6C /* PostRoomViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
 				E3B49A4921071391006B072E /* DestinationMessageCell.swift in Sources */,
@@ -468,9 +475,10 @@
 				E39E863C206104B2007CBB6D /* User.swift in Sources */,
 				D37C44E0210200B000AF6FFE /* ForgotUserInfoViewController.swift in Sources */,
 				15D47EB32060D4E7001CFF53 /* Post.swift in Sources */,
-				E3D8A9E621134F6D00DA7222 /* ChatRoomsViewController.swift in Sources */,
+				FE652091211327B100DACA6C /* ChatRoomsViewController.swift in Sources */,
 				D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */,
 				DE5F16D6210F561900152210 /* WriterInfoViewController.swift in Sources */,
+				FE6520972113D87600DACA6C /* PostCollectionViewCell.swift in Sources */,
 				D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

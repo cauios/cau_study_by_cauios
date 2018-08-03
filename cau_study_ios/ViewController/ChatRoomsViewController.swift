@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var chattableview: UITableView!
     
@@ -74,9 +74,9 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
             let url = URL(string: userModel.profileImageUrl!)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, err) in
                 DispatchQueue.main.sync{
-                    cell.imageview.image = UIImage(data:data!)
-                    cell.imageview.layer.cornerRadius = cell.imageview.frame.width/2
-                    cell.imageview.layer.masksToBounds = true
+                    cell.imageVIEW.image = UIImage(data:data!)
+                    cell.imageVIEW.layer.cornerRadius = cell.imageVIEW.frame.width/2
+                    cell.imageVIEW.layer.masksToBounds = true
                 }
             }).resume()
             
@@ -111,16 +111,6 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

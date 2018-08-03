@@ -28,29 +28,29 @@ class SavedCollectionViewCell: UICollectionViewCell {
         saveTitle.text = post?.title
         saveTags.text = post?.tags
         
-        switch post?.category {
-        case "어학":
-            saveCategory.image = UIImage(named: "collan")
-        case "학업":
-            saveCategory.image = UIImage(named: "colstu")
-        case "취업":
-            saveCategory.image = UIImage(named: "coljob")
-        default:
-            saveCategory.image = UIImage(named: "greybutton")
-
-//            switch post?.category {
-//            case "어학":
-//                saveCategory.image = UIImage(named: "finlan")
-//            case "학업":
-//                saveCategory.image = UIImage(named: "finstu")
-//            case "취업":
-//                saveCategory.image = UIImage(named: "finjob")
-//            default:
-//                saveCategory.image = UIImage(named: "greybutton")
-//
-//            }
+        if post?.wanted == true {
+            switch post?.category {
+            case "어학":
+                saveCategory.image = UIImage(named: "collan")
+            case "학업":
+                saveCategory.image = UIImage(named: "colstu")
+            default:
+                saveCategory.image = UIImage(named: "coljob")
+            }
+        } else {
+            switch post?.category {
+            case "어학":
+                saveCategory.image = UIImage(named: "finlan")
+            case "학업":
+                saveCategory.image = UIImage(named: "finstu")
+            default:
+                saveCategory.image = UIImage(named: "finjob")
+            }
         }
-    }
+
+
+        }
+    
     
     
     

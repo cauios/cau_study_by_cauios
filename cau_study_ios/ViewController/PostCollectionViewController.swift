@@ -8,8 +8,38 @@
 import UIKit
 import XLPagerTabStrip
 
-class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
 
+class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
+    
+
+    
+    var postId: String?
+    var posts = [Post]()
+    var user: User!
+    
+    
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "lanBtn":
+            let secondVC = segue.destination as! PostRoomViewController
+             secondVC.data = "lanBtn"
+        case "stuBtn":
+            let secondVC = segue.destination as! PostRoomViewController
+            secondVC.data = "stuBtn"
+        case "jobBtn":
+            let secondVC = segue.destination as! PostRoomViewController
+            secondVC.data = "jobBtn"
+        case "finBtn":
+            let secondVC = segue.destination as! PostRoomViewController
+            secondVC.data = "finBtn"
+        default:
+            break
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +50,7 @@ class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -34,5 +65,10 @@ class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
         // Pass the selected object to the new view controller.
     }
     */
+  
+    
 
+    
+    
+    
 }
