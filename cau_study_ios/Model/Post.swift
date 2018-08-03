@@ -24,7 +24,7 @@ class Post {
     var description: String?
     var saved: Bool?// e.g. type이 optional String으로 설정되어 있음!
     var timestamp: Int?
-    var wanted: Bool? // [0726] Dahye
+    var wanted: Bool?
 }
 
 
