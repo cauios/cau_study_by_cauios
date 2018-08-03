@@ -21,7 +21,6 @@ class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.uid = Auth.auth().currentUser?.uid
         self.getChatroomsList()
         // Do any additional setup after loading the view.
@@ -30,15 +29,16 @@ class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewD
     func getChatroomsList(){
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/"+uid).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
             self.chatrooms.removeAll()
+            print("5번포인트")
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
-                
+                print("6번포인트")
                 if let chatroomdic = item.value as? [String:AnyObject]{
                     let chatModel = ChatModel(JSON: chatroomdic)
                     self.chatrooms.append(chatModel!)
                 }
             }
             //테이블뷰 갱신코드
-            self.tableview.reloadData()
+            self.chattableview.reloadData()
         })
     }
     
