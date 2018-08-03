@@ -74,8 +74,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
                 
             }
             
-        }
-        )
+        })
         
     }
     

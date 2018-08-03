@@ -23,7 +23,7 @@ class PostRoomViewController: UIViewController {
     var user: User!
     var selectedCellId: String?
     var saved = [SavedApi]()
-
+    var post: Post?
     
     
     
@@ -47,6 +47,8 @@ class PostRoomViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    
+ 
     
     
     
@@ -87,6 +89,17 @@ class PostRoomViewController: UIViewController {
                 self.collectionView.reloadData()
             })
             
+            
+        })
+        //삭제된 포스트 리로드
+
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.collectionView.reloadData()
+                
+            }
             
         })
         
