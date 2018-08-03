@@ -212,6 +212,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="exploreCateImageView" destination="zwa-h5-Zj0" id="QeY-nN-hDr"/>
+                                            <outlet property="exploreFinImageView" destination="2oL-RA-gce" id="CQ9-jw-uEX"/>
                                             <outlet property="exploreTagsLabel" destination="1xB-Es-Ae6" id="Y7I-87-aW3"/>
                                             <outlet property="exploreTimestampLabel" destination="eUp-uD-Kqq" id="zhA-Cj-Q3N"/>
                                             <outlet property="exploreTitleLabel" destination="4Dy-qK-db6" id="8LA-3m-tkV"/>
