@@ -20,7 +20,7 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var savedLikeImageView: UIImageView!
     @IBOutlet weak var exploreCateImageView: UIImageView!
     
-    //[0731 Dahye] Add outlets
+    @IBOutlet weak var exploreFinImageView: UIImageView!
     
     @IBOutlet weak var exploreUnameLabel: UILabel!
     @IBOutlet weak var exploreTimestampLabel: UILabel!
@@ -47,14 +47,37 @@ class ExploreTableViewCell: UITableViewCell {
         
         // [0731 Dahye] for category image
         if post?.category == "학업" {
-            exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+            if post?.wanted == false {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finstu")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                
+            } else {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+                exploreFinImageView?.image = nil
+            }
         }
         if post?.category == "취업" {
-            exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+            if post?.wanted == false {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finjob")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                
+            } else {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+                exploreFinImageView?.image = nil
+            }
         }
         if post?.category == "어학" {
-            exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+            if post?.wanted == false {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finlan")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                
+            } else {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+                exploreFinImageView?.image = nil
+            }
         }
+        
+        
   
         
         
@@ -81,6 +104,7 @@ class ExploreTableViewCell: UITableViewCell {
         
 
     }
+        
     }
     // hohyun Comment saved like button activate!
  
