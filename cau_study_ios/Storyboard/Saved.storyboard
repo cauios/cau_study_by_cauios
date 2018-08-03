@@ -167,16 +167,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                 <state key="normal" image="lancol"/>
                                                 <connections>
-                                                    <action selector="sendText1:" destination="Eg2-Nf-XId" eventType="touchUpInside" id="S9T-eZ-1tA"/>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="stuBtn" id="gfx-U1-MQT"/>
+                                                    <segue destination="457-UG-6U8" kind="show" identifier="lanBtn" id="gfx-U1-MQT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-yI-0fE">
                                                 <rect key="frame" x="175" y="0.0" width="170" height="170"/>
                                                 <state key="normal" image="lanstu"/>
                                                 <connections>
-                                                    <action selector="sendText2:" destination="Eg2-Nf-XId" eventType="touchUpInside" id="VJo-qc-E0e"/>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="finBtn" id="cuE-Jt-PIR"/>
+                                                    <segue destination="457-UG-6U8" kind="show" identifier="stuBtn" id="cuE-Jt-PIR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -188,7 +186,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                 <state key="normal" image="lanjob"/>
                                                 <connections>
-                                                    <action selector="sendText3:" destination="Eg2-Nf-XId" eventType="touchUpInside" id="ThM-cV-LX5"/>
                                                     <segue destination="457-UG-6U8" kind="show" identifier="jobBtn" id="uTo-pm-1aM"/>
                                                 </connections>
                                             </button>
@@ -196,8 +193,7 @@
                                                 <rect key="frame" x="175" y="0.0" width="170" height="170"/>
                                                 <state key="normal" image="lanfin"/>
                                                 <connections>
-                                                    <action selector="sendText4:" destination="Eg2-Nf-XId" eventType="touchUpInside" id="PaF-Ob-aPL"/>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="lanBtn" id="K0d-Lc-Iaz"/>
+                                                    <segue destination="457-UG-6U8" kind="show" identifier="finBtn" id="K0d-Lc-Iaz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -213,12 +209,6 @@
                         <viewLayoutGuide key="safeArea" id="CDd-im-Ebt"/>
                     </view>
                     <size key="freeformSize" width="400" height="600"/>
-                    <connections>
-                        <outlet property="finBtn" destination="FoE-3e-qZv" id="Fsx-lf-5Bx"/>
-                        <outlet property="jobBtn" destination="u9J-3C-Zwm" id="ivb-7Z-LcT"/>
-                        <outlet property="lanBtn" destination="BPD-Rl-NWj" id="GFs-9p-q39"/>
-                        <outlet property="stuBtn" destination="8bY-yI-0fE" id="Nwx-Vx-F71"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHq-7n-beT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,6 +347,6 @@
         <image name="like" width="46" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gfx-U1-MQT"/>
+        <segue reference="uTo-pm-1aM"/>
     </inferredMetricsTieBreakers>
 </document>

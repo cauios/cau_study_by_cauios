@@ -22,6 +22,7 @@ class PostRoomViewController: UIViewController {
     var posts = [Post]()
     var user: User!
     var selectedCellId: String?
+    var saved = [SavedApi]()
 
     
     
@@ -33,13 +34,13 @@ class PostRoomViewController: UIViewController {
         collectionView.dataSource = self
         switch data {
         case "lanBtn":
-            fetchSaved()
+            loadLanPost()
         case "stuBtn":
             loadAcaPost()
         case "jobBtn":
             loadEmpPost()
         case "finBtn":
-            loadFinPost()
+            loadFinPost() //모집마감은 어떻게 처리할지 고민!!
         default:
             break
         }

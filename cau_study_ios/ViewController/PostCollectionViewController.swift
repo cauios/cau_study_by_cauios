@@ -11,30 +11,14 @@ import XLPagerTabStrip
 
 class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
     
-    
-    @IBOutlet weak var lanBtn: UIButton!
-    @IBOutlet weak var stuBtn: UIButton!
-    @IBOutlet weak var jobBtn: UIButton!
-    @IBOutlet weak var finBtn: UIButton!
+
     
     var postId: String?
     var posts = [Post]()
     var user: User!
     
     
-    @IBAction func sendText1(_ sender: UIButton) {
-        performSegue(withIdentifier: "lanBtn", sender: self)
-    }
-    
-    @IBAction func sendText2(_ sender: UIButton) {
-        performSegue(withIdentifier: "stuBtn", sender: self)
-    }
-    @IBAction func sendText3(_ sender: UIButton) {
-        performSegue(withIdentifier: "jobBtn", sender: self)
-    }
-    @IBAction func sendText4(_ sender: UIButton) {
-        performSegue(withIdentifier: "finBtn", sender: self)
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
