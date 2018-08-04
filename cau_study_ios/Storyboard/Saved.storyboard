@@ -231,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pu9-PG-npv">
-                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WtE-l1-pSV">
                                     <size key="itemSize" width="125" height="125"/>
@@ -278,6 +278,7 @@
                                             <constraint firstAttribute="bottom" secondItem="s9U-m0-Ik7" secondAttribute="bottom" id="HYG-KY-AvM"/>
                                             <constraint firstItem="zTy-7R-LSB" firstAttribute="top" secondItem="Qa3-qz-dcZ" secondAttribute="top" constant="95.5" id="JJP-zh-WIq"/>
                                             <constraint firstItem="s9U-m0-Ik7" firstAttribute="top" secondItem="Qa3-qz-dcZ" secondAttribute="top" id="JgI-Ii-jXB"/>
+                                            <constraint firstItem="fr8-EP-hT8" firstAttribute="top" secondItem="s9U-m0-Ik7" secondAttribute="bottom" constant="-97.5" id="XZN-MA-k7W"/>
                                             <constraint firstAttribute="trailing" secondItem="zTy-7R-LSB" secondAttribute="trailing" constant="12" id="aUI-6Q-ruD"/>
                                             <constraint firstItem="fr8-EP-hT8" firstAttribute="centerY" secondItem="Qa3-qz-dcZ" secondAttribute="centerY" id="iLe-hH-RQc"/>
                                             <constraint firstItem="s9U-m0-Ik7" firstAttribute="leading" secondItem="Qa3-qz-dcZ" secondAttribute="leading" id="kyf-rO-dxQ"/>
@@ -295,7 +296,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pu9-PG-npv" firstAttribute="leading" secondItem="YmJ-Wi-xkm" secondAttribute="leading" id="BZf-VL-Kp9"/>
-                            <constraint firstItem="pu9-PG-npv" firstAttribute="top" secondItem="YmJ-Wi-xkm" secondAttribute="top" id="cSQ-H1-uLl"/>
+                            <constraint firstItem="pu9-PG-npv" firstAttribute="top" secondItem="YmJ-Wi-xkm" secondAttribute="top" constant="10" id="cSQ-H1-uLl"/>
                             <constraint firstItem="pu9-PG-npv" firstAttribute="centerX" secondItem="pHu-fo-DCl" secondAttribute="centerX" id="dQ4-4q-RcW"/>
                             <constraint firstItem="YmJ-Wi-xkm" firstAttribute="trailing" secondItem="pu9-PG-npv" secondAttribute="trailing" id="fzH-mO-AyJ"/>
                             <constraint firstItem="pu9-PG-npv" firstAttribute="centerY" secondItem="pHu-fo-DCl" secondAttribute="centerY" id="vaq-nl-dac"/>
