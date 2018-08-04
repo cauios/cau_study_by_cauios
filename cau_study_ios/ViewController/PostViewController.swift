@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import TTGSnackbar
 
 class PostViewController: UIViewController {
     
@@ -45,8 +46,41 @@ class PostViewController: UIViewController {
     //[Dahye 0725]
     var user: User!
     //
+    //[hohyun 0804]
+
+    
+    lazy var snackbar_like = TTGSnackbar(message: "        저장목록에서 삭제됨",
+                               duration: .middle,
+                               actionText: "실행취소",
+                               actionBlock: { (snackbar) in
+                                self.savedSelected() //실행취소 누르면 다시 색칠
+                                self.snackbar_like_selected.show()
+                               
+    })
+    
+    lazy var snackbar_like_selected = TTGSnackbar(message: "        저장목록에 추가됨", duration: .middle, actionText: "실행취소") { (snackbar) in
+                    self.savedDefault()
+                    self.snackbar_like.show()
+
+    }
+    
     
     override func viewDidLoad() {
+        
+        
+        //hohyun: updating status bar!!
+        snackbar_like_selected.backgroundColor = UIColor.white
+        snackbar_like_selected.messageTextColor = .black
+        snackbar_like_selected.actionTextColor = .black
+        snackbar_like_selected.separateViewBackgroundColor = .clear
+        snackbar_like_selected.bottomMargin = 50
+        
+        snackbar_like.backgroundColor = .white
+        snackbar_like.messageTextColor = .black
+        snackbar_like.actionTextColor = .black
+        snackbar_like.separateViewBackgroundColor = .clear
+        snackbar_like.bottomMargin = 50
+
         
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
@@ -175,8 +209,8 @@ class PostViewController: UIViewController {
                 if let _ = snapshot.value as? NSNull {
                     self.postSavedLikeImageView.image = UIImage(named: "like")
                 } else {
-                    
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                    
 
                 }
             }
@@ -187,6 +221,22 @@ class PostViewController: UIViewController {
         
     }
 
+    
+    func savedSelected() {
+        let currentUser = Auth.auth().currentUser
+        Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
+        self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+        Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
+    }
+    
+    func savedDefault() {
+        _ = Auth.auth().currentUser
+        Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
+        self.postSavedLikeImageView.image = UIImage(named: "like")
+        Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
+        self.snackbar_like.show()
+    }
+    
     
   func showAlert() {
         // UIAlertController를 생성해야 한다. style은 .alert로 해준다.
@@ -206,6 +256,7 @@ class PostViewController: UIViewController {
                 Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
                 self.postSavedLikeImageView.image = UIImage(named: "like")
                 Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
+                self.snackbar_like.show()
         
 //                let transition: CATransition = CATransition()
 //                transition.duration = 0.5
@@ -232,6 +283,8 @@ class PostViewController: UIViewController {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    self.snackbar_like_selected.show()
+
                 }
                 else {
                     self.showAlert()

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import XLPagerTabStrip
 
+
 class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "전체")
@@ -33,12 +34,10 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         collectionView.dataSource = self
         fetchUser()
         fetchSaved()
+
         
        
     }
-    
-    
-    
     
     
     func fetchUser() {
