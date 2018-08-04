@@ -225,7 +225,7 @@
         <!--Post Room View Controller-->
         <scene sceneID="8iJ-jc-XPK">
             <objects>
-                <viewController id="457-UG-6U8" customClass="PostRoomViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostRoomViewController" id="457-UG-6U8" customClass="PostRoomViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHu-fo-DCl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,6 +348,6 @@
         <image name="like" width="46" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uTo-pm-1aM"/>
+        <segue reference="gfx-U1-MQT"/>
     </inferredMetricsTieBreakers>
 </document>
