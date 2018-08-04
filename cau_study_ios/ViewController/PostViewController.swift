@@ -177,7 +177,7 @@ class PostViewController: UIViewController {
                 } else {
                     
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
-                    
+
                 }
             }
             
@@ -194,6 +194,10 @@ class PostViewController: UIViewController {
         // style이 .cancel이면 bold체. handler가 nil일 경우에는 아무 일이 일어나지 않고 닫힌다.
             alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: {alertAction in
                 NSLog("OK Pressed")
+               let currentUser = Auth.auth().currentUser
+                Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
+                self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
             }))
             // style이 .destructive면 빨간색 text color
             alertController.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {
@@ -203,13 +207,14 @@ class PostViewController: UIViewController {
                 self.postSavedLikeImageView.image = UIImage(named: "like")
                 Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
         
-                let transition: CATransition = CATransition()
-                transition.duration = 0.5
-                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                transition.type = kCATransitionReveal
-                transition.subtype = kCATransitionFromRight
-                self.view.window!.layer.add(transition, forKey: nil)
-                self.dismiss(animated: false, completion: nil)
+//                let transition: CATransition = CATransition()
+//                transition.duration = 0.5
+//                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+//                transition.type = kCATransitionReveal
+//                transition.subtype = kCATransitionFromRight
+//                self.view.window!.layer.add(transition, forKey: nil)
+//
+//                self.dismiss(animated: false, completion: nil)
 
             // 실제로 화면에 보여주기 위해서는 present 메서드가 필요하다. animated : true/false로 해놓으면 애니메이션 효과가 있고/없다. present가 완료되어 화면이 보여지면 completion의 코드가 실행된다.
                 
