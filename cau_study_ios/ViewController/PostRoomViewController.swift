@@ -42,7 +42,7 @@ class PostRoomViewController: UIViewController {
             loadEmpPost()
             self.title = "취업"
         case "finBtn":
-            loadFinPost() //모집마감은 어떻게 처리할지 고민!!
+            loadFinPost()
             self.title = "마감"
         default:
             break
@@ -78,17 +78,19 @@ class PostRoomViewController: UIViewController {
     }
 
 
-    func fetchSaved() {
+    func loadFinPost() {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
         //추가된 포스트 리로드
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
-            Api.Post.observeMyPosts(withId: snapshot.key, completion: {
+            Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
+                if post.wanted == false{
                 self.posts.insert(post, at: 0)
                 self.collectionView.reloadData()
+                }
             })
             
             
@@ -98,9 +100,10 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                if self.post?.wanted == false{
                 self.posts.remove(at: index)
                 self.collectionView.reloadData()
-                
+                }
             }
             
         })
@@ -108,54 +111,111 @@ class PostRoomViewController: UIViewController {
     }
     
     func loadAcaPost() {
-        Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        //추가된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
-                self.posts.insert(post, at: 0)
-                self.collectionView.reloadData()
+            Api.Post.observePost(withId: snapshot.key, completion: {
+                post in
+                if post.wanted == true{
+                    if post.category == "학업"{
+                    self.posts.insert(post, at: 0)
+                    self.collectionView.reloadData()
+                    }
+                }
             })
+            
+            
         })
+        //삭제된 포스트 리로드
         
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                if self.post?.wanted == true{
+                    if self.post?.category == "학업"{                    self.posts.remove(at: index)
+                    self.collectionView.reloadData()
+                }
+                }
+            }
+            
+        })
+           
     }
     //
     
     //[0728 Dahye] load Employment Preperation Posts
     func loadEmpPost() {
-        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childAdded, with: {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        //추가된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
-                self.posts.insert(post, at: 0)
-                self.collectionView.reloadData()
-
+            Api.Post.observePost(withId: snapshot.key, completion: {
+                post in
+                if post.wanted == true{
+                    if post.category == "취업"{
+                        self.posts.insert(post, at: 0)
+                        self.collectionView.reloadData()
+                    }
+                }
             })
+            
+            
+        })
+        //삭제된 포스트 리로드
+        
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                if self.post?.wanted == true{
+                    if self.post?.category == "취업"{                    self.posts.remove(at: index)
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+            
         })
     }
     
     //[0728 Dahye] load Language Posts
     func loadLanPost() {
-        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        //추가된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                self.posts.insert(post, at: 0)
-                self.collectionView.reloadData()
-
+            Api.Post.observePost(withId: snapshot.key, completion: {
+                post in
+                if post.wanted == true{
+                    if post.category == "어학"{
+                        self.posts.insert(post, at: 0)
+                        self.collectionView.reloadData()
+                    }
+                }
             })
+            
+            
+        })
+        //삭제된 포스트 리로드
+        
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                if self.post?.wanted == true{
+                    if self.post?.category == "어학"{                    self.posts.remove(at: index)
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+            
         })
     }
     
-    func loadFinPost() {
-        Api.Post.REF_POSTS.observe(.childAdded, with: {
-            snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                self.posts.insert(post, at: 0)
-                self.collectionView.reloadData()
-
-            })
-        })
-        
-    }
 }
 
 
