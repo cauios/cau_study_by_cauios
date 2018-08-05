@@ -18,6 +18,8 @@
 		15D47EB32060D4E7001CFF53 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB22060D4E7001CFF53 /* Post.swift */; };
 		15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */; };
 		404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B134038822380599309DDC06 /* Pods_cau_study_ios.framework */; };
+		535F1C042116D94800C0F5FA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F1C032116D94800C0F5FA /* SearchViewController.swift */; };
+		535F1C062116D96200C0F5FA /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F1C052116D96200C0F5FA /* SearchTableViewCell.swift */; };
 		5387594C2109DEC400C6BB50 /* HelperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5387594B2109DEC400C6BB50 /* HelperService.swift */; };
 		539A28422106037E00FD118A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A28412106037E00FD118A /* PostViewController.swift */; };
 		53F88656210CD5D600696C98 /* CategoryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F88655210CD5D600696C98 /* CategoryApi.swift */; };
@@ -77,6 +79,8 @@
 		15A14A352057A8C8008EEB25 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		15D47EB22060D4E7001CFF53 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		535F1C032116D94800C0F5FA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		535F1C052116D96200C0F5FA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		5387594B2109DEC400C6BB50 /* HelperService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperService.swift; sourceTree = "<group>"; };
 		539A28412106037E00FD118A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		53F88655210CD5D600696C98 /* CategoryApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApi.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				FEE96800210F7F12007C5AFA /* SavedCollectionViewCell.swift */,
 				E3D8A9DF210F3BF600DA7222 /* PeopleViewTableViewCell.swift */,
 				FE6520922113293400DACA6C /* CustomCell.swift */,
+				535F1C052116D96200C0F5FA /* SearchTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				FE6520942113D81900DACA6C /* PostRoomViewController.swift */,
 				FECDC4B5210F7A310062CDC1 /* SavedCollectionViewController.swift */,
 				539A28412106037E00FD118A /* PostViewController.swift */,
+				535F1C032116D94800C0F5FA /* SearchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				E39D51E4204EBE29001D94F9 /* ProgressHUD.m in Sources */,
 				FEC522A82110448C00856F75 /* ParentViewController.swift in Sources */,
 				FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */,
+				535F1C042116D94800C0F5FA /* SearchViewController.swift in Sources */,
 				E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */,
 				FE6520952113D81900DACA6C /* PostRoomViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
@@ -480,6 +487,7 @@
 				FE652091211327B100DACA6C /* ChatRoomsViewController.swift in Sources */,
 				D31AEF19210471830057203F /* UserSettingViewController.swift in Sources */,
 				DE5F16D6210F561900152210 /* WriterInfoViewController.swift in Sources */,
+				535F1C062116D96200C0F5FA /* SearchTableViewCell.swift in Sources */,
 				FE6520972113D87600DACA6C /* PostCollectionViewCell.swift in Sources */,
 				D30286BF20F5F5680054D6B2 /* MyPostsTableViewCell.swift in Sources */,
 			);
