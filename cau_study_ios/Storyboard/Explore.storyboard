@@ -877,6 +877,7 @@
                         <outlet property="searchEmpCateButton" destination="kP5-7r-yhw" id="pNH-B1-BbF"/>
                         <outlet property="searchLanCateButton" destination="DIN-Im-zla" id="Y7g-jy-v7E"/>
                         <outlet property="searchTableView" destination="KH4-89-dVR" id="qow-PN-8Rx"/>
+                        <segue destination="FfP-bz-Hmj" kind="show" identifier="SearchToPostSegue" id="TNI-Ur-Vjj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3j-XR-aqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1558,6 +1559,6 @@
         <image name="yellowbutton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LOA-C6-f2l"/>
+        <segue reference="TNI-Ur-Vjj"/>
     </inferredMetricsTieBreakers>
 </document>
