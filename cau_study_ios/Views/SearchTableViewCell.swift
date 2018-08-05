@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 protocol SearchTableViewCellDelegate {
-    func goToPostVC(postId: String)
+    func openPostVC(postId: String)
 }
 
 class SearchTableViewCell: UITableViewCell {
@@ -143,7 +143,7 @@ class SearchTableViewCell: UITableViewCell {
     
     @objc func searchTitleLabel_TouchUpInside(){
         if let id = post?.id {
-            delegate?.goToPostVC(postId: id)
+            delegate?.openPostVC(postId: id)
         }
     }
     override func awakeFromNib() {

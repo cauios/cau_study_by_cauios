@@ -166,7 +166,7 @@ class SearchViewController: UIViewController {
     // [Dahye 5.20] prepare method will be called right before the transition which is a perfect place to send the data on the destination view controller. prepare method should be implemented in the file where the performSegue is implemented. We should note that the data passed along is a string Id. So we need to convert the sender parameter of type any into string.
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Open_PostSegue" {
+        if segue.identifier == "SearchToPostSegue" {
             let postVC = segue.destination as! PostViewController
             let postId = sender as! String
             postVC.postId = postId
@@ -220,8 +220,9 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: SearchTableViewCellDelegate {
     
     // [Dahye 05.20] this sender will actually be passed to prepare for segue method.
-    func goToPostVC(postId: String) {
-        performSegue(withIdentifier: "Open_PostSegue", sender: postId)
+    func openPostVC(postId: String) {
+        performSegue(withIdentifier: "SearchToPostSegue", sender: postId)
+        
     }
     
 }
