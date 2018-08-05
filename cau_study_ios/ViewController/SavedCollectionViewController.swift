@@ -29,6 +29,8 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -37,6 +39,10 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
 
         
        
+    }
+    // whenever saved tabbar item clicked, badge will remove!!
+    override func viewWillAppear(_ animated: Bool) {
+        self.removeRedDotAtTabBarItemIndex(index: 2)
     }
     
     
@@ -74,6 +80,41 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
             }
             
         })
+        
+    }
+    func removeRedDotAtTabBarItemIndex(index: Int) {
+        for subview in tabBarController!.tabBar.subviews {
+            
+            if let subview = subview as? UIView {
+                
+                if subview.tag == 1234 {
+                    subview.removeFromSuperview()
+                    break
+                }
+            }
+        }
+        
+        let RedDotRadius: CGFloat = 5
+        let RedDotDiameter = RedDotRadius * 2
+        
+        let TopMargin:CGFloat = 5
+        
+        let TabBarItemCount = CGFloat(self.tabBarController!.tabBar.items!.count)
+        
+        let screenSize = UIScreen.main.bounds
+        let HalfItemWidth = (screenSize.width) / (TabBarItemCount * 2)
+        
+        let  xOffset = HalfItemWidth * CGFloat(index * 2 + 1)
+        
+        let imageHalfWidth: CGFloat = (self.tabBarController!.tabBar.items![index] ).selectedImage!.size.width / 2
+        
+        let redDot = UIView(frame: CGRect(x: xOffset + imageHalfWidth - 7, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter))
+        
+        redDot.tag = 1234
+        redDot.backgroundColor = UIColor.red
+        redDot.layer.cornerRadius = RedDotRadius
+        
+        self.tabBarController?.tabBar.willRemoveSubview(redDot)
         
     }
     
