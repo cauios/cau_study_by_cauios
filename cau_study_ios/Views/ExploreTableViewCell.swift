@@ -174,6 +174,8 @@ class ExploreTableViewCell: UITableViewCell {
     }
     
     
+    
+    
     @objc func exploreTitleLabel_TouchUpInside(){
         if let id = post?.id {
             delegate?.goToPostVC(postId: id)
