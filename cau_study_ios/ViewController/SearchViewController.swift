@@ -41,18 +41,22 @@ class SearchViewController: UIViewController {
     @IBAction func searchAllCateTUI(_ sender: Any) {
         selectedSeg = 1
         posts = [Post]()
-        Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
-                self.posts.insert(post, at: 0)
-                self.searchTableView.reloadData()
+        if searchBar.text! == "" {
+            return
+        } else {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+                snapshot in
+                print(snapshot.key)
+                Api.Post.observePost(withId: snapshot.key, completion: { post in
+                    
+                    self.posts.insert(post, at: 0)
+                    self.searchTableView.reloadData()
+                })
             })
-        })
+        }
         
         searchTableView.reloadData()
-
+        
     }
     
     
@@ -104,52 +108,64 @@ class SearchViewController: UIViewController {
     
     //[0728 Dahye] load Academic Posts
     func loadAcaPost() {
-        Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                if post.category == "학업" {
-                    self.posts.insert(post, at: 0)
-                    self.searchTableView.reloadData()
-                } else {
-                    self.searchTableView.reloadData()
-                }
+        if searchBar.text! == "" {
+            return
+        } else {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+                snapshot in
+                print(snapshot.key)
+                Api.Post.observePost(withId: snapshot.key, completion: { post in
+                    if post.category == "학업" {
+                        self.posts.insert(post, at: 0)
+                        self.searchTableView.reloadData()
+                    } else {
+                        self.searchTableView.reloadData()
+                    }
+                })
             })
-        })
-
+        }
+        
     }
     //
     
     //[0728 Dahye] load Employment Preperation Posts
     func loadEmpPost() {
-        Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                if post.category == "취업" {
-                    self.posts.insert(post, at: 0)
-                    self.searchTableView.reloadData()
-                } else {
-                    self.searchTableView.reloadData()
-                }
+        if searchBar.text! == "" {
+            return
+        } else {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+                snapshot in
+                print(snapshot.key)
+                Api.Post.observePost(withId: snapshot.key, completion: { post in
+                    if post.category == "취업" {
+                        self.posts.insert(post, at: 0)
+                        self.searchTableView.reloadData()
+                    } else {
+                        self.searchTableView.reloadData()
+                    }
+                })
             })
-        })
+        }
     }
     
     //[0728 Dahye] load Language Posts
     func loadLanPost() {
-        Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                if post.category == "어학" {
-                    self.posts.insert(post, at: 0)
-                    self.searchTableView.reloadData()
-                } else {
-                    self.searchTableView.reloadData()
-                }
+        if searchBar.text! == "" {
+            return
+        } else {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+                snapshot in
+                print(snapshot.key)
+                Api.Post.observePost(withId: snapshot.key, completion: { post in
+                    if post.category == "어학" {
+                        self.posts.insert(post, at: 0)
+                        self.searchTableView.reloadData()
+                    } else {
+                        self.searchTableView.reloadData()
+                    }
+                })
             })
-        })
+        }
     }
     
     
@@ -187,16 +203,19 @@ class SearchViewController: UIViewController {
     func querySearchTags(searchInput: String) {
         selectedSeg = 1
         posts = [Post]()
-        Api.HashTag.REF_HASHTAG.child(searchInput).observe(.childAdded, with: {
-            snapshot in
-            print(snapshot.key)
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
-                self.posts.insert(post, at: 0)
-                self.searchTableView.reloadData()
+        if searchInput == "" {
+            return
+        } else {
+            Api.HashTag.REF_HASHTAG.child(searchInput).observe(.childAdded, with: {
+                snapshot in
+                print(snapshot.key)
+                Api.Post.observePost(withId: snapshot.key, completion: { post in
+         
+                    self.posts.insert(post, at: 0)
+                    self.searchTableView.reloadData()
+                })
             })
-        })
-        
+        }
         searchTableView.reloadData()
     }
 
