@@ -1559,6 +1559,6 @@
         <image name="yellowbutton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TNI-Ur-Vjj"/>
+        <segue reference="LOA-C6-f2l"/>
     </inferredMetricsTieBreakers>
 </document>

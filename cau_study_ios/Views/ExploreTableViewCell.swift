@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import FirebaseAuth
 import TTGSnackbar
 
@@ -17,7 +18,7 @@ protocol ExploreTableViewCellDelegate {
 
 
 class ExploreTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
@@ -33,10 +34,10 @@ class ExploreTableViewCell: UITableViewCell {
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
     // [Dahye 05.20] We must set didSet observer to conveniently update a cell, when there is an updated data.
     var posts = [Post]()
-
+    
     var post: Post? {
         didSet {
-         
+            
             updateView()
         }
     }
@@ -64,17 +65,21 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like_selected.actionTextColor = .black
         snackbar_like_selected.separateViewBackgroundColor = .clear
         snackbar_like_selected.bottomMargin = 51
-
+        
         
         snackbar_like.backgroundColor = .white
         snackbar_like.messageTextColor = .black
         snackbar_like.actionTextColor = .black
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 51
-
+        
         
         exploreTitleLabel.text = post?.title
         exploreTagsLabel.text = post?.tags
+        
+        // [0806 Dahye]
+        setTimestamp()
+        setUsername()
         
         // [0731 Dahye] for category image
         if post?.category == "학업" {
@@ -109,18 +114,18 @@ class ExploreTableViewCell: UITableViewCell {
         }
         
         
-  
+        
         
         
         let tapGestureForExploreTitleLabel = UITapGestureRecognizer(target: self, action: #selector(self.exploreTitleLabel_TouchUpInside))
         
-    exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
+        exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
         exploreTitleLabel.isUserInteractionEnabled = true
         
         let tapGestureForSavedLikeImageView =
             UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
-            savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
-                savedLikeImageView.isUserInteractionEnabled = true
+        savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
+        savedLikeImageView.isUserInteractionEnabled = true
         
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
@@ -131,11 +136,60 @@ class ExploreTableViewCell: UITableViewCell {
                     
                 }
             }
-         
+            
+            
+            
+        }
         
-
     }
-        
+    
+    // [0805 Dahye] set username & timestamp of each post
+    func setUsername() {
+        if let uid = post?.uid {
+            Api.User.REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value, with: { snapshot in
+                if let dict = snapshot.value as? [String: Any] {
+                    let postUser = User.transformUser(dict: dict, key: snapshot.key)
+                    self.exploreUnameLabel.text = postUser.username
+                }
+            })
+        }
+    }
+    
+    func setTimestamp() {
+        if let timestamp = post?.timestamp {
+            print(timestamp)
+            let timestampDate = Date(timeIntervalSince1970: TimeInterval(timestamp))
+            let now = Date()
+            let components = Set<Calendar.Component>([.second, .minute, .hour, .day, .weekOfMonth])
+            let timeDiff = Calendar.current.dateComponents(components, from: timestampDate, to: now)
+            
+            var postTimestampText = ""
+            
+            // [0726] Dahye: Handle each case
+            
+            if timeDiff.second! <= 0 {
+                postTimestampText = "Now"
+            }
+            if timeDiff.second! > 0 && timeDiff.minute! == 0 {
+                postTimestampText = (timeDiff.second == 1) ? "\(timeDiff.second!) second ago" : "\(timeDiff.second!) seconds ago"
+            }
+            if timeDiff.minute! > 0 && timeDiff.hour! == 0 {
+                postTimestampText = (timeDiff.minute == 1) ? "\(timeDiff.minute!) minute ago" : "\(timeDiff.minute!) minutes ago"
+            }
+            if timeDiff.hour! > 0 && timeDiff.day! == 0 {
+                postTimestampText = (timeDiff.hour == 1) ? "\(timeDiff.hour!) hour ago" : "\(timeDiff.hour!) hours ago"
+            }
+            if timeDiff.day! > 0 && timeDiff.weekOfMonth! == 0 {
+                postTimestampText = (timeDiff.day == 1) ? "\(timeDiff.day!) day ago" : "\(timeDiff.day!) days ago"
+            }
+            if timeDiff.weekOfMonth! > 0 {
+                postTimestampText = (timeDiff.weekOfMonth == 1) ? "\(timeDiff.weekOfMonth!) week ago" : "\(timeDiff.weekOfMonth!) weeks ago"
+            }
+            
+            exploreTimestampLabel.text = postTimestampText
+            
+            
+        }
     }
     func savedSelected() {
         let currentUser = Auth.auth().currentUser
@@ -155,7 +209,7 @@ class ExploreTableViewCell: UITableViewCell {
     
     
     // hohyun Comment saved like button activate!
- 
+    
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
@@ -185,15 +239,15 @@ class ExploreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
-
+        
+        
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
