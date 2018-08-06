@@ -41,7 +41,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
        
     }
     // whenever saved tabbar item clicked, badge will remove!!
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.removeRedDotAtTabBarItemIndex(index: 2)
     }
     
@@ -83,7 +83,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         
     }
     func removeRedDotAtTabBarItemIndex(index: Int) {
-        for subview in tabBarController!.tabBar.subviews {
+        for subview in (tabBarController?.tabBar.subviews)! {
             
             if let subview = subview as? UIView {
                 
