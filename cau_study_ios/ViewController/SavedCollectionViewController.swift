@@ -89,7 +89,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
                 
                 if subview.tag == 1234 {
                     subview.removeFromSuperview()
-                    break
+                    
                 }
             }
         }
