@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7su-Qq-WBo" kind="relationship" relationship="rootViewController" id="Hfm-3W-s8J"/>
+                        <segue destination="7su-Qq-WBo" kind="relationship" relationship="rootViewController" id="Cap-ra-4dV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbq-tM-IYf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,7 +200,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="cte-nC-nsa" id="bYK-Hz-nKW"/>
                         <outlet property="sendButton" destination="cEl-jQ-q7f" id="XzZ-qK-eRp"/>
-                        <outlet property="tableview" destination="ji5-QK-sCq" id="wa0-89-J4e"/>
+                        <outlet property="tableview" destination="ji5-QK-sCq" id="OuJ-4F-8QA"/>
                         <outlet property="textField_message" destination="E79-59-6QV" id="20H-zs-eLq"/>
                     </connections>
                 </viewController>
@@ -265,10 +265,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageview" destination="uNu-rw-efd" id="ahy-KY-Y0h"/>
-                                            <outlet property="label_lastmessage" destination="7ls-CH-Sfd" id="GBt-FQ-IrL"/>
-                                            <outlet property="label_timestamp" destination="RUX-hZ-TSk" id="psQ-Vc-XOH"/>
-                                            <outlet property="label_title" destination="QCe-k1-7OI" id="y9N-kE-Wqk"/>
+                                            <outlet property="imageVIEW" destination="uNu-rw-efd" id="s1U-d1-qLe"/>
+                                            <outlet property="label_lastmessage" destination="7ls-CH-Sfd" id="I22-BT-iGy"/>
+                                            <outlet property="label_timestamp" destination="RUX-hZ-TSk" id="Kf6-TU-dZa"/>
+                                            <outlet property="label_title" destination="QCe-k1-7OI" id="1Sf-yP-1Kq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -289,12 +289,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="CDj-hm-6K5"/>
                     <connections>
-                        <outlet property="tableview" destination="rbO-U8-jaH" id="klR-4M-pvN"/>
+                        <outlet property="chattableview" destination="rbO-U8-jaH" id="gPu-qO-Xbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iK3-fR-KPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508" y="1951.5742128935533"/>
+            <point key="canvasLocation" x="-554" y="2218"/>
         </scene>
     </scenes>
     <resources>

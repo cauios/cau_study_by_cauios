@@ -8,18 +8,26 @@
 
 import UIKit
 import FirebaseAuth
+import TTGSnackbar
 
 protocol ExploreTableViewCellDelegate {
     func goToPostVC(postId: String)
 }
 
+
+
 class ExploreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
-    @IBOutlet weak var exploreCategoryLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-
+    @IBOutlet weak var exploreCateImageView: UIImageView!
+    
+    @IBOutlet weak var exploreFinImageView: UIImageView!
+    
+    @IBOutlet weak var exploreUnameLabel: UILabel!
+    @IBOutlet weak var exploreTimestampLabel: UILabel!
+    
     var delegate: ExploreTableViewCellDelegate?
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
@@ -33,12 +41,73 @@ class ExploreTableViewCell: UITableViewCell {
         }
     }
     
+    lazy var snackbar_like = TTGSnackbar(message: "        저장목록에서 삭제됨",
+                                         duration: .middle,
+                                         actionText: "실행취소",
+                                         actionBlock: { (snackbar) in
+                                            self.savedSelected()
+                                            self.snackbar_like_selected.show()
+                                            
+    })
+    
+    lazy var snackbar_like_selected = TTGSnackbar(message: "        저장목록에 추가됨", duration: .middle, actionText: "실행취소") { (snackbar) in
+        self.savedDefault()
+        self.snackbar_like.show()
+        
+    }
     
     // [Dahye Comment] Fetch newly posting data from FB
     func updateView() {
+        //hohyun: updating status bar!!
+        snackbar_like_selected.backgroundColor = UIColor.white
+        snackbar_like_selected.messageTextColor = .black
+        snackbar_like_selected.actionTextColor = .black
+        snackbar_like_selected.separateViewBackgroundColor = .clear
+        snackbar_like_selected.bottomMargin = 51
+
+        
+        snackbar_like.backgroundColor = .white
+        snackbar_like.messageTextColor = .black
+        snackbar_like.actionTextColor = .black
+        snackbar_like.separateViewBackgroundColor = .clear
+        snackbar_like.bottomMargin = 51
+
+        
         exploreTitleLabel.text = post?.title
-        exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
+        
+        // [0731 Dahye] for category image
+        if post?.category == "학업" {
+            if post?.wanted == false {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finstu")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                
+            } else {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+                exploreFinImageView?.image = nil
+            }
+        }
+        if post?.category == "취업" {
+            if post?.wanted == false {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finjob")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                
+            } else {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+                exploreFinImageView?.image = nil
+            }
+        }
+        if post?.category == "어학" {
+            if post?.wanted == false {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "finlan")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                
+            } else {
+                exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+                exploreFinImageView?.image = nil
+            }
+        }
+        
         
   
         
@@ -66,33 +135,45 @@ class ExploreTableViewCell: UITableViewCell {
         
 
     }
+        
     }
+    func savedSelected() {
+        let currentUser = Auth.auth().currentUser
+        Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
+        self.savedLikeImageView.image = UIImage(named: "likeSelected")
+        Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
+        self.snackbar_like_selected.show()
+    }
+    
+    func savedDefault() {
+        _ = Auth.auth().currentUser
+        Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
+        self.savedLikeImageView.image = UIImage(named: "like")
+        Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
+        self.snackbar_like.show()
+    }
+    
+    
     // hohyun Comment saved like button activate!
  
     @objc func savedLikeImageView_TouchUpInside(){
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
-                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
-                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
-                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    self.savedSelected()
                     
                     
                 }
                 else {
-                    Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
-                    self.savedLikeImageView.image = UIImage(named: "like")
-                    Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
-                    
-
-                    
+                    self.savedDefault()
                 }
             }
             
         }
         
-    
     }
+    
+    
     
     
     @objc func exploreTitleLabel_TouchUpInside(){

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import TTGSnackbar
 
 class PostViewController: UIViewController {
     
@@ -22,7 +23,11 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postTimeLabel: UILabel!
     @IBOutlet weak var postLocationLabel: UILabel!
     @IBOutlet weak var postDescriptionLabel: UILabel!
+    @IBOutlet weak var postCategoryImage: UIImageView!
+    @IBOutlet weak var postCategoryBar: UIView!
+    @IBOutlet weak var postFinImageView: UIImageView!
     
+
     // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
@@ -41,8 +46,41 @@ class PostViewController: UIViewController {
     //[Dahye 0725]
     var user: User!
     //
+    //[hohyun 0804]
+
+    
+    lazy var snackbar_like = TTGSnackbar(message: "        저장목록에서 삭제됨",
+                               duration: .middle,
+                               actionText: "실행취소",
+                               actionBlock: { (snackbar) in
+                                self.savedSelected() //실행취소 누르면 다시 색칠
+                                self.snackbar_like_selected.show()
+                               
+    })
+    
+    lazy var snackbar_like_selected = TTGSnackbar(message: "        저장목록에 추가됨", duration: .middle, actionText: "실행취소") { (snackbar) in
+                    self.savedDefault()
+                    self.snackbar_like.show()
+
+    }
+    
     
     override func viewDidLoad() {
+        
+        
+        //hohyun: updating status bar!!
+        snackbar_like_selected.backgroundColor = UIColor.white
+        snackbar_like_selected.messageTextColor = .black
+        snackbar_like_selected.actionTextColor = .black
+        snackbar_like_selected.separateViewBackgroundColor = .clear
+        snackbar_like_selected.bottomMargin = 50
+        
+        snackbar_like.backgroundColor = .white
+        snackbar_like.messageTextColor = .black
+        snackbar_like.actionTextColor = .black
+        snackbar_like.separateViewBackgroundColor = .clear
+        snackbar_like.bottomMargin = 50
+
         
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
@@ -94,7 +132,33 @@ class PostViewController: UIViewController {
         postUidLabel.text = user.username
         postTimestampLabel.text = " " // [dahye's comment] this should be modified in the future
         postCategoryLabel.text = post?.category
+        if(postCategoryLabel.text == "학업") {
+            postCategoryImage.image = #imageLiteral(resourceName: "stulogo")
+            let color = UIColor(red: 00/255, green: 122/255, blue: 255/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "취업") {
+            postCategoryImage.image = #imageLiteral(resourceName: "joblogo")
+            let color = UIColor(red: 255/255, green: 46/255, blue: 85/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "어학") {
+            postCategoryImage.image = #imageLiteral(resourceName: "lanlogo")
+            let color = UIColor(red: 255/255, green: 192/255, blue: 00/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
         postTagsLabel.text = post?.tags
+        
+        // [0803 Dahye] Show if it is finished or not
+        if post?.wanted == false {
+            postFinImageView.image = #imageLiteral(resourceName: "fin")
+        } else {
+            postFinImageView.image = nil
+        }
+        
         postNumOfVacanLabel.text = post?.numOfVacan
         postTimeLabel.text = post?.time
         postLocationLabel.text = post?.location
@@ -145,9 +209,9 @@ class PostViewController: UIViewController {
                 if let _ = snapshot.value as? NSNull {
                     self.postSavedLikeImageView.image = UIImage(named: "like")
                 } else {
-                    
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     
+
                 }
             }
             
@@ -158,12 +222,32 @@ class PostViewController: UIViewController {
     }
 
     
-    func showAlert() {
+    func savedSelected() {
+        let currentUser = Auth.auth().currentUser
+        Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
+        self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+        Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
+    }
+    
+    func savedDefault() {
+        _ = Auth.auth().currentUser
+        Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
+        self.postSavedLikeImageView.image = UIImage(named: "like")
+        Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
+        self.snackbar_like.show()
+    }
+    
+    
+  func showAlert() {
         // UIAlertController를 생성해야 한다. style은 .alert로 해준다.
         let alertController = UIAlertController(title: "목록 삭제", message: "저장 목록에서 삭제하시겠습니까?", preferredStyle: .alert)
         // style이 .cancel이면 bold체. handler가 nil일 경우에는 아무 일이 일어나지 않고 닫힌다.
             alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: {alertAction in
                 NSLog("OK Pressed")
+               let currentUser = Auth.auth().currentUser
+                Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
+                self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
             }))
             // style이 .destructive면 빨간색 text color
             alertController.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {
@@ -172,7 +256,17 @@ class PostViewController: UIViewController {
                 Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
                 self.postSavedLikeImageView.image = UIImage(named: "like")
                 Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
-                
+                self.snackbar_like.show()
+        
+//                let transition: CATransition = CATransition()
+//                transition.duration = 0.5
+//                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+//                transition.type = kCATransitionReveal
+//                transition.subtype = kCATransitionFromRight
+//                self.view.window!.layer.add(transition, forKey: nil)
+//
+//                self.dismiss(animated: false, completion: nil)
+
             // 실제로 화면에 보여주기 위해서는 present 메서드가 필요하다. animated : true/false로 해놓으면 애니메이션 효과가 있고/없다. present가 완료되어 화면이 보여지면 completion의 코드가 실행된다.
                 
     }))
@@ -189,6 +283,10 @@ class PostViewController: UIViewController {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
                     self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
+                    self.snackbar_like_selected.show()
+                    self.addRedDotAtTabBarItemIndex(index: 2)
+
+
                 }
                 else {
                     self.showAlert()
@@ -248,6 +346,41 @@ class PostViewController: UIViewController {
         postScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: postDescriptionLabel.bottomAnchor).isActive = true
     }
     
+    func addRedDotAtTabBarItemIndex(index: Int) {
+        for subview in tabBarController!.tabBar.subviews {
+            
+            if let subview = subview as? UIView {
+                
+                if subview.tag == 1234 {
+                    subview.removeFromSuperview()
+                    break
+                }
+            }
+        }
+        
+        let RedDotRadius: CGFloat = 5
+        let RedDotDiameter = RedDotRadius * 2
+        
+        let TopMargin:CGFloat = 5
+        
+        let TabBarItemCount = CGFloat(self.tabBarController!.tabBar.items!.count)
+        
+        let screenSize = UIScreen.main.bounds
+        let HalfItemWidth = (screenSize.width) / (TabBarItemCount * 2)
+        
+        let  xOffset = HalfItemWidth * CGFloat(index * 2 + 1)
+        
+        let imageHalfWidth: CGFloat = (self.tabBarController!.tabBar.items![index] ).selectedImage!.size.width / 2
+        
+        let redDot = UIView(frame: CGRect(x: xOffset + imageHalfWidth - 7, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter))
+        
+        redDot.tag = 1234
+        redDot.backgroundColor = UIColor.red
+        redDot.layer.cornerRadius = RedDotRadius
+        
+        self.tabBarController?.tabBar.addSubview(redDot)
+        
+    }
     
 }
 

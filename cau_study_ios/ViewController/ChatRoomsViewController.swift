@@ -8,17 +8,19 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
-class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var chattableview: UITableView!
+    
     var uid: String!
     var chatrooms : [ChatModel]! = []
     var destinationUsers : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.uid = Auth.auth().currentUser?.uid
         self.getChatroomsList()
         // Do any additional setup after loading the view.
@@ -27,15 +29,16 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
     func getChatroomsList(){
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/"+uid).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
             self.chatrooms.removeAll()
+            print("5번포인트")
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
-                
+                print("6번포인트")
                 if let chatroomdic = item.value as? [String:AnyObject]{
                     let chatModel = ChatModel(JSON: chatroomdic)
                     self.chatrooms.append(chatModel!)
                 }
             }
             //테이블뷰 갱신코드
-            self.tableview.reloadData()
+            self.chattableview.reloadData()
         })
     }
     
@@ -71,9 +74,9 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
             let url = URL(string: userModel.profileImageUrl!)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, err) in
                 DispatchQueue.main.sync{
-                    cell.imageview.image = UIImage(data:data!)
-                    cell.imageview.layer.cornerRadius = cell.imageview.frame.width/2
-                    cell.imageview.layer.masksToBounds = true
+                    cell.imageVIEW.image = UIImage(data:data!)
+                    cell.imageVIEW.layer.cornerRadius = cell.imageVIEW.frame.width/2
+                    cell.imageVIEW.layer.masksToBounds = true
                 }
             }).resume()
             
@@ -108,16 +111,6 @@ class ChatRoomsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

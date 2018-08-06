@@ -22,9 +22,9 @@ class Post {
     var time: String?
     var location: String?
     var description: String?
-    var saved: Dictionary<String, Any>?// e.g. type이 optional String으로 설정되어 있음!
+    var saved: Bool?// e.g. type이 optional String으로 설정되어 있음!
     var timestamp: Int?
-    var wanted: Bool?// [0726] Dahye
+    var wanted: Bool?
 }
 
 
@@ -43,7 +43,7 @@ extension Post{
         post.time = dicr["time"] as? String
         post.location = dicr["location"] as? String
         post.description = dicr["description"] as? String
-        post.saved = dicr["saved"] as? Dictionary
+        post.saved = dicr["saved"] as? Bool
         post.timestamp = dicr["timestamp"] as? Int
         post.wanted = dicr["wanted"] as? Bool// [0726] Dahye
         return post

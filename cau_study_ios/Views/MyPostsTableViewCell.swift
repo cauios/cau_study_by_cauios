@@ -25,11 +25,13 @@ class MyPostsTableViewCell: UITableViewCell {
         exploreTitleLabel.text = post?.title
         exploreCategoryLabel.text = post?.category
         exploreTagsLabel.text = post?.tags
+        
         if (post?.wanted)! {
             exploreWanted.text = "모집중"
         } else {
             exploreWanted.text = "모집마감"
         }
+        
  
     }
 

@@ -53,21 +53,21 @@ class WritingViewController: UIViewController, dismissHandler {
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
-        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
-        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 2
-        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
-        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
-        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
-        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
-        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
     }
     
     // Declare this to show the timestamp
@@ -79,13 +79,13 @@ class WritingViewController: UIViewController, dismissHandler {
         view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
-        
         // [0729 Dahye]
         if delegate != nil {
             delegate?.showAllCateAfterDismiss()
         }
-        
         self.dismiss(animated: true, completion: nil)
+        
+
 
     }
     
@@ -182,9 +182,9 @@ class WritingViewController: UIViewController, dismissHandler {
         uploadButton.isEnabled = false
         handleTextField()
         
-        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
-        lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+        acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
     // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
