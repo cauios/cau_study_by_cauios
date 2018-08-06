@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import FirebaseAuth
 import TTGSnackbar
 
@@ -78,6 +79,7 @@ class ExploreTableViewCell: UITableViewCell {
         
         // [0806 Dahye]
         setTimestamp()
+        setUsername()
         
         // [0731 Dahye] for category image
         if post?.category == "학업" {
@@ -139,6 +141,18 @@ class ExploreTableViewCell: UITableViewCell {
             
         }
         
+    }
+    
+    // [0805 Dahye] set username & timestamp of each post
+    func setUsername() {
+        if let uid = post?.uid {
+            Api.User.REF_USERS.child(uid).observeSingleEvent(of: DataEventType.value, with: { snapshot in
+                if let dict = snapshot.value as? [String: Any] {
+                    let postUser = User.transformUser(dict: dict, key: snapshot.key)
+                    self.exploreUnameLabel.text = postUser.username
+                }
+            })
+        }
     }
     
     func setTimestamp() {
