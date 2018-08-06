@@ -102,9 +102,13 @@ class ChangePasswordViewController: UIViewController {
                 _ = self.navigationController?.popToRootViewController(animated: true)
             })
         } else {
+            let image = UIImage(named: "unactiveCheck")
+            let imgViewTitle = UIImageView(frame: CGRect(x: 150, y: 10, width: 30, height: 30))
+            imgViewTitle.image = image
             let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            let alertController = UIAlertController(title: "??", message: "변경할 비밀번호가 일치하지 않습니다", preferredStyle: .alert)
+            let alertController = UIAlertController(title: ".", message: "변경할 비밀번호가 일치하지 않습니다", preferredStyle: .alert)
             alertController.addAction(alertAction)
+            alertController.view.addSubview(imgViewTitle)
             self.present(alertController, animated: true, completion: nil)
         }
     }
