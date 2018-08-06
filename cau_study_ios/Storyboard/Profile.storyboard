@@ -131,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="277.60000000000002" y="3812.7436281859073"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--user_name-->
         <scene sceneID="oth-D8-Heg">
             <objects>
                 <viewController id="FR1-Tb-xoP" customClass="ProfileViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -247,11 +247,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="grr-Jy-MaL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gdw-iP-suE">
+                    <navigationItem key="navigationItem" title="user_name" id="gdw-iP-suE">
                         <barButtonItem key="leftBarButtonItem" image="noti" id="mzb-pO-6bd"/>
-                        <barButtonItem key="rightBarButtonItem" image="blanksetting" id="kPx-pz-f3O">
+                        <barButtonItem key="rightBarButtonItem" image="blanksetting" id="eif-v4-Q1s">
                             <connections>
-                                <segue destination="Dzn-eE-Nrz" kind="show" id="Giw-Ou-9Yo"/>
+                                <segue destination="Dzn-eE-Nrz" kind="show" id="bUh-G1-mKt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
