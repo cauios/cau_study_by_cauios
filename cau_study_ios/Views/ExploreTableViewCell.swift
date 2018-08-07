@@ -22,7 +22,9 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-    @IBOutlet weak var exploreCateImageView: UIImageView!
+    //@IBOutlet weak var exploreCateImageView: UIImageView!
+    @IBOutlet weak var exploreCateView: UIView!
+    @IBOutlet weak var exploreContentView: UIView!
     
     @IBOutlet weak var exploreFinImageView: UIImageView!
     
@@ -73,7 +75,12 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 51
         
+        // [0807 Dahye] Make coners of Views rounded
+        exploreCateView.layer.cornerRadius = 10.0
+        exploreContentView.layer.cornerRadius = 10.0
         
+        
+        //
         exploreTitleLabel.text = post?.title
         exploreTagsLabel.text = post?.tags
         
@@ -82,6 +89,7 @@ class ExploreTableViewCell: UITableViewCell {
         setUsername()
         
         // [0731 Dahye] for category image
+        /*
         if post?.category == "학업" {
             if post?.wanted == false {
                 exploreCateImageView?.image = #imageLiteral(resourceName: "finstu")
@@ -112,6 +120,7 @@ class ExploreTableViewCell: UITableViewCell {
                 exploreFinImageView?.image = nil
             }
         }
+ */
         
         
         
