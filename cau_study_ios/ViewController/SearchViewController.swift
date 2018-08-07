@@ -44,7 +44,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -111,7 +111,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -133,7 +133,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -153,7 +153,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -192,7 +192,7 @@ class SearchViewController: UIViewController {
     
     
     func searchPost() {
-        if let input = searchBar.text {
+        if let input = searchBar.text?.lowercased() {
             querySearchTags(searchInput: input)
         }
 
