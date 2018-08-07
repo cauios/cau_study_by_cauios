@@ -77,10 +77,13 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 51
         
-        // [0807 Dahye] Make coners of Views rounded
+        // [0807 Dahye] Make corners of Views rounded
         exploreCateView.layer.cornerRadius = 10.0
         exploreContentView.layer.cornerRadius = 10.0
-        
+        exploreCateView.layer.borderWidth = 0.7
+        exploreCateView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
+        exploreContentView.layer.borderWidth = 1.0
+        exploreContentView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
         
         //
         exploreTitleLabel.text = post?.title
@@ -132,6 +135,20 @@ class ExploreTableViewCell: UITableViewCell {
         
         exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
         exploreTitleLabel.isUserInteractionEnabled = true
+        
+        // [0807 Dahye] stretch the scope which is able to tap to go to postView
+        
+        let tapGestureForExploreCateView = UITapGestureRecognizer(target: self, action: #selector(self.exploreCateView_TouchUpInside))
+        
+        exploreCateView.addGestureRecognizer(tapGestureForExploreCateView)
+        exploreCateView.isUserInteractionEnabled = true
+        
+        let tapGestureForExploreContentView = UITapGestureRecognizer(target: self, action: #selector(self.exploreContentView_TouchUpInside))
+        
+        exploreContentView.addGestureRecognizer(tapGestureForExploreContentView)
+        exploreContentView.isUserInteractionEnabled = true
+        
+        //
         
         let tapGestureForSavedLikeImageView =
             UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
@@ -247,6 +264,17 @@ class ExploreTableViewCell: UITableViewCell {
         }
     }
     
+    @objc func exploreCateView_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToPostVC(postId: id)
+        }
+    }
+    
+    @objc func exploreContentView_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToPostVC(postId: id)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
