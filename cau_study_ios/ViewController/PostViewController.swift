@@ -101,6 +101,12 @@ class PostViewController: UIViewController {
     }
     
 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+    }
+    
+
     //newbro : sendbutton clicked
     @IBAction func SendMessageTouchUpinside(_ sender: Any) {
         self.performSegue(withIdentifier: "GoChatVC", sender:nil)
