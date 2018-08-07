@@ -66,8 +66,7 @@ class PostViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
-        
+        navigationController?.navigationBar.barTintColor = UIColor.white
         //hohyun: updating status bar!!
         snackbar_like_selected.backgroundColor = UIColor.white
         snackbar_like_selected.messageTextColor = .black
@@ -207,9 +206,9 @@ class PostViewController: UIViewController {
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
-                    self.postSavedLikeImageView.image = UIImage(named: "like")
+                    self.postSavedLikeImageView.image = UIImage(named: "postlike")
                 } else {
-                    self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                    self.postSavedLikeImageView.image = UIImage(named: "postfull")
                     
 
                 }

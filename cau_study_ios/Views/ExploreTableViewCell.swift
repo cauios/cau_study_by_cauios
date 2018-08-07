@@ -158,9 +158,9 @@ class ExploreTableViewCell: UITableViewCell {
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
-                    self.savedLikeImageView.image = UIImage(named: "like")
+                    self.savedLikeImageView.image = UIImage(named: "explorelike")
                 } else {
-                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
+                    self.savedLikeImageView.image = UIImage(named: "fulllike")
                     
                 }
             }
