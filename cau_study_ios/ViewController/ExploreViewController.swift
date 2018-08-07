@@ -124,7 +124,6 @@ class ExploreViewController: UIViewController {
 
     
     override func viewDidLoad() {
-        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         selectedSeg = 1
         allCateButton.setTitleColor(UIColor.black, for: .normal)
         acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
@@ -141,6 +140,7 @@ class ExploreViewController: UIViewController {
         loadPost()
        // self.exploreTableView.reloadData()
     }
+    
     
     func loadPost() {
         guard let currentUser = Auth.auth().currentUser else {
