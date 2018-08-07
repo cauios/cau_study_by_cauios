@@ -141,6 +141,7 @@ class ExploreViewController: UIViewController {
        // self.exploreTableView.reloadData()
     }
     
+    
     func loadPost() {
         guard let currentUser = Auth.auth().currentUser else {
             return

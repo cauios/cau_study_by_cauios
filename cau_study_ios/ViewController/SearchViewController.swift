@@ -104,6 +104,12 @@ class SearchViewController: UIViewController {
         
         
     }
+    
+    // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
 
     
     //[0728 Dahye] load Academic Posts
