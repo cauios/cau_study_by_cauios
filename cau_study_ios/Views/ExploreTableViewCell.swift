@@ -77,10 +77,13 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 51
         
-        // [0807 Dahye] Make coners of Views rounded
+        // [0807 Dahye] Make corners of Views rounded
         exploreCateView.layer.cornerRadius = 10.0
         exploreContentView.layer.cornerRadius = 10.0
-        
+        exploreCateView.layer.borderWidth = 0.7
+        exploreCateView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
+        exploreContentView.layer.borderWidth = 1.0
+        exploreContentView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
         
         //
         exploreTitleLabel.text = post?.title
