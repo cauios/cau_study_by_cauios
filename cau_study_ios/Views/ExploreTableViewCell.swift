@@ -22,7 +22,7 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-    //@IBOutlet weak var exploreCateImageView: UIImageView!
+ 
     @IBOutlet weak var exploreCateView: UIView!
     @IBOutlet weak var exploreContentView: UIView!
     
@@ -30,6 +30,8 @@ class ExploreTableViewCell: UITableViewCell {
     
     @IBOutlet weak var exploreUnameLabel: UILabel!
     @IBOutlet weak var exploreTimestampLabel: UILabel!
+    
+    
     
     var delegate: ExploreTableViewCellDelegate?
     
