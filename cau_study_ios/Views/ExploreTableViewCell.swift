@@ -22,12 +22,16 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-    @IBOutlet weak var exploreCateImageView: UIImageView!
+ 
+    @IBOutlet weak var exploreCateView: UIView!
+    @IBOutlet weak var exploreContentView: UIView!
     
     @IBOutlet weak var exploreFinImageView: UIImageView!
     
     @IBOutlet weak var exploreUnameLabel: UILabel!
     @IBOutlet weak var exploreTimestampLabel: UILabel!
+    
+    
     
     var delegate: ExploreTableViewCellDelegate?
     
@@ -73,7 +77,12 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 51
         
+        // [0807 Dahye] Make coners of Views rounded
+        exploreCateView.layer.cornerRadius = 10.0
+        exploreContentView.layer.cornerRadius = 10.0
         
+        
+        //
         exploreTitleLabel.text = post?.title
         exploreTagsLabel.text = post?.tags
         
@@ -82,36 +91,38 @@ class ExploreTableViewCell: UITableViewCell {
         setUsername()
         
         // [0731 Dahye] for category image
+        
         if post?.category == "학업" {
             if post?.wanted == false {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "finstu")
+                exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1)
                 exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
                 
             } else {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+                exploreCateView?.backgroundColor = UIColor(red: 202/255.0, green: 237/255.0, blue: 253/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
             }
         }
         if post?.category == "취업" {
             if post?.wanted == false {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "finjob")
+                exploreCateView?.backgroundColor = UIColor(red: 197.0/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
                 exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
                 
             } else {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+                exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 219/255.0, blue: 217/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
             }
         }
         if post?.category == "어학" {
             if post?.wanted == false {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "finlan")
+                exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
                 exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
                 
             } else {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+                exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 237/255.0, blue: 165/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
             }
         }
+ 
         
         
         
