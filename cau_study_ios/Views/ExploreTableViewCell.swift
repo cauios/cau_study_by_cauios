@@ -136,6 +136,20 @@ class ExploreTableViewCell: UITableViewCell {
         exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
         exploreTitleLabel.isUserInteractionEnabled = true
         
+        // [0807 Dahye] stretch the scope which is able to tap to go to postView
+        
+        let tapGestureForExploreCateView = UITapGestureRecognizer(target: self, action: #selector(self.exploreCateView_TouchUpInside))
+        
+        exploreCateView.addGestureRecognizer(tapGestureForExploreCateView)
+        exploreCateView.isUserInteractionEnabled = true
+        
+        let tapGestureForExploreContentView = UITapGestureRecognizer(target: self, action: #selector(self.exploreContentView_TouchUpInside))
+        
+        exploreContentView.addGestureRecognizer(tapGestureForExploreContentView)
+        exploreContentView.isUserInteractionEnabled = true
+        
+        //
+        
         let tapGestureForSavedLikeImageView =
             UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
         savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
@@ -250,6 +264,17 @@ class ExploreTableViewCell: UITableViewCell {
         }
     }
     
+    @objc func exploreCateView_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToPostVC(postId: id)
+        }
+    }
+    
+    @objc func exploreContentView_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToPostVC(postId: id)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
