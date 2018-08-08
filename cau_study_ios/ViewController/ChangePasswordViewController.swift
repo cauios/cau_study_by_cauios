@@ -102,9 +102,18 @@ class ChangePasswordViewController: UIViewController {
                 _ = self.navigationController?.popToRootViewController(animated: true)
             })
         } else {
+            let image = UIImageView(image: UIImage(named: "unactiveCheck"))
+            image.translatesAutoresizingMaskIntoConstraints = false
+            
             let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            let alertController = UIAlertController(title: "??", message: "변경할 비밀번호가 일치하지 않습니다", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "\n\n", message: "변경할 비밀번호가 일치하지 않습니다", preferredStyle: .alert)
             alertController.addAction(alertAction)
+            alertController.view.addSubview(image)
+            alertController.view.addConstraint(NSLayoutConstraint(item: image, attribute: .centerX, relatedBy: .equal, toItem: alertController.view, attribute: .centerX, multiplier: 1, constant: 0))
+            alertController.view.addConstraint(NSLayoutConstraint(item: image, attribute: .centerY, relatedBy: .equal, toItem: alertController.view, attribute: .centerY, multiplier: 0.45, constant: 0))
+            alertController.view.addConstraint(NSLayoutConstraint(item: image, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0))
+            alertController.view.addConstraint(NSLayoutConstraint(item: image, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30.0))
+            
             self.present(alertController, animated: true, completion: nil)
         }
     }

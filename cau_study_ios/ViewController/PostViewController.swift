@@ -66,8 +66,7 @@ class PostViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        
-        
+        navigationController?.navigationBar.barTintColor = UIColor.white
         //hohyun: updating status bar!!
         snackbar_like_selected.backgroundColor = UIColor.white
         snackbar_like_selected.messageTextColor = .black
@@ -99,6 +98,12 @@ class PostViewController: UIViewController {
         postUidLabel.addGestureRecognizer(tapGesture)
         postUidLabel.isUserInteractionEnabled = true
         
+    }
+    
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
     }
     
 
@@ -207,9 +212,9 @@ class PostViewController: UIViewController {
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
-                    self.postSavedLikeImageView.image = UIImage(named: "like")
+                    self.postSavedLikeImageView.image = UIImage(named: "postlike")
                 } else {
-                    self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                    self.postSavedLikeImageView.image = UIImage(named: "postfull")
                     
 
                 }
