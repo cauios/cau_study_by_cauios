@@ -940,8 +940,16 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="savedLikeImageView" destination="vz6-1b-8jy" id="FfH-0m-auG"/>
+                                            <outlet property="searchCateImageView" destination="TNk-ru-eQ8" id="gaH-16-4Lu"/>
+                                            <outlet property="searchCateLabel" destination="k9Q-o7-hB8" id="phv-h4-Pfm"/>
+                                            <outlet property="searchCateView" destination="RaE-pC-mHm" id="s3g-uf-iPm"/>
+                                            <outlet property="searchContentView" destination="Q1w-fX-w1M" id="c4Z-QK-Ybb"/>
+                                            <outlet property="searchFinImageView" destination="og9-qc-uab" id="yD8-bO-1PP"/>
+                                            <outlet property="searchFinLabel" destination="TcP-4e-DEQ" id="0hY-qc-ZwN"/>
                                             <outlet property="searchTagsLabel" destination="6kl-IO-gPC" id="9an-Br-4fZ"/>
+                                            <outlet property="searchTimestampLabel" destination="B1u-QK-TWh" id="klT-d6-hnI"/>
                                             <outlet property="searchTitleLabel" destination="dzf-K2-G5G" id="3ho-GI-heK"/>
+                                            <outlet property="searchUnameLabel" destination="dw1-xx-O4U" id="WuT-nJ-I99"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchAcaCell" rowHeight="123" id="6AK-c2-FKe" customClass="SearchTableViewCell" customModule="cau_study_ios" customModuleProvider="target">
