@@ -33,6 +33,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
     
     @IBOutlet weak var postSavedLikeImageView: UIImageView!
+    @IBOutlet weak var editImageView: UIImageView!
+    
     
     var postId: String?
     
@@ -83,7 +85,10 @@ class PostViewController: UIViewController {
         
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
-        self.navigationItem.rightBarButtonItem = barButton
+        let editBarButton = UIBarButtonItem(customView: editImageView)
+        self.navigationItem.rightBarButtonItems = [barButton,editBarButton]
+        
+        
         
         loadPost()
         
