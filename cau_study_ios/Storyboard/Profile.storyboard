@@ -213,11 +213,17 @@
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr4-PQ-Eum">
-                                                            <rect key="frame" x="17" y="65" width="70.5" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catstulogo" translatesAutoresizingMaskIntoConstraints="NO" id="vVH-Ix-onS">
+                                                            <rect key="frame" x="30.5" y="24" width="26" height="26"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="26" id="NkZ-UK-tyh"/>
+                                                                <constraint firstAttribute="width" constant="26" id="S4i-kU-bgs"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr4-PQ-Eum">
+                                                            <rect key="frame" x="0.0" y="57" width="88" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" red="0.33333224058151245" green="0.33332651853561401" blue="0.33333370089530945" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -225,9 +231,14 @@
                                                     <constraints>
                                                         <constraint firstItem="XSZ-AO-u68" firstAttribute="centerX" secondItem="ey3-rs-NAt" secondAttribute="centerX" id="DAa-3h-xbN"/>
                                                         <constraint firstItem="ey3-rs-NAt" firstAttribute="leading" secondItem="fHR-sh-eKf" secondAttribute="leading" constant="58" id="Jo4-M7-PBU"/>
+                                                        <constraint firstItem="Xr4-PQ-Eum" firstAttribute="top" secondItem="vVH-Ix-onS" secondAttribute="bottom" constant="7" id="YDu-os-oUU"/>
                                                         <constraint firstItem="ey3-rs-NAt" firstAttribute="top" secondItem="XSZ-AO-u68" secondAttribute="bottom" constant="-17" id="bxe-kt-QyE"/>
                                                         <constraint firstItem="ey3-rs-NAt" firstAttribute="top" secondItem="fHR-sh-eKf" secondAttribute="top" id="eOX-1v-kpQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="ey3-rs-NAt" secondAttribute="trailing" constant="8" id="k21-d8-4pK"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Xr4-PQ-Eum" secondAttribute="trailing" id="reQ-mK-AMh"/>
+                                                        <constraint firstItem="vVH-Ix-onS" firstAttribute="top" secondItem="fHR-sh-eKf" secondAttribute="top" constant="24" id="tI2-jT-hEx"/>
+                                                        <constraint firstItem="Xr4-PQ-Eum" firstAttribute="centerX" secondItem="vVH-Ix-onS" secondAttribute="centerX" id="xCB-0H-c8q"/>
+                                                        <constraint firstItem="Xr4-PQ-Eum" firstAttribute="leading" secondItem="fHR-sh-eKf" secondAttribute="leading" id="ypN-Si-3KI"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtK-qq-Grc">
@@ -289,6 +300,7 @@
                                             <outlet property="exploreTagsLabel" destination="5ss-E5-7pe" id="YVo-vk-KoJ"/>
                                             <outlet property="exploreTitleLabel" destination="bml-p2-4l0" id="hkl-Aw-kDn"/>
                                             <outlet property="exploreWanted" destination="xCf-FA-2Ww" id="rRX-aJ-DIi"/>
+                                            <outlet property="profCateImageView" destination="vVH-Ix-onS" id="uG3-As-ri7"/>
                                             <outlet property="profCateView" destination="fHR-sh-eKf" id="ZmA-PF-dG3"/>
                                             <outlet property="profContentView" destination="qtK-qq-Grc" id="LHc-a3-1cF"/>
                                             <outlet property="profFinImageView" destination="ey3-rs-NAt" id="NZP-5m-Xe6"/>
@@ -638,6 +650,7 @@
     <resources>
         <image name="Placeholder-image" width="840" height="600"/>
         <image name="blanksetting" width="25" height="25"/>
+        <image name="catstulogo" width="28" height="28"/>
         <image name="edit" width="30" height="29"/>
         <image name="finicon" width="34" height="40"/>
         <image name="noti" width="25" height="25"/>

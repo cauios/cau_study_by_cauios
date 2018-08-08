@@ -22,6 +22,9 @@ class MyPostsTableViewCell: UITableViewCell {
     @IBOutlet weak var profFinImageView: UIImageView!
     @IBOutlet weak var profFinLabel: UILabel!
     
+    @IBOutlet weak var profCateImageView: UIImageView!
+    
+    
     
     var post: Post? {
         didSet {
@@ -59,11 +62,15 @@ class MyPostsTableViewCell: UITableViewCell {
                 profCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1)
                 profFinImageView?.image = #imageLiteral(resourceName: "finicon")
                 profFinLabel?.text = "마감"
+                profCateImageView?.image = #imageLiteral(resourceName: "stulogo")
+                exploreCategoryLabel?.textColor = UIColor.white
                 
             } else {
                 profCateView?.backgroundColor = UIColor(red: 202/255.0, green: 237/255.0, blue: 253/255.0, alpha: 1.0)
                 profFinImageView?.image = nil
                 profFinLabel?.text = nil
+                profCateImageView?.image = #imageLiteral(resourceName: "catstulogo")
+                exploreCategoryLabel?.textColor =  UIColor.darkGray
             }
         }
         if post?.category == "취업" {
@@ -71,11 +78,15 @@ class MyPostsTableViewCell: UITableViewCell {
                 profCateView?.backgroundColor = UIColor(red: 197.0/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
                 profFinImageView?.image = #imageLiteral(resourceName: "finicon")
                 profFinLabel?.text = "마감"
+                profCateImageView?.image = #imageLiteral(resourceName: "finjoblogo")
+                exploreCategoryLabel?.textColor = UIColor.white
                 
             } else {
                 profCateView?.backgroundColor = UIColor(red: 255/255.0, green: 219/255.0, blue: 217/255.0, alpha: 1.0)
                 profFinImageView?.image = nil
                 profFinLabel?.text = nil
+                profCateImageView?.image = #imageLiteral(resourceName: "catjoblogo")
+                exploreCategoryLabel?.textColor =  UIColor.darkGray
             }
         }
         if post?.category == "어학" {
@@ -83,10 +94,14 @@ class MyPostsTableViewCell: UITableViewCell {
                 profCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
                 profFinImageView?.image = #imageLiteral(resourceName: "finicon")
                 profFinLabel?.text = "마감"
+                profCateImageView?.image = #imageLiteral(resourceName: "finlanlogo")
+                exploreCategoryLabel?.textColor = UIColor.white
             } else {
                 profCateView?.backgroundColor = UIColor(red: 255/255.0, green: 237/255.0, blue: 165/255.0, alpha: 1.0)
                 profFinImageView?.image = nil
                 profFinLabel?.text = nil
+                profCateImageView?.image = #imageLiteral(resourceName: "catlanlogo")
+                exploreCategoryLabel?.textColor =  UIColor.darkGray
             }
         }
         
