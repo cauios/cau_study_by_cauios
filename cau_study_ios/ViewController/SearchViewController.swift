@@ -44,7 +44,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -104,6 +104,12 @@ class SearchViewController: UIViewController {
         
         
     }
+    
+    // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
 
     
     //[0728 Dahye] load Academic Posts
@@ -111,7 +117,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -133,7 +139,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -153,7 +159,7 @@ class SearchViewController: UIViewController {
         if searchBar.text! == "" {
             return
         } else {
-            Api.HashTag.REF_HASHTAG.child(searchBar.text!).observe(.childAdded, with: {
+            Api.HashTag.REF_HASHTAG.child(searchBar.text!.lowercased()).observe(.childAdded, with: {
                 snapshot in
                 print(snapshot.key)
                 Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -192,7 +198,7 @@ class SearchViewController: UIViewController {
     
     
     func searchPost() {
-        if let input = searchBar.text {
+        if let input = searchBar.text?.lowercased() {
             querySearchTags(searchInput: input)
         }
 

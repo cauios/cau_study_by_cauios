@@ -22,12 +22,17 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var savedLikeImageView: UIImageView!
-    @IBOutlet weak var exploreCateImageView: UIImageView!
+ 
+    @IBOutlet weak var exploreCateView: UIView!
+    @IBOutlet weak var exploreContentView: UIView!
     
     @IBOutlet weak var exploreFinImageView: UIImageView!
     
     @IBOutlet weak var exploreUnameLabel: UILabel!
     @IBOutlet weak var exploreTimestampLabel: UILabel!
+    
+    @IBOutlet weak var finLabel: UILabel!
+    
     
     var delegate: ExploreTableViewCellDelegate?
     
@@ -73,7 +78,15 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 51
         
+        // [0807 Dahye] Make corners of Views rounded
+        exploreCateView.layer.cornerRadius = 10.0
+        exploreContentView.layer.cornerRadius = 10.0
+        exploreCateView.layer.borderWidth = 0.7
+        exploreCateView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
+        exploreContentView.layer.borderWidth = 1.0
+        exploreContentView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
         
+        //
         exploreTitleLabel.text = post?.title
         exploreTagsLabel.text = post?.tags
         
@@ -82,36 +95,43 @@ class ExploreTableViewCell: UITableViewCell {
         setUsername()
         
         // [0731 Dahye] for category image
+        
         if post?.category == "학업" {
             if post?.wanted == false {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "finstu")
-                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1)
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
                 
             } else {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "catstu")
+                exploreCateView?.backgroundColor = UIColor(red: 202/255.0, green: 237/255.0, blue: 253/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
+                finLabel?.text = nil
             }
         }
         if post?.category == "취업" {
             if post?.wanted == false {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "finjob")
-                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                exploreCateView?.backgroundColor = UIColor(red: 197.0/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
                 
             } else {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "catjob")
+                exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 219/255.0, blue: 217/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
+                finLabel?.text = nil
             }
         }
         if post?.category == "어학" {
             if post?.wanted == false {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "finlan")
-                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
-                
+                exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
             } else {
-                exploreCateImageView?.image = #imageLiteral(resourceName: "catlan")
+                exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 237/255.0, blue: 165/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
+                finLabel?.text = nil
             }
         }
+ 
         
         
         
@@ -122,6 +142,20 @@ class ExploreTableViewCell: UITableViewCell {
         exploreTitleLabel.addGestureRecognizer(tapGestureForExploreTitleLabel)
         exploreTitleLabel.isUserInteractionEnabled = true
         
+        // [0807 Dahye] stretch the scope which is able to tap to go to postView
+        
+        let tapGestureForExploreCateView = UITapGestureRecognizer(target: self, action: #selector(self.exploreCateView_TouchUpInside))
+        
+        exploreCateView.addGestureRecognizer(tapGestureForExploreCateView)
+        exploreCateView.isUserInteractionEnabled = true
+        
+        let tapGestureForExploreContentView = UITapGestureRecognizer(target: self, action: #selector(self.exploreContentView_TouchUpInside))
+        
+        exploreContentView.addGestureRecognizer(tapGestureForExploreContentView)
+        exploreContentView.isUserInteractionEnabled = true
+        
+        //
+        
         let tapGestureForSavedLikeImageView =
             UITapGestureRecognizer(target: self, action: #selector(self.savedLikeImageView_TouchUpInside))
         savedLikeImageView.addGestureRecognizer(tapGestureForSavedLikeImageView)
@@ -130,9 +164,9 @@ class ExploreTableViewCell: UITableViewCell {
         if let currentUser = Auth.auth().currentUser {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
-                    self.savedLikeImageView.image = UIImage(named: "like")
+                    self.savedLikeImageView.image = UIImage(named: "explorelike")
                 } else {
-                    self.savedLikeImageView.image = UIImage(named: "likeSelected")
+                    self.savedLikeImageView.image = UIImage(named: "fulllike")
                     
                 }
             }
@@ -236,6 +270,17 @@ class ExploreTableViewCell: UITableViewCell {
         }
     }
     
+    @objc func exploreCateView_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToPostVC(postId: id)
+        }
+    }
+    
+    @objc func exploreContentView_TouchUpInside(){
+        if let id = post?.id {
+            delegate?.goToPostVC(postId: id)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

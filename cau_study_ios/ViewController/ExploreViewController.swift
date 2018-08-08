@@ -47,9 +47,24 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var empCateButton: UIButton!
     @IBOutlet weak var lanCateButton: UIButton!
     
+    // [0807 Dahye]
+    
+    @IBOutlet weak var allLineView: UIView!
+    @IBOutlet weak var acaLineView: UIView!
+    @IBOutlet weak var empLineView: UIView!
+    @IBOutlet weak var lanLineView: UIView!
+    
      // [0729 Dahye] Actions for buttons
     @IBAction func allCateTouchUpInside(_ sender: Any) {
         selectedSeg = 1
+        allCateButton.setTitleColor(UIColor.black, for: .normal)
+        acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        allLineView.backgroundColor = UIColor.darkGray
+        acaLineView.backgroundColor = UIColor.clear
+        empLineView.backgroundColor = UIColor.clear
+        lanLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
@@ -64,6 +79,14 @@ class ExploreViewController: UIViewController {
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
         selectedSeg = 2
+        allCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        acaCateButton.setTitleColor(UIColor.black, for: .normal)
+        empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        allLineView.backgroundColor = UIColor.clear
+        acaLineView.backgroundColor = UIColor.darkGray
+        empLineView.backgroundColor = UIColor.clear
+        lanLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.exploreTableView.reloadData()
         loadAcaPost()
@@ -72,12 +95,28 @@ class ExploreViewController: UIViewController {
     
     @IBAction func empCateTouchUpInside(_ sender: Any) {
         selectedSeg = 3
+        allCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        empCateButton.setTitleColor(UIColor.black, for: .normal)
+        lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        allLineView.backgroundColor = UIColor.clear
+        acaLineView.backgroundColor = UIColor.clear
+        empLineView.backgroundColor = UIColor.darkGray
+        lanLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.exploreTableView.reloadData()
         loadEmpPost()
     }
     @IBAction func lanCateTouchUpInside(_ sender: Any) {
         selectedSeg = 4
+        allCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        lanCateButton.setTitleColor(UIColor.black, for: .normal)
+        allLineView.backgroundColor = UIColor.clear
+        acaLineView.backgroundColor = UIColor.clear
+        empLineView.backgroundColor = UIColor.clear
+        lanLineView.backgroundColor = UIColor.darkGray
         posts = [Post]()
         self.exploreTableView.reloadData()
         loadLanPost()
@@ -86,6 +125,14 @@ class ExploreViewController: UIViewController {
     
     override func viewDidLoad() {
         selectedSeg = 1
+        allCateButton.setTitleColor(UIColor.black, for: .normal)
+        acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        allLineView.backgroundColor = UIColor.darkGray
+        acaLineView.backgroundColor = UIColor.clear
+        empLineView.backgroundColor = UIColor.clear
+        lanLineView.backgroundColor = UIColor.clear
         super.viewDidLoad()
         addNavBarImage()
         exploreTableView.dataSource = self
@@ -93,6 +140,7 @@ class ExploreViewController: UIViewController {
         loadPost()
        // self.exploreTableView.reloadData()
     }
+    
     
     func loadPost() {
         guard let currentUser = Auth.auth().currentUser else {
