@@ -111,14 +111,34 @@ class PostViewController: UIViewController {
             return
         }
         if currentUser.uid == user.uid {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.editAction))
+            editImageView.addGestureRecognizer(tapGesture)
+            editImageView.isUserInteractionEnabled = true
             let editBarButton = UIBarButtonItem(customView: editImageView)
             self.navigationItem.rightBarButtonItems?.append(editBarButton)
+            
         } else {
             
         }
         
     }
-    
+    @objc func editAction() {
+        let actionSheet = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "수정", style: .default, handler: {(action: UIAlertAction) in
+            
+            
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {(action: UIAlertAction) in
+            
+           
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        self.present(actionSheet,animated: true,completion: nil)
+    }
 
     
     override func viewWillDisappear(_ animated: Bool) {
