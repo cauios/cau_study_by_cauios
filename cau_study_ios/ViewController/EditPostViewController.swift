@@ -19,6 +19,7 @@ class EditPostViewController: UIViewController {
     
     var postId: String?
     var post : Post?
+    var originalCate: Int?
     var selectedCate: Int?
   
     
@@ -34,17 +35,17 @@ class EditPostViewController: UIViewController {
     }
     func recogCate() {
         if self.post?.category == "학업" {
-            selectedCate = 1
+            originalCate = 1
             acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else if self.post?.category == "취업" {
-            selectedCate = 2
+            originalCate = 2
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else  {
-            selectedCate = 3
+            originalCate = 3
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
@@ -114,7 +115,7 @@ class EditPostViewController: UIViewController {
     func sendDataToDatabase() {
         let ref = Database.database().reference()
         let postsReference = ref.child("posts") // DB location to reference all the post
-        let newPostId = postsReference.childByAutoId().key // all posts child 들의 string description. To uniquely identify child location of the all post reference. key property of this child FB reference produces sort of its relative path or id in string format.
+        let newPostId = (post?.id)! // all posts child 들의 string description. To uniquely identify child location of the all post reference. key property of this child FB reference produces sort of its relative path or id in string format.
         let newPostReference = postsReference.child(newPostId) // child node of the location of posts
         // 여기까지 함으로써, we can tell the system that the new post location will be a child node of the all post location with this string id.
         // DB location 확보 완료!!
