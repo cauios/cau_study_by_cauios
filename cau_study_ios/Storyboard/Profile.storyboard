@@ -289,6 +289,11 @@
                                             <outlet property="exploreTagsLabel" destination="5ss-E5-7pe" id="YVo-vk-KoJ"/>
                                             <outlet property="exploreTitleLabel" destination="bml-p2-4l0" id="hkl-Aw-kDn"/>
                                             <outlet property="exploreWanted" destination="xCf-FA-2Ww" id="rRX-aJ-DIi"/>
+                                            <outlet property="profCateView" destination="fHR-sh-eKf" id="ZmA-PF-dG3"/>
+                                            <outlet property="profContentView" destination="qtK-qq-Grc" id="LHc-a3-1cF"/>
+                                            <outlet property="profFinImageView" destination="ey3-rs-NAt" id="NZP-5m-Xe6"/>
+                                            <outlet property="profFinLabel" destination="XSZ-AO-u68" id="e3V-vJ-8qe"/>
+                                            <outlet property="profTimestampLabel" destination="YmF-31-xGL" id="pig-Nh-ZRW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
