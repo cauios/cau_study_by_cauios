@@ -159,14 +159,33 @@
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catstulogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ipj-qA-fzm">
+                                                            <rect key="frame" x="31" y="35" width="26" height="26"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="26" id="AWn-3u-iUX"/>
+                                                                <constraint firstAttribute="height" constant="26" id="l2n-Pp-C5h"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학업" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNX-GB-pEk">
+                                                            <rect key="frame" x="0.0" y="69.5" width="88" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.81824475526809692" green="0.92437547445297241" blue="0.98432546854019165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstItem="BbD-ze-kOY" firstAttribute="centerX" secondItem="2oL-RA-gce" secondAttribute="centerX" id="979-g0-0tP"/>
                                                         <constraint firstItem="2oL-RA-gce" firstAttribute="top" secondItem="BbD-ze-kOY" secondAttribute="bottom" constant="-17" id="EHL-fN-mrO"/>
                                                         <constraint firstItem="2oL-RA-gce" firstAttribute="leading" secondItem="h0s-rR-wPZ" secondAttribute="leading" constant="58" id="IZ2-YT-a5j"/>
+                                                        <constraint firstItem="Ipj-qA-fzm" firstAttribute="centerX" secondItem="h0s-rR-wPZ" secondAttribute="centerX" id="OU0-7B-cZb"/>
+                                                        <constraint firstItem="UNX-GB-pEk" firstAttribute="leading" secondItem="h0s-rR-wPZ" secondAttribute="leading" id="Sy5-Vt-hzM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UNX-GB-pEk" secondAttribute="trailing" id="aNw-cz-REB"/>
                                                         <constraint firstItem="2oL-RA-gce" firstAttribute="top" secondItem="h0s-rR-wPZ" secondAttribute="top" id="ad4-dY-Syw"/>
                                                         <constraint firstAttribute="trailing" secondItem="2oL-RA-gce" secondAttribute="trailing" constant="8" id="bOQ-nU-ALk"/>
+                                                        <constraint firstItem="UNX-GB-pEk" firstAttribute="centerX" secondItem="h0s-rR-wPZ" secondAttribute="centerX" id="vLk-M9-OGG"/>
+                                                        <constraint firstItem="UNX-GB-pEk" firstAttribute="top" secondItem="Ipj-qA-fzm" secondAttribute="bottom" constant="8.5" id="xos-Fn-d5o"/>
+                                                        <constraint firstItem="Ipj-qA-fzm" firstAttribute="top" secondItem="h0s-rR-wPZ" secondAttribute="top" constant="35" id="zQs-DE-Ft2"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8H-fE-BWX">
@@ -1676,6 +1695,7 @@
     <resources>
         <image name="bluebutton" width="50" height="50"/>
         <image name="catstu" width="90" height="123"/>
+        <image name="catstulogo" width="28" height="28"/>
         <image name="explorelike" width="15" height="15"/>
         <image name="exploretab" width="274" height="123"/>
         <image name="fin" width="22" height="28"/>
