@@ -31,6 +31,7 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreUnameLabel: UILabel!
     @IBOutlet weak var exploreTimestampLabel: UILabel!
     
+    @IBOutlet weak var finLabel: UILabel!
     
     
     var delegate: ExploreTableViewCellDelegate?
@@ -98,31 +99,36 @@ class ExploreTableViewCell: UITableViewCell {
         if post?.category == "학업" {
             if post?.wanted == false {
                 exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1)
-                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
                 
             } else {
                 exploreCateView?.backgroundColor = UIColor(red: 202/255.0, green: 237/255.0, blue: 253/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
+                finLabel?.text = nil
             }
         }
         if post?.category == "취업" {
             if post?.wanted == false {
                 exploreCateView?.backgroundColor = UIColor(red: 197.0/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
-                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
                 
             } else {
                 exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 219/255.0, blue: 217/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
+                finLabel?.text = nil
             }
         }
         if post?.category == "어학" {
             if post?.wanted == false {
                 exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
-                exploreFinImageView?.image = #imageLiteral(resourceName: "fin")
-                
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
             } else {
                 exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 237/255.0, blue: 165/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
+                finLabel?.text = nil
             }
         }
  
