@@ -249,6 +249,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="exCateImageView" destination="Ipj-qA-fzm" id="bDs-TO-V5s"/>
+                                            <outlet property="exCateLabel" destination="UNX-GB-pEk" id="zO5-9K-k6D"/>
                                             <outlet property="exploreCateView" destination="h0s-rR-wPZ" id="rFE-Ph-MmW"/>
                                             <outlet property="exploreContentView" destination="R8H-fE-BWX" id="P1K-Ff-9cW"/>
                                             <outlet property="exploreFinImageView" destination="2oL-RA-gce" id="CQ9-jw-uEX"/>

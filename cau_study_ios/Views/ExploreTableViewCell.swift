@@ -34,6 +34,11 @@ class ExploreTableViewCell: UITableViewCell {
     @IBOutlet weak var finLabel: UILabel!
     
     
+    // [0808 Dahye]
+    
+    @IBOutlet weak var exCateImageView: UIImageView!
+    @IBOutlet weak var exCateLabel: UILabel!
+    
     var delegate: ExploreTableViewCellDelegate?
     
     // [Dahye Comment] didSet is an obsever. We can group all methods that require this post instance as an input in this observer.
@@ -97,38 +102,53 @@ class ExploreTableViewCell: UITableViewCell {
         // [0731 Dahye] for category image
         
         if post?.category == "학업" {
+            exCateLabel?.text = "학업"
             if post?.wanted == false {
                 exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1)
                 exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
                 finLabel?.text = "마감"
+                exCateImageView?.image = #imageLiteral(resourceName: "stulogo")
+                exCateLabel?.textColor = UIColor.white
                 
             } else {
                 exploreCateView?.backgroundColor = UIColor(red: 202/255.0, green: 237/255.0, blue: 253/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
                 finLabel?.text = nil
+                exCateImageView?.image = #imageLiteral(resourceName: "catstulogo")
+                exCateLabel?.textColor =  UIColor.darkGray
             }
         }
         if post?.category == "취업" {
+            exCateLabel?.text = "취업"
             if post?.wanted == false {
                 exploreCateView?.backgroundColor = UIColor(red: 197.0/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
                 exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
                 finLabel?.text = "마감"
+                exCateImageView?.image = #imageLiteral(resourceName: "finjoblogo")
+                exCateLabel?.textColor = UIColor.white
                 
             } else {
                 exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 219/255.0, blue: 217/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
                 finLabel?.text = nil
+                exCateImageView?.image = #imageLiteral(resourceName: "catjoblogo")
+                exCateLabel?.textColor =  UIColor.darkGray
             }
         }
         if post?.category == "어학" {
+            exCateLabel?.text = "어학"
             if post?.wanted == false {
                 exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
                 exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
                 finLabel?.text = "마감"
+                exCateImageView?.image = #imageLiteral(resourceName: "finlanlogo")
+                exCateLabel?.textColor = UIColor.white
             } else {
                 exploreCateView?.backgroundColor = UIColor(red: 255/255.0, green: 237/255.0, blue: 165/255.0, alpha: 1.0)
                 exploreFinImageView?.image = nil
                 finLabel?.text = nil
+                exCateImageView?.image = #imageLiteral(resourceName: "catlanlogo")
+                exCateLabel?.textColor =  UIColor.darkGray
             }
         }
  
