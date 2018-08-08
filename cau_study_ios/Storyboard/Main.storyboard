@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,6 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="ydZ-hq-Fte" kind="relationship" relationship="viewControllers" id="RrE-Fr-5gJ"/>
@@ -35,7 +36,9 @@
         <scene sceneID="Y9V-TG-Prz">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="ExploreId" storyboardName="Explore" referencedIdentifier="ExploreId" id="ydZ-hq-Fte" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mri-We-wkO"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="tabHome_inactive" selectedImage="tabHome_active" id="mri-We-wkO">
+                        <inset key="imageInsets" minX="0.0" minY="-4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvl-bb-Zsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +48,9 @@
         <scene sceneID="zFM-Y9-lgU">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="SavedId" storyboardName="Saved" referencedIdentifier="SavedId" id="n8q-dz-A7O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UQ8-pv-Jm9"/>
+                    <tabBarItem key="tabBarItem" title="Saved" image="tabSaved_inactive" selectedImage="tabSaved_active3" id="UQ8-pv-Jm9">
+                        <inset key="imageInsets" minX="0.0" minY="-4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aW-dl-DOd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -55,7 +60,9 @@
         <scene sceneID="YiC-V4-uB8">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="ProfileId" storyboardName="Profile" referencedIdentifier="ProfileId" id="qR4-pF-trv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="i4N-O8-iQc"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tabProfile_inactive" selectedImage="tabProfile_active2" id="i4N-O8-iQc">
+                        <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4R6-j5-VyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,11 +72,23 @@
         <scene sceneID="2rS-2u-a3R">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="ChatId" storyboardName="Chat" referencedIdentifier="ChatId" id="OaA-Gh-ZYg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3Gk-jV-ng5"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="tabChat_inactive" selectedImage="tabChat_active2" id="3Gk-jV-ng5">
+                        <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRm-mc-95G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="204" y="1718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabChat_active2" width="28" height="28"/>
+        <image name="tabChat_inactive" width="28" height="28"/>
+        <image name="tabHome_active" width="28" height="28"/>
+        <image name="tabHome_inactive" width="28" height="28"/>
+        <image name="tabProfile_active2" width="28" height="28"/>
+        <image name="tabProfile_inactive" width="28" height="28"/>
+        <image name="tabSaved_active3" width="28" height="28"/>
+        <image name="tabSaved_inactive" width="28" height="28"/>
+    </resources>
 </document>
