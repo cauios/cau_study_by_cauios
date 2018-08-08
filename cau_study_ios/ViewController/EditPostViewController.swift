@@ -21,7 +21,7 @@ class EditPostViewController: UIViewController {
     var post : Post?
     var originalCate: Int?
     var selectedCate: Int?
-  
+    var originalWords: [String]?
     
     func showAllCateAfterDismiss() {
         
@@ -36,16 +36,19 @@ class EditPostViewController: UIViewController {
     func recogCate() {
         if self.post?.category == "학업" {
             originalCate = 1
+            selectedCate = 1
             acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else if self.post?.category == "취업" {
             originalCate = 2
+            selectedCate = 2
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else  {
             originalCate = 3
+            selectedCate = 3
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
@@ -59,6 +62,8 @@ class EditPostViewController: UIViewController {
         timeTextField.text = self.post?.time
         locationTextField.text = self.post?.location
         descriptionTextView.text = self.post?.description
+        originalWords = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+        
     }
     
     
@@ -125,6 +130,14 @@ class EditPostViewController: UIViewController {
             return
         }
         let currentUserId = currentUser.uid
+        //해시태그 지우기
+        for var originalWord in originalWords! {
+            if originalWord.hasPrefix("#"){
+                originalWord = originalWord.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(originalWord.lowercased())
+                newHasfTagReF.child(newPostId).removeValue()
+            }
+        }
         
         
         let words = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
