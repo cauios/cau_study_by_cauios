@@ -1392,7 +1392,9 @@
         <scene sceneID="Ysa-qV-wIA">
             <objects>
                 <navigationController storyboardIdentifier="ExploreId" automaticallyAdjustsScrollViewInsets="NO" id="QxY-hx-YYF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="list" id="bp5-fY-skN"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabHome_inactive" selectedImage="tabHome_active2" id="bp5-fY-skN">
+                        <inset key="imageInsets" minX="0.0" minY="-4" maxX="0.0" maxY="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o21-X8-KlC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1401,6 +1403,7 @@
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tgg-dn-P18">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </toolbar>
                     <connections>
                         <segue destination="hvP-RY-GmE" kind="relationship" relationship="rootViewController" id="RSo-jD-MGs"/>
@@ -1678,12 +1681,13 @@
         <image name="fin" width="22" height="28"/>
         <image name="finicon" width="34" height="40"/>
         <image name="like" width="46" height="41"/>
-        <image name="list" width="36" height="36"/>
         <image name="location" width="25" height="25"/>
         <image name="people" width="25" height="25"/>
         <image name="pinkbutton" width="50" height="50"/>
         <image name="postlike" width="20" height="20"/>
         <image name="searchLens" width="25" height="25"/>
+        <image name="tabHome_active2" width="28" height="28"/>
+        <image name="tabHome_inactive" width="28" height="28"/>
         <image name="time" width="25" height="25"/>
         <image name="write" width="25" height="25"/>
         <image name="yellowbutton" width="50" height="50"/>
