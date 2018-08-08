@@ -1404,7 +1404,7 @@
         <scene sceneID="Ysa-qV-wIA">
             <objects>
                 <navigationController storyboardIdentifier="ExploreId" automaticallyAdjustsScrollViewInsets="NO" id="QxY-hx-YYF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabHome_inactive" selectedImage="tabHome_active2" id="bp5-fY-skN">
+                    <tabBarItem key="tabBarItem" title="" image="unhome" selectedImage="onhome" id="bp5-fY-skN">
                         <inset key="imageInsets" minX="0.0" minY="-4" maxX="0.0" maxY="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1964,13 +1964,13 @@
         <image name="finicon" width="34" height="40"/>
         <image name="like" width="46" height="41"/>
         <image name="location" width="25" height="25"/>
+        <image name="onhome" width="25" height="25"/>
         <image name="people" width="25" height="25"/>
         <image name="pinkbutton" width="50" height="50"/>
         <image name="postlike" width="20" height="20"/>
         <image name="searchLens" width="25" height="25"/>
-        <image name="tabHome_active2" width="28" height="28"/>
-        <image name="tabHome_inactive" width="28" height="28"/>
         <image name="time" width="25" height="25"/>
+        <image name="unhome" width="25" height="25"/>
         <image name="write" width="25" height="25"/>
         <image name="yellowbutton" width="50" height="50"/>
     </resources>

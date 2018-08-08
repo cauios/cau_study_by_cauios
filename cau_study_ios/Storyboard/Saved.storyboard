@@ -324,7 +324,7 @@
         <scene sceneID="xNP-Sf-DtJ">
             <objects>
                 <navigationController storyboardIdentifier="SavedId" automaticallyAdjustsScrollViewInsets="NO" id="8xy-dc-hKC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabSaved_inactive" selectedImage="tabSaved_active2" id="aeZ-yM-Drc">
+                    <tabBarItem key="tabBarItem" title="" image="unlike" selectedImage="onlike" id="aeZ-yM-Drc">
                         <inset key="imageInsets" minX="0.0" minY="-4" maxX="0.0" maxY="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -348,8 +348,8 @@
         <image name="lanfin" width="170" height="170"/>
         <image name="lanjob" width="170" height="170"/>
         <image name="lanstu" width="170" height="169"/>
-        <image name="tabSaved_active2" width="28" height="28"/>
-        <image name="tabSaved_inactive" width="28" height="28"/>
+        <image name="onlike" width="25" height="25"/>
+        <image name="unlike" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gfx-U1-MQT"/>
