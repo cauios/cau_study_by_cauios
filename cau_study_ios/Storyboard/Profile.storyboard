@@ -616,7 +616,7 @@
         <scene sceneID="lcz-F7-MoZ">
             <objects>
                 <navigationController storyboardIdentifier="ProfileId" automaticallyAdjustsScrollViewInsets="NO" id="msI-PS-hEn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabProfile_inactive" selectedImage="tabProfile_active2" id="bfG-hi-hKW">
+                    <tabBarItem key="tabBarItem" title="" image="unprofile" selectedImage="onprofile" id="bfG-hi-hKW">
                         <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-2"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -641,8 +641,8 @@
         <image name="edit" width="30" height="29"/>
         <image name="finicon" width="34" height="40"/>
         <image name="noti" width="25" height="25"/>
-        <image name="tabProfile_active2" width="28" height="28"/>
-        <image name="tabProfile_inactive" width="28" height="28"/>
+        <image name="onprofile" width="27" height="27"/>
         <image name="unactiveCheck" width="28" height="28"/>
+        <image name="unprofile" width="27" height="27"/>
     </resources>
 </document>
