@@ -18,19 +18,11 @@ class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var searchTitleLabel: UILabel!
     @IBOutlet weak var searchTagsLabel: UILabel!
+    @IBOutlet weak var savedLikeImageView: UIImageView!
     
-    //    @IBOutlet weak var exploreTitleLabel: UILabel!
-    //    @IBOutlet weak var exploreTagsLabel: UILabel!
-    //    @IBOutlet weak var savedLikeImageView: UIImageView!
-    //    @IBOutlet weak var exploreCateImageView: UIImageView!
-    //
-    //    @IBOutlet weak var exploreFinImageView: UIImageView!
-    //
-    //    @IBOutlet weak var exploreUnameLabel: UILabel!
-    //    @IBOutlet weak var exploreTimestampLabel: UILabel!
+    // [0808 Dahye]
     
 
-    @IBOutlet weak var savedLikeImageView: UIImageView!
     
     var delegate: SearchTableViewCellDelegate?
     
