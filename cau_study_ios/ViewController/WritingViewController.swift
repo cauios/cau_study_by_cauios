@@ -79,13 +79,12 @@ class WritingViewController: UIViewController, dismissHandler {
         view.endEditing(true) // [Dahye Comment] dismiss the keyboard right away, after users hit the upload button. If the keyboard doesn't cover the share button.
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
-        // [0729 Dahye]
-        if delegate != nil {
-            delegate?.showAllCateAfterDismiss()
-        }
+        // [0807] Mute this function call because it works with viewWillDisappear too.
+//        if delegate != nil {
+//            delegate?.showAllCateAfterDismiss()
+//        }
         self.dismiss(animated: true, completion: nil)
         
-
 
     }
     
@@ -178,6 +177,7 @@ class WritingViewController: UIViewController, dismissHandler {
     //var selectedTitle: UITextField?
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         super.viewDidLoad()
         uploadButton.isEnabled = false
         handleTextField()
@@ -190,8 +190,14 @@ class WritingViewController: UIViewController, dismissHandler {
     // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if delegate != nil {
+            delegate?.showAllCateAfterDismiss()
+        }
+    }
     
     // [Dahye comment] Implement this method, to set the condtion where the 'upload' button can be activated. I set only when all components of the writing view have to be filled in, users can upload the post. When the button is light blue, it means it's activated and when it is lightgray it means it's disabled. Using handleTextField() method and textFieldDidChange introduced in Lec.34(from 5:28 ~). ***Note that*** description hasn't been contained here. We should fix it later.
     
