@@ -782,7 +782,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99999719860000003" green="0.9999815822" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.9686247706413269" green="0.96860963106155396" blue="0.96862846612930298" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="w2p-Vb-IMz" firstAttribute="centerX" secondItem="0zB-PL-EgP" secondAttribute="centerX" id="0o0-3g-szz"/>
                                     <constraint firstItem="kP5-7r-yhw" firstAttribute="top" secondItem="x6b-su-60B" secondAttribute="top" id="1po-at-KZT"/>
@@ -813,7 +813,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="123" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KH4-89-dVR">
-                                <rect key="frame" x="0.0" y="94" width="375" height="573"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="569"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -1364,7 +1364,7 @@
                         <constraints>
                             <constraint firstItem="PUb-rA-cqi" firstAttribute="top" secondItem="KH4-89-dVR" secondAttribute="bottom" id="3IE-93-Mii"/>
                             <constraint firstAttribute="trailing" secondItem="x6b-su-60B" secondAttribute="trailing" id="C1p-ak-fJk"/>
-                            <constraint firstItem="KH4-89-dVR" firstAttribute="top" secondItem="x6b-su-60B" secondAttribute="bottom" id="Pkg-Zs-WVD"/>
+                            <constraint firstItem="KH4-89-dVR" firstAttribute="top" secondItem="x6b-su-60B" secondAttribute="bottom" constant="4" id="Pkg-Zs-WVD"/>
                             <constraint firstItem="KH4-89-dVR" firstAttribute="leading" secondItem="Ra2-tG-NN0" secondAttribute="leading" id="Wfq-3R-NJq"/>
                             <constraint firstAttribute="trailing" secondItem="KH4-89-dVR" secondAttribute="trailing" id="bD9-sY-Oye"/>
                             <constraint firstItem="x6b-su-60B" firstAttribute="leading" secondItem="Ra2-tG-NN0" secondAttribute="leading" id="mdu-j3-3lv"/>
@@ -1373,9 +1373,13 @@
                     </view>
                     <connections>
                         <outlet property="searchAcaCateButton" destination="0zB-PL-EgP" id="fgp-zt-ukn"/>
+                        <outlet property="searchAcaLineView" destination="w2p-Vb-IMz" id="5uW-sy-f4h"/>
                         <outlet property="searchAllCateButton" destination="ufy-G1-vxN" id="R8E-t1-la3"/>
+                        <outlet property="searchAllLineView" destination="WCb-QZ-yq6" id="aFO-fl-JJN"/>
                         <outlet property="searchEmpCateButton" destination="kP5-7r-yhw" id="pNH-B1-BbF"/>
+                        <outlet property="searchEmpLineView" destination="Lwq-qC-5Sp" id="4GW-to-B1G"/>
                         <outlet property="searchLanCateButton" destination="DIN-Im-zla" id="Y7g-jy-v7E"/>
+                        <outlet property="searchLanLineView" destination="QfI-Au-UiE" id="Mu5-w5-NVc"/>
                         <outlet property="searchTableView" destination="KH4-89-dVR" id="qow-PN-8Rx"/>
                         <segue destination="FfP-bz-Hmj" kind="show" identifier="SearchToPostSegue" id="TNI-Ur-Vjj"/>
                     </connections>
@@ -2344,6 +2348,6 @@
         <image name="yellowbutton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TNI-Ur-Vjj"/>
+        <segue reference="LOA-C6-f2l"/>
     </inferredMetricsTieBreakers>
 </document>

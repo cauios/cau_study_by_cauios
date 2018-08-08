@@ -36,10 +36,26 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchEmpCateButton: UIButton!
     @IBOutlet weak var searchLanCateButton: UIButton!
     
+    // [0808 Dahye]
+    
+    @IBOutlet weak var searchAllLineView: UIView!
+    @IBOutlet weak var searchAcaLineView: UIView!
+    
+    @IBOutlet weak var searchEmpLineView: UIView!
+    
+    @IBOutlet weak var searchLanLineView: UIView!
     
 
     @IBAction func searchAllCateTUI(_ sender: Any) {
         selectedSeg = 1
+        searchAllCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAllLineView.backgroundColor = UIColor.darkGray
+        searchAcaLineView.backgroundColor = UIColor.clear
+        searchEmpLineView.backgroundColor = UIColor.clear
+        searchLanLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         if searchBar.text! == "" {
             return
@@ -63,6 +79,14 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchAcaCateTUI(_ sender: Any) {
         selectedSeg = 2
+        searchAllCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAcaCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAllLineView.backgroundColor = UIColor.clear
+        searchAcaLineView.backgroundColor = UIColor.darkGray
+        searchEmpLineView.backgroundColor = UIColor.clear
+        searchLanLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.searchTableView.reloadData()
         loadAcaPost()
@@ -71,6 +95,14 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchEmpCateTUI(_ sender: Any) {
         selectedSeg = 3
+        searchAllCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEmpCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAllLineView.backgroundColor = UIColor.clear
+        searchAcaLineView.backgroundColor = UIColor.clear
+        searchEmpLineView.backgroundColor = UIColor.darkGray
+        searchLanLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.searchTableView.reloadData()
         loadEmpPost()
@@ -80,6 +112,14 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchLanCateTUI(_ sender: Any) {
         selectedSeg = 4
+        searchAllCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchLanCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchAllLineView.backgroundColor = UIColor.clear
+        searchAcaLineView.backgroundColor = UIColor.clear
+        searchEmpLineView.backgroundColor = UIColor.clear
+        searchLanLineView.backgroundColor = UIColor.darkGray
         posts = [Post]()
         self.searchTableView.reloadData()
         loadLanPost()
@@ -87,6 +127,14 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         selectedSeg = 1
+        searchAllCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAllLineView.backgroundColor = UIColor.darkGray
+        searchAcaLineView.backgroundColor = UIColor.clear
+        searchEmpLineView.backgroundColor = UIColor.clear
+        searchLanLineView.backgroundColor = UIColor.clear
         super.viewDidLoad()
         searchTableView.dataSource = self
         
