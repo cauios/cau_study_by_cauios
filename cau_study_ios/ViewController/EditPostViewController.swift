@@ -144,6 +144,14 @@ class EditPostViewController: UIViewController {
         
         var categoryText = ""
         
+        //카테고리 지우기
+        if originalCate == 1 {
+            postIntoCateAca.child(newPostId).removeValue()
+        } else if originalCate == 2 {
+            postIntoCateEmpl.child(newPostId).removeValue()
+        } else {
+            postIntoCateLan.child(newPostId).removeValue()
+        }
         
         if selectedCate == 1 {
             categoryText = "학업"
