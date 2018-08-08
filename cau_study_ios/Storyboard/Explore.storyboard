@@ -1275,6 +1275,7 @@
                         <outlet property="postViewToolBar" destination="pt4-iC-e35" id="y5a-Wk-yU3"/>
                         <outlet property="sendAMessageButton" destination="8UH-UB-BKY" id="lHV-tJ-uxx"/>
                         <segue destination="6fs-PH-QbO" kind="show" identifier="WriterInfoViewController" id="abX-2s-iem"/>
+                        <segue destination="Wbx-0b-kiL" kind="presentation" identifier="EditPostViewController" id="Q2K-Ad-6Ks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyU-qe-xzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1683,10 +1684,10 @@
             </objects>
             <point key="canvasLocation" x="-3274.4000000000001" y="2682.9085457271367"/>
         </scene>
-        <!--Writing View Controller-->
+        <!--Edit Post View Controller-->
         <scene sceneID="cqE-h8-znD">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Wbx-0b-kiL" customClass="WritingViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Wbx-0b-kiL" customClass="EditPostViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CQi-5P-SHE"/>
                         <viewControllerLayoutGuide type="bottom" id="U2A-xQ-S6P"/>
@@ -1698,16 +1699,16 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZB-ZE-0Mh">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Writing" id="3fR-Tu-tEL">
+                                    <navigationItem title="Editing" id="3fR-Tu-tEL">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="FrB-LL-BOu">
                                             <connections>
-                                                <action selector="cancelButtonClick:" destination="Wbx-0b-kiL" id="eC4-HZ-U2U"/>
+                                                <action selector="cancelButtonClick:" destination="Wbx-0b-kiL" id="oLM-ul-wKI"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Upload" id="cGz-CX-l7Q">
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="uploadButton_Click:" destination="Wbx-0b-kiL" id="lnX-G5-coG"/>
+                                                <action selector="uploadButton_Click:" destination="Wbx-0b-kiL" id="5Qx-ue-c5s"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1754,7 +1755,7 @@
                                                             <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="acaCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="mZn-kd-DA9"/>
+                                                            <action selector="acaCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="mR0-Y0-GFe"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-Jy-FxI">
@@ -1767,7 +1768,7 @@
                                                             <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="empCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="shh-Qv-Hrk"/>
+                                                            <action selector="empCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="iyj-OY-pOV"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbx-uL-ujE">
@@ -1780,7 +1781,7 @@
                                                             <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="lanCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="oMT-bK-Gac"/>
+                                                            <action selector="lanCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="uwh-ND-p5j"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1926,21 +1927,21 @@
                     </view>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="acaCateWtButton" destination="xn1-bR-hVp" id="eb8-e7-YeL"/>
-                        <outlet property="descriptionTextView" destination="jie-Zo-8D4" id="Erg-yj-4Fq"/>
-                        <outlet property="empCateWtButton" destination="Foa-Jy-FxI" id="mfn-Lo-nUV"/>
-                        <outlet property="lanCateWtButton" destination="fbx-uL-ujE" id="lV1-Z5-3fq"/>
-                        <outlet property="locationTextField" destination="rtJ-fN-EEQ" id="pXF-ad-Fez"/>
-                        <outlet property="numOfVacanTextField" destination="KiZ-QZ-TgY" id="7jI-Ul-jES"/>
-                        <outlet property="tagsTextField" destination="XpI-Zg-Nge" id="Euc-rq-u6F"/>
-                        <outlet property="timeTextField" destination="evY-HB-NNF" id="ZDI-wJ-Uqe"/>
-                        <outlet property="titleTextField" destination="Xkr-gQ-Oua" id="Gc7-eh-Yjn"/>
-                        <outlet property="uploadButton" destination="cGz-CX-l7Q" id="zeW-LV-azc"/>
+                        <outlet property="acaCateWtButton" destination="xn1-bR-hVp" id="qtf-01-pGG"/>
+                        <outlet property="descriptionTextView" destination="jie-Zo-8D4" id="FLG-ez-hQE"/>
+                        <outlet property="empCateWtButton" destination="Foa-Jy-FxI" id="tGG-3s-jsh"/>
+                        <outlet property="lanCateWtButton" destination="fbx-uL-ujE" id="0mB-52-jE8"/>
+                        <outlet property="locationTextField" destination="rtJ-fN-EEQ" id="leT-Bg-gMv"/>
+                        <outlet property="numOfVacanTextField" destination="KiZ-QZ-TgY" id="Lrr-1v-ZM4"/>
+                        <outlet property="tagsTextField" destination="XpI-Zg-Nge" id="QK8-aQ-s2s"/>
+                        <outlet property="timeTextField" destination="evY-HB-NNF" id="CWN-m2-qpa"/>
+                        <outlet property="titleTextField" destination="Xkr-gQ-Oua" id="u2p-4C-jHT"/>
+                        <outlet property="uploadButton" destination="cGz-CX-l7Q" id="w7t-kH-Rks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ju-v1-yxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2906" y="3392"/>
+            <point key="canvasLocation" x="-3022" y="3502"/>
         </scene>
     </scenes>
     <resources>

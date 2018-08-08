@@ -126,7 +126,7 @@ class PostViewController: UIViewController {
         let actionSheet = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "수정", style: .default, handler: {(action: UIAlertAction) in
             
-            
+            self.performSegue(withIdentifier: "EditPostViewController", sender: self)
             
         }))
         
@@ -161,6 +161,11 @@ class PostViewController: UIViewController {
         if segue.identifier == "WriterInfoViewController" {
             let vc = segue.destination as! WriterInfoViewController
             vc.user = self.user
+        }
+        
+        if segue.identifier == "EditPostViewController" {
+            let vc = segue.destination as! EditPostViewController
+            vc.postId = self.postId
         }
     }
 
