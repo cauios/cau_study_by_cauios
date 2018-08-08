@@ -66,6 +66,10 @@ class PostViewController: UIViewController {
                     self.snackbar_like.show()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadPost()
+    }
 
     
     override func viewDidLoad() {
@@ -91,7 +95,7 @@ class PostViewController: UIViewController {
        
         
         
-        loadPost()
+        //loadPost()
         
         
         // Dahye: Customize the bottom toolbar button
