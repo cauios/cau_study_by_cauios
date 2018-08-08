@@ -37,11 +37,12 @@ class PostViewController: UIViewController {
     
     
     var postId: String?
-    
+    var postUid: String?
     
     var post: Post? {
         didSet {
             updateView()
+            checkCurrentUser()
         }
     }
     
@@ -85,9 +86,9 @@ class PostViewController: UIViewController {
         
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
-        let editBarButton = UIBarButtonItem(customView: editImageView)
-        self.navigationItem.rightBarButtonItems = [barButton,editBarButton]
         
+        self.navigationItem.rightBarButtonItems = [barButton]
+       
         
         
         loadPost()
@@ -102,6 +103,19 @@ class PostViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.touchUsernameAction))
         postUidLabel.addGestureRecognizer(tapGesture)
         postUidLabel.isUserInteractionEnabled = true
+        
+    }
+    
+    func checkCurrentUser() {
+        guard let currentUser = Auth.auth().currentUser else{
+            return
+        }
+        if currentUser.uid == user.uid {
+            let editBarButton = UIBarButtonItem(customView: editImageView)
+            self.navigationItem.rightBarButtonItems?.append(editBarButton)
+        } else {
+            
+        }
         
     }
     
