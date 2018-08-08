@@ -66,7 +66,7 @@ class PostViewController: UIViewController {
                     self.snackbar_like.show()
 
     }
-    
+
     
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.white

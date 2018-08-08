@@ -64,10 +64,17 @@ class EditPostViewController: UIViewController {
         descriptionTextView.text = self.post?.description
         originalWords = tagsTextField.text?.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         
+        if self.post?.wanted == true {
+            self.wantedControl.selectedSegmentIndex = 0
+        } else {
+            self.wantedControl.selectedSegmentIndex = 1
+        }
+        
     }
     
     
     
+    @IBOutlet weak var wantedControl: UISegmentedControl!
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var tagsTextField: UITextField!
@@ -183,8 +190,14 @@ class EditPostViewController: UIViewController {
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
         // value of "timestamp" would be self.timestamp or timestamp
+        var wanted : Bool?
+        if wantedControl.selectedSegmentIndex == 0 {
+            wanted = true
+        } else {
+            wanted = false
+        }
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp, "wanted": true ], withCompletionBlock: {
+        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp, "wanted": wanted!], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
@@ -213,6 +226,7 @@ class EditPostViewController: UIViewController {
         })
     }
     
+    
     @IBAction func cancelButtonClick(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -222,8 +236,9 @@ class EditPostViewController: UIViewController {
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         super.viewDidLoad()
-        uploadButton.isEnabled = false
-        handleTextField()
+        //uploadButton.isEnabled = false
+        //handleTextField()
+        uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
         fetchPost()
        
 
@@ -242,26 +257,26 @@ class EditPostViewController: UIViewController {
     
     
     
-    func handleTextField() {
-        titleTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        tagsTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        numOfVacanTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        timeTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-        locationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
-    }
+//    func handleTextField() {
+//        titleTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+//        tagsTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+//        numOfVacanTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+//        timeTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+//        locationTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
+//    }
     
-    @objc func textFieldDidChange() {
-        guard let titleText = titleTextField.text, !titleText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let timeText = timeTextField.text, !timeText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty
-            else {
-                uploadButton.tintColor = .lightGray
-                uploadButton.isEnabled = false
-                return
-        }
-        uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
-        uploadButton.isEnabled = true
-        //ProgressHUD.showError("All blanks must be filled in2")
-        
-    }
+//    @objc func textFieldDidChange() {
+//        guard let titleText = titleTextField.text, !titleText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let timeText = timeTextField.text, !timeText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty
+//            else {
+//                uploadButton.tintColor = .lightGray
+//                uploadButton.isEnabled = false
+//                return
+//        }
+//        uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
+//        uploadButton.isEnabled = true
+//        //ProgressHUD.showError("All blanks must be filled in2")
+//
+//    }
     
     
     

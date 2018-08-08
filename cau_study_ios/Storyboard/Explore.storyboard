@@ -1718,7 +1718,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63V-OI-cNu">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="424"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xkr-gQ-Oua">
                                                 <rect key="frame" x="56" y="151" width="262" height="40"/>
@@ -1853,6 +1853,13 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zXO-bA-ghV">
+                                                <rect key="frame" x="128" y="394" width="119" height="29"/>
+                                                <segments>
+                                                    <segment title="모집중"/>
+                                                    <segment title="모집마감"/>
+                                                </segments>
+                                            </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96867722270000001" green="0.96854263539999996" blue="0.97255057099999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -1862,17 +1869,19 @@
                                             <constraint firstItem="0TH-pj-1ay" firstAttribute="centerX" secondItem="63V-OI-cNu" secondAttribute="centerX" id="EnN-tl-H93"/>
                                             <constraint firstItem="9Z5-UI-Qo2" firstAttribute="centerX" secondItem="63V-OI-cNu" secondAttribute="centerX" id="Nbn-8S-Yzg"/>
                                             <constraint firstItem="Xkr-gQ-Oua" firstAttribute="top" secondItem="0TH-pj-1ay" secondAttribute="bottom" constant="24" id="QEO-Xw-qfj"/>
+                                            <constraint firstItem="zXO-bA-ghV" firstAttribute="centerX" secondItem="63V-OI-cNu" secondAttribute="centerX" id="VSp-4e-mdI"/>
+                                            <constraint firstAttribute="bottom" secondItem="zXO-bA-ghV" secondAttribute="bottom" constant="25" id="ZcH-E2-HJk"/>
                                             <constraint firstItem="Xkr-gQ-Oua" firstAttribute="centerX" secondItem="63V-OI-cNu" secondAttribute="centerX" id="dan-v9-IDf"/>
                                             <constraint firstItem="XpI-Zg-Nge" firstAttribute="trailing" secondItem="Xkr-gQ-Oua" secondAttribute="trailing" id="g6o-R1-HLN"/>
-                                            <constraint firstAttribute="bottom" secondItem="9Z5-UI-Qo2" secondAttribute="bottom" constant="50" id="p4F-eq-85J"/>
                                             <constraint firstItem="Xkr-gQ-Oua" firstAttribute="leading" secondItem="63V-OI-cNu" secondAttribute="leading" constant="56" id="rPq-DP-gsU"/>
+                                            <constraint firstItem="zXO-bA-ghV" firstAttribute="top" secondItem="rtJ-fN-EEQ" secondAttribute="bottom" constant="20" id="y0h-xm-07t"/>
                                             <constraint firstItem="9Z5-UI-Qo2" firstAttribute="top" secondItem="XpI-Zg-Nge" secondAttribute="bottom" constant="30" id="y1S-tF-WsF"/>
                                             <constraint firstItem="g1J-L1-hgw" firstAttribute="top" secondItem="63V-OI-cNu" secondAttribute="top" constant="30" id="yUh-5x-pmm"/>
                                             <constraint firstItem="0TH-pj-1ay" firstAttribute="top" secondItem="g1J-L1-hgw" secondAttribute="bottom" constant="25" id="zVP-we-Uqe"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUA-bY-NOo">
-                                        <rect key="frame" x="0.0" y="424" width="375" height="179"/>
+                                        <rect key="frame" x="0.0" y="447" width="375" height="156"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="본문을 입력해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgD-qS-HNh">
                                                 <rect key="frame" x="30" y="8" width="121" height="18"/>
@@ -1881,7 +1890,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jie-Zo-8D4">
-                                                <rect key="frame" x="30" y="34" width="315" height="120"/>
+                                                <rect key="frame" x="30" y="34" width="315" height="97"/>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1937,11 +1946,12 @@
                         <outlet property="timeTextField" destination="evY-HB-NNF" id="CWN-m2-qpa"/>
                         <outlet property="titleTextField" destination="Xkr-gQ-Oua" id="u2p-4C-jHT"/>
                         <outlet property="uploadButton" destination="cGz-CX-l7Q" id="w7t-kH-Rks"/>
+                        <outlet property="wantedControl" destination="zXO-bA-ghV" id="BnW-Th-ZZi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ju-v1-yxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3022" y="3502"/>
+            <point key="canvasLocation" x="-3023.1999999999998" y="3501.4992503748131"/>
         </scene>
     </scenes>
     <resources>
