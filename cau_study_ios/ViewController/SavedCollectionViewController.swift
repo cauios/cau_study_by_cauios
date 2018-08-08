@@ -82,22 +82,24 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         })
         
     }
+    
+    
     func removeRedDotAtTabBarItemIndex(index: Int) {
-        for subview in (tabBarController?.tabBar.subviews)! {
+        for subview in tabBarController!.tabBar.subviews {
             
             if let subview = subview as? UIView {
                 
                 if subview.tag == 1234 {
                     subview.removeFromSuperview()
-                    
+                    break
                 }
             }
         }
         
         let RedDotRadius: CGFloat = 5
-        let RedDotDiameter = RedDotRadius * 2
+        let RedDotDiameter = RedDotRadius * 1.5
         
-        let TopMargin:CGFloat = 5
+        let TopMargin:CGFloat = 1
         
         let TabBarItemCount = CGFloat(self.tabBarController!.tabBar.items!.count)
         
@@ -108,7 +110,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         
         let imageHalfWidth: CGFloat = (self.tabBarController!.tabBar.items![index] ).selectedImage!.size.width / 2
         
-        let redDot = UIView(frame: CGRect(x: xOffset + imageHalfWidth - 7, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter))
+        let redDot = UIView(frame: CGRect(x: xOffset + imageHalfWidth - 1, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter))
         
         redDot.tag = 1234
         redDot.backgroundColor = UIColor.red
