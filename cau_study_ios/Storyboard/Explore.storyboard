@@ -1515,22 +1515,34 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fin" translatesAutoresizingMaskIntoConstraints="NO" id="k7g-6e-HdB">
-                                                <rect key="frame" x="305" y="0.0" width="19" height="26"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finicon" translatesAutoresizingMaskIntoConstraints="NO" id="k7g-6e-HdB">
+                                                <rect key="frame" x="302" y="0.0" width="22" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="1hV-wj-V7U"/>
-                                                    <constraint firstAttribute="width" constant="19" id="hp4-gt-1KD"/>
+                                                    <constraint firstAttribute="width" constant="22" id="hp4-gt-1KD"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마감" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chB-Wc-29A">
+                                                <rect key="frame" x="304" y="6" width="18" height="12"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="12" id="WhX-kF-NPC"/>
+                                                    <constraint firstAttribute="width" constant="18" id="u15-G6-QJK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.82352941176470584" green="0.88235294117647056" blue="0.96078431372549022" alpha="0.37237799657534248" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="X3D-FP-Nm3" firstAttribute="top" secondItem="H34-Md-0Mq" secondAttribute="top" constant="8.5" id="0kx-bK-qjM"/>
                                             <constraint firstItem="idC-1x-Jr5" firstAttribute="leading" secondItem="H34-Md-0Mq" secondAttribute="leading" constant="25" id="CJO-Vl-hy5"/>
                                             <constraint firstAttribute="trailing" secondItem="k7g-6e-HdB" secondAttribute="trailing" constant="19" id="DId-nf-ROa"/>
+                                            <constraint firstItem="chB-Wc-29A" firstAttribute="centerX" secondItem="k7g-6e-HdB" secondAttribute="centerX" id="JgG-hg-3qC"/>
                                             <constraint firstItem="idC-1x-Jr5" firstAttribute="top" secondItem="H34-Md-0Mq" secondAttribute="top" constant="8.5" id="NSZ-cD-yfh"/>
                                             <constraint firstItem="X3D-FP-Nm3" firstAttribute="leading" secondItem="idC-1x-Jr5" secondAttribute="trailing" constant="8" id="UbS-r9-hPt"/>
                                             <constraint firstAttribute="bottom" secondItem="X3D-FP-Nm3" secondAttribute="bottom" constant="8.5" id="VPA-M0-WvN"/>
+                                            <constraint firstItem="chB-Wc-29A" firstAttribute="top" secondItem="k7g-6e-HdB" secondAttribute="bottom" constant="-20" id="Vkd-sM-wdV"/>
                                             <constraint firstItem="k7g-6e-HdB" firstAttribute="top" secondItem="H34-Md-0Mq" secondAttribute="top" id="ggB-yl-S0G"/>
                                             <constraint firstAttribute="bottom" secondItem="idC-1x-Jr5" secondAttribute="bottom" constant="8.5" id="knS-px-viU"/>
                                             <constraint firstAttribute="height" constant="95" id="o1B-ws-nfp"/>
@@ -1638,6 +1650,7 @@
                         <outlet property="postCategoryLabel" destination="mqy-v7-6VC" id="El8-fo-1WZ"/>
                         <outlet property="postDescriptionLabel" destination="xDb-io-fw2" id="a7c-l6-Wt3"/>
                         <outlet property="postFinImageView" destination="k7g-6e-HdB" id="AK3-Q0-iPr"/>
+                        <outlet property="postFinLabel" destination="chB-Wc-29A" id="aHE-ab-9jH"/>
                         <outlet property="postLocationLabel" destination="pWv-3l-u5R" id="XI3-K7-k6h"/>
                         <outlet property="postNumOfVacanLabel" destination="AWo-Gi-qcT" id="8Vu-9I-Y4v"/>
                         <outlet property="postSavedLikeImageView" destination="yd3-60-W76" id="R4d-kj-Pms"/>
@@ -2334,7 +2347,6 @@
         <image name="bluebutton" width="50" height="50"/>
         <image name="catstulogo" width="28" height="28"/>
         <image name="explorelike" width="15" height="15"/>
-        <image name="fin" width="22" height="28"/>
         <image name="finicon" width="34" height="40"/>
         <image name="location" width="25" height="25"/>
         <image name="onhome" width="25" height="25"/>

@@ -26,8 +26,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postCategoryImage: UIImageView!
     @IBOutlet weak var postCategoryBar: UIView!
     @IBOutlet weak var postFinImageView: UIImageView!
+    @IBOutlet weak var postFinLabel: UILabel!
     
-
     // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
@@ -207,9 +207,11 @@ class PostViewController: UIViewController {
         
         // [0803 Dahye] Show if it is finished or not
         if post?.wanted == false {
-            postFinImageView.image = #imageLiteral(resourceName: "fin")
+            postFinImageView.image = #imageLiteral(resourceName: "finicon")
+            postFinLabel.text = "마감"
         } else {
             postFinImageView.image = nil
+            postFinLabel.text = nil
         }
         
         postNumOfVacanLabel.text = post?.numOfVacan
