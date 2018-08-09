@@ -13,7 +13,7 @@ class MyPostsTableViewCell: UITableViewCell {
     @IBOutlet weak var exploreTitleLabel: UILabel!
     @IBOutlet weak var exploreTagsLabel: UILabel!
     @IBOutlet weak var exploreCategoryLabel: UILabel!
-    @IBOutlet weak var exploreWanted: UILabel!
+
     
     @IBOutlet weak var profCateView: UIView!
     @IBOutlet weak var profContentView: UIView!
@@ -49,11 +49,7 @@ class MyPostsTableViewCell: UITableViewCell {
         profContentView.layer.borderColor = UIColor(red: 237.0/255.0, green: 238.0/255.0, blue: 239.0/255.0, alpha: 1.0).cgColor
         
         
-        if (post?.wanted)! {
-            exploreWanted.text = "모집중"
-        } else {
-            exploreWanted.text = "모집마감"
-        }
+
         
         // [0731 Dahye] for category image
         
