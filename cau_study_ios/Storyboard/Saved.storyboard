@@ -29,34 +29,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <view key="backgroundView" contentMode="scaleToFill" id="lpt-cz-sgT">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="512"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saved_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="W63-9z-edp">
-                                            <rect key="frame" x="125" y="141" width="151" height="151"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="151" id="ZaG-4o-6vr"/>
-                                                <constraint firstAttribute="height" constant="151" id="cI0-0t-WFp"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfd-IG-M9h">
-                                            <rect key="frame" x="126" y="300" width="150" height="97"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.51496478873239437" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="gfd-IG-M9h" secondAttribute="trailing" constant="125" id="2co-l6-ygW"/>
-                                        <constraint firstItem="gfd-IG-M9h" firstAttribute="leading" secondItem="lpt-cz-sgT" secondAttribute="leading" constant="125" id="4tA-5H-LN4"/>
-                                        <constraint firstItem="W63-9z-edp" firstAttribute="top" secondItem="lpt-cz-sgT" secondAttribute="top" constant="141" id="FRd-db-7CB"/>
-                                        <constraint firstItem="W63-9z-edp" firstAttribute="centerX" secondItem="lpt-cz-sgT" secondAttribute="centerX" id="Wo0-WQ-5Zx"/>
-                                        <constraint firstItem="gfd-IG-M9h" firstAttribute="top" secondItem="W63-9z-edp" secondAttribute="bottom" constant="5" id="hNX-2U-Zj2"/>
-                                        <constraint firstAttribute="bottom" secondItem="gfd-IG-M9h" secondAttribute="bottom" constant="133" id="xYt-8V-8ik"/>
-                                    </constraints>
-                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SavedCollectionViewCell" id="HJ5-W5-Paz" customClass="SavedCollectionViewCell" customModule="cau_study_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -122,8 +94,6 @@
                     <size key="freeformSize" width="400" height="600"/>
                     <connections>
                         <outlet property="collectionView" destination="pj2-hV-Try" id="6E6-eY-WQ3"/>
-                        <outlet property="placeholder_saved" destination="lpt-cz-sgT" id="ZUJ-cF-Xce"/>
-                        <outlet property="placeholder_text" destination="gfd-IG-M9h" id="xzO-6W-yk8"/>
                         <segue destination="ACe-cA-xiQ" kind="show" identifier="PostViewController" id="pFy-5f-gMa"/>
                     </connections>
                 </viewController>
@@ -378,9 +348,8 @@
         <image name="lanfin" width="170" height="170"/>
         <image name="lanjob" width="170" height="170"/>
         <image name="lanstu" width="170" height="169"/>
-        <image name="saved_placeholder" width="51" height="51"/>
-        <image name="tabSaved_active2" width="28" height="28"/>
-        <image name="tabSaved_inactive" width="28" height="28"/>
+        <image name="onlike" width="25" height="25"/>
+        <image name="unlike" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gfx-U1-MQT"/>

@@ -82,6 +82,7 @@ PODS:
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
   - SnapKit (4.0.0)
+  - TBEmptyDataSet (2.7)
   - TTGSnackbar (1.7.3)
   - XLPagerTabStrip (8.0.1)
 
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 3.3)
   - SDWebImage
   - SnapKit (~> 4.0.0)
+  - TBEmptyDataSet
   - TTGSnackbar
   - XLPagerTabStrip (~> 8.0)
 
@@ -117,6 +119,7 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
     - SnapKit
+    - TBEmptyDataSet
     - TTGSnackbar
     - XLPagerTabStrip
 
@@ -139,9 +142,10 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  TBEmptyDataSet: 1da712a3e0c324179253960165202d30009cba26
   TTGSnackbar: a66e929fd17d662152ec0964990a86e966310edb
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 5b24ab193fba3fbd222c475a5080c0ed4d177e82
+PODFILE CHECKSUM: 476309a94e71c4862406c54e3d3a2105182eaa15
 
 COCOAPODS: 1.5.3

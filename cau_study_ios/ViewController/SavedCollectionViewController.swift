@@ -9,15 +9,13 @@
 import UIKit
 import FirebaseAuth
 import XLPagerTabStrip
+import TBEmptyDataSet
 
 
 class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "전체")
     }
-    
-    @IBOutlet weak var placeholder_saved: UIView!
-    @IBOutlet weak var placeholder_text: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -32,8 +30,9 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.emptyDataSetDataSource = self
+        collectionView.emptyDataSetDelegate = self
         
-        placeholder_text.text = "첫 블록으로\n나만의 컬렉션을\n시작해보세요."
 
         
 
@@ -139,20 +138,50 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     }
 }
 
+extension SavedCollectionViewController: TBEmptyDataSetDataSource {
+    
+    func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
+        return resizeImage(image: UIImage(named: "saved_placeholder")!, newWidth: 200)
+    }
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+
+    func descriptionForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "첫 블록으로\n나만의 컬렉션을\n시작해보세요.")
+
+    }
+    
+    func verticalSpacesForEmptyDataSet(in scrollView: UIScrollView) -> [CGFloat] {
+        return [50]
+    }
+ 
+ 
+    
+}
+
+extension SavedCollectionViewController: TBEmptyDataSetDelegate {
+    func emptyDataSetShouldDisplay(in scrollView: UIScrollView) -> Bool {
+        return posts.count == 0
+    }
+    
+}
+
 
 
 
 extension SavedCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.posts.count == 0 {
-            self.collectionView.backgroundView = placeholder_saved
-            self.collectionView.reloadData()
-        } else {
-            self.collectionView.backgroundView = nil
-        }
-        self.collectionView.reloadData()
-        
         return posts.count
     }
     

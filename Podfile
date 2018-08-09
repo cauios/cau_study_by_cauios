@@ -11,7 +11,7 @@ pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'SDWebImage'
 
-
+pod 'TBEmptyDataSet'
 pod 'TTGSnackbar'
 pod 'XLPagerTabStrip', '~> 8.0'
 pod 'SnapKit', '~> 4.0.0'
