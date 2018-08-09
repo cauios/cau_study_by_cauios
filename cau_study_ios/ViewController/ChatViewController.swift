@@ -172,7 +172,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                         self.sendButton.isEnabled = true
                         self.getDestinationInfo()
                         
-                        //[0809 Dahye]
+                        //[0809 Dahye] send data to DB right after creation of the new chat room. Do not need to touchUpInside twice anymore.
                         let value :Dictionary<String,Any> = [
                             "uid":self.uid!,
                             "message":self.textField_message.text!,
@@ -185,6 +185,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                             self.textField_message.text = "" //메세지 보낸다음에 지워준다
                         })
                         }
+                        //
                     }
                 }
                 

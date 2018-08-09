@@ -1604,6 +1604,7 @@
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.93333333333333335" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem title="메시지 보내기" id="8UH-UB-BKY">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="SendMessageTouchUpinside:" destination="FfP-bz-Hmj" id="BZW-j4-ks0"/>
                                             <segue destination="lx0-ew-sa5" kind="show" identifier="GoChatVC" id="A3c-r7-qs8"/>
