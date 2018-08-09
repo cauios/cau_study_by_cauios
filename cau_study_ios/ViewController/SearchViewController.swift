@@ -142,7 +142,7 @@ class SearchViewController: UIViewController {
         // create and customize saerchBar
          searchBar.delegate = self // set the SearchViewController as a delegate of the searchBar, so that those implementations apply to our searchBar object.
          searchBar.searchBarStyle = .minimal
-         searchBar.placeholder = "Search"
+         searchBar.placeholder = "해시태그를 입력해주세요!"
          searchBar.frame.size.width = view.frame.size.width - 60
          
          let searchPost = UIBarButtonItem(customView: searchBar)
@@ -280,12 +280,14 @@ extension SearchViewController: UISearchBarDelegate {
     
     // handle search request after users hit the search button
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //searchAllCateButton.sendActions(for: .touchUpInside)
         searchPost()
     }
     
     // using this method, we'll be able to be aware of what users type in so we can query seach in real time.
     // any time user type in or delete letter, textDidChange is called so it's very good for real time query
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchAllCateButton.sendActions(for: .touchUpInside)
         searchPost()
     }
 }
