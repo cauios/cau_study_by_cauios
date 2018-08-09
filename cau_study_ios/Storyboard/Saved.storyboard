@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-hV-Try">
-                                <rect key="frame" x="0.0" y="20" width="400" height="560"/>
+                                <rect key="frame" x="0.0" y="44" width="400" height="512"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xIU-TC-ioo">
                                     <size key="itemSize" width="375" height="205"/>
@@ -29,6 +29,34 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <view key="backgroundView" contentMode="scaleToFill" id="lpt-cz-sgT">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="512"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saved_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="W63-9z-edp">
+                                            <rect key="frame" x="125" y="141" width="151" height="151"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="151" id="ZaG-4o-6vr"/>
+                                                <constraint firstAttribute="height" constant="151" id="cI0-0t-WFp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfd-IG-M9h">
+                                            <rect key="frame" x="126" y="300" width="150" height="97"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.51496478873239437" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gfd-IG-M9h" secondAttribute="trailing" constant="125" id="2co-l6-ygW"/>
+                                        <constraint firstItem="gfd-IG-M9h" firstAttribute="leading" secondItem="lpt-cz-sgT" secondAttribute="leading" constant="125" id="4tA-5H-LN4"/>
+                                        <constraint firstItem="W63-9z-edp" firstAttribute="top" secondItem="lpt-cz-sgT" secondAttribute="top" constant="141" id="FRd-db-7CB"/>
+                                        <constraint firstItem="W63-9z-edp" firstAttribute="centerX" secondItem="lpt-cz-sgT" secondAttribute="centerX" id="Wo0-WQ-5Zx"/>
+                                        <constraint firstItem="gfd-IG-M9h" firstAttribute="top" secondItem="W63-9z-edp" secondAttribute="bottom" constant="5" id="hNX-2U-Zj2"/>
+                                        <constraint firstAttribute="bottom" secondItem="gfd-IG-M9h" secondAttribute="bottom" constant="133" id="xYt-8V-8ik"/>
+                                    </constraints>
+                                </view>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SavedCollectionViewCell" id="HJ5-W5-Paz" customClass="SavedCollectionViewCell" customModule="cau_study_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -44,13 +72,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlh-XA-C7S">
-                                                    <rect key="frame" x="20" y="41" width="93" height="52.5"/>
+                                                    <rect key="frame" x="20" y="41" width="93" height="52.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR6-dY-aQd">
-                                                    <rect key="frame" x="20" y="95.5" width="93" height="14.5"/>
+                                                    <rect key="frame" x="20" y="95.666666666666671" width="93" height="14.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,23 +122,25 @@
                     <size key="freeformSize" width="400" height="600"/>
                     <connections>
                         <outlet property="collectionView" destination="pj2-hV-Try" id="6E6-eY-WQ3"/>
+                        <outlet property="placeholder_saved" destination="lpt-cz-sgT" id="ZUJ-cF-Xce"/>
+                        <outlet property="placeholder_text" destination="gfd-IG-M9h" id="xzO-6W-yk8"/>
                         <segue destination="ACe-cA-xiQ" kind="show" identifier="PostViewController" id="pFy-5f-gMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovk-3R-8iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1584" y="3240"/>
+            <point key="canvasLocation" x="-1584" y="3238.6699507389162"/>
         </scene>
         <!--Parent View Controller-->
         <scene sceneID="bmN-sF-vZE">
             <objects>
                 <viewController storyboardIdentifier="MasterViewController" id="6yv-B9-DCG" customClass="ParentViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gD0-by-vXE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a9T-AH-WH7" customClass="ButtonBarView" customModule="XLPagerTabStrip">
-                                <rect key="frame" x="0.0" y="64" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Ier-Ye-2zS"/>
@@ -124,7 +154,7 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-sk-ZfQ">
-                                <rect key="frame" x="0.0" y="134" width="375" height="533"/>
+                                <rect key="frame" x="0.0" y="158" width="375" height="620"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OyD-bW-Bbc">
-                                <rect key="frame" x="27.5" y="25" width="345" height="345"/>
+                                <rect key="frame" x="27.666666666666657" y="49" width="345" height="345"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Iyf-eb-RzN">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="170"/>
@@ -227,11 +257,11 @@
             <objects>
                 <viewController storyboardIdentifier="PostRoomViewController" id="457-UG-6U8" customClass="PostRoomViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pHu-fo-DCl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pu9-PG-npv">
-                                <rect key="frame" x="0.0" y="30" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="54" width="375" height="704"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WtE-l1-pSV">
                                     <size key="itemSize" width="125" height="125"/>
@@ -251,7 +281,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr8-EP-hT8">
-                                                    <rect key="frame" x="13" y="27.5" width="100" height="70"/>
+                                                    <rect key="frame" x="13" y="27.666666666666671" width="100" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="XBD-nn-xW0"/>
                                                         <constraint firstAttribute="width" constant="100" id="oa4-7x-2pd"/>
@@ -261,7 +291,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTy-7R-LSB">
-                                                    <rect key="frame" x="13" y="95.5" width="100" height="14.5"/>
+                                                    <rect key="frame" x="13" y="95.666666666666671" width="100" height="14.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="dAN-lr-XbK"/>
                                                     </constraints>
@@ -329,7 +359,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TgE-Zn-gsG">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -348,6 +378,7 @@
         <image name="lanfin" width="170" height="170"/>
         <image name="lanjob" width="170" height="170"/>
         <image name="lanstu" width="170" height="169"/>
+        <image name="saved_placeholder" width="51" height="51"/>
         <image name="tabSaved_active2" width="28" height="28"/>
         <image name="tabSaved_inactive" width="28" height="28"/>
     </resources>

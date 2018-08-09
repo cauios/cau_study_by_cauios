@@ -16,7 +16,9 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         return IndicatorInfo(title: "전체")
     }
     
-
+    @IBOutlet weak var placeholder_saved: UIView!
+    @IBOutlet weak var placeholder_text: UILabel!
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     var postId: String?
@@ -24,12 +26,15 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     var user: User!
     var selectedCellId: String?
     
-
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        placeholder_text.text = "첫 블록으로\n나만의 컬렉션을\n시작해보세요."
+
         
 
         collectionView.delegate = self
@@ -49,7 +54,6 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     func fetchUser() {
         Api.User.observeCurrentUser { (user) in
             self.user = user
-            
             
         }
     }
@@ -76,6 +80,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
                 self.collectionView.reloadData()
+                
                 
             }
             
@@ -140,9 +145,17 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
 extension SavedCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.posts.count == 0 {
+            self.collectionView.backgroundView = placeholder_saved
+            self.collectionView.reloadData()
+        } else {
+            self.collectionView.backgroundView = nil
+        }
+        self.collectionView.reloadData()
         
         return posts.count
     }
+    
 
 
     
@@ -165,6 +178,7 @@ extension SavedCollectionViewController: UICollectionViewDataSource, UICollectio
     }
     
 }
+
 
 extension SavedCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
