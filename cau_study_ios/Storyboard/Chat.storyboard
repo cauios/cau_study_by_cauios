@@ -15,7 +15,7 @@
         <scene sceneID="J7c-0t-9b8">
             <objects>
                 <navigationController storyboardIdentifier="ChatId" id="0hx-tf-xW6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabChat_inactive" selectedImage="tabChat_active3" id="uS1-mb-6DU"/>
+                    <tabBarItem key="tabBarItem" title="" image="unchat" selectedImage="onchat" id="uS1-mb-6DU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Tp-nw-yCO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -301,7 +301,7 @@
     <resources>
         <image name="message_blue" width="11" height="9"/>
         <image name="message_gray" width="12" height="8"/>
-        <image name="tabChat_active3" width="28" height="28"/>
-        <image name="tabChat_inactive" width="28" height="28"/>
+        <image name="onchat" width="29" height="29"/>
+        <image name="unchat" width="29" height="29"/>
     </resources>
 </document>
