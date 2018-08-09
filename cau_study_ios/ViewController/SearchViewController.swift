@@ -142,7 +142,7 @@ class SearchViewController: UIViewController {
         // create and customize saerchBar
          searchBar.delegate = self // set the SearchViewController as a delegate of the searchBar, so that those implementations apply to our searchBar object.
          searchBar.searchBarStyle = .minimal
-         searchBar.placeholder = "해시태그를 입력해주세요!"
+         searchBar.placeholder = "관심있는 해시태그를 입력해주세요!"
          searchBar.frame.size.width = view.frame.size.width - 60
          
          let searchPost = UIBarButtonItem(customView: searchBar)
