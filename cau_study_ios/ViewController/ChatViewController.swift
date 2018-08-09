@@ -142,10 +142,6 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             Database.database().reference().child("chatRooms").childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
                 if(err==nil){
                     self.checkChatRoom()
-                    
-                    // [0809 Dahye] A trick to hide the error where users are forced to do touchUpInside the send button twice to activate the new chat room. The code below automatically does touchUpInside one more time when an user send a message the first time to the new counterpartner.
-                    self.sendButton.sendActions(for: .touchUpInside)
-                    //
                 }
             })
         }else{
@@ -175,6 +171,20 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                         self.chatRoomUid=item.key
                         self.sendButton.isEnabled = true
                         self.getDestinationInfo()
+                        
+                        //[0809 Dahye]
+                        let value :Dictionary<String,Any> = [
+                            "uid":self.uid!,
+                            "message":self.textField_message.text!,
+                            "timestamp":ServerValue.timestamp()
+                            //현재시간에서1970년정도 뺀 밀리초가 저장됨(변환해야한다) 맨아래 extension Int했다.
+                        ]
+                        if self.textField_message.text! != ""
+                        { Database.database().reference().child("chatRooms").child(self.self.chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {
+                            (err, ref) in
+                            self.textField_message.text = "" //메세지 보낸다음에 지워준다
+                        })
+                        }
                     }
                 }
                 
