@@ -26,8 +26,8 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
         
         navigationItem.titleView = UIImageView.init(image: UIImage(named:"logo"))
         
-        settings.style.buttonBarBackgroundColor = .white
-        settings.style.buttonBarItemBackgroundColor = .white
+        settings.style.buttonBarBackgroundColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.0)
+        settings.style.buttonBarItemBackgroundColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.0)
         settings.style.selectedBarBackgroundColor = purpleInspireColor
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
         settings.style.selectedBarHeight = 2.0
