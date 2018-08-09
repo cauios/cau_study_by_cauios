@@ -142,6 +142,10 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             Database.database().reference().child("chatRooms").childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
                 if(err==nil){
                     self.checkChatRoom()
+                    
+                    // [0809 Dahye] A trick to hide the error where users are forced to do touchUpInside the send button twice to activate the new chat room. The code below automatically does touchUpInside one more time when an user send a message the first time to the new counterpartner.
+                    self.sendButton.sendActions(for: .touchUpInside)
+                    //
                 }
             })
         }else{

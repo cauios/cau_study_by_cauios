@@ -177,6 +177,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEl-jQ-q7f">
                                 <rect key="frame" x="329" y="617" width="30" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="2i8-TD-mzP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="kOn-Rh-Fns"/>
                                     <constraint firstAttribute="height" constant="30" id="lCs-ky-0Cr"/>
                                 </constraints>
                                 <state key="normal" title="전송"/>
@@ -189,7 +191,6 @@
                             <constraint firstItem="ji5-QK-sCq" firstAttribute="top" secondItem="Axr-Sl-aJ8" secondAttribute="top" id="THc-5u-wag"/>
                             <constraint firstItem="ji5-QK-sCq" firstAttribute="trailing" secondItem="CJJ-f3-iAu" secondAttribute="trailing" id="Tag-7f-654"/>
                             <constraint firstItem="E79-59-6QV" firstAttribute="centerY" secondItem="cEl-jQ-q7f" secondAttribute="centerY" id="XJy-2B-N0O"/>
-                            <constraint firstItem="E79-59-6QV" firstAttribute="top" secondItem="ji5-QK-sCq" secondAttribute="bottom" constant="8" id="b7n-RG-8Dg"/>
                             <constraint firstItem="CJJ-f3-iAu" firstAttribute="bottom" secondItem="cEl-jQ-q7f" secondAttribute="bottom" constant="20" id="cte-nC-nsa"/>
                             <constraint firstItem="E79-59-6QV" firstAttribute="top" secondItem="ji5-QK-sCq" secondAttribute="bottom" constant="8" id="ext-vR-rfz"/>
                             <constraint firstItem="cEl-jQ-q7f" firstAttribute="top" secondItem="ji5-QK-sCq" secondAttribute="bottom" constant="8" id="i3U-W3-ey2"/>
