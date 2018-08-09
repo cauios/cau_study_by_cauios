@@ -25,6 +25,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var userModel : User?
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
@@ -46,6 +47,9 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)  //옵저버 제거
         self.tabBarController?.tabBar.isHidden = false  //탭바다시노출
+        // [0809 Dahye] change the navi color into concept gray color
+        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+
     }
     
     @objc func keyboardWillShow(notification : Notification){
