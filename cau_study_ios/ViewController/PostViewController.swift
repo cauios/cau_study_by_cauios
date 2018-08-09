@@ -68,6 +68,7 @@ class PostViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
         loadPost()
     }
 
