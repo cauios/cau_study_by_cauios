@@ -1830,13 +1830,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVk-XD-1d6">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Writing" id="k92-f6-rIp">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="P39-WS-d2g">
+                                    <navigationItem title="글쓰기" id="k92-f6-rIp">
+                                        <barButtonItem key="leftBarButtonItem" title="취소" id="P39-WS-d2g">
                                             <connections>
                                                 <action selector="cancelButtonClick:" destination="fBO-um-o01" id="W3N-gZ-3Ih"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Upload" id="D1a-yY-JKU">
+                                        <barButtonItem key="rightBarButtonItem" title="업로드" id="D1a-yY-JKU">
                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="uploadButton_Click:" destination="fBO-um-o01" id="ZCW-r8-5bo"/>
@@ -2119,13 +2119,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZB-ZE-0Mh">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Editing" id="3fR-Tu-tEL">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="FrB-LL-BOu">
+                                    <navigationItem title="수정하기" id="3fR-Tu-tEL">
+                                        <barButtonItem key="leftBarButtonItem" title="취소" id="FrB-LL-BOu">
                                             <connections>
                                                 <action selector="cancelButtonClick:" destination="Wbx-0b-kiL" id="oLM-ul-wKI"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Upload" id="cGz-CX-l7Q">
+                                        <barButtonItem key="rightBarButtonItem" title="업로드" id="cGz-CX-l7Q">
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="uploadButton_Click:" destination="Wbx-0b-kiL" id="5Qx-ue-c5s"/>

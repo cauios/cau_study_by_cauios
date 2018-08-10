@@ -24,18 +24,18 @@ class SignUpViewController: UIViewController {
         //usernameTextField.backgroundColor = UIColor.clear
         usernameTextField.tintColor = UIColor.darkGray
         usernameTextField.textColor = UIColor.darkGray
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: usernameTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: usernameTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
 
         
         //emailTextField.backgroundColor = UIColor.clear
         emailTextField.tintColor = UIColor.darkGray
         emailTextField.textColor = UIColor.darkGray
-        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         //passwordTextField.backgroundColor = UIColor.clear
         passwordTextField.tintColor = UIColor.darkGray
         passwordTextField.textColor = UIColor.darkGray
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         profileImage.layer.cornerRadius = 40
         profileImage.clipsToBounds = true

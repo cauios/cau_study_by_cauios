@@ -17,13 +17,13 @@ class SignInViewController: UIViewController {
         //emailTextField.backgroundColor = UIColor.clear
         emailTextField.tintColor = UIColor.darkGray
         emailTextField.textColor = UIColor.darkGray
-        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
 
         
         //passwordTextField.backgroundColor = UIColor.clear
         passwordTextField.tintColor = UIColor.darkGray
         passwordTextField.textColor = UIColor.darkGray
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
 
         signInButton.isEnabled = false
         handleTextField()
