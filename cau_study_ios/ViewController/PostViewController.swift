@@ -88,7 +88,7 @@ class PostViewController: UIViewController {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 50
 
-        
+        editImageView.tintColor = UIColor.black
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
         
