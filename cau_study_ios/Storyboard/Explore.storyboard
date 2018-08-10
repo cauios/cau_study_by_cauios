@@ -15,8 +15,8 @@
             <objects>
                 <viewController id="hvP-RY-GmE" customClass="ExploreViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="H9R-q3-QaS"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZzG-SY-uj6"/>
+                        <viewControllerLayoutGuide type="top" id="TKa-ob-Pa3"/>
+                        <viewControllerLayoutGuide type="bottom" id="oGf-I8-pZZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qh9-zy-1B3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -658,8 +658,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fk5-p6-h1D" firstAttribute="leading" secondItem="qh9-zy-1B3" secondAttribute="leading" id="Agj-ld-G4H"/>
-                            <constraint firstItem="fk5-p6-h1D" firstAttribute="top" secondItem="H9R-q3-QaS" secondAttribute="bottom" id="C3g-lt-oAN"/>
-                            <constraint firstItem="ZzG-SY-uj6" firstAttribute="top" secondItem="17i-FL-xRd" secondAttribute="bottom" id="R9E-cz-j4z"/>
+                            <constraint firstItem="fk5-p6-h1D" firstAttribute="top" secondItem="TKa-ob-Pa3" secondAttribute="bottom" id="C3g-lt-oAN"/>
+                            <constraint firstItem="oGf-I8-pZZ" firstAttribute="top" secondItem="17i-FL-xRd" secondAttribute="bottom" id="R9E-cz-j4z"/>
                             <constraint firstItem="17i-FL-xRd" firstAttribute="leading" secondItem="qh9-zy-1B3" secondAttribute="leading" id="ZUX-4l-Jly"/>
                             <constraint firstAttribute="trailing" secondItem="17i-FL-xRd" secondAttribute="trailing" id="efx-WD-nME"/>
                             <constraint firstAttribute="trailing" secondItem="fk5-p6-h1D" secondAttribute="trailing" id="fxQ-2J-ueU"/>
@@ -703,8 +703,8 @@
             <objects>
                 <viewController id="Os8-P8-GK9" customClass="SearchViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pxa-DA-XGI"/>
-                        <viewControllerLayoutGuide type="bottom" id="PUb-rA-cqi"/>
+                        <viewControllerLayoutGuide type="top" id="onx-Ex-HVX"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Cy-1e-agv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ra2-tG-NN0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1362,13 +1362,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PUb-rA-cqi" firstAttribute="top" secondItem="KH4-89-dVR" secondAttribute="bottom" id="3IE-93-Mii"/>
+                            <constraint firstItem="7Cy-1e-agv" firstAttribute="top" secondItem="KH4-89-dVR" secondAttribute="bottom" id="3IE-93-Mii"/>
                             <constraint firstAttribute="trailing" secondItem="x6b-su-60B" secondAttribute="trailing" id="C1p-ak-fJk"/>
                             <constraint firstItem="KH4-89-dVR" firstAttribute="top" secondItem="x6b-su-60B" secondAttribute="bottom" constant="4" id="Pkg-Zs-WVD"/>
                             <constraint firstItem="KH4-89-dVR" firstAttribute="leading" secondItem="Ra2-tG-NN0" secondAttribute="leading" id="Wfq-3R-NJq"/>
                             <constraint firstAttribute="trailing" secondItem="KH4-89-dVR" secondAttribute="trailing" id="bD9-sY-Oye"/>
                             <constraint firstItem="x6b-su-60B" firstAttribute="leading" secondItem="Ra2-tG-NN0" secondAttribute="leading" id="mdu-j3-3lv"/>
-                            <constraint firstItem="x6b-su-60B" firstAttribute="top" secondItem="pxa-DA-XGI" secondAttribute="bottom" id="uaO-ps-uAW"/>
+                            <constraint firstItem="x6b-su-60B" firstAttribute="top" secondItem="onx-Ex-HVX" secondAttribute="bottom" id="uaO-ps-uAW"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1393,8 +1393,8 @@
             <objects>
                 <viewController storyboardIdentifier="PostViewController" hidesBottomBarWhenPushed="YES" id="FfP-bz-Hmj" customClass="PostViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d6m-cN-ZTj"/>
-                        <viewControllerLayoutGuide type="bottom" id="Oc0-7C-nOj"/>
+                        <viewControllerLayoutGuide type="top" id="ga0-Un-t27"/>
+                        <viewControllerLayoutGuide type="bottom" id="ppe-zs-d2D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="x8M-sE-HsK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1632,16 +1632,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tRQ-4v-2tQ" secondAttribute="trailing" id="4DK-q7-a0U"/>
-                            <constraint firstItem="yd3-60-W76" firstAttribute="top" secondItem="d6m-cN-ZTj" secondAttribute="bottom" constant="25" id="LhA-Xp-PJ1"/>
+                            <constraint firstItem="yd3-60-W76" firstAttribute="top" secondItem="ga0-Un-t27" secondAttribute="bottom" constant="25" id="LhA-Xp-PJ1"/>
                             <constraint firstItem="RQF-vz-7eN" firstAttribute="centerY" secondItem="yd3-60-W76" secondAttribute="centerY" id="M0o-Lb-zqa"/>
-                            <constraint firstItem="tRQ-4v-2tQ" firstAttribute="top" secondItem="d6m-cN-ZTj" secondAttribute="bottom" constant="8" id="Mid-rc-eWh"/>
+                            <constraint firstItem="tRQ-4v-2tQ" firstAttribute="top" secondItem="ga0-Un-t27" secondAttribute="bottom" constant="8" id="Mid-rc-eWh"/>
                             <constraint firstItem="pt4-iC-e35" firstAttribute="leading" secondItem="x8M-sE-HsK" secondAttribute="leading" id="PZJ-ie-yFN"/>
                             <constraint firstItem="yd3-60-W76" firstAttribute="leading" secondItem="RQF-vz-7eN" secondAttribute="trailing" constant="12" id="TeW-gy-VLC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yd3-60-W76" secondAttribute="trailing" constant="10" id="aP7-4T-Iq7"/>
                             <constraint firstItem="tRQ-4v-2tQ" firstAttribute="leading" secondItem="x8M-sE-HsK" secondAttribute="leading" id="bHk-Fg-bJh"/>
                             <constraint firstAttribute="trailing" secondItem="pt4-iC-e35" secondAttribute="trailing" id="hsE-tH-0ek"/>
                             <constraint firstItem="pt4-iC-e35" firstAttribute="top" secondItem="tRQ-4v-2tQ" secondAttribute="bottom" id="jFH-6K-Evp"/>
-                            <constraint firstItem="Oc0-7C-nOj" firstAttribute="top" secondItem="pt4-iC-e35" secondAttribute="bottom" id="nso-Od-xRc"/>
+                            <constraint firstItem="ppe-zs-d2D" firstAttribute="top" secondItem="pt4-iC-e35" secondAttribute="bottom" id="nso-Od-xRc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Pp-XP-xx8"/>
@@ -1685,8 +1685,8 @@
             <objects>
                 <viewController id="6fs-PH-QbO" customClass="WriterInfoViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aC3-02-Psw"/>
-                        <viewControllerLayoutGuide type="bottom" id="Z1F-gi-o0C"/>
+                        <viewControllerLayoutGuide type="top" id="ieD-ce-pzP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oxr-Qy-Pwn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tpw-BC-wAN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1820,8 +1820,8 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="fBO-um-o01" customClass="WritingViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="n9k-dh-YvI"/>
-                        <viewControllerLayoutGuide type="bottom" id="e95-Un-0ib"/>
+                        <viewControllerLayoutGuide type="top" id="qQ8-UW-zth"/>
+                        <viewControllerLayoutGuide type="bottom" id="XOU-LS-dcn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OYS-Jl-eSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2076,8 +2076,8 @@
                             <constraint firstItem="rVk-XD-1d6" firstAttribute="leading" secondItem="OYS-Jl-eSt" secondAttribute="leading" id="Ajb-eI-qgF"/>
                             <constraint firstItem="kHY-SX-QIk" firstAttribute="top" secondItem="rVk-XD-1d6" secondAttribute="bottom" id="B3r-g7-Nyp"/>
                             <constraint firstItem="kHY-SX-QIk" firstAttribute="top" secondItem="rVk-XD-1d6" secondAttribute="bottom" id="HOx-hA-4JF"/>
-                            <constraint firstItem="rVk-XD-1d6" firstAttribute="top" secondItem="n9k-dh-YvI" secondAttribute="bottom" id="VfS-ds-JJO"/>
-                            <constraint firstItem="e95-Un-0ib" firstAttribute="top" secondItem="kHY-SX-QIk" secondAttribute="bottom" id="ZIR-Fn-QSC"/>
+                            <constraint firstItem="rVk-XD-1d6" firstAttribute="top" secondItem="qQ8-UW-zth" secondAttribute="bottom" id="VfS-ds-JJO"/>
+                            <constraint firstItem="XOU-LS-dcn" firstAttribute="top" secondItem="kHY-SX-QIk" secondAttribute="bottom" id="ZIR-Fn-QSC"/>
                             <constraint firstItem="kHY-SX-QIk" firstAttribute="leading" secondItem="OYS-Jl-eSt" secondAttribute="leading" id="bD6-z2-3KB"/>
                             <constraint firstAttribute="trailing" secondItem="kHY-SX-QIk" secondAttribute="trailing" id="kXI-Dv-nHQ"/>
                             <constraint firstAttribute="trailing" secondItem="rVk-XD-1d6" secondAttribute="trailing" id="o1n-Vw-bh5"/>
@@ -2109,8 +2109,8 @@
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="Wbx-0b-kiL" customClass="EditPostViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CQi-5P-SHE"/>
-                        <viewControllerLayoutGuide type="bottom" id="U2A-xQ-S6P"/>
+                        <viewControllerLayoutGuide type="top" id="31K-bo-vFt"/>
+                        <viewControllerLayoutGuide type="bottom" id="y97-Te-ASg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cZ9-xb-Ohs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -2376,10 +2376,10 @@
                             <constraint firstItem="Kc3-3c-oSc" firstAttribute="top" secondItem="bZB-ZE-0Mh" secondAttribute="bottom" id="6Fj-tT-e6R"/>
                             <constraint firstItem="bZB-ZE-0Mh" firstAttribute="leading" secondItem="cZ9-xb-Ohs" secondAttribute="leading" id="9vC-UO-Cld"/>
                             <constraint firstAttribute="trailing" secondItem="Kc3-3c-oSc" secondAttribute="trailing" id="CfE-BD-C0p"/>
-                            <constraint firstItem="U2A-xQ-S6P" firstAttribute="top" secondItem="Kc3-3c-oSc" secondAttribute="bottom" id="ErJ-d1-D7y"/>
+                            <constraint firstItem="y97-Te-ASg" firstAttribute="top" secondItem="Kc3-3c-oSc" secondAttribute="bottom" id="ErJ-d1-D7y"/>
                             <constraint firstItem="Kc3-3c-oSc" firstAttribute="top" secondItem="bZB-ZE-0Mh" secondAttribute="bottom" id="agC-TU-0vi"/>
                             <constraint firstAttribute="trailing" secondItem="bZB-ZE-0Mh" secondAttribute="trailing" id="fZg-zX-t7K"/>
-                            <constraint firstItem="bZB-ZE-0Mh" firstAttribute="top" secondItem="CQi-5P-SHE" secondAttribute="bottom" id="ija-gY-OZ5"/>
+                            <constraint firstItem="bZB-ZE-0Mh" firstAttribute="top" secondItem="31K-bo-vFt" secondAttribute="bottom" id="ija-gY-OZ5"/>
                             <constraint firstItem="Kc3-3c-oSc" firstAttribute="leading" secondItem="cZ9-xb-Ohs" secondAttribute="leading" id="t6R-XO-FHe"/>
                             <constraint firstItem="Kc3-3c-oSc" firstAttribute="top" secondItem="bZB-ZE-0Mh" secondAttribute="bottom" id="w8T-g9-B39"/>
                             <constraint firstItem="Kc3-3c-oSc" firstAttribute="leading" secondItem="cZ9-xb-Ohs" secondAttribute="leading" id="yCq-jF-10o"/>
@@ -2423,6 +2423,6 @@
         <image name="yellowbutton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LOA-C6-f2l"/>
+        <segue reference="TNI-Ur-Vjj"/>
     </inferredMetricsTieBreakers>
 </document>
