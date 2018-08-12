@@ -108,6 +108,21 @@ class WritingViewController: UIViewController, dismissHandler {
         for var word in words! {
             if word.hasPrefix("#"){
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                if word.contains(".") {
+                    word = word.replacingOccurrences(of: ".", with: "")
+                }
+                if word.contains("[") {
+                    word = word.replacingOccurrences(of: "[", with: "")
+                }
+                if word.contains("]") {
+                    word = word.replacingOccurrences(of: "]", with: "")
+                }
+                if word.contains("(") {
+                    word = word.replacingOccurrences(of: "(", with: "")
+                }
+                if word.contains(")") {
+                    word = word.replacingOccurrences(of: "(ㅜ", with: "")
+                }
                 let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
                 newHasfTagReF.updateChildValues([newPostId: true])
             }
