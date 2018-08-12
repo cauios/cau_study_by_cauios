@@ -74,6 +74,7 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like_selected.messageTextColor = .black
         snackbar_like_selected.actionTextColor = .black
         snackbar_like_selected.separateViewBackgroundColor = .clear
+        snackbar_like_selected.actionTextColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 1)
         snackbar_like_selected.bottomMargin = 51
         
         
@@ -81,6 +82,7 @@ class ExploreTableViewCell: UITableViewCell {
         snackbar_like.messageTextColor = .black
         snackbar_like.actionTextColor = .black
         snackbar_like.separateViewBackgroundColor = .clear
+        snackbar_like.actionTextColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 1)
         snackbar_like.bottomMargin = 51
         
         // [0807 Dahye] Make corners of Views rounded
