@@ -321,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40x-c8-q1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626.39999999999998" y="849.62518740629696"/>
+            <point key="canvasLocation" x="-591" y="716"/>
         </scene>
         <!--TabBarId-->
         <scene sceneID="B3f-EJ-SUh">
@@ -329,7 +329,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="TabBarId" id="4MG-Ov-gdp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMY-MD-ZRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="149"/>
+            <point key="canvasLocation" x="400" y="227"/>
         </scene>
     </scenes>
     <resources>
@@ -340,6 +340,6 @@
         <image name="loginLogo" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="67q-py-SuJ"/>
+        <segue reference="JRp-rs-fkO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -153,7 +153,7 @@ class ExploreTableViewCell: UITableViewCell {
         }
  
         
-        
+        exploreTagsLabel.textColor = UIColor.blue
         
         
         
