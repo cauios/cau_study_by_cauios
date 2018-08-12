@@ -313,7 +313,6 @@
                         <viewLayoutGuide key="safeArea" id="grr-Jy-MaL"/>
                     </view>
                     <navigationItem key="navigationItem" title="user_name" id="gdw-iP-suE">
-                        <barButtonItem key="leftBarButtonItem" image="noti" id="mzb-pO-6bd"/>
                         <barButtonItem key="rightBarButtonItem" image="blanksetting" id="eif-v4-Q1s">
                             <connections>
                                 <segue destination="Dzn-eE-Nrz" kind="show" id="bUh-G1-mKt"/>
@@ -645,7 +644,6 @@
         <image name="catstulogo" width="28" height="28"/>
         <image name="edit" width="30" height="29"/>
         <image name="finicon" width="34" height="40"/>
-        <image name="noti" width="25" height="25"/>
         <image name="onprofile" width="27" height="27"/>
         <image name="unactiveCheck" width="28" height="28"/>
         <image name="unprofile" width="27" height="27"/>
