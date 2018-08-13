@@ -109,7 +109,6 @@ extension WriterInfoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = posts[indexPath.row]
-        print("cellTouched")
         if let selectedCellId = selectedCell.id {
             self.selectedCellId = selectedCellId
             performSegue(withIdentifier: "PostViewController", sender: self)

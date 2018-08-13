@@ -82,7 +82,7 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 do{
                     try Auth.auth().signOut()
                 } catch let logoutError{
-                    print(logoutError)
+                    ProgressHUD.show(logoutError.localizedDescription)
                 }
                 let storyboard = UIStoryboard(name: "Start", bundle: nil)
                 let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
