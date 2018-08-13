@@ -133,6 +133,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-3_forgotBg" translatesAutoresizingMaskIntoConstraints="NO" id="YJ0-hi-J8B">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가입하신 이메일을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCv-dB-vlT">
                                 <rect key="frame" x="46" y="170" width="220" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -171,9 +174,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-3_forgotBg" translatesAutoresizingMaskIntoConstraints="NO" id="YJ0-hi-J8B">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -181,15 +181,15 @@
                             <constraint firstItem="ecP-kr-hrJ" firstAttribute="centerX" secondItem="eVc-Ex-ZQM" secondAttribute="centerX" id="BA8-ot-FBl"/>
                             <constraint firstItem="ecP-kr-hrJ" firstAttribute="leading" secondItem="jQf-yC-d43" secondAttribute="leadingMargin" constant="140" id="G3D-XN-J2M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ecP-kr-hrJ" secondAttribute="trailing" constant="140" id="Ip9-5d-uXX"/>
+                            <constraint firstItem="ecP-kr-hrJ" firstAttribute="top" secondItem="eVc-Ex-ZQM" secondAttribute="bottom" constant="20" id="M6R-g0-r6W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eVc-Ex-ZQM" secondAttribute="trailing" constant="40" id="Stb-Ws-JaZ"/>
                             <constraint firstItem="YJ0-hi-J8B" firstAttribute="top" secondItem="jQf-yC-d43" secondAttribute="top" id="TrC-O2-V2P"/>
                             <constraint firstItem="TCv-dB-vlT" firstAttribute="leading" secondItem="jQf-yC-d43" secondAttribute="leadingMargin" constant="30" id="WQI-ZT-duo"/>
                             <constraint firstItem="eVc-Ex-ZQM" firstAttribute="leading" secondItem="jQf-yC-d43" secondAttribute="leadingMargin" constant="40" id="baO-ht-JiM"/>
                             <constraint firstItem="TCv-dB-vlT" firstAttribute="top" secondItem="RDG-wT-Fen" secondAttribute="top" constant="150" id="g8U-Xn-0j3"/>
                             <constraint firstItem="ecP-kr-hrJ" firstAttribute="centerX" secondItem="RDG-wT-Fen" secondAttribute="centerX" id="iQd-dL-brO"/>
-                            <constraint firstItem="RDG-wT-Fen" firstAttribute="bottom" secondItem="ecP-kr-hrJ" secondAttribute="bottom" constant="238" id="k9I-M0-Guy"/>
-                            <constraint firstItem="ecP-kr-hrJ" firstAttribute="top" secondItem="eVc-Ex-ZQM" secondAttribute="bottom" constant="20" id="l7J-9v-Jez"/>
                             <constraint firstItem="iFG-qk-gRB" firstAttribute="leading" secondItem="jQf-yC-d43" secondAttribute="leadingMargin" constant="30" id="nAv-2d-AdU"/>
+                            <constraint firstItem="eVc-Ex-ZQM" firstAttribute="top" secondItem="iFG-qk-gRB" secondAttribute="bottom" constant="128" id="rMk-Jk-rq2"/>
                             <constraint firstItem="YJ0-hi-J8B" firstAttribute="leading" secondItem="RDG-wT-Fen" secondAttribute="leading" id="ueK-yL-BHv"/>
                             <constraint firstItem="RDG-wT-Fen" firstAttribute="bottom" secondItem="YJ0-hi-J8B" secondAttribute="bottom" id="uwe-J4-er9"/>
                             <constraint firstItem="RDG-wT-Fen" firstAttribute="trailing" secondItem="YJ0-hi-J8B" secondAttribute="trailing" id="xnd-T7-5XN"/>
