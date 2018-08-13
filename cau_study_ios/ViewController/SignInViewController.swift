@@ -61,9 +61,9 @@ class SignInViewController: UIViewController {
     
     @IBAction func signInButton_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        ProgressHUD.show("Waiting...", interaction: false)
+        ProgressHUD.show("정보확인중입니다.", interaction: false)
         AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
-            ProgressHUD.showSuccess("Success")
+            ProgressHUD.showSuccess("로그인 완료!")
             self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
             
         }, onError: { error in

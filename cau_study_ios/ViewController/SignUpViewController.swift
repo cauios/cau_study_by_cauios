@@ -81,16 +81,16 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        ProgressHUD.show("Waiting...", interaction: false)
+        ProgressHUD.show("가입 진행 중입니다.", interaction: false)
         if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.01) {
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
-                ProgressHUD.showSuccess("Success")
+                ProgressHUD.showSuccess("가입 완료!")
                 self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
             }, onError: { (errorString) in
                 ProgressHUD.showError(errorString!)
             })
         } else {
-             ProgressHUD.showError("Profile Image can't be empty")
+            ProgressHUD.showError("프로필 이미지를 선택해 주세요.")
         }
     }
 }
