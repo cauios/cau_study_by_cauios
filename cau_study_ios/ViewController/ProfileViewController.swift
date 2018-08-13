@@ -154,7 +154,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         subview.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
         let listLabel = UILabel()
         listLabel.text = "내가 쓴 글"
-        listLabel.textAlignment = .left
+        listLabel.textAlignment = .center
         listLabel.textColor = .black
         listLabel.font = UIFont.systemFont(ofSize: 17)
         
