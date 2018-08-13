@@ -31,6 +31,9 @@ class WriterInfoViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
+        adjustTextViewHeight(textView: textField)
 
        
     }
@@ -60,6 +63,28 @@ class WriterInfoViewController: UIViewController {
             })
         })
     }
+    
+    //다이나믹 헤더뷰
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard let dynamicHeaderView = tableView.tableHeaderView else {
+            return
+        }
+        let size = dynamicHeaderView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        if dynamicHeaderView.frame.size.height != size.height {
+            dynamicHeaderView.frame.size.height = size.height
+        }
+        tableView.tableHeaderView = dynamicHeaderView
+        tableView.layoutIfNeeded()
+    }
+    //다이나믹 텍스트뷰
+    func adjustTextViewHeight(textView: UITextView) {
+        let newSize = textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.greatestFiniteMagnitude))
+        textView.frame.size = CGSize(width: max(newSize.width, textView.frame.width), height: newSize.height)
+        textView.isScrollEnabled = false
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PostViewController" {
