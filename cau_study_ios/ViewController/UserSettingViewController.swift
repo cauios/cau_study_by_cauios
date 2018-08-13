@@ -84,29 +84,32 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 } catch let logoutError{
                     print(logoutError)
                 }
-                
                 let storyboard = UIStoryboard(name: "Start", bundle: nil)
                 let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController")
-                self.present(signInVC, animated: true, completion: nil)
+                self.present(signInVC, animated: true, completion: {ProgressHUD.showSuccess("로그아웃 되었습니다.")})
+                
+                
+                
+                
                 
             }
         } else  {
             let selectedCellSecond = serviceList[indexPath.row]
             if selectedCellSecond == "공지사항" {
                 let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                let alertController = UIAlertController(title: "??", message: "업데이트 예정입니다.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: nil, message: "업데이트 예정입니다.", preferredStyle: .alert)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
                 
             } else if selectedCellSecond == "FAQ 도움말" {
                 let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                let alertController = UIAlertController(title: "??", message: "업데이트 예정입니다.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: nil, message: "업데이트 예정입니다.", preferredStyle: .alert)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
                 
             } else if selectedCellSecond == "문의 피드백 보내기" {
                 let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                let alertController = UIAlertController(title: "??", message: "업데이트 예정입니다.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: nil, message: "업데이트 예정입니다.", preferredStyle: .alert)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
                 
