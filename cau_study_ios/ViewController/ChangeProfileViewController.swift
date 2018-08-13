@@ -66,12 +66,12 @@ class ChangeProfileViewController: UIViewController {
     }
     //프로필 이미지 변경
     func profileImageChange() {
-        ProgressHUD.show("Waiting...", interaction: false)
+        ProgressHUD.show("업로드 중입니다.", interaction: false)
         
-        if let newProfileImg = selectedImage, let currentUserUid = self.currentUser?.uid, let imageData = UIImageJPEGRepresentation(newProfileImg, 0.1) {
+        if let newProfileImg = selectedImage, let currentUserUid = self.currentUser?.uid, let imageData = UIImageJPEGRepresentation(newProfileImg, 0.01) {
             
             Api.User.changeProfileImage(currentUserUid: currentUserUid, imageData: imageData, onSuccess: {
-                ProgressHUD.showSuccess("Success")
+                ProgressHUD.showSuccess("변경되었습니다.")
             }, onError: {(errorString) in
                 ProgressHUD.showError(errorString!)
             })
@@ -130,7 +130,6 @@ class ChangeProfileViewController: UIViewController {
 
 extension ChangeProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("did Finish Picking Media")
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage{
             self.selectedImage = image
             self.profileImage.image = image

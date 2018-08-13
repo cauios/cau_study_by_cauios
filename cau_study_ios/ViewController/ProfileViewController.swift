@@ -41,14 +41,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchUser()
+        fetchMyPosts()
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
         textField.isUserInteractionEnabled = false
-        
-        
-        fetchUser()
-        fetchMyPosts()
         
        
         
