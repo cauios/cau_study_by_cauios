@@ -162,7 +162,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         listLabel.translatesAutoresizingMaskIntoConstraints = false
         listLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
         listLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        listLabel.centerXAnchor.constraint(equalTo: listLabel.superview!.centerXAnchor).isActive = true
+        listLabel.leadingAnchor.constraint(equalTo: listLabel.superview!.leadingAnchor).isActive = true
         listLabel.centerYAnchor.constraint(equalTo: listLabel.superview!.centerYAnchor).isActive = true
 
         
