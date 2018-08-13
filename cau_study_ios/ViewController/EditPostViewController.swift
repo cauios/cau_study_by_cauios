@@ -17,6 +17,7 @@ import FirebaseAuth
 //
 class EditPostViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     var postId: String?
     var post : Post?
     var originalCate: Int?
@@ -241,7 +242,16 @@ class EditPostViewController: UIViewController {
         uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
         fetchPost()
        
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
+        scrollView.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func touch() {
+        self.view.endEditing(true)
     }
     
     // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
@@ -285,13 +295,24 @@ class EditPostViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize.height)
+            
+            
+        }
     }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            self.scrollView.contentOffset = CGPoint(x:0,y:0)
+            
+        }
+    }
+    
+    
     
     
 }

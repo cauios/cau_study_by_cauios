@@ -33,7 +33,8 @@ class WritingViewController: UIViewController, dismissHandler {
     
     // Outlets
     
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var titleTextField: UITextField!
     //@IBOutlet weak var categoryTextField: UITextField!
 
@@ -200,6 +201,15 @@ class WritingViewController: UIViewController, dismissHandler {
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.touch))
+        scrollView.addGestureRecognizer(recognizer)
+    }
+    @objc func touch() {
+        self.view.endEditing(true)
     }
     
     // [Dahye comment] The great place to call the method 'handlePost()'(the one implemented right below) is 'viewWillAppear' method. Note that this 'viewWillAppear' method is repeatable, thus it can be re-called whenever the view will appear.
@@ -243,18 +253,26 @@ class WritingViewController: UIViewController, dismissHandler {
 
     
     // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        view.endEditing(true)
+//    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+                self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize.height)
+                
+            
+        }
     }
     
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            
+                self.scrollView.contentOffset = CGPoint(x:0,y:0)
+            
+        }
     }
-    
 
 }
 
