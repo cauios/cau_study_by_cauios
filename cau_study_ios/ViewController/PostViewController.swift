@@ -26,20 +26,23 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postCategoryImage: UIImageView!
     @IBOutlet weak var postCategoryBar: UIView!
     @IBOutlet weak var postFinImageView: UIImageView!
+    @IBOutlet weak var postFinLabel: UILabel!
     
-
     // buttom toolbar factors
     @IBOutlet weak var postViewToolBar: UIToolbar!
     @IBOutlet weak var sendAMessageButton: UIBarButtonItem!
     
     @IBOutlet weak var postSavedLikeImageView: UIImageView!
+    @IBOutlet weak var editImageView: UIImageView!
+    
     
     var postId: String?
-    
+    var postUid: String?
     
     var post: Post? {
         didSet {
             updateView()
+            checkCurrentUser()
         }
     }
     
@@ -63,7 +66,12 @@ class PostViewController: UIViewController {
                     self.snackbar_like.show()
 
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
+        loadPost()
+    }
+
     
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -80,12 +88,15 @@ class PostViewController: UIViewController {
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 50
 
-        
+        editImageView.tintColor = UIColor.black
         // hohyun: make imageview as a right bar button!!!
         let barButton = UIBarButtonItem(customView: postSavedLikeImageView)
-        self.navigationItem.rightBarButtonItem = barButton
         
-        loadPost()
+        self.navigationItem.rightBarButtonItems = [barButton]
+       
+        
+        
+        //loadPost()
         
         
         // Dahye: Customize the bottom toolbar button
@@ -100,6 +111,39 @@ class PostViewController: UIViewController {
         
     }
     
+    func checkCurrentUser() {
+        guard let currentUser = Auth.auth().currentUser else{
+            return
+        }
+        if currentUser.uid == user.uid {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.editAction))
+            editImageView.addGestureRecognizer(tapGesture)
+            editImageView.isUserInteractionEnabled = true
+            let editBarButton = UIBarButtonItem(customView: editImageView)
+            self.navigationItem.rightBarButtonItems?.append(editBarButton)
+            
+        } else {
+            
+        }
+        
+    }
+    @objc func editAction() {
+        let actionSheet = UIAlertController(title: nil, message: nil , preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "수정", style: .default, handler: {(action: UIAlertAction) in
+            
+            self.performSegue(withIdentifier: "EditPostViewController", sender: self)
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {(action: UIAlertAction) in
+            
+           
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        self.present(actionSheet,animated: true,completion: nil)
+    }
 
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,6 +166,11 @@ class PostViewController: UIViewController {
         if segue.identifier == "WriterInfoViewController" {
             let vc = segue.destination as! WriterInfoViewController
             vc.user = self.user
+        }
+        
+        if segue.identifier == "EditPostViewController" {
+            let vc = segue.destination as! EditPostViewController
+            vc.postId = self.postId
         }
     }
 
@@ -159,9 +208,11 @@ class PostViewController: UIViewController {
         
         // [0803 Dahye] Show if it is finished or not
         if post?.wanted == false {
-            postFinImageView.image = #imageLiteral(resourceName: "fin")
+            postFinImageView.image = #imageLiteral(resourceName: "finicon")
+            postFinLabel.text = "마감"
         } else {
             postFinImageView.image = nil
+            postFinLabel.text = nil
         }
         
         postNumOfVacanLabel.text = post?.numOfVacan

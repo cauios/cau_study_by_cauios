@@ -19,14 +19,9 @@ class ForgotUserInfoViewController: UIViewController {
         super.viewDidLoad()
         emailTextField.isUserInteractionEnabled = true
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+   
     @IBAction func sendEmailBtn(_ sender: Any) {
         if let emailStr = emailTextField.text {
             Auth.auth().sendPasswordReset(withEmail: emailStr, completion: {error in
@@ -35,7 +30,8 @@ class ForgotUserInfoViewController: UIViewController {
                 }
                 
             })
-            self.dismiss(animated: true, completion: nil)
+            
+            self.dismiss(animated: true, completion: {ProgressHUD.showSuccess("메일을 확인해주세요.")})
         }
         
     }
@@ -43,14 +39,12 @@ class ForgotUserInfoViewController: UIViewController {
     @IBAction func cancelBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //touch anywhere, keyboard dismissed
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
-    */
+    
+  
 
 }

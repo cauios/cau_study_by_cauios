@@ -41,14 +41,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchUser()
+        fetchMyPosts()
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
         textField.isUserInteractionEnabled = false
-        
-        
-        fetchUser()
-        fetchMyPosts()
         
        
         
@@ -154,7 +154,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         subview.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
         let listLabel = UILabel()
         listLabel.text = "내가 쓴 글"
-        listLabel.textAlignment = .left
+        listLabel.textAlignment = .center
         listLabel.textColor = .black
         listLabel.font = UIFont.systemFont(ofSize: 17)
         
@@ -162,7 +162,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         listLabel.translatesAutoresizingMaskIntoConstraints = false
         listLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
         listLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        listLabel.centerXAnchor.constraint(equalTo: listLabel.superview!.centerXAnchor).isActive = true
+        listLabel.leadingAnchor.constraint(equalTo: listLabel.superview!.leadingAnchor).isActive = true
         listLabel.centerYAnchor.constraint(equalTo: listLabel.superview!.centerYAnchor).isActive = true
 
         
@@ -204,7 +204,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func doNotWantedAction(at indexPath: IndexPath) -> UIContextualAction {
         let selectedCell = posts[indexPath.row]
         if selectedCell.wanted! {
-            let action = UIContextualAction(style: .normal, title: "Do Not Wanted", handler: {(action, view, completion) in
+            let action = UIContextualAction(style: .normal, title: "모집마감", handler: {(action, view, completion) in
                 let cellId = selectedCell.id
                 Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(false, withCompletionBlock: { err,ref  in
                     if err != nil {
@@ -219,7 +219,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             })
             return action
         } else {
-            let action = UIContextualAction(style: .normal, title: "Wanted", handler: {(action, view, completion) in
+            let action = UIContextualAction(style: .normal, title: "모집중", handler: {(action, view, completion) in
                 let cellId = selectedCell.id
                 Api.Post.REF_POSTS.child(cellId!).child("wanted").setValue(true, withCompletionBlock: { err,ref  in
                     if err != nil {
@@ -240,7 +240,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let deleteCell = posts[indexPath.row]
-        let action = UIContextualAction(style: .destructive, title: "Delete", handler: {(action, view, completion) in
+        let action = UIContextualAction(style: .destructive, title: "삭제", handler: {(action, view, completion) in
             Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
             Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
             completion(true)

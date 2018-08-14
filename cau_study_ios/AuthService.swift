@@ -55,7 +55,7 @@ class AuthService {
         let ref = Database.database().reference()
         let usersReference = ref.child("users")
         let newUserReference = usersReference.child(uid)
-        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl, "introduceMyself": "자기소개를 입력해주세요"])
+        newUserReference.setValue(["username": username, "email": email, "profileImageUrl": profileImageUrl, "introduceMyself": "자기소개가 없습니다."])
         onSuccess()
     }
     

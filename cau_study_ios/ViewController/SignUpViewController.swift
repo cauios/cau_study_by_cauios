@@ -21,32 +21,21 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         self.view.insertSubview(signUpImageView, at: 0)
         super.viewDidLoad()
-        usernameTextField.backgroundColor = UIColor.clear
-        usernameTextField.tintColor = UIColor.white
-        usernameTextField.textColor = UIColor.white
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: usernameTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor(white: 1.0, alpha: 0.6)])
-        let bottomLayerUsername = CALayer()
-        bottomLayerUsername.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
-        bottomLayerUsername.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
-        usernameTextField.layer.addSublayer(bottomLayerUsername)
+        //usernameTextField.backgroundColor = UIColor.clear
+        usernameTextField.tintColor = UIColor.darkGray
+        usernameTextField.textColor = UIColor.darkGray
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: usernameTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+
         
-        emailTextField.backgroundColor = UIColor.clear
-        emailTextField.tintColor = UIColor.white
-        emailTextField.textColor = UIColor.white
-        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor(white: 1.0, alpha: 0.6)])
-        let bottomLayerEmail = CALayer()
-        bottomLayerEmail.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
-        bottomLayerEmail.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
-        emailTextField.layer.addSublayer(bottomLayerEmail)
+        //emailTextField.backgroundColor = UIColor.clear
+        emailTextField.tintColor = UIColor.darkGray
+        emailTextField.textColor = UIColor.darkGray
+        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
-        passwordTextField.backgroundColor = UIColor.clear
-        passwordTextField.tintColor = UIColor.white
-        passwordTextField.textColor = UIColor.white
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor(white: 1.0, alpha: 0.6)])
-        let bottomLayerPassword = CALayer()
-        bottomLayerPassword.frame = CGRect(x: 0, y: 29, width: 1000, height: 0.6)
-        bottomLayerPassword.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
-        passwordTextField.layer.addSublayer(bottomLayerPassword)
+        //passwordTextField.backgroundColor = UIColor.clear
+        passwordTextField.tintColor = UIColor.darkGray
+        passwordTextField.textColor = UIColor.darkGray
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         profileImage.layer.cornerRadius = 40
         profileImage.clipsToBounds = true
@@ -92,16 +81,16 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any) {
         view.endEditing(true)
-        ProgressHUD.show("Waiting...", interaction: false)
-        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+        ProgressHUD.show("가입 진행 중입니다.", interaction: false)
+        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.01) {
             AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
-                ProgressHUD.showSuccess("Success")
+                ProgressHUD.showSuccess("가입 완료!")
                 self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
             }, onError: { (errorString) in
                 ProgressHUD.showError(errorString!)
             })
         } else {
-             ProgressHUD.showError("Profile Image can't be empty")
+            ProgressHUD.showError("프로필 이미지를 선택해 주세요.")
         }
     }
 }

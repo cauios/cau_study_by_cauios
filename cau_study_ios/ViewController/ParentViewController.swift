@@ -13,12 +13,6 @@ import XLPagerTabStrip
 class ParentViewController: ButtonBarPagerTabStripViewController {
     
     let purpleInspireColor = UIColor(red:0.13, green:0.03, blue:0.25, alpha:1.0)
-//    weak var currentViewController: UIViewController?
-    // change selected bar color
-    
-    //    @IBOutlet weak var navi: UINavigationBar!
-//    @IBOutlet weak var segmentedControl: UISegmentedControl!
-//    @IBOutlet weak var buttonBar: UIView!
 
     
     override func viewDidLoad() {
@@ -26,8 +20,8 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
         
         navigationItem.titleView = UIImageView.init(image: UIImage(named:"logo"))
         
-        settings.style.buttonBarBackgroundColor = .white
-        settings.style.buttonBarItemBackgroundColor = .white
+        settings.style.buttonBarBackgroundColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.0)
+        settings.style.buttonBarItemBackgroundColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.0)
         settings.style.selectedBarBackgroundColor = purpleInspireColor
         settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
         settings.style.selectedBarHeight = 2.0

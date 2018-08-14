@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import XLPagerTabStrip
+import TBEmptyDataSet
 
 
 class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
@@ -16,7 +17,6 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         return IndicatorInfo(title: "전체")
     }
     
-
     @IBOutlet weak var collectionView: UICollectionView!
 
     var postId: String?
@@ -24,12 +24,16 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     var user: User!
     var selectedCellId: String?
     
-
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.emptyDataSetDataSource = self
+        collectionView.emptyDataSetDelegate = self
+        
+
         
 
         collectionView.delegate = self
@@ -49,7 +53,6 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     func fetchUser() {
         Api.User.observeCurrentUser { (user) in
             self.user = user
-            
             
         }
     }
@@ -77,27 +80,30 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
                 self.posts.remove(at: index)
                 self.collectionView.reloadData()
                 
+                
             }
             
         })
         
     }
+    
+    
     func removeRedDotAtTabBarItemIndex(index: Int) {
-        for subview in (tabBarController?.tabBar.subviews)! {
+        for subview in tabBarController!.tabBar.subviews {
             
             if let subview = subview as? UIView {
                 
                 if subview.tag == 1234 {
                     subview.removeFromSuperview()
-                    
+                    break
                 }
             }
         }
         
         let RedDotRadius: CGFloat = 5
-        let RedDotDiameter = RedDotRadius * 2
+        let RedDotDiameter = RedDotRadius * 1.5
         
-        let TopMargin:CGFloat = 5
+        let TopMargin:CGFloat = 1
         
         let TabBarItemCount = CGFloat(self.tabBarController!.tabBar.items!.count)
         
@@ -108,7 +114,7 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         
         let imageHalfWidth: CGFloat = (self.tabBarController!.tabBar.items![index] ).selectedImage!.size.width / 2
         
-        let redDot = UIView(frame: CGRect(x: xOffset + imageHalfWidth - 7, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter))
+        let redDot = UIView(frame: CGRect(x: xOffset + imageHalfWidth - 1, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter))
         
         redDot.tag = 1234
         redDot.backgroundColor = UIColor.red
@@ -132,15 +138,53 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     }
 }
 
+extension SavedCollectionViewController: TBEmptyDataSetDataSource {
+    
+    func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
+        return resizeImage(image: UIImage(named: "saved_placeholder")!, newWidth: 200)
+    }
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+
+    func descriptionForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "첫 블록으로\n나만의 컬렉션을\n시작해보세요.")
+
+    }
+    
+    func verticalSpacesForEmptyDataSet(in scrollView: UIScrollView) -> [CGFloat] {
+        return [50]
+    }
+ 
+ 
+    
+}
+
+extension SavedCollectionViewController: TBEmptyDataSetDelegate {
+    func emptyDataSetShouldDisplay(in scrollView: UIScrollView) -> Bool {
+        return posts.count == 0
+    }
+    
+}
+
 
 
 
 extension SavedCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return posts.count
     }
+    
 
 
     
@@ -163,6 +207,7 @@ extension SavedCollectionViewController: UICollectionViewDataSource, UICollectio
     }
     
 }
+
 
 extension SavedCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

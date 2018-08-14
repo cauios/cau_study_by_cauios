@@ -25,6 +25,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var userModel : User?
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
         super.viewDidLoad()
         uid = Auth.auth().currentUser?.uid
         sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
@@ -34,10 +35,12 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
-
+    
     
     //시작시 작동, 키보드가 나타나고 사라지는 코드(옵저버)
     override func viewWillAppear(_ animated: Bool) {
+        
+        navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
     }
@@ -46,6 +49,9 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)  //옵저버 제거
         self.tabBarController?.tabBar.isHidden = false  //탭바다시노출
+        // [0809 Dahye] change the navi color into concept gray color
+        navigationController?.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+        
     }
     
     @objc func keyboardWillShow(notification : Notification){
@@ -132,7 +138,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         ]
         if(chatRoomUid == nil){
             //방생성
-            self.sendButton.isEnabled = false
+            self.sendButton.isEnabled = true
             Database.database().reference().child("chatRooms").childByAutoId().setValue(createRoomInfo, withCompletionBlock: {(err, ref) in
                 if(err==nil){
                     self.checkChatRoom()
@@ -140,9 +146,9 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             })
         }else{
             let value :Dictionary<String,Any> = [
-                    "uid":uid!,
-                    "message":textField_message.text!,
-                    "timestamp":ServerValue.timestamp()
+                "uid":uid!,
+                "message":textField_message.text!,
+                "timestamp":ServerValue.timestamp()
                 //현재시간에서1970년정도 뺀 밀리초가 저장됨(변환해야한다) 맨아래 extension Int했다.
             ]
             if textField_message.text! != ""
@@ -150,10 +156,10 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 (err, ref) in
                 self.textField_message.text = "" //메세지 보낸다음에 지워준다
             })
-                }
             }
+        }
     }
-
+    
     func checkChatRoom(){
         Database.database().reference().child("chatRooms").queryOrdered(byChild: "users/" + uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
             for item in datasnapshot.children.allObjects as! [DataSnapshot]{
@@ -161,10 +167,25 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 if let chatRoomdic = item.value as? [String:AnyObject]{
                     
                     let chatModel = ChatModel(JSON: chatRoomdic)
-                        if(chatModel?.users[self.destinationUid!] == true){
-                            self.chatRoomUid=item.key
-                            self.sendButton.isEnabled = true
-                            self.getDestinationInfo()
+                    if(chatModel?.users[self.destinationUid!] == true){
+                        self.chatRoomUid=item.key
+                        self.sendButton.isEnabled = true
+                        self.getDestinationInfo()
+                        
+                        //[0809 Dahye] send data to DB right after creation of the new chat room. Do not need to touchUpInside twice anymore.
+                        let value :Dictionary<String,Any> = [
+                            "uid":self.uid!,
+                            "message":self.textField_message.text!,
+                            "timestamp":ServerValue.timestamp()
+                            //현재시간에서1970년정도 뺀 밀리초가 저장됨(변환해야한다) 맨아래 extension Int했다.
+                        ]
+                        if self.textField_message.text! != ""
+                        { Database.database().reference().child("chatRooms").child(self.self.chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {
+                            (err, ref) in
+                            self.textField_message.text = "" //메세지 보낸다음에 지워준다
+                        })
+                        }
+                        //
                     }
                 }
                 
@@ -174,17 +195,17 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func getDestinationInfo(){
-         /*기존코드 Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-            self.userModel = User()
-            self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
-            self.getMessageList()
-        })
+        /*기존코드 Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+         self.userModel = User()
+         self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
+         self.getMessageList()
+         })
          */
         Api.User.observeUser(withId: destinationUid!, completion: { user in
             self.userModel = User()
             self.userModel = user
             self.getMessageList()
-            })
+        })
         //왜 되는지 모르곘음;;;;
     }
     
@@ -205,15 +226,15 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         })
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension Int{
