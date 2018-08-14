@@ -56,6 +56,27 @@ class PostApi {
         
     }
     
+    func deletePost(postId id: String, onSuccess: @escaping () -> Void, onError: @escaping(_ errorMessage: String?) -> Void) {
+        Api.Post.REF_POSTS.child(id).removeValue(completionBlock: {(err,ref) in
+            if err != nil {
+                return
+            }
+            onSuccess()
+        })
+        
+        
+    }
+    
+    func deleteMyPost(postId id: String, userId uid: String, onSuccess: @escaping () -> Void, onError: @escaping(_ errorMessage: String?) -> Void) {
+        Api.MyPosts.REF_MYPOSTS.child(uid).child(id).removeValue(completionBlock: {(err,ref) in
+            if err != nil {
+                return
+            }
+            onSuccess()
+        })
+    }
+    
+    
     
     
     

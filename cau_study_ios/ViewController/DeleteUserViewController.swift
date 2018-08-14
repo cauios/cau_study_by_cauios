@@ -96,7 +96,7 @@ class DeleteUserViewController: UIViewController {
                     ProgressHUD.showError(error?.localizedDescription)
                     return
                 } else {
-                    print("delete successfully")
+                    ProgressHUD.showSuccess("정보삭제가 완료되었습니다.")
                 }
             })
         }, onError: {errorMessage in

@@ -37,9 +37,9 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
     // how many cells in each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return serviceList.count
-        } else {
             return list.count
+        } else {
+            return serviceList.count
         }
     }
     
@@ -47,12 +47,12 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserSettingTableViewCell", for: indexPath) as! UserSettingTableViewCell
-            let labelList = serviceList[indexPath.row]
+            let labelList = list[indexPath.row]
             cell.function.text = labelList
             return cell
         } else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserSettingTableViewCell", for: indexPath) as! UserSettingTableViewCell
-            let labelList = list[indexPath.row]
+            let labelList = serviceList[indexPath.row]
             cell.function.text = labelList
             return cell
         }
@@ -61,15 +61,15 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
     // section header
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "서비스 이용"
-        } else {
             return "계정 설정"
+        } else {
+            return "서비스 이용"
         }
     }
     
     //cell touched
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
             let selectedCell = list[indexPath.row]
             if selectedCell == "계정 탈퇴" {
                 performSegue(withIdentifier: "DeleteUserViewController", sender: selectedCell)
