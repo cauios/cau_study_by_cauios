@@ -1401,7 +1401,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRQ-4v-2tQ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="595"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="551"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I2k-VV-E8a">
                                         <rect key="frame" x="173.5" y="25" width="28" height="28"/>
@@ -1614,14 +1614,14 @@
                                 <color key="tintColor" red="0.53333333333333333" green="0.56862745098039214" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postlike" translatesAutoresizingMaskIntoConstraints="NO" id="yd3-60-W76">
-                                <rect key="frame" x="329" y="45" width="20" height="20"/>
+                                <rect key="frame" x="329" y="89" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="3DA-t6-Bdc"/>
                                     <constraint firstAttribute="width" constant="20" id="Mbf-eq-S2m"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blanksetting" translatesAutoresizingMaskIntoConstraints="NO" id="RQF-vz-7eN">
-                                <rect key="frame" x="297" y="45" width="20" height="20"/>
+                                <rect key="frame" x="297" y="89" width="20" height="20"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="GVk-Ak-ekm"/>
@@ -2535,6 +2535,6 @@
         <image name="yellowbutton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mGy-9W-0rS"/>
+        <segue reference="LOA-C6-f2l"/>
     </inferredMetricsTieBreakers>
 </document>

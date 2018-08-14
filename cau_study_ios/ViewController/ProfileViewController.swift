@@ -241,9 +241,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let deleteCell = posts[indexPath.row]
         let action = UIContextualAction(style: .destructive, title: "삭제", handler: {(action, view, completion) in
-            Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
-            Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
-            completion(true)
+            Api.Post.deletePost(postId: deleteCell.id!, onSuccess: {
+                Api.Post.deleteMyPost(postId: deleteCell.id!, userId: self.user.uid!, onSuccess: {
+                    completion(true)
+                }, onError: {errorMessage in
+                        ProgressHUD.showError(errorMessage)
+                })
+                }, onError: {errorMessage in
+                    ProgressHUD.showError(errorMessage)
+            })
+
             })
         return action
     }
