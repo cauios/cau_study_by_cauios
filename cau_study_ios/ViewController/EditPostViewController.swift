@@ -89,6 +89,7 @@ class EditPostViewController: UIViewController {
     @IBOutlet weak var acaCateWtButton: UIButton!
     @IBOutlet weak var empCateWtButton: UIButton!
     @IBOutlet weak var lanCateWtButton: UIButton!
+    @IBOutlet weak var extCateWtButton: UIButton!
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
@@ -108,6 +109,13 @@ class EditPostViewController: UIViewController {
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+    }
+    @IBAction func extCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 3
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     let timestamp = Int(Date().timeIntervalSince1970)
     
@@ -161,6 +169,7 @@ class EditPostViewController: UIViewController {
         let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
         let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
         let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
+        let postIntoCateExt = Api.Category.REF_CATEGORY_EXTRA
         
         
         var categoryText = ""
@@ -170,9 +179,12 @@ class EditPostViewController: UIViewController {
             postIntoCateAca.child(newPostId).removeValue()
         } else if originalCate == 2 {
             postIntoCateEmpl.child(newPostId).removeValue()
-        } else {
+        } else if originalCate == 3 {
             postIntoCateLan.child(newPostId).removeValue()
+        } else {
+            postIntoCateExt.child(newPostId).removeValue()
         }
+        
         
         if selectedCate == 1 {
             categoryText = "학업"
@@ -187,6 +199,11 @@ class EditPostViewController: UIViewController {
             categoryText = "어학"
             postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
+        else if selectedCate == 4 {
+            categoryText = "기타"
+            postIntoCateExt.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB [0814] hohyun extra category
+        }
+        
         
         
         // [0726] Dahye: Codes related to the timestamp are added this moment

@@ -1969,7 +1969,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="NL9-d8-Klf">
-                                                        <rect key="frame" x="67" y="30" width="240" height="70"/>
+                                                        <rect key="frame" x="24.5" y="30" width="325" height="70"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFP-Y5-Tmx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -2008,6 +2008,19 @@
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="lanCateWtTouchUpInside:" destination="fBO-um-o01" eventType="touchUpInside" id="Gci-7z-VKY"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JR1-r0-x9w">
+                                                                <rect key="frame" x="255" y="0.0" width="70" height="70"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="70" id="cdr-jp-Hcq"/>
+                                                                    <constraint firstAttribute="height" constant="70" id="dOe-UL-VPx"/>
+                                                                </constraints>
+                                                                <state key="normal" title="기타" backgroundImage="greybutton">
+                                                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="extCateWtTouchUpInside:" destination="fBO-um-o01" eventType="touchUpInside" id="59I-2c-lD7"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -2192,6 +2205,7 @@
                         <outlet property="acaCateWtButton" destination="fFP-Y5-Tmx" id="hMF-3I-PSf"/>
                         <outlet property="descriptionTextView" destination="Q6u-xV-Rtr" id="o4p-3k-fJ7"/>
                         <outlet property="empCateWtButton" destination="jGo-2U-Fsa" id="TdB-6r-T8j"/>
+                        <outlet property="extCateWtButton" destination="JR1-r0-x9w" id="28K-9e-Eb8"/>
                         <outlet property="lanCateWtButton" destination="0ca-Oq-ZC4" id="paF-Ce-gtS"/>
                         <outlet property="locationTextField" destination="9SG-Ax-GjP" id="Ga2-Jo-Ht0"/>
                         <outlet property="numOfVacanTextField" destination="CHG-9W-g6x" id="3WQ-2a-zTp"/>
@@ -2268,7 +2282,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="g1J-L1-hgw">
-                                                        <rect key="frame" x="67.5" y="30" width="240.5" height="70"/>
+                                                        <rect key="frame" x="25" y="30" width="325.5" height="70"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xn1-bR-hVp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="70.5" height="70"/>
@@ -2307,6 +2321,19 @@
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="lanCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="uwh-ND-p5j"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-Yd-yOA">
+                                                                <rect key="frame" x="255.5" y="0.0" width="70" height="70"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="70" id="0jt-N1-o4C"/>
+                                                                    <constraint firstAttribute="width" constant="70" id="TR0-Ei-ien"/>
+                                                                </constraints>
+                                                                <state key="normal" title="기타" backgroundImage="greybutton">
+                                                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="extCateWtTouchUpInside:" destination="Wbx-0b-kiL" eventType="touchUpInside" id="Tva-3R-lbZ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -2507,6 +2534,7 @@
                         <outlet property="acaCateWtButton" destination="xn1-bR-hVp" id="qtf-01-pGG"/>
                         <outlet property="descriptionTextView" destination="jie-Zo-8D4" id="FLG-ez-hQE"/>
                         <outlet property="empCateWtButton" destination="Foa-Jy-FxI" id="tGG-3s-jsh"/>
+                        <outlet property="extCateWtButton" destination="ePV-Yd-yOA" id="CGb-5y-3ow"/>
                         <outlet property="lanCateWtButton" destination="fbx-uL-ujE" id="0mB-52-jE8"/>
                         <outlet property="locationTextField" destination="rtJ-fN-EEQ" id="leT-Bg-gMv"/>
                         <outlet property="numOfVacanTextField" destination="KiZ-QZ-TgY" id="Lrr-1v-ZM4"/>
@@ -2529,6 +2557,7 @@
         <image name="catstulogo" width="28" height="28"/>
         <image name="explorelike" width="15" height="15"/>
         <image name="finicon" width="34" height="40"/>
+        <image name="greybutton" width="50" height="50"/>
         <image name="location" width="25" height="25"/>
         <image name="onhome" width="25" height="25"/>
         <image name="people" width="25" height="25"/>
@@ -2541,6 +2570,6 @@
         <image name="yellowbutton" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TNI-Ur-Vjj"/>
+        <segue reference="LOA-C6-f2l"/>
     </inferredMetricsTieBreakers>
 </document>
