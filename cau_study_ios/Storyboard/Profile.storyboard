@@ -598,7 +598,7 @@
                         <viewLayoutGuide key="safeArea" id="a0N-Fz-0kf"/>
                     </view>
                     <navigationItem key="navigationItem" id="yAu-w1-CX0">
-                        <barButtonItem key="rightBarButtonItem" title="delete" id="26S-LK-2Mc">
+                        <barButtonItem key="rightBarButtonItem" title="탈퇴" id="26S-LK-2Mc">
                             <connections>
                                 <action selector="deleteUserBarBtn:" destination="190-tN-Mzz" id="4aZ-u5-TgM"/>
                             </connections>
