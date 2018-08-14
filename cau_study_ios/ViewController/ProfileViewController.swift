@@ -31,12 +31,13 @@ class ProfileViewController: UIViewController {
     
     var posts = [Post]()
     var selectedCellId: String?
+    var indexPath: IndexPath?
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchUser()
-        
-        self.tableView.reloadData()
+        editedPost()
+        //self.tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -263,7 +264,23 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedCell = posts[indexPath.row]
         if let selectedCellId = selectedCell.id {
             self.selectedCellId = selectedCellId
+            self.indexPath = indexPath
             performSegue(withIdentifier: "PostViewController", sender: self)
+        }
+    }
+    
+    func editedPost() {
+        guard let selectedCellId = self.selectedCellId else {
+            return
+        }
+        for post in posts {
+            if post.id == selectedCellId {
+                Api.Post.observePost(withId: selectedCellId, completion: {post in
+                    self.posts[self.indexPath!.row] = post
+                    self.tableView.reloadData()
+                })
+                
+            }
         }
     }
  
