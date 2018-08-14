@@ -2169,6 +2169,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="kHY-SX-QIk" firstAttribute="centerX" secondItem="bjX-7M-de7" secondAttribute="centerX" id="7YW-3w-iyP"/>
                                     <constraint firstAttribute="trailing" secondItem="kHY-SX-QIk" secondAttribute="trailing" id="CD7-3t-SRb"/>
                                     <constraint firstAttribute="bottom" secondItem="kHY-SX-QIk" secondAttribute="bottom" id="OFO-Ec-baW"/>
                                     <constraint firstItem="kHY-SX-QIk" firstAttribute="leading" secondItem="bjX-7M-de7" secondAttribute="leading" id="lqL-ob-We4"/>
@@ -2481,6 +2482,7 @@
                                     <constraint firstItem="Kc3-3c-oSc" firstAttribute="leading" secondItem="5c4-3Q-ZY7" secondAttribute="leading" id="1Sx-gu-NCO"/>
                                     <constraint firstItem="Kc3-3c-oSc" firstAttribute="top" secondItem="5c4-3Q-ZY7" secondAttribute="top" id="Kgb-lm-KBZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Kc3-3c-oSc" secondAttribute="bottom" id="eUF-6a-o3F"/>
+                                    <constraint firstItem="Kc3-3c-oSc" firstAttribute="centerX" secondItem="5c4-3Q-ZY7" secondAttribute="centerX" id="hBA-Iv-vCw"/>
                                     <constraint firstAttribute="trailing" secondItem="Kc3-3c-oSc" secondAttribute="trailing" id="zLc-qM-CaM"/>
                                 </constraints>
                             </scrollView>
