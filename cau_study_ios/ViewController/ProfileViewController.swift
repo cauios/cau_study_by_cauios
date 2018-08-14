@@ -34,8 +34,8 @@ class ProfileViewController: UIViewController {
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //fetchUser()
-        fetchMyPosts()
+        fetchUser()
+        
         self.tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -109,7 +109,6 @@ class ProfileViewController: UIViewController {
         Api.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: {snapshot in
             print(snapshot.key)
             Api.Post.observeMyPosts(withId: snapshot.key, completion: {post in
-                self.posts.removeAll()
                 self.posts.insert(post, at:0)
                 self.tableView.reloadData()
                 
