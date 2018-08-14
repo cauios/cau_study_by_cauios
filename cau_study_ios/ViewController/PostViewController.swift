@@ -120,6 +120,9 @@ class PostViewController: UIViewController {
             editImageView.addGestureRecognizer(tapGesture)
             editImageView.isUserInteractionEnabled = true
             let editBarButton = UIBarButtonItem(customView: editImageView)
+            if (self.navigationItem.rightBarButtonItems?.count)! > 1 {
+                self.navigationItem.rightBarButtonItems?.remove(at: 1)
+            }
             self.navigationItem.rightBarButtonItems?.append(editBarButton)
             
         } else {

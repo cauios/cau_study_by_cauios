@@ -21,6 +21,11 @@ class WriterInfoViewController: UIViewController {
     
     var posts = [Post]()
     var selectedCellId: String?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
