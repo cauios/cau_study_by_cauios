@@ -463,7 +463,7 @@ extension ExploreViewController: UITableViewDataSource {
         if selectedSeg == 4 {
             cell4.post = post
             cell4.delegate = self
-            return cell3
+            return cell4
         } else {
             cell5.post = post
             cell5.delegate = self
