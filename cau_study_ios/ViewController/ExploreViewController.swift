@@ -148,7 +148,7 @@ class ExploreViewController: UIViewController {
         etcLineView.backgroundColor = UIColor.darkGray
         posts = [Post]()
         self.exploreTableView.reloadData()
-        loadLanPost()
+        loadEtcPost()
     }
     
     
@@ -330,6 +330,19 @@ class ExploreViewController: UIViewController {
         })
     }
     
+    func loadEtcPost() {
+        
+        Api.Category.REF_CATEGORY_ETC.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+    }
+    
     
     
     
@@ -399,23 +412,20 @@ extension ExploreViewController: UITableViewDataSource {
          return posts.count
          */
         if selectedSeg == 1 {
-            print(posts.count, "count all")
             return posts.count
         }
         if selectedSeg == 2 {
-            
-            print(posts.count, "count aca")
             return posts.count
         }
         if selectedSeg == 3 {
-            print(posts.count, "count emp")
             return posts.count
         }
         if selectedSeg == 4 {
-            print(posts.count, "count lan")
+            return posts.count
+        }
+        if selectedSeg == 5 {
             return posts.count
         } else {
-            print("return nothing")
             return 0
         }
         
@@ -430,36 +440,34 @@ extension ExploreViewController: UITableViewDataSource {
         let cell2 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellAca", for: indexPath) as! ExploreTableViewCell
         let cell3 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEmp", for: indexPath) as! ExploreTableViewCell
         let cell4 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellLan", for: indexPath) as! ExploreTableViewCell
+         let cell5 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEtc", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
         
         
         
         if selectedSeg == 1 {
             cell.post = post
-            print("cell")
             cell.delegate = self
-            print("cell.deleg")
             return cell
         }
         if selectedSeg == 2 {
             cell2.post = post
-            print("cell2")
             cell2.delegate = self
-            print("cell2.deleg")
             return cell2
         }
         if selectedSeg == 3 {
             cell3.post = post
-            print("cell3")
             cell3.delegate = self
-            print("cell3,deleg")
+            return cell3
+        }
+        if selectedSeg == 4 {
+            cell4.post = post
+            cell4.delegate = self
             return cell3
         } else {
-            cell4.post = post
-            print("cell4")
-            cell4.delegate = self
-            print("cell4.deleg")
-            return cell4
+            cell5.post = post
+            cell5.delegate = self
+            return cell5
         }
         /*
          if selectedSeg == 1 {
