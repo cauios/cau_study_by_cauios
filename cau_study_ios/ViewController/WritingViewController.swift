@@ -51,25 +51,38 @@ class WritingViewController: UIViewController, dismissHandler {
     @IBOutlet weak var acaCateWtButton: UIButton!
     @IBOutlet weak var empCateWtButton: UIButton!
     @IBOutlet weak var lanCateWtButton: UIButton!
+    @IBOutlet weak var etcCateWtButton: UIButton!
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 2
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
+    
+    @IBAction func etcCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 4
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
+    }
+    
     
     // Declare this to show the timestamp
     let timestamp = Int(Date().timeIntervalSince1970)
@@ -122,7 +135,7 @@ class WritingViewController: UIViewController, dismissHandler {
                     word = word.replacingOccurrences(of: "(", with: "")
                 }
                 if word.contains(")") {
-                    word = word.replacingOccurrences(of: "(ㅜ", with: "")
+                    word = word.replacingOccurrences(of: "(", with: "")
                 }
                 let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
                 newHasfTagReF.updateChildValues([newPostId: true])
@@ -132,6 +145,7 @@ class WritingViewController: UIViewController, dismissHandler {
         let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
         let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
         let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
+        let postIntoCateEtc = Api.Category.REF_CATEGORY_ETC
         
         
         var categoryText = ""
@@ -149,6 +163,10 @@ class WritingViewController: UIViewController, dismissHandler {
         else if selectedCate == 3 {
             categoryText = "어학"
             postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+        }
+        else if selectedCate == 4 {
+            categoryText = "기타"
+            postIntoCateEtc.updateChildValues([newPostId: true]) // [0816 Dahye] Add info of postId into Category node on DB
         }
 
         
@@ -201,6 +219,7 @@ class WritingViewController: UIViewController, dismissHandler {
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
