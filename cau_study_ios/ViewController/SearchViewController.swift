@@ -36,6 +36,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchAcaCateButton: UIButton!
     @IBOutlet weak var searchEmpCateButton: UIButton!
     @IBOutlet weak var searchLanCateButton: UIButton!
+    @IBOutlet weak var searchEtcCateButton: UIButton!
     
     // [0808 Dahye]
     
@@ -46,6 +47,8 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchLanLineView: UIView!
     
+    @IBOutlet weak var searchEtcLineView: UIView!
+    
     
     @IBAction func searchAllCateTUI(_ sender: Any) {
         selectedSeg = 1
@@ -53,10 +56,12 @@ class SearchViewController: UIViewController {
         searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEtcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchAllLineView.backgroundColor = UIColor.darkGray
         searchAcaLineView.backgroundColor = UIColor.clear
         searchEmpLineView.backgroundColor = UIColor.clear
         searchLanLineView.backgroundColor = UIColor.clear
+        searchEtcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         
         let inputTag = searchBar.text!.lowercased()
@@ -106,10 +111,12 @@ class SearchViewController: UIViewController {
         searchAcaCateButton.setTitleColor(UIColor.black, for: .normal)
         searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEtcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchAllLineView.backgroundColor = UIColor.clear
         searchAcaLineView.backgroundColor = UIColor.darkGray
         searchEmpLineView.backgroundColor = UIColor.clear
         searchLanLineView.backgroundColor = UIColor.clear
+        searchEtcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.searchTableView.reloadData()
         loadAcaPost()
@@ -122,10 +129,12 @@ class SearchViewController: UIViewController {
         searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchEmpCateButton.setTitleColor(UIColor.black, for: .normal)
         searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEtcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchAllLineView.backgroundColor = UIColor.clear
         searchAcaLineView.backgroundColor = UIColor.clear
         searchEmpLineView.backgroundColor = UIColor.darkGray
         searchLanLineView.backgroundColor = UIColor.clear
+        searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         posts = [Post]()
         self.searchTableView.reloadData()
         loadEmpPost()
@@ -139,13 +148,32 @@ class SearchViewController: UIViewController {
         searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchLanCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchEtcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchAllLineView.backgroundColor = UIColor.clear
         searchAcaLineView.backgroundColor = UIColor.clear
         searchEmpLineView.backgroundColor = UIColor.clear
         searchLanLineView.backgroundColor = UIColor.darkGray
+        searchEtcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.searchTableView.reloadData()
         loadLanPost()
+    }
+    
+    @IBAction func searchEtcCateTUI(_ sender: Any) {
+        selectedSeg = 5
+        searchAllCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEtcCateButton.setTitleColor(UIColor.black, for: .normal)
+        searchAllLineView.backgroundColor = UIColor.clear
+        searchAcaLineView.backgroundColor = UIColor.clear
+        searchEmpLineView.backgroundColor = UIColor.clear
+        searchLanLineView.backgroundColor = UIColor.clear
+        searchEtcLineView.backgroundColor = UIColor.black
+        posts = [Post]()
+        self.searchTableView.reloadData()
+        loadEtcPost()
     }
     
     override func viewDidLoad() {
@@ -154,10 +182,12 @@ class SearchViewController: UIViewController {
         searchAcaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchEmpCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchLanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        searchEtcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         searchAllLineView.backgroundColor = UIColor.darkGray
         searchAcaLineView.backgroundColor = UIColor.clear
         searchEmpLineView.backgroundColor = UIColor.clear
         searchLanLineView.backgroundColor = UIColor.clear
+        searchEtcLineView.backgroundColor = UIColor.clear
         super.viewDidLoad()
         searchTableView.dataSource = self
         
@@ -315,6 +345,48 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //[0728 Dahye] load Etc Posts
+    func loadEtcPost() {
+        let inputTag = searchBar.text!.lowercased()
+        if inputTag == "" {
+            return
+        }
+        
+        if inputTag.contains("#") {
+            let replacedTag = inputTag.replacingOccurrences(of: "#", with: "")
+            if replacedTag == "" {
+                return
+            } else {
+                Api.HashTag.REF_HASHTAG.child(replacedTag).observe(.childAdded, with: {
+                    snapshot in
+                    print(snapshot.key)
+                    Api.Post.observePost(withId: snapshot.key, completion: { post in
+                        if post.category == "기타" {
+                            self.posts.insert(post, at: 0)
+                            self.searchTableView.reloadData()
+                        } else {
+                            self.searchTableView.reloadData()
+                        }
+                    })
+                })
+            }
+        }
+            
+        else {
+            Api.HashTag.REF_HASHTAG.child(inputTag).observe(.childAdded, with: {
+                snapshot in
+                print(snapshot.key)
+                Api.Post.observePost(withId: snapshot.key, completion: { post in
+                    if post.category == "기타" {
+                        self.posts.insert(post, at: 0)
+                        self.searchTableView.reloadData()
+                    } else {
+                        self.searchTableView.reloadData()
+                    }
+                })
+            })
+        }
+    }
     
     
     
@@ -415,23 +487,20 @@ extension SearchViewController: SearchTableViewCellDelegate {
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if selectedSeg == 1 {
-            print(posts.count, "count all")
             return posts.count
         }
         if selectedSeg == 2 {
-            
-            print(posts.count, "count aca")
             return posts.count
         }
         if selectedSeg == 3 {
-            print(posts.count, "count emp")
             return posts.count
         }
         if selectedSeg == 4 {
-            print(posts.count, "count lan")
+            return posts.count
+        }
+        if selectedSeg == 5 {
             return posts.count
         } else {
-            print("return nothing")
             return 0
         }
     }
@@ -441,36 +510,34 @@ extension SearchViewController: UITableViewDataSource {
         let cell2 = searchTableView.dequeueReusableCell(withIdentifier: "SearchAcaCell", for: indexPath) as! SearchTableViewCell
         let cell3 = searchTableView.dequeueReusableCell(withIdentifier: "SearchEmpCell", for: indexPath) as! SearchTableViewCell
         let cell4 = searchTableView.dequeueReusableCell(withIdentifier: "SearchLanCell", for: indexPath) as! SearchTableViewCell
+        let cell5 = searchTableView.dequeueReusableCell(withIdentifier: "SearchEtcCell", for: indexPath) as! SearchTableViewCell
         let post = posts[indexPath.row]
         
         
         
         if selectedSeg == 1 {
             cell.post = post
-            print("cell")
             cell.delegate = self
-            print("cell.deleg")
             return cell
         }
         if selectedSeg == 2 {
             cell2.post = post
-            print("cell2")
             cell2.delegate = self
-            print("cell2.deleg")
             return cell2
         }
         if selectedSeg == 3 {
             cell3.post = post
-            print("cell3")
             cell3.delegate = self
-            print("cell3,deleg")
             return cell3
-        } else {
+        }
+        if selectedSeg == 4 {
             cell4.post = post
-            print("cell4")
             cell4.delegate = self
-            print("cell4.deleg")
             return cell4
+        } else {
+            cell5.post = post
+            cell5.delegate = self
+            return cell5
         }
     }
     
