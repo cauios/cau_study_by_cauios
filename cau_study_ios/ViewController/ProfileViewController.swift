@@ -31,10 +31,13 @@ class ProfileViewController: UIViewController {
     
     var posts = [Post]()
     var selectedCellId: String?
+    var indexPath: IndexPath?
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchUser()
+        editedPost()
+        //self.tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -155,7 +158,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         let listLabel = UILabel()
         listLabel.text = "내가 쓴 글"
         listLabel.textAlignment = .center
-        listLabel.textColor = .black
+        listLabel.textColor = .white
         listLabel.font = UIFont.systemFont(ofSize: 17)
         
         subview.addSubview(listLabel)
@@ -241,9 +244,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let deleteCell = posts[indexPath.row]
         let action = UIContextualAction(style: .destructive, title: "삭제", handler: {(action, view, completion) in
-            Api.Post.REF_POSTS.child(deleteCell.id!).removeValue()
-            Api.MyPosts.REF_MYPOSTS.child(self.user.uid!).child(deleteCell.id!).removeValue()
-            completion(true)
+            Api.Post.deletePost(postId: deleteCell.id!, onSuccess: {
+                Api.Post.deleteMyPost(postId: deleteCell.id!, userId: self.user.uid!, onSuccess: {
+                    completion(true)
+                }, onError: {errorMessage in
+                        ProgressHUD.showError(errorMessage)
+                })
+                }, onError: {errorMessage in
+                    ProgressHUD.showError(errorMessage)
+            })
+
             })
         return action
     }
@@ -254,7 +264,23 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedCell = posts[indexPath.row]
         if let selectedCellId = selectedCell.id {
             self.selectedCellId = selectedCellId
+            self.indexPath = indexPath
             performSegue(withIdentifier: "PostViewController", sender: self)
+        }
+    }
+    
+    func editedPost() {
+        guard let selectedCellId = self.selectedCellId else {
+            return
+        }
+        for post in posts {
+            if post.id == selectedCellId {
+                Api.Post.observePost(withId: selectedCellId, completion: {post in
+                    self.posts[self.indexPath!.row] = post
+                    self.tableView.reloadData()
+                })
+                
+            }
         }
     }
  

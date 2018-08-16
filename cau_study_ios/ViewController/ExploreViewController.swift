@@ -19,6 +19,7 @@ class ExploreViewController: UIViewController {
     @IBAction func writeTouchUpInside(_ sender: Any) {
        
     }
+    var selectedCellId: String?
     
     //
 
@@ -447,6 +448,27 @@ extension ExploreViewController: UITableViewDataSource {
 
         
     }
+    
+    func editedPost() {
+        guard let selectedCellId = self.selectedCellId else {
+            return
+        }
+        for (index,post) in posts.enumerated() {
+            if post.id == selectedCellId {
+                Api.Post.observePost(withId: selectedCellId, completion: {post in
+                    self.posts[index] = post
+                    self.exploreTableView.reloadData()
+                })
+                
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        editedPost()
+    }
+    
 }
 
 
@@ -455,6 +477,7 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
     // [Dahye 05.20] this sender will actually be passed to prepare for segue method.
     func goToPostVC(postId: String) {
         performSegue(withIdentifier: "Open_PostSegue", sender: postId)
+        self.selectedCellId = postId
     }
     
 }

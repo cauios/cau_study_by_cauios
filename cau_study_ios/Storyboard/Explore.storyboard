@@ -1692,9 +1692,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GW3-E4-zD0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="102" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GW3-E4-zD0">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="CC2-pG-b5U">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="156"/>
@@ -1868,6 +1867,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GW3-E4-zD0" secondAttribute="trailing" id="XwP-xS-RCC"/>
+                            <constraint firstItem="Oxr-Qy-Pwn" firstAttribute="top" secondItem="GW3-E4-zD0" secondAttribute="bottom" id="l0t-2l-Ynk"/>
+                            <constraint firstItem="GW3-E4-zD0" firstAttribute="leading" secondItem="tpw-BC-wAN" secondAttribute="leading" id="vSu-QS-fWb"/>
+                            <constraint firstItem="GW3-E4-zD0" firstAttribute="top" secondItem="ieD-ce-pzP" secondAttribute="bottom" id="xn7-xe-GF4"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="CC2-pG-b5U" id="VxR-ai-N30"/>
@@ -2169,6 +2174,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="kHY-SX-QIk" firstAttribute="centerX" secondItem="bjX-7M-de7" secondAttribute="centerX" id="7YW-3w-iyP"/>
                                     <constraint firstAttribute="trailing" secondItem="kHY-SX-QIk" secondAttribute="trailing" id="CD7-3t-SRb"/>
                                     <constraint firstAttribute="bottom" secondItem="kHY-SX-QIk" secondAttribute="bottom" id="OFO-Ec-baW"/>
                                     <constraint firstItem="kHY-SX-QIk" firstAttribute="leading" secondItem="bjX-7M-de7" secondAttribute="leading" id="lqL-ob-We4"/>
@@ -2481,6 +2487,7 @@
                                     <constraint firstItem="Kc3-3c-oSc" firstAttribute="leading" secondItem="5c4-3Q-ZY7" secondAttribute="leading" id="1Sx-gu-NCO"/>
                                     <constraint firstItem="Kc3-3c-oSc" firstAttribute="top" secondItem="5c4-3Q-ZY7" secondAttribute="top" id="Kgb-lm-KBZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Kc3-3c-oSc" secondAttribute="bottom" id="eUF-6a-o3F"/>
+                                    <constraint firstItem="Kc3-3c-oSc" firstAttribute="centerX" secondItem="5c4-3Q-ZY7" secondAttribute="centerX" id="hBA-Iv-vCw"/>
                                     <constraint firstAttribute="trailing" secondItem="Kc3-3c-oSc" secondAttribute="trailing" id="zLc-qM-CaM"/>
                                 </constraints>
                             </scrollView>

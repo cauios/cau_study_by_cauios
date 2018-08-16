@@ -120,6 +120,9 @@ class PostViewController: UIViewController {
             editImageView.addGestureRecognizer(tapGesture)
             editImageView.isUserInteractionEnabled = true
             let editBarButton = UIBarButtonItem(customView: editImageView)
+            if (self.navigationItem.rightBarButtonItems?.count)! > 1 {
+                self.navigationItem.rightBarButtonItems?.remove(at: 1)
+            }
             self.navigationItem.rightBarButtonItems?.append(editBarButton)
             
         } else {
@@ -136,8 +139,18 @@ class PostViewController: UIViewController {
         }))
         
         actionSheet.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: {(action: UIAlertAction) in
+            Api.Post.deletePost(postId: self.postId!, onSuccess: {
+                Api.Post.deleteMyPost(postId: self.postId!, userId: self.user.uid!, onSuccess: {
+                    self.navigationController?.popToRootViewController(animated: true)
+                    ProgressHUD.showSuccess("삭제되었습니다.")
+                    
+                }, onError: {errorMessage in
+                    ProgressHUD.showError(errorMessage)
+                })
+            }, onError: {errorMessage in
+                ProgressHUD.showError(errorMessage)
+            })
             
-           
         }))
 
         actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
