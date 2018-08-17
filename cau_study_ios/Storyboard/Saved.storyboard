@@ -192,7 +192,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoE-3e-qZv">
                                                 <rect key="frame" x="175" y="0.0" width="170" height="170"/>
-                                                <state key="normal" image="lanfin"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="170" id="VbC-cM-Lzs"/>
+                                                    <constraint firstAttribute="width" constant="170" id="qSe-qn-C8j"/>
+                                                </constraints>
+                                                <state key="normal" image="mintbutton"/>
                                                 <connections>
                                                     <segue destination="457-UG-6U8" kind="show" identifier="finBtn" id="K0d-Lc-Iaz"/>
                                                 </connections>
@@ -345,9 +349,9 @@
     </scenes>
     <resources>
         <image name="lancol" width="170" height="170"/>
-        <image name="lanfin" width="170" height="170"/>
         <image name="lanjob" width="170" height="170"/>
         <image name="lanstu" width="170" height="169"/>
+        <image name="mintbutton" width="50" height="50"/>
         <image name="onlike" width="25" height="25"/>
         <image name="unlike" width="25" height="25"/>
     </resources>
