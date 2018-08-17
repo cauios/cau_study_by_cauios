@@ -135,7 +135,7 @@ class WritingViewController: UIViewController, dismissHandler {
                     word = word.replacingOccurrences(of: "(", with: "")
                 }
                 if word.contains(")") {
-                    word = word.replacingOccurrences(of: "(ㅜ", with: "")
+                    word = word.replacingOccurrences(of: "(", with: "")
                 }
                 let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
                 newHasfTagReF.updateChildValues([newPostId: true])

@@ -153,6 +153,22 @@ class ExploreTableViewCell: UITableViewCell {
                 exCateLabel?.textColor =  UIColor.darkGray
             }
         }
+        if post?.category == "기타" {
+            exCateLabel?.text = "기타"
+            if post?.wanted == false {
+                exploreCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
+                exploreFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                finLabel?.text = "마감"
+                exCateImageView?.image = #imageLiteral(resourceName: "fincatetc")
+                exCateLabel?.textColor = UIColor.white
+            } else {
+                exploreCateView?.backgroundColor = UIColor(red: 202/255.0, green: 248/255.0, blue: 238/255.0, alpha: 1.0)
+                exploreFinImageView?.image = nil
+                finLabel?.text = nil
+                exCateImageView?.image = #imageLiteral(resourceName: "catetc")
+                exCateLabel?.textColor =  UIColor.darkGray
+            }
+        }
  
         
         

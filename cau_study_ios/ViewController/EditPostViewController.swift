@@ -41,18 +41,28 @@ class EditPostViewController: UIViewController {
             acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else if self.post?.category == "취업" {
             originalCate = 2
             selectedCate = 2
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        } else  {
+             etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        } else if self.post?.category == "어학" {
             originalCate = 3
             selectedCate = 3
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+            etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        } else {
+            originalCate = 4
+            selectedCate = 4
+            acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
         }
     }
     
@@ -96,6 +106,7 @@ class EditPostViewController: UIViewController {
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
@@ -103,12 +114,23 @@ class EditPostViewController: UIViewController {
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+    }
+    
+    
+    @IBAction func etcCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 4
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
     }
     @IBAction func extCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
@@ -161,6 +183,21 @@ class EditPostViewController: UIViewController {
         for var word in words! {
             if word.hasPrefix("#"){
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                if word.contains(".") {
+                    word = word.replacingOccurrences(of: ".", with: "")
+                }
+                if word.contains("[") {
+                    word = word.replacingOccurrences(of: "[", with: "")
+                }
+                if word.contains("]") {
+                    word = word.replacingOccurrences(of: "]", with: "")
+                }
+                if word.contains("(") {
+                    word = word.replacingOccurrences(of: "(", with: "")
+                }
+                if word.contains(")") {
+                    word = word.replacingOccurrences(of: "(", with: "")
+                }
                 let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
                 newHasfTagReF.updateChildValues([newPostId: true])
             }
