@@ -205,15 +205,21 @@ class PostViewController: UIViewController {
             postCategoryLabel.textColor = color
             postCategoryBar.backgroundColor = color
         }
-        else if(postCategoryLabel.text == "취업") {
+        if(postCategoryLabel.text == "취업") {
             postCategoryImage.image = #imageLiteral(resourceName: "joblogo")
             let color = UIColor(red: 255/255, green: 46/255, blue: 85/255, alpha: 1)
             postCategoryLabel.textColor = color
             postCategoryBar.backgroundColor = color
         }
-        else if(postCategoryLabel.text == "어학") {
+        if(postCategoryLabel.text == "어학") {
             postCategoryImage.image = #imageLiteral(resourceName: "lanlogo")
             let color = UIColor(red: 255/255, green: 192/255, blue: 00/255, alpha: 1)
+            postCategoryLabel.textColor = color
+            postCategoryBar.backgroundColor = color
+        }
+        else if(postCategoryLabel.text == "기타") {
+            postCategoryImage.image = #imageLiteral(resourceName: "fincatetc")
+            let color = UIColor(red: 0/255, green: 186/255, blue: 152/255, alpha: 1)
             postCategoryLabel.textColor = color
             postCategoryBar.backgroundColor = color
         }

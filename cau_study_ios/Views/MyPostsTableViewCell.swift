@@ -100,6 +100,21 @@ class MyPostsTableViewCell: UITableViewCell {
                 exploreCategoryLabel?.textColor =  UIColor.darkGray
             }
         }
+        if post?.category == "기타" {
+            if post?.wanted == false {
+                profCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
+                profFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                profFinLabel?.text = "마감"
+                profCateImageView?.image = #imageLiteral(resourceName: "fincatetc")
+                exploreCategoryLabel?.textColor = UIColor.white
+            } else {
+                profCateView?.backgroundColor = UIColor(red: 202/255.0, green: 248/255.0, blue: 238/255.0, alpha: 1.0)
+                profFinImageView?.image = nil
+                profFinLabel?.text = nil
+                profCateImageView?.image = #imageLiteral(resourceName: "catetc")
+                exploreCategoryLabel?.textColor =  UIColor.darkGray
+            }
+        }
         
  
     }

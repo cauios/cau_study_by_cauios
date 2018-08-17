@@ -129,6 +129,22 @@ class SearchTableViewCell: UITableViewCell {
                 searchCateLabel?.textColor =  UIColor.darkGray
             }
         }
+        if post?.category == "기타" {
+            searchCateLabel?.text = "기타"
+            if post?.wanted == false {
+                searchCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
+                searchFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                searchFinLabel?.text = "마감"
+                searchCateImageView?.image = #imageLiteral(resourceName: "fincatetc")
+                searchCateLabel?.textColor = UIColor.white
+            } else {
+                searchCateView?.backgroundColor = UIColor(red: 202/255.0, green: 248/255.0, blue: 238/255.0, alpha: 1.0)
+                searchFinImageView?.image = nil
+                searchFinLabel?.text = nil
+                searchCateImageView?.image = #imageLiteral(resourceName: "catetc")
+                searchCateLabel?.textColor =  UIColor.darkGray
+            }
+        }
         
         
         

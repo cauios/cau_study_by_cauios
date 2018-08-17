@@ -41,18 +41,28 @@ class EditPostViewController: UIViewController {
             acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else if self.post?.category == "취업" {
             originalCate = 2
             selectedCate = 2
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        } else  {
+             etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        } else if self.post?.category == "어학" {
             originalCate = 3
             selectedCate = 3
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+            etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        } else {
+            originalCate = 4
+            selectedCate = 4
+            acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+            etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
         }
     }
     
@@ -89,12 +99,14 @@ class EditPostViewController: UIViewController {
     @IBOutlet weak var acaCateWtButton: UIButton!
     @IBOutlet weak var empCateWtButton: UIButton!
     @IBOutlet weak var lanCateWtButton: UIButton!
+    @IBOutlet weak var etcCateWtButton: UIButton!
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
@@ -102,13 +114,26 @@ class EditPostViewController: UIViewController {
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
+    
+    
+    @IBAction func etcCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 4
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
+    }
+    
+    
     let timestamp = Int(Date().timeIntervalSince1970)
     
     @IBAction func uploadButton_Click(_ sender: Any) {
@@ -153,6 +178,21 @@ class EditPostViewController: UIViewController {
         for var word in words! {
             if word.hasPrefix("#"){
                 word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                if word.contains(".") {
+                    word = word.replacingOccurrences(of: ".", with: "")
+                }
+                if word.contains("[") {
+                    word = word.replacingOccurrences(of: "[", with: "")
+                }
+                if word.contains("]") {
+                    word = word.replacingOccurrences(of: "]", with: "")
+                }
+                if word.contains("(") {
+                    word = word.replacingOccurrences(of: "(", with: "")
+                }
+                if word.contains(")") {
+                    word = word.replacingOccurrences(of: "(", with: "")
+                }
                 let newHasfTagReF = Api.HashTag.REF_HASHTAG.child(word.lowercased())
                 newHasfTagReF.updateChildValues([newPostId: true])
             }
@@ -161,6 +201,7 @@ class EditPostViewController: UIViewController {
         let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
         let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
         let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
+        let postIntoCateEtc = Api.Category.REF_CATEGORY_ETC
         
         
         var categoryText = ""
@@ -170,8 +211,10 @@ class EditPostViewController: UIViewController {
             postIntoCateAca.child(newPostId).removeValue()
         } else if originalCate == 2 {
             postIntoCateEmpl.child(newPostId).removeValue()
-        } else {
+        } else if originalCate == 3{
             postIntoCateLan.child(newPostId).removeValue()
+        } else {
+            postIntoCateEtc.child(newPostId).removeValue()
         }
         
         if selectedCate == 1 {
@@ -186,6 +229,10 @@ class EditPostViewController: UIViewController {
         else if selectedCate == 3 {
             categoryText = "어학"
             postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+        }
+        else if selectedCate == 4 {
+            categoryText = "기타"
+            postIntoCateEtc.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
         }
         
         
