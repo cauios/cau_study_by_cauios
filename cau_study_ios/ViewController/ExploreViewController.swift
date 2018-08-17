@@ -148,6 +148,8 @@ class ExploreViewController: UIViewController {
         etcLineView.backgroundColor = UIColor.darkGray
         posts = [Post]()
         self.exploreTableView.reloadData()
+        loadEtcPost()
+
     }
     
     
@@ -329,6 +331,18 @@ class ExploreViewController: UIViewController {
         })
     }
     
+    func loadEtcPost() {
+        
+        Api.Category.REF_CATEGORY_ETC.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+    }
    
     
     

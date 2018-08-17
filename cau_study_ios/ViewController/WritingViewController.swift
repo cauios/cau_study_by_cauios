@@ -23,11 +23,11 @@ class WritingViewController: UIViewController, dismissHandler {
     // [0729 Dahye]
     let segSelected = 1
     var delegate: dismissHandler?
-
+    
     
     // [0729 Dahye]
     func showAllCateAfterDismiss() {
-  
+        
     }
     
     
@@ -37,7 +37,7 @@ class WritingViewController: UIViewController, dismissHandler {
     
     @IBOutlet weak var titleTextField: UITextField!
     //@IBOutlet weak var categoryTextField: UITextField!
-
+    
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var numOfVacanTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
@@ -51,36 +51,36 @@ class WritingViewController: UIViewController, dismissHandler {
     @IBOutlet weak var acaCateWtButton: UIButton!
     @IBOutlet weak var empCateWtButton: UIButton!
     @IBOutlet weak var lanCateWtButton: UIButton!
-    @IBOutlet weak var extCateWtButton: UIButton!
+    @IBOutlet weak var etcCateWtButton: UIButton!
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 2
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
-        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
-    @IBAction func extCateWtTouchUpInside(_ sender: Any) {
+    @IBAction func etcCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 4
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
     }
     
     
@@ -94,12 +94,12 @@ class WritingViewController: UIViewController, dismissHandler {
         ProgressHUD.show("Waiting...", interaction: false) // [D.C] when user hit the button, this message will show up first to present it's in the middle of processing
         self.sendDataToDatabase()
         // [0807] Mute this function call because it works with viewWillDisappear too.
-//        if delegate != nil {
-//            delegate?.showAllCateAfterDismiss()
-//        }
+        //        if delegate != nil {
+        //            delegate?.showAllCateAfterDismiss()
+        //        }
         self.dismiss(animated: true, completion: nil)
         
-
+        
     }
     
     func sendDataToDatabase() {
@@ -145,12 +145,12 @@ class WritingViewController: UIViewController, dismissHandler {
         let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
         let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
         let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
-        let postIntoCateExt = Api.Category.REF_CATEGORY_EXTRA
+        let postIntoCateEtc = Api.Category.REF_CATEGORY_ETC
         
         
         var categoryText = ""
         
-
+        
         if selectedCate == 1 {
             categoryText = "학업"
             postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
@@ -166,11 +166,9 @@ class WritingViewController: UIViewController, dismissHandler {
         }
         else if selectedCate == 4 {
             categoryText = "기타"
-            postIntoCateExt.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            postIntoCateEtc.updateChildValues([newPostId: true]) // [0816 Dahye] Add info of postId into Category node on DB
         }
         
-    
-
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
         // value of "timestamp" would be self.timestamp or timestamp
@@ -190,7 +188,7 @@ class WritingViewController: UIViewController, dismissHandler {
                     ProgressHUD.showError(error!.localizedDescription)
                     return
                 }
-            
+                
             })
             
             
@@ -221,7 +219,7 @@ class WritingViewController: UIViewController, dismissHandler {
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -247,8 +245,8 @@ class WritingViewController: UIViewController, dismissHandler {
     
     // [Dahye comment] Implement this method, to set the condtion where the 'upload' button can be activated. I set only when all components of the writing view have to be filled in, users can upload the post. When the button is light blue, it means it's activated and when it is lightgray it means it's disabled. Using handleTextField() method and textFieldDidChange introduced in Lec.34(from 5:28 ~). ***Note that*** description hasn't been contained here. We should fix it later.
     
-
-
+    
+    
     
     func handleTextField() {
         titleTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControlEvents.editingChanged)
@@ -259,11 +257,11 @@ class WritingViewController: UIViewController, dismissHandler {
     }
     
     @objc func textFieldDidChange() {
-         guard let titleText = titleTextField.text, !titleText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let timeText = timeTextField.text, !timeText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty
+        guard let titleText = titleTextField.text, !titleText.isEmpty, let tagsText = tagsTextField.text, !tagsText.isEmpty, let numOfVacanText = numOfVacanTextField.text, !numOfVacanText.isEmpty, let timeText = timeTextField.text, !timeText.isEmpty, let locationText = locationTextField.text, !locationText.isEmpty
             else {
-            uploadButton.tintColor = .lightGray
-            uploadButton.isEnabled = false
-            return
+                uploadButton.tintColor = .lightGray
+                uploadButton.isEnabled = false
+                return
         }
         uploadButton.tintColor = UIColor(red: 0.0, green: 122/255, blue: 1.0, alpha: 1)
         uploadButton.isEnabled = true
@@ -271,18 +269,18 @@ class WritingViewController: UIViewController, dismissHandler {
         
     }
     
-
+    
     
     // [Dahye comment] When user finished with typing, hide the keyboard right away. This method detects the touch on the view, then resgin the first responder if there is a touch.
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        view.endEditing(true)
-//    }
+    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //        view.endEditing(true)
+    //    }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
-                self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize.height)
-                
+            self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize.height)
+            
             
         }
     }
@@ -290,13 +288,13 @@ class WritingViewController: UIViewController, dismissHandler {
     @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             
-                self.scrollView.contentOffset = CGPoint(x:0,y:0)
+            self.scrollView.contentOffset = CGPoint(x:0,y:0)
             
         }
     }
-
+    
 }
 
 extension WritingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
 }

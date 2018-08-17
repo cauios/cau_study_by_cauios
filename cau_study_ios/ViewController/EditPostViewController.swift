@@ -198,7 +198,7 @@ class EditPostViewController: UIViewController {
         let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
         let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
         let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
-        let postIntoCateExt = Api.Category.REF_CATEGORY_EXTRA
+        let postIntoCateExt = Api.Category.REF_CATEGORY_ETC
         
         
         var categoryText = ""

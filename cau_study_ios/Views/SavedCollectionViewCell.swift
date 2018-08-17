@@ -34,8 +34,10 @@ class SavedCollectionViewCell: UICollectionViewCell {
                 saveCategory.image = UIImage(named: "collan")
             case "학업":
                 saveCategory.image = UIImage(named: "colstu")
-            default:
+            case "취업":
                 saveCategory.image = UIImage(named: "coljob")
+            default:
+                saveCategory.image = UIImage(named: "mintbutton")
             }
         } else {
             switch post?.category {
@@ -43,8 +45,10 @@ class SavedCollectionViewCell: UICollectionViewCell {
                 saveCategory.image = UIImage(named: "fincollan")
             case "학업":
                 saveCategory.image = UIImage(named: "fincolstu")
-            default:
+            case "취업":
                 saveCategory.image = UIImage(named: "fincoljob")
+            default:
+                saveCategory.image = UIImage(named: "fincatetc")
             }
         }
 
