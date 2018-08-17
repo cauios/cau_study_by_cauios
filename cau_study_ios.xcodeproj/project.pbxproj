@@ -639,7 +639,7 @@
 				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.cau.bro.ac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "cau_study_ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -659,7 +659,7 @@
 				DEVELOPMENT_TEAM = R3HX269778;
 				INFOPLIST_FILE = cau_study_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.cau.bro;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.cau.bro.ac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "cau_study_ios-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

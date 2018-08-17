@@ -13,7 +13,7 @@ class CategoryApi {
     var REF_CATEGORY_ACADEMIC = Database.database().reference().child("category").child("academic")
     var REF_CATEGORY_EMPLPREP = Database.database().reference().child("category").child("emplprep")
     var REF_CATEGORY_LANGUAGE = Database.database().reference().child("category").child("language")
-    var REF_CATEGORY_ETC = Database.database().reference().child("category").child("etc")
+    var REF_CATEGORY_EXTRA = Database.database().reference().child("category").child("extra")
 
     func observeAcaPosts(completion: @escaping (Post) -> Void) {
         REF_CATEGORY_ACADEMIC.observe(.childAdded) { (snapshot: DataSnapshot) in
@@ -35,6 +35,15 @@ class CategoryApi {
     
     func observeLanPosts(completion: @escaping (Post) -> Void) {
         REF_CATEGORY_LANGUAGE.observe(.childAdded) { (snapshot: DataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPost(dicr: dict, key: snapshot.key)
+                completion(newPost)
+            }
+        }
+    }
+    
+    func observeExtPosts(completion: @escaping (Post) -> Void) {
+        REF_CATEGORY_EXTRA.observe(.childAdded) { (snapshot: DataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let newPost = Post.transformPost(dicr: dict, key: snapshot.key)
                 completion(newPost)
