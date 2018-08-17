@@ -10,10 +10,12 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import TBEmptyDataSet
 
 class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var chattableview: UITableView!
+    @IBOutlet weak var chat: UITableView!
     
     var uid: String!
     var chatrooms : [ChatModel]! = []
@@ -21,6 +23,10 @@ class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chat.emptyDataSetDataSource = self
+        chat.emptyDataSetDelegate = self
+        
         addNavBarImage() // [0809 Dahye] call func to show navilogo 
         self.uid = Auth.auth().currentUser?.uid
         self.getChatroomsList()
@@ -133,6 +139,41 @@ class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
+
+    extension ChatRoomsViewController: TBEmptyDataSetDataSource {
+        
+        func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
+            return resizeImage(image: UIImage(named: "chat_placeholder")!, newWidth: 200)
+        }
+        func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+            
+            let scale = newWidth / image.size.width
+            let newHeight = image.size.height * scale
+            UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+            image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+            
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return newImage
+        }
+        
+        func descriptionForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
+            return NSAttributedString(string: "마음에드는 포스트에서\n메세지 보내기를 눌러\n채팅을 시작해보세요.")
+            
+        }
+        
+        func verticalSpacesForEmptyDataSet(in scrollView: UIScrollView) -> [CGFloat] {
+            return [50]
+        }
+        
+    }
+    
+
+    extension ChatRoomsViewController: TBEmptyDataSetDelegate {
+        func emptyDataSetShouldDisplay(in scrollView: UIScrollView) -> Bool {
+            return chatrooms.count == 0
+        }
+        
+    }

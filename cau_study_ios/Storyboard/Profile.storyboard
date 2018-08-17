@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -196,14 +196,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHR-sh-eKf">
                                                     <rect key="frame" x="8" y="2" width="88" height="97.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finicon" translatesAutoresizingMaskIntoConstraints="NO" id="ey3-rs-NAt">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ey3-rs-NAt">
                                                             <rect key="frame" x="58" y="0.0" width="22" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="22" id="me3-tY-eES"/>
                                                                 <constraint firstAttribute="height" constant="26" id="qJG-0Z-kLr"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마감" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-AO-u68">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSZ-AO-u68">
                                                             <rect key="frame" x="60" y="5" width="18" height="12"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="18" id="cee-Sp-V9O"/>
@@ -643,7 +643,6 @@
         <image name="blanksetting" width="25" height="25"/>
         <image name="catstulogo" width="28" height="28"/>
         <image name="edit" width="30" height="29"/>
-        <image name="finicon" width="34" height="40"/>
         <image name="onprofile" width="27" height="27"/>
         <image name="unactiveCheck" width="28" height="28"/>
         <image name="unprofile" width="27" height="27"/>

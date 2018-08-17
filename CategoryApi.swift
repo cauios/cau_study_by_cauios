@@ -13,6 +13,7 @@ class CategoryApi {
     var REF_CATEGORY_ACADEMIC = Database.database().reference().child("category").child("academic")
     var REF_CATEGORY_EMPLPREP = Database.database().reference().child("category").child("emplprep")
     var REF_CATEGORY_LANGUAGE = Database.database().reference().child("category").child("language")
+    var REF_CATEGORY_ETC = Database.database().reference().child("category").child("etc")
 
     func observeAcaPosts(completion: @escaping (Post) -> Void) {
         REF_CATEGORY_ACADEMIC.observe(.childAdded) { (snapshot: DataSnapshot) in

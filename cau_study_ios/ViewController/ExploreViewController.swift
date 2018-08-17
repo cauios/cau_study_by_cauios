@@ -14,14 +14,15 @@ import SDWebImage
 
 
 class ExploreViewController: UIViewController {
-
- 
+    
+    
     @IBAction func writeTouchUpInside(_ sender: Any) {
-       
+        
     }
+    var selectedCellId: String?
     
     //
-
+    
     @IBOutlet weak var exploreTableView: UITableView!
     var posts = [Post]()
     var users = [User]()
@@ -31,21 +32,22 @@ class ExploreViewController: UIViewController {
     var lanPosts = [Post]()
     //
     
-
+    
     var post: Post?
     
     var selectedSeg: Int?
-
-//[0802]
+    
+    //[0802]
     var timer = Timer()
     let delay = 0.2
     
     // [0729 Dahye] Outlets for buttons
-
+    
     @IBOutlet weak var allCateButton: UIButton!
     @IBOutlet weak var acaCateButton: UIButton!
     @IBOutlet weak var empCateButton: UIButton!
     @IBOutlet weak var lanCateButton: UIButton!
+    @IBOutlet weak var etcCateButton: UIButton!
     
     // [0807 Dahye]
     
@@ -53,18 +55,22 @@ class ExploreViewController: UIViewController {
     @IBOutlet weak var acaLineView: UIView!
     @IBOutlet weak var empLineView: UIView!
     @IBOutlet weak var lanLineView: UIView!
+    @IBOutlet weak var etcLineView: UIView!
     
-     // [0729 Dahye] Actions for buttons
+    
+    // [0729 Dahye] Actions for buttons
     @IBAction func allCateTouchUpInside(_ sender: Any) {
         selectedSeg = 1
         allCateButton.setTitleColor(UIColor.black, for: .normal)
         acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        etcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         allLineView.backgroundColor = UIColor.darkGray
         acaLineView.backgroundColor = UIColor.clear
         empLineView.backgroundColor = UIColor.clear
         lanLineView.backgroundColor = UIColor.clear
+        etcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
@@ -74,8 +80,8 @@ class ExploreViewController: UIViewController {
             })
             
         })
-           // self.exploreTableView.reloadData()
-
+        // self.exploreTableView.reloadData()
+        
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
         selectedSeg = 2
@@ -83,10 +89,12 @@ class ExploreViewController: UIViewController {
         acaCateButton.setTitleColor(UIColor.black, for: .normal)
         empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        etcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         allLineView.backgroundColor = UIColor.clear
         acaLineView.backgroundColor = UIColor.darkGray
         empLineView.backgroundColor = UIColor.clear
         lanLineView.backgroundColor = UIColor.clear
+        etcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.exploreTableView.reloadData()
         loadAcaPost()
@@ -99,10 +107,12 @@ class ExploreViewController: UIViewController {
         acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         empCateButton.setTitleColor(UIColor.black, for: .normal)
         lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        etcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         allLineView.backgroundColor = UIColor.clear
         acaLineView.backgroundColor = UIColor.clear
         empLineView.backgroundColor = UIColor.darkGray
         lanLineView.backgroundColor = UIColor.clear
+        etcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.exploreTableView.reloadData()
         loadEmpPost()
@@ -113,15 +123,35 @@ class ExploreViewController: UIViewController {
         acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         lanCateButton.setTitleColor(UIColor.black, for: .normal)
+        etcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         allLineView.backgroundColor = UIColor.clear
         acaLineView.backgroundColor = UIColor.clear
         empLineView.backgroundColor = UIColor.clear
         lanLineView.backgroundColor = UIColor.darkGray
+        etcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
         self.exploreTableView.reloadData()
         loadLanPost()
-}
-
+    }
+    
+    @IBAction func etcCateTouchUpInside(_ sender: Any) {
+        selectedSeg = 5
+        allCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        etcCateButton.setTitleColor(UIColor.black, for: .normal)
+        allLineView.backgroundColor = UIColor.clear
+        acaLineView.backgroundColor = UIColor.clear
+        empLineView.backgroundColor = UIColor.clear
+        lanLineView.backgroundColor = UIColor.clear
+        etcLineView.backgroundColor = UIColor.darkGray
+        posts = [Post]()
+        self.exploreTableView.reloadData()
+        loadEtcPost()
+    }
+    
+    
     
     override func viewDidLoad() {
         selectedSeg = 1
@@ -129,16 +159,18 @@ class ExploreViewController: UIViewController {
         acaCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         empCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         lanCateButton.setTitleColor(UIColor.lightGray, for: .normal)
+        etcCateButton.setTitleColor(UIColor.lightGray, for: .normal)
         allLineView.backgroundColor = UIColor.darkGray
         acaLineView.backgroundColor = UIColor.clear
         empLineView.backgroundColor = UIColor.clear
         lanLineView.backgroundColor = UIColor.clear
+        etcLineView.backgroundColor = UIColor.clear
         super.viewDidLoad()
         addNavBarImage()
         exploreTableView.dataSource = self
-
+        
         loadPost()
-       // self.exploreTableView.reloadData()
+        // self.exploreTableView.reloadData()
     }
     
     
@@ -152,33 +184,33 @@ class ExploreViewController: UIViewController {
                 self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
-
+            
         })
         //self.exploreTableView.reloadData()
-
         
-     //    Dahye: reload posts after deletion of post in profileView is operated
+        
+        //    Dahye: reload posts after deletion of post in profileView is operated
         Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
                 self.exploreTableView.reloadData()
-        }
+            }
         })
-
-     //  saved에서 하트를 두번 눌러서 제거되면 saved api에서 확인해서 바로 explore 하트에도 이를 반영한다.
+        
+        //  saved에서 하트를 두번 눌러서 제거되면 saved api에서 확인해서 바로 explore 하트에도 이를 반영한다.
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             self.exploreTableView.reloadData()
             self.removeRedDotAtTabBarItemIndex(index: 2)
             
             
-
+            
         })
-
+        
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {snap in
             self.exploreTableView.reloadData()
             self.addRedDotAtTabBarItemIndex(index: 2)
-
+            
         })
     }
     //hohyun: badge saved item
@@ -255,7 +287,7 @@ class ExploreViewController: UIViewController {
     }
     
     
-
+    
     //[0728 Dahye] load Academic Posts
     func loadAcaPost() {
         Api.Category.REF_CATEGORY_ACADEMIC.observe(.childAdded, with: {
@@ -267,8 +299,8 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
-
-}
+        
+    }
     //
     
     //[0728 Dahye] load Employment Preperation Posts
@@ -283,10 +315,10 @@ class ExploreViewController: UIViewController {
             })
         })
     }
-
- //[0728 Dahye] load Language Posts
+    
+    //[0728 Dahye] load Language Posts
     func loadLanPost() {
-
+        
         Api.Category.REF_CATEGORY_LANGUAGE.observe(.childAdded, with: {
             snapshot in
             print(snapshot.key)
@@ -297,8 +329,21 @@ class ExploreViewController: UIViewController {
             })
         })
     }
-
-
+    
+    func loadEtcPost() {
+        
+        Api.Category.REF_CATEGORY_ETC.observe(.childAdded, with: {
+            snapshot in
+            print(snapshot.key)
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+        })
+    }
+    
+    
     
     
     func fetchUser(uid: String, completed: @escaping() -> Void) {
@@ -322,7 +367,7 @@ class ExploreViewController: UIViewController {
             writingVC.delegate = self
         }
     }
-                      
+    
     
     // [Dahye Comment] This is to create an image title of a Navigation Bar.
     
@@ -340,7 +385,7 @@ class ExploreViewController: UIViewController {
         
         imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
         imageView.contentMode = .scaleAspectFit
-
+        
         navigationItem.titleView = imageView
         
     }
@@ -352,7 +397,7 @@ class ExploreViewController: UIViewController {
     }
     
     
-
+    
 }
 
 
@@ -364,26 +409,23 @@ extension ExploreViewController: UITableViewDataSource {
     // [Dahye Comment] how many cells?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /* original
-        return posts.count
- */
+         return posts.count
+         */
         if selectedSeg == 1 {
-            print(posts.count, "count all")
             return posts.count
         }
         if selectedSeg == 2 {
-
-            print(posts.count, "count aca")
             return posts.count
         }
         if selectedSeg == 3 {
-            print(posts.count, "count emp")
             return posts.count
         }
         if selectedSeg == 4 {
-            print(posts.count, "count lan")
+            return posts.count
+        }
+        if selectedSeg == 5 {
             return posts.count
         } else {
-            print("return nothing")
             return 0
         }
         
@@ -391,62 +433,64 @@ extension ExploreViewController: UITableViewDataSource {
     
     // [Dahye Comment] What does the each cell look like?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         
         // [0730 Dahye]
         let cell = exploreTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! ExploreTableViewCell
         let cell2 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellAca", for: indexPath) as! ExploreTableViewCell
         let cell3 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEmp", for: indexPath) as! ExploreTableViewCell
         let cell4 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellLan", for: indexPath) as! ExploreTableViewCell
+         let cell5 = exploreTableView.dequeueReusableCell(withIdentifier: "PostCellEtc", for: indexPath) as! ExploreTableViewCell
         let post = posts[indexPath.row]
         
         
         
         if selectedSeg == 1 {
             cell.post = post
-            print("cell")
             cell.delegate = self
-            print("cell.deleg")
             return cell
         }
         if selectedSeg == 2 {
             cell2.post = post
-            print("cell2")
             cell2.delegate = self
-            print("cell2.deleg")
             return cell2
         }
         if selectedSeg == 3 {
             cell3.post = post
-            print("cell3")
             cell3.delegate = self
-            print("cell3,deleg")
             return cell3
-        } else {
+        }
+        if selectedSeg == 4 {
             cell4.post = post
-            print("cell4")
             cell4.delegate = self
-            print("cell4.deleg")
             return cell4
-        }
-        /*
-        if selectedSeg == 1 {
-            return cell
-        }
-        if selectedSeg == 2 {
-            return cell2
-        }
-        if selectedSeg == 3 {
-            return cell3
         } else {
-            return cell4
+            cell5.post = post
+            cell5.delegate = self
+            return cell5
         }
-        */
-
- 
-
-        
     }
+    
+    func editedPost() {
+        guard let selectedCellId = self.selectedCellId else {
+            return
+        }
+        for (index,post) in posts.enumerated() {
+            if post.id == selectedCellId {
+                Api.Post.observePost(withId: selectedCellId, completion: {post in
+                    self.posts[index] = post
+                    self.exploreTableView.reloadData()
+                })
+                
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        editedPost()
+    }
+    
 }
 
 
@@ -455,13 +499,14 @@ extension ExploreViewController: ExploreTableViewCellDelegate {
     // [Dahye 05.20] this sender will actually be passed to prepare for segue method.
     func goToPostVC(postId: String) {
         performSegue(withIdentifier: "Open_PostSegue", sender: postId)
+        self.selectedCellId = postId
     }
     
 }
 
 extension ExploreViewController: dismissHandler {
     func showAllCateAfterDismiss() {
-       // timer.invalidate()
+        // timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
         print("Connected with writingView")
     }
@@ -469,6 +514,6 @@ extension ExploreViewController: dismissHandler {
     @objc func delayedAction() {
         allCateButton.sendActions(for: .touchUpInside)
     }
-
+    
 }
 
