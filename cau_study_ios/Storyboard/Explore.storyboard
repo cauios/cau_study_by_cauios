@@ -684,7 +684,7 @@
                                         <rect key="frame" x="0.0" y="520" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bgr-SJ-l7w" id="Tew-kb-0UB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKL-V8-QX4">
@@ -1552,7 +1552,7 @@
                                         <rect key="frame" x="0.0" y="520" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1CX-tn-DGc" id="KWC-Dr-OxM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geZ-HM-6nD">
