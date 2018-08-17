@@ -41,28 +41,24 @@ class EditPostViewController: UIViewController {
             acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-            etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else if self.post?.category == "취업" {
             originalCate = 2
             selectedCate = 2
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-             etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else if self.post?.category == "어학" {
             originalCate = 3
             selectedCate = 3
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
-            etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         } else {
             originalCate = 4
             selectedCate = 4
             acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
             lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-            etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
         }
     }
     
@@ -99,14 +95,13 @@ class EditPostViewController: UIViewController {
     @IBOutlet weak var acaCateWtButton: UIButton!
     @IBOutlet weak var empCateWtButton: UIButton!
     @IBOutlet weak var lanCateWtButton: UIButton!
-    @IBOutlet weak var etcCateWtButton: UIButton!
+    @IBOutlet weak var extCateWtButton: UIButton!
     
     @IBAction func acaCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 1
         acaCateWtButton.setBackgroundImage(UIImage(named: "bluebutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
     @IBAction func empCateWtTouchUpInside(_ sender: Any) {
@@ -114,14 +109,12 @@ class EditPostViewController: UIViewController {
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "pinkbutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     @IBAction func lanCateWtTouchUpInside(_ sender: Any) {
         selectedCate = 3
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "yellowbutton"), for: .normal)
-        etcCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
     }
     
     
@@ -130,10 +123,14 @@ class EditPostViewController: UIViewController {
         acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
         lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
-        etcCateWtButton.setBackgroundImage(UIImage(named: "mintbutton"), for: .normal)
     }
-    
-    
+    @IBAction func extCateWtTouchUpInside(_ sender: Any) {
+        selectedCate = 3
+        acaCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        empCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        lanCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+        extCateWtButton.setBackgroundImage(UIImage(named: "greybutton"), for: .normal)
+    }
     let timestamp = Int(Date().timeIntervalSince1970)
     
     @IBAction func uploadButton_Click(_ sender: Any) {
@@ -201,7 +198,7 @@ class EditPostViewController: UIViewController {
         let postIntoCateAca = Api.Category.REF_CATEGORY_ACADEMIC
         let postIntoCateEmpl = Api.Category.REF_CATEGORY_EMPLPREP
         let postIntoCateLan = Api.Category.REF_CATEGORY_LANGUAGE
-        let postIntoCateEtc = Api.Category.REF_CATEGORY_ETC
+        let postIntoCateExt = Api.Category.REF_CATEGORY_EXTRA
         
         
         var categoryText = ""
@@ -211,11 +208,12 @@ class EditPostViewController: UIViewController {
             postIntoCateAca.child(newPostId).removeValue()
         } else if originalCate == 2 {
             postIntoCateEmpl.child(newPostId).removeValue()
-        } else if originalCate == 3{
+        } else if originalCate == 3 {
             postIntoCateLan.child(newPostId).removeValue()
         } else {
-            postIntoCateEtc.child(newPostId).removeValue()
+            postIntoCateExt.child(newPostId).removeValue()
         }
+        
         
         if selectedCate == 1 {
             categoryText = "학업"
@@ -232,8 +230,9 @@ class EditPostViewController: UIViewController {
         }
         else if selectedCate == 4 {
             categoryText = "기타"
-            postIntoCateEtc.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            postIntoCateExt.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB [0814] hohyun extra category
         }
+        
         
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
