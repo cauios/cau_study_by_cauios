@@ -32,9 +32,9 @@ class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
         case "jobBtn":
             let secondVC = segue.destination as! PostRoomViewController
             secondVC.data = "jobBtn"
-        case "finBtn":
+        case "etcBtn":
             let secondVC = segue.destination as! PostRoomViewController
-            secondVC.data = "finBtn"
+            secondVC.data = "etcBtn"
         default:
             break
         }

@@ -41,9 +41,9 @@ class PostRoomViewController: UIViewController {
         case "jobBtn":
             loadEmpPost()
             self.title = "취업"
-        case "finBtn":
-            loadFinPost()
-            self.title = "마감"
+        case "etcBtn":
+            loadEtcPost()
+            self.title = "기타"
         default:
             break
         }
@@ -83,37 +83,7 @@ class PostRoomViewController: UIViewController {
     }
 
 
-    func loadFinPost() {
-        guard let currentUser = Auth.auth().currentUser else {
-            return
-        }
-        //추가된 포스트 리로드
-        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
-            snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: {
-                post in
-                if post.wanted == false{
-                self.posts.insert(post, at: 0)
-                self.collectionView.reloadData()
-                }
-            })
-            
-            
-        })
-        //삭제된 포스트 리로드
 
-        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
-            let snapId = snap.key
-            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                if self.post?.wanted == false{
-                self.posts.remove(at: index)
-                self.collectionView.reloadData()
-                }
-            }
-            
-        })
-        
-    }
 
     
     func loadAcaPost() {
@@ -125,11 +95,10 @@ class PostRoomViewController: UIViewController {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
-                if post.wanted == true{
                     if post.category == "학업"{
                     self.posts.insert(post, at: 0)
                     self.collectionView.reloadData()
-                    }
+                    
                 }
             })
             
@@ -140,10 +109,9 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                if self.post?.wanted == true{
                     if self.post?.category == "학업"{                    self.posts.remove(at: index)
                     self.collectionView.reloadData()
-                }
+                
                 }
             }
             
@@ -162,11 +130,10 @@ class PostRoomViewController: UIViewController {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
-                if post.wanted == true{
                     if post.category == "취업"{
                         self.posts.insert(post, at: 0)
                         self.collectionView.reloadData()
-                    }
+                    
                 }
             })
             
@@ -177,11 +144,10 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                if self.post?.wanted == true{
                     if self.post?.category == "취업"{                    self.posts.remove(at: index)
                         self.collectionView.reloadData()
                     }
-                }
+                
             }
             
         })
@@ -197,11 +163,10 @@ class PostRoomViewController: UIViewController {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: {
                 post in
-                if post.wanted == true{
                     if post.category == "어학"{
                         self.posts.insert(post, at: 0)
                         self.collectionView.reloadData()
-                    }
+                    
                 }
             })
             
@@ -212,15 +177,47 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                if self.post?.wanted == true{
                     if self.post?.category == "어학"{                    self.posts.remove(at: index)
                         self.collectionView.reloadData()
-                    }
+                    
                 }
             }
             
         })
     }
+    
+    func loadEtcPost() {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        //추가된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
+            snapshot in
+            Api.Post.observePost(withId: snapshot.key, completion: {
+                post in
+                if post.category == "기타"{
+                    self.posts.insert(post, at: 0)
+                    self.collectionView.reloadData()
+                    
+                }
+            })
+            
+            
+        })
+        //삭제된 포스트 리로드
+        
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                if self.post?.category == "취업"{                    self.posts.remove(at: index)
+                    self.collectionView.reloadData()
+                }
+                
+            }
+            
+        })
+    }
+
     
 
     
