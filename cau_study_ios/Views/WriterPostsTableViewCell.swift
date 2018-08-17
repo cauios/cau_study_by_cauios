@@ -100,6 +100,21 @@ class WriterPostsTableViewCell: UITableViewCell {
                 exploreCategoryLabel?.textColor =  UIColor.darkGray
             }
         }
+        if post?.category == "기타" {
+            if post?.wanted == false {
+                writeInfoCateView?.backgroundColor = UIColor(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 1.0)
+                writeInfoFinImageView?.image = #imageLiteral(resourceName: "finicon")
+                writeInfoFinLabel?.text = "마감"
+                writeInfoCateImageView?.image = #imageLiteral(resourceName: "fincatetc")
+                exploreCategoryLabel?.textColor = UIColor.white
+            } else {
+                writeInfoCateView?.backgroundColor = UIColor(red: 202/255.0, green: 248/255.0, blue: 238/255.0, alpha: 1.0)
+                writeInfoFinImageView?.image = nil
+                writeInfoFinLabel?.text = nil
+                writeInfoCateImageView?.image = #imageLiteral(resourceName: "catetc")
+                exploreCategoryLabel?.textColor =  UIColor.darkGray
+            }
+        }
         
         
     }
