@@ -469,23 +469,6 @@ extension ExploreViewController: UITableViewDataSource {
             cell5.delegate = self
             return cell5
         }
-        /*
-         if selectedSeg == 1 {
-         return cell
-         }
-         if selectedSeg == 2 {
-         return cell2
-         }
-         if selectedSeg == 3 {
-         return cell3
-         } else {
-         return cell4
-         }
-         */
-        
-        
-        
-        
     }
     
     func editedPost() {

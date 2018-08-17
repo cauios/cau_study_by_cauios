@@ -300,14 +300,14 @@ class PostViewController: UIViewController {
     func savedSelected() {
         let currentUser = Auth.auth().currentUser
         Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
-        self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+        self.postSavedLikeImageView.image = UIImage(named: "postfull")
         Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
     }
     
     func savedDefault() {
         _ = Auth.auth().currentUser
         Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
-        self.postSavedLikeImageView.image = UIImage(named: "like")
+        self.postSavedLikeImageView.image = UIImage(named: "postlike")
         Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
         self.snackbar_like.show()
     }
@@ -321,7 +321,7 @@ class PostViewController: UIViewController {
                 NSLog("OK Pressed")
                let currentUser = Auth.auth().currentUser
                 Api.User.REF_USERS.child((currentUser?.uid)!).child("saved").child(self.post!.id!).setValue(true)
-                self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                self.postSavedLikeImageView.image = UIImage(named: "postfull")
                 Api.Saved.REF_SAVED.child((currentUser?.uid)!).child(self.post!.id!).setValue(true)
             }))
             // style이 .destructive면 빨간색 text color
@@ -329,7 +329,7 @@ class PostViewController: UIViewController {
                 alertAction in
                 NSLog("Delete Pressed")
                 Api.User.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("saved").child(self.post!.id!).removeValue()
-                self.postSavedLikeImageView.image = UIImage(named: "like")
+                self.postSavedLikeImageView.image = UIImage(named: "postlike")
                 Api.Saved.REF_SAVED.child((Auth.auth().currentUser?.uid)!).child(self.post!.id!).removeValue()
                 self.snackbar_like.show()
         
@@ -356,7 +356,7 @@ class PostViewController: UIViewController {
             Api.User.REF_USERS.child(currentUser.uid).child("saved").child(post!.id!).observeSingleEvent(of: .value) { snapshot in
                 if let _ = snapshot.value as? NSNull {
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).setValue(true)
-                    self.postSavedLikeImageView.image = UIImage(named: "likeSelected")
+                    self.postSavedLikeImageView.image = UIImage(named: "postfull")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).setValue(true)
                     self.snackbar_like_selected.show()
                     self.addRedDotAtTabBarItemIndex(index: 2)
@@ -366,7 +366,7 @@ class PostViewController: UIViewController {
                 else {
                     self.showAlert()
                     Api.User.REF_USERS.child(currentUser.uid).child("saved").child(self.post!.id!).removeValue()
-                    self.postSavedLikeImageView.image = UIImage(named: "like")
+                    self.postSavedLikeImageView.image = UIImage(named: "postlike")
                     Api.Saved.REF_SAVED.child(currentUser.uid).child(self.post!.id!).removeValue()
                     
                     
