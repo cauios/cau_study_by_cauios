@@ -193,10 +193,10 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoE-3e-qZv">
                                                 <rect key="frame" x="175" y="0.0" width="170" height="170"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="170" id="QFP-tM-8M4"/>
-                                                    <constraint firstAttribute="height" constant="170" id="lCR-OF-WHN"/>
+                                                    <constraint firstAttribute="height" constant="170" id="JNF-cg-Nlv"/>
+                                                    <constraint firstAttribute="width" constant="170" id="hwF-9c-7jj"/>
                                                 </constraints>
-                                                <state key="normal" image="fincatetc"/>
+                                                <state key="normal" image="lanetc"/>
                                                 <connections>
                                                     <segue destination="457-UG-6U8" kind="show" identifier="etcBtn" id="K0d-Lc-Iaz"/>
                                                 </connections>
@@ -348,8 +348,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fincatetc" width="28" height="28"/>
         <image name="lancol" width="170" height="170"/>
+        <image name="lanetc" width="547" height="546"/>
         <image name="lanjob" width="170" height="170"/>
         <image name="lanstu" width="170" height="169"/>
         <image name="onlike" width="25" height="25"/>
