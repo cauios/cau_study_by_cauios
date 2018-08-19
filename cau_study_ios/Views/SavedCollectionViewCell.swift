@@ -37,7 +37,7 @@ class SavedCollectionViewCell: UICollectionViewCell {
             case "취업":
                 saveCategory.image = UIImage(named: "coljob")
             default:
-                saveCategory.image = UIImage(named: "mintbutton")
+                saveCategory.image = UIImage(named: "coletc")
             }
         } else {
             switch post?.category {
@@ -48,7 +48,7 @@ class SavedCollectionViewCell: UICollectionViewCell {
             case "취업":
                 saveCategory.image = UIImage(named: "fincoljob")
             default:
-                saveCategory.image = UIImage(named: "fincatetc")
+                saveCategory.image = UIImage(named: "fincoletc")
             }
         }
 
