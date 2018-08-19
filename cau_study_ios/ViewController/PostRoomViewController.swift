@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import TBEmptyDataSet
 
 
     
@@ -29,8 +30,17 @@ class PostRoomViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        collectionView.emptyDataSetDataSource = self
+        collectionView.emptyDataSetDelegate = self
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
+        fetchUser()
         switch data {
         case "lanBtn":
             loadLanPost()
@@ -47,7 +57,6 @@ class PostRoomViewController: UIViewController {
         default:
             break
         }
-        super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,8 +66,7 @@ class PostRoomViewController: UIViewController {
    
  
     
-    
-    
+
     
     
     func fetchUser() {
@@ -95,8 +103,8 @@ class PostRoomViewController: UIViewController {
                     if post.category == "기타"{
                         self.posts.insert(post, at: 0)
                         self.collectionView.reloadData()
-                    
                 }
+
             })
             
             
@@ -109,8 +117,8 @@ class PostRoomViewController: UIViewController {
                     if self.post?.category == "기타"{
                         self.posts.remove(at: index)
                         self.collectionView.reloadData()
-                    
                 }
+
             }
             
         })
@@ -261,6 +269,46 @@ class PostRoomViewController: UIViewController {
 }
 
 
+extension PostRoomViewController: TBEmptyDataSetDataSource {
+    
+    func imageForEmptyDataSet(in scrollView: UIScrollView) -> UIImage? {
+        return resizeImage(image: UIImage(named: "saved_placeholder")!, newWidth: 200)
+    }
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
+    func descriptionForEmptyDataSet(in scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "첫 블록으로\n나만의 컬렉션을\n시작해보세요.")
+        
+    }
+    
+    func verticalSpacesForEmptyDataSet(in scrollView: UIScrollView) -> [CGFloat] {
+        return [50]
+    }
+    
+    
+    
+}
+
+
+
+
+extension PostRoomViewController: TBEmptyDataSetDelegate {
+    func emptyDataSetShouldDisplay(in scrollView: UIScrollView) -> Bool {
+        return posts.count == 0
+    }
+    
+}
 
 extension PostRoomViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -305,3 +353,4 @@ extension PostRoomViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
