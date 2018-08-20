@@ -107,6 +107,8 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     view.imageview_profile.image = UIImage(data: data!)
                     view.imageview_profile.layer.cornerRadius = view.imageview_profile.frame.width/2
                     view.imageview_profile.clipsToBounds = true
+                    view.imageview_profile.contentMode = UIViewContentMode.scaleAspectFill
+
                 }
             }).resume()
             
