@@ -60,6 +60,7 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Xlh-XA-C7S" secondAttribute="trailing" constant="12" id="4Ks-AA-INx"/>
                                             <constraint firstItem="Xlh-XA-C7S" firstAttribute="centerX" secondItem="HJ5-W5-Paz" secondAttribute="centerX" id="7nO-Nf-XG8"/>
                                             <constraint firstItem="Xlh-XA-C7S" firstAttribute="centerY" secondItem="HJ5-W5-Paz" secondAttribute="centerY" id="8Yx-eD-tUO"/>
                                             <constraint firstAttribute="bottom" secondItem="lR6-dY-aQd" secondAttribute="bottom" constant="10" id="9yC-uh-cYb"/>
@@ -69,6 +70,7 @@
                                             <constraint firstItem="aUT-0r-crf" firstAttribute="centerX" secondItem="HJ5-W5-Paz" secondAttribute="centerX" id="QHF-7I-NpG"/>
                                             <constraint firstItem="lR6-dY-aQd" firstAttribute="centerX" secondItem="HJ5-W5-Paz" secondAttribute="centerX" id="eSU-zl-PKX"/>
                                             <constraint firstItem="aUT-0r-crf" firstAttribute="leading" secondItem="HJ5-W5-Paz" secondAttribute="leading" id="ejt-j1-dJc"/>
+                                            <constraint firstAttribute="trailing" secondItem="lR6-dY-aQd" secondAttribute="trailing" constant="12.333333333333343" id="fbh-OQ-tsL"/>
                                             <constraint firstItem="aUT-0r-crf" firstAttribute="top" secondItem="HJ5-W5-Paz" secondAttribute="top" id="u8y-WJ-Nbq"/>
                                         </constraints>
                                         <size key="customSize" width="125" height="125"/>
@@ -283,7 +285,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr8-EP-hT8">
-                                                    <rect key="frame" x="13" y="54" width="100" height="18"/>
+                                                    <rect key="frame" x="12" y="54" width="100" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="XBD-nn-xW0"/>
                                                         <constraint firstAttribute="width" constant="100" id="oa4-7x-2pd"/>
@@ -305,7 +307,7 @@
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="zTy-7R-LSB" secondAttribute="bottom" constant="10" id="5Kl-mz-xZ6"/>
-                                            <constraint firstItem="zTy-7R-LSB" firstAttribute="leading" secondItem="Qa3-qz-dcZ" secondAttribute="leading" constant="13" id="Al3-cF-YIt"/>
+                                            <constraint firstAttribute="trailing" secondItem="fr8-EP-hT8" secondAttribute="trailing" constant="13" id="ATz-kc-ZVy"/>
                                             <constraint firstAttribute="trailing" secondItem="s9U-m0-Ik7" secondAttribute="trailing" id="Dfk-gh-KXN"/>
                                             <constraint firstAttribute="bottom" secondItem="s9U-m0-Ik7" secondAttribute="bottom" id="HYG-KY-AvM"/>
                                             <constraint firstItem="s9U-m0-Ik7" firstAttribute="top" secondItem="Qa3-qz-dcZ" secondAttribute="top" id="JgI-Ii-jXB"/>
