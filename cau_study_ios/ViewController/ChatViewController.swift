@@ -24,6 +24,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var chatRoomUid :String?
     var comments : [ChatModel.Comment] = []
     var destinationUserModel : User?
+    var user: User?
     
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
@@ -172,10 +173,20 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             "Authorization":"key=AIzaSyCdj2mWTNihfWg0LETxeWkZk5k-59Iu4lI"
         ]
         
+        var userName : String = ""
+        
+        Api.User.observeCurrentUser { (user) in
+            self.user = user
+            userName = user.username!
+        }
+        
+        
         var notificationModel = NotificationModel()
         notificationModel.to = destinationUserModel?.pushToken
-        notificationModel.notification.title = "보낸이 ID"
+        notificationModel.notification.title = userName
         notificationModel.notification.text = textField_message.text
+        notificationModel.data.title = userName
+        notificationModel.data.text = textField_message.text
         
         let params = notificationModel.toJSON()
         
