@@ -21,9 +21,6 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet weak var finImage: UIImageView!
-    @IBOutlet weak var finLabel: UILabel!
-    
     var delegate: ExploreTableViewCellDelegate?
     
     func updateView() {
@@ -46,20 +43,12 @@ class PostCollectionViewCell: UICollectionViewCell {
                 switch post?.category {
             case "어학":
                 postCategory.image = UIImage(named: "fincollan")
-                finImage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
             case "학업":
                 postCategory.image = UIImage(named: "fincolstu")
-                finImage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
             case "취업":
                 postCategory.image = UIImage(named: "fincoljob")
-                finImage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
             case "기타":
                     postCategory.image = UIImage(named: "fincoletc")
-                    finImage.image = #imageLiteral(resourceName: "finicon")
-                    finLabel.text = "마감"
                 default: break
             }
 

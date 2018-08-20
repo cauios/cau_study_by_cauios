@@ -16,9 +16,6 @@ class SavedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var saveTags: UILabel!
     @IBOutlet weak var saveCategory: UIImageView!
 
-    @IBOutlet weak var finimage: UIImageView!
-    @IBOutlet weak var finLabel: UILabel!
-    
     var post: Post? {
         didSet {
             updateView()
@@ -35,40 +32,23 @@ class SavedCollectionViewCell: UICollectionViewCell {
             switch post?.category {
             case "어학":
                 saveCategory.image = UIImage(named: "collan")
-                finimage.image = nil
-                finLabel.text = nil
             case "학업":
                 saveCategory.image = UIImage(named: "colstu")
-                finimage.image = nil
-                finLabel.text = nil
             case "취업":
                 saveCategory.image = UIImage(named: "coljob")
-                finimage.image = nil
-                finLabel.text = nil
             default:
                 saveCategory.image = UIImage(named: "coletc")
-                finimage.image = nil
-                finLabel.text = nil
             }
         } else {
             switch post?.category {
             case "어학":
                 saveCategory.image = UIImage(named: "fincollan")
-                finimage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
             case "학업":
                 saveCategory.image = UIImage(named: "fincolstu")
-                finimage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
             case "취업":
                 saveCategory.image = UIImage(named: "fincoljob")
-                finimage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
             default:
                 saveCategory.image = UIImage(named: "fincoletc")
-                finimage.image = #imageLiteral(resourceName: "finicon")
-                finLabel.text = "마감"
-                
             }
         }
 
