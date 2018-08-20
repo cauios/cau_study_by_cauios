@@ -35,6 +35,8 @@ class PostCollectionViewCell: UICollectionViewCell {
                 postCategory.image = UIImage(named: "colstu")
             case "취업":
                 postCategory.image = UIImage(named: "coljob")
+            case "기타":
+                postCategory.image = UIImage(named: "coletc")
             default : break
             }
         }else{
@@ -45,6 +47,8 @@ class PostCollectionViewCell: UICollectionViewCell {
                 postCategory.image = UIImage(named: "fincolstu")
             case "취업":
                 postCategory.image = UIImage(named: "fincoljob")
+            case "기타":
+                    postCategory.image = UIImage(named: "fincoletc")
                 default: break
             }
 

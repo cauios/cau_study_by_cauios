@@ -17,8 +17,9 @@ class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
     var posts = [Post]()
     var user: User!
     
+    @IBOutlet weak var savedScrollView: UIScrollView!
     
-
+    @IBOutlet weak var savedStack: UIStackView!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -32,9 +33,9 @@ class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
         case "jobBtn":
             let secondVC = segue.destination as! PostRoomViewController
             secondVC.data = "jobBtn"
-        case "finBtn":
+        case "etcBtn":
             let secondVC = segue.destination as! PostRoomViewController
-            secondVC.data = "finBtn"
+            secondVC.data = "etcBtn"
         default:
             break
         }
@@ -42,9 +43,16 @@ class PostCollectionViewController: UIViewController,IndicatorInfoProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setPostDescriptionLabelSize()
 
         // Do any additional setup after loading the view.
     }
+    
+    func setPostDescriptionLabelSize() {
+        savedScrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: savedStack.bottomAnchor).isActive = true
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         removeRedDotAtTabBarItemIndex(index: 2)

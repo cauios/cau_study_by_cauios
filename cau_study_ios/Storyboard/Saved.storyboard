@@ -60,6 +60,7 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Xlh-XA-C7S" secondAttribute="trailing" constant="12" id="4Ks-AA-INx"/>
                                             <constraint firstItem="Xlh-XA-C7S" firstAttribute="centerX" secondItem="HJ5-W5-Paz" secondAttribute="centerX" id="7nO-Nf-XG8"/>
                                             <constraint firstItem="Xlh-XA-C7S" firstAttribute="centerY" secondItem="HJ5-W5-Paz" secondAttribute="centerY" id="8Yx-eD-tUO"/>
                                             <constraint firstAttribute="bottom" secondItem="lR6-dY-aQd" secondAttribute="bottom" constant="10" id="9yC-uh-cYb"/>
@@ -69,6 +70,7 @@
                                             <constraint firstItem="aUT-0r-crf" firstAttribute="centerX" secondItem="HJ5-W5-Paz" secondAttribute="centerX" id="QHF-7I-NpG"/>
                                             <constraint firstItem="lR6-dY-aQd" firstAttribute="centerX" secondItem="HJ5-W5-Paz" secondAttribute="centerX" id="eSU-zl-PKX"/>
                                             <constraint firstItem="aUT-0r-crf" firstAttribute="leading" secondItem="HJ5-W5-Paz" secondAttribute="leading" id="ejt-j1-dJc"/>
+                                            <constraint firstAttribute="trailing" secondItem="lR6-dY-aQd" secondAttribute="trailing" constant="12.333333333333343" id="fbh-OQ-tsL"/>
                                             <constraint firstItem="aUT-0r-crf" firstAttribute="top" secondItem="HJ5-W5-Paz" secondAttribute="top" id="u8y-WJ-Nbq"/>
                                         </constraints>
                                         <size key="customSize" width="125" height="125"/>
@@ -111,10 +113,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a9T-AH-WH7" customClass="ButtonBarView" customModule="XLPagerTabStrip">
-                                <rect key="frame" x="0.0" y="88" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Ier-Ye-2zS"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ier-Ye-2zS"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0v3-rL-emK">
                                     <size key="itemSize" width="50" height="50"/>
@@ -125,14 +127,14 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-sk-ZfQ">
-                                <rect key="frame" x="0.0" y="158" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="123" width="375" height="655"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PeM-gf-UyZ" firstAttribute="trailing" secondItem="a9T-AH-WH7" secondAttribute="trailing" id="2GI-4y-Wtt"/>
                             <constraint firstItem="Aho-sk-ZfQ" firstAttribute="trailing" secondItem="PeM-gf-UyZ" secondAttribute="trailing" id="B81-wL-fYn"/>
-                            <constraint firstItem="Aho-sk-ZfQ" firstAttribute="top" secondItem="PeM-gf-UyZ" secondAttribute="top" constant="70" id="IMe-AE-9l5"/>
+                            <constraint firstItem="Aho-sk-ZfQ" firstAttribute="top" secondItem="PeM-gf-UyZ" secondAttribute="top" constant="35" id="IMe-AE-9l5"/>
                             <constraint firstItem="a9T-AH-WH7" firstAttribute="top" secondItem="PeM-gf-UyZ" secondAttribute="top" id="UxS-mg-CIS"/>
                             <constraint firstItem="PeM-gf-UyZ" firstAttribute="bottom" secondItem="Aho-sk-ZfQ" secondAttribute="bottom" id="dif-rJ-3jR"/>
                             <constraint firstItem="Aho-sk-ZfQ" firstAttribute="leading" secondItem="PeM-gf-UyZ" secondAttribute="leading" id="jSu-ji-eQk"/>
@@ -148,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgQ-vf-IZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2231" y="2606"/>
+            <point key="canvasLocation" x="-2231.1999999999998" y="2605.5472263868069"/>
         </scene>
         <!--Post Collection View Controller-->
         <scene sceneID="KGd-TE-2ys">
@@ -158,62 +160,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OyD-bW-Bbc">
-                                <rect key="frame" x="27.666666666666657" y="49" width="345" height="345"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8v-wz-IUb">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Iyf-eb-RzN">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="170"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OyD-bW-Bbc">
+                                        <rect key="frame" x="27" y="5" width="345" height="345"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-Rl-NWj">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
-                                                <state key="normal" image="lancol"/>
-                                                <connections>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="lanBtn" id="gfx-U1-MQT"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-yI-0fE">
-                                                <rect key="frame" x="175" y="0.0" width="170" height="170"/>
-                                                <state key="normal" image="lanstu"/>
-                                                <connections>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="stuBtn" id="cuE-Jt-PIR"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Iyf-eb-RzN">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="170"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-Rl-NWj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                                        <state key="normal" image="lancol"/>
+                                                        <connections>
+                                                            <segue destination="457-UG-6U8" kind="show" identifier="lanBtn" id="gfx-U1-MQT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-yI-0fE">
+                                                        <rect key="frame" x="175" y="0.0" width="170" height="170"/>
+                                                        <state key="normal" image="lanstu"/>
+                                                        <connections>
+                                                            <segue destination="457-UG-6U8" kind="show" identifier="stuBtn" id="cuE-Jt-PIR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ddJ-4h-j6p">
+                                                <rect key="frame" x="0.0" y="175" width="345" height="170"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-3C-Zwm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                                        <state key="normal" image="lanjob"/>
+                                                        <connections>
+                                                            <segue destination="457-UG-6U8" kind="show" identifier="jobBtn" id="uTo-pm-1aM"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoE-3e-qZv">
+                                                        <rect key="frame" x="175" y="0.0" width="170" height="170"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="170" id="JNF-cg-Nlv"/>
+                                                            <constraint firstAttribute="width" constant="170" id="hwF-9c-7jj"/>
+                                                        </constraints>
+                                                        <state key="normal" image="lanetc"/>
+                                                        <connections>
+                                                            <segue destination="457-UG-6U8" kind="show" identifier="etcBtn" id="K0d-Lc-Iaz"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ddJ-4h-j6p">
-                                        <rect key="frame" x="0.0" y="175" width="345" height="170"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-3C-Zwm">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
-                                                <state key="normal" image="lanjob"/>
-                                                <connections>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="jobBtn" id="uTo-pm-1aM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoE-3e-qZv">
-                                                <rect key="frame" x="175" y="0.0" width="170" height="170"/>
-                                                <state key="normal" image="lanfin"/>
-                                                <connections>
-                                                    <segue destination="457-UG-6U8" kind="show" identifier="finBtn" id="K0d-Lc-Iaz"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="345" id="6eV-ky-2ba"/>
+                                            <constraint firstAttribute="width" constant="345" id="QoE-mS-hEV"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="OyD-bW-Bbc" firstAttribute="top" secondItem="g8v-wz-IUb" secondAttribute="top" constant="5" id="6gh-4k-dra"/>
+                                    <constraint firstAttribute="bottom" secondItem="OyD-bW-Bbc" secondAttribute="bottom" id="APL-6T-h0U"/>
+                                    <constraint firstItem="OyD-bW-Bbc" firstAttribute="centerX" secondItem="g8v-wz-IUb" secondAttribute="centerX" id="G3P-Wk-7TR"/>
+                                    <constraint firstAttribute="trailing" secondItem="OyD-bW-Bbc" secondAttribute="trailing" id="P4t-Ve-09H"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OyD-bW-Bbc" firstAttribute="centerX" secondItem="rNf-Ic-9QJ" secondAttribute="centerX" id="T4e-1E-n5I"/>
-                            <constraint firstItem="OyD-bW-Bbc" firstAttribute="top" secondItem="CDd-im-Ebt" secondAttribute="top" constant="5" id="g5f-D9-e9v"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="trailing" secondItem="CDd-im-Ebt" secondAttribute="trailing" id="57A-i6-DBD"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="top" secondItem="rNf-Ic-9QJ" secondAttribute="top" id="58U-O3-mlf"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="centerY" secondItem="rNf-Ic-9QJ" secondAttribute="centerY" id="C5f-u1-cL3"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="top" secondItem="rNf-Ic-9QJ" secondAttribute="top" id="hd2-Ks-yO1"/>
+                            <constraint firstAttribute="bottom" secondItem="g8v-wz-IUb" secondAttribute="bottom" id="kVr-Xz-kxb"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="centerX" secondItem="rNf-Ic-9QJ" secondAttribute="centerX" id="o3j-YY-fon"/>
+                            <constraint firstAttribute="bottom" secondItem="g8v-wz-IUb" secondAttribute="bottom" id="rcg-Ej-LbE"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="leading" secondItem="rNf-Ic-9QJ" secondAttribute="leading" id="t9g-kQ-pGg"/>
+                            <constraint firstAttribute="trailing" secondItem="g8v-wz-IUb" secondAttribute="trailing" id="uQe-je-cEN"/>
+                            <constraint firstItem="g8v-wz-IUb" firstAttribute="leading" secondItem="CDd-im-Ebt" secondAttribute="leading" id="w5j-mH-j7C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CDd-im-Ebt"/>
                     </view>
                     <size key="freeformSize" width="400" height="600"/>
+                    <connections>
+                        <outlet property="savedScrollView" destination="g8v-wz-IUb" id="jYa-ej-LTv"/>
+                        <outlet property="savedStack" destination="OyD-bW-Bbc" id="hIO-9Q-MdM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHq-7n-beT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2862.4000000000001" y="3240.179910044978"/>
+            <point key="canvasLocation" x="-3160" y="3034.729064039409"/>
         </scene>
         <!--PostViewController-->
         <scene sceneID="jfC-60-gaF">
@@ -252,7 +285,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr8-EP-hT8">
-                                                    <rect key="frame" x="13" y="54" width="100" height="18"/>
+                                                    <rect key="frame" x="12" y="54" width="100" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="XBD-nn-xW0"/>
                                                         <constraint firstAttribute="width" constant="100" id="oa4-7x-2pd"/>
@@ -274,7 +307,7 @@
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="zTy-7R-LSB" secondAttribute="bottom" constant="10" id="5Kl-mz-xZ6"/>
-                                            <constraint firstItem="zTy-7R-LSB" firstAttribute="leading" secondItem="Qa3-qz-dcZ" secondAttribute="leading" constant="13" id="Al3-cF-YIt"/>
+                                            <constraint firstAttribute="trailing" secondItem="fr8-EP-hT8" secondAttribute="trailing" constant="13" id="ATz-kc-ZVy"/>
                                             <constraint firstAttribute="trailing" secondItem="s9U-m0-Ik7" secondAttribute="trailing" id="Dfk-gh-KXN"/>
                                             <constraint firstAttribute="bottom" secondItem="s9U-m0-Ik7" secondAttribute="bottom" id="HYG-KY-AvM"/>
                                             <constraint firstItem="s9U-m0-Ik7" firstAttribute="top" secondItem="Qa3-qz-dcZ" secondAttribute="top" id="JgI-Ii-jXB"/>
@@ -310,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ww-yD-EvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2863.1999999999998" y="4082.6086956521744"/>
+            <point key="canvasLocation" x="-3159" y="3814"/>
         </scene>
         <!--PostViewController-->
         <scene sceneID="Ipg-nP-D8R">
@@ -345,13 +378,13 @@
     </scenes>
     <resources>
         <image name="lancol" width="170" height="170"/>
-        <image name="lanfin" width="170" height="170"/>
+        <image name="lanetc" width="547" height="546"/>
         <image name="lanjob" width="170" height="170"/>
         <image name="lanstu" width="170" height="169"/>
         <image name="onlike" width="25" height="25"/>
         <image name="unlike" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gfx-U1-MQT"/>
+        <segue reference="uTo-pm-1aM"/>
     </inferredMetricsTieBreakers>
 </document>

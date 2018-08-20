@@ -78,13 +78,13 @@ class PostViewController: UIViewController {
         //hohyun: updating status bar!!
         snackbar_like_selected.backgroundColor = UIColor.white
         snackbar_like_selected.messageTextColor = .black
-        snackbar_like_selected.actionTextColor = .black
+        snackbar_like_selected.actionTextColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 1)
         snackbar_like_selected.separateViewBackgroundColor = .clear
         snackbar_like_selected.bottomMargin = 50
         
         snackbar_like.backgroundColor = .white
         snackbar_like.messageTextColor = .black
-        snackbar_like.actionTextColor = .black
+        snackbar_like.actionTextColor = UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 1)
         snackbar_like.separateViewBackgroundColor = .clear
         snackbar_like.bottomMargin = 50
 

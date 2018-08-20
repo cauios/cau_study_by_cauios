@@ -169,15 +169,16 @@ class ExploreViewController: UIViewController {
         addNavBarImage()
         exploreTableView.dataSource = self
         
-        loadPost()
-        // self.exploreTableView.reloadData()
+        setExploreView()
+        allCateButton.sendActions(for: .touchUpInside)
     }
     
     
-    func loadPost() {
+    func setExploreView() {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
+        /*
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: { post in
@@ -185,9 +186,7 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
             
-        })
-        //self.exploreTableView.reloadData()
-        
+        })*/
         
         //    Dahye: reload posts after deletion of post in profileView is operated
         Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
