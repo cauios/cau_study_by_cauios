@@ -200,7 +200,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let doNotWanted = doNotWantedAction(at: indexPath)
         let delete = deleteAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [doNotWanted, delete])
+        return UISwipeActionsConfiguration(actions: [delete, doNotWanted])
     }
     
     
