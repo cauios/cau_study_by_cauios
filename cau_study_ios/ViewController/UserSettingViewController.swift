@@ -95,6 +95,8 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
             }
         } else  {
             let selectedCellSecond = serviceList[indexPath.row]
+            performSegue(withIdentifier: "WebViewController", sender: selectedCellSecond)
+            /*
             if selectedCellSecond == "공지사항" {
                 let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 let alertController = UIAlertController(title: nil, message: "업데이트 예정입니다.", preferredStyle: .alert)
@@ -114,8 +116,10 @@ extension UserSettingViewController: UITableViewDelegate, UITableViewDataSource 
                 self.present(alertController, animated: true, completion: nil)
                 
             }
+            */
         }
-        
+ 
+ 
     }
     
 }

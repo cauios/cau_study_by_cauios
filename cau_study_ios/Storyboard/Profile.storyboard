@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -381,6 +381,7 @@
                         <segue destination="190-tN-Mzz" kind="show" identifier="DeleteUserViewController" id="ar7-HC-Sf6"/>
                         <segue destination="RDZ-68-xXh" kind="show" identifier="ChangePasswordViewController" id="zuz-VX-J4s"/>
                         <segue destination="CTj-Ki-Thx" kind="show" identifier="ChangeProfileViewController" id="vBg-CI-lZq"/>
+                        <segue destination="2Mo-q0-Yyk" kind="show" identifier="WebViewController" id="vsw-Mh-FW3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYN-4r-aeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -477,6 +478,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4E7-4u-ty4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1109.5999999999999" y="3475.4122938530736"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="XXo-4f-T4Y">
+            <objects>
+                <viewController id="2Mo-q0-Yyk" customClass="WebViewController" customModule="cau_study_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RmQ-wk-NbV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1On-hu-o8d">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i5A-Es-JCc" firstAttribute="bottom" secondItem="1On-hu-o8d" secondAttribute="bottom" id="8Pw-xg-fiI"/>
+                            <constraint firstItem="1On-hu-o8d" firstAttribute="top" secondItem="i5A-Es-JCc" secondAttribute="top" id="fgQ-5B-S9i"/>
+                            <constraint firstItem="i5A-Es-JCc" firstAttribute="trailing" secondItem="1On-hu-o8d" secondAttribute="trailing" id="kkc-nJ-i5U"/>
+                            <constraint firstItem="1On-hu-o8d" firstAttribute="leading" secondItem="i5A-Es-JCc" secondAttribute="leading" id="vF8-zg-TN1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i5A-Es-JCc"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="1On-hu-o8d" id="I1e-Vl-v8J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zcS-qI-Wao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="3160.5697151424292"/>
         </scene>
         <!--Delete User View Controller-->
         <scene sceneID="ukU-sp-nzi">
