@@ -35,12 +35,20 @@ class SavedCollectionViewCell: UICollectionViewCell {
             switch post?.category {
             case "어학":
                 saveCategory.image = UIImage(named: "collan")
+                finimage.image = nil
+                finLabel.text = nil
             case "학업":
                 saveCategory.image = UIImage(named: "colstu")
+                finimage.image = nil
+                finLabel.text = nil
             case "취업":
                 saveCategory.image = UIImage(named: "coljob")
+                finimage.image = nil
+                finLabel.text = nil
             default:
                 saveCategory.image = UIImage(named: "coletc")
+                finimage.image = nil
+                finLabel.text = nil
             }
         } else {
             switch post?.category {
