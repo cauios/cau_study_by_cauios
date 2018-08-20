@@ -105,6 +105,7 @@ class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewD
                     cell.imageVIEW.image = UIImage(data:data!)
                     cell.imageVIEW.layer.cornerRadius = cell.imageVIEW.frame.width/2
                     cell.imageVIEW.layer.masksToBounds = true
+                    cell.imageVIEW.contentMode = UIViewContentMode.scaleAspectFill
                 }
             }).resume()
             
