@@ -38,12 +38,14 @@ class SignInViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        /* 자동로그인 계정삭제했는데도 자꾸되서 잠깐 정지!
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
             let uid = Auth.auth().currentUser?.uid
             let token = Messaging.messaging().fcmToken
             Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken":token!])
         }
+        */
     }
     
     func handleTextField() {
