@@ -17,6 +17,7 @@
 		15A14A362057A8C8008EEB25 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A14A352057A8C8008EEB25 /* ExploreViewController.swift */; };
 		15D47EB32060D4E7001CFF53 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB22060D4E7001CFF53 /* Post.swift */; };
 		15D47EB520610886001CFF53 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */; };
+		1D40C5F4212AA40D00ABF475 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D40C5F3212AA40D00ABF475 /* WebViewController.swift */; };
 		1D53F52C211B12530060CCB3 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53F52B211B12530060CCB3 /* EditPostViewController.swift */; };
 		404A09CB8F13E04A1474C704 /* Pods_cau_study_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B134038822380599309DDC06 /* Pods_cau_study_ios.framework */; };
 		535F1C042116D94800C0F5FA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F1C032116D94800C0F5FA /* SearchViewController.swift */; };
@@ -82,6 +83,7 @@
 		15A14A352057A8C8008EEB25 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		15D47EB22060D4E7001CFF53 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		15D47EB420610886001CFF53 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		1D40C5F3212AA40D00ABF475 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1D53F52B211B12530060CCB3 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		535F1C032116D94800C0F5FA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		535F1C052116D96200C0F5FA /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				D37C44DF210200B000AF6FFE /* ForgotUserInfoViewController.swift */,
 				DE5F16D5210F561900152210 /* WriterInfoViewController.swift */,
 				D31AEF18210471830057203F /* UserSettingViewController.swift */,
+				1D40C5F3212AA40D00ABF475 /* WebViewController.swift */,
 				D3896ED821059E6700C96C58 /* ChangePasswordViewController.swift */,
 				15A14A352057A8C8008EEB25 /* ExploreViewController.swift */,
 				D3896ED62105944C00C96C58 /* DeleteUserViewController.swift */,
@@ -469,6 +472,7 @@
 				DE3F2B0F211851CB003D7FC6 /* ErrorMessages.swift in Sources */,
 				FE1693092112C15C00A411FE /* PostCollectionViewController.swift in Sources */,
 				535F1C042116D94800C0F5FA /* SearchViewController.swift in Sources */,
+				1D40C5F4212AA40D00ABF475 /* WebViewController.swift in Sources */,
 				E3D8A9E0210F3BF600DA7222 /* PeopleViewTableViewCell.swift in Sources */,
 				FE6520952113D81900DACA6C /* PostRoomViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
