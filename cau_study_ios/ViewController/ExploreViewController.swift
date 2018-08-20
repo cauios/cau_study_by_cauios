@@ -80,6 +80,13 @@ class ExploreViewController: UIViewController {
             })
             
         })
+        Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
         Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
@@ -303,6 +310,14 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
+       Api.Category.REF_CATEGORY_ACADEMIC.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
+        
         //Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
         Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
@@ -322,6 +337,13 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
+        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
         Api.Category.REF_CATEGORY_ETC.removeAllObservers()
@@ -340,6 +362,13 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
+        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
         Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         
@@ -357,6 +386,13 @@ class ExploreViewController: UIViewController {
                 self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
+        })
+        Api.Category.REF_CATEGORY_ETC.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
         })
         Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
