@@ -114,10 +114,8 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                    if self.post?.category == "기타"{
                         self.posts.remove(at: index)
                         self.collectionView.reloadData()
-                }
 
             }
             
@@ -149,11 +147,9 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                    if self.post?.category == "학업"{
                     self.posts.remove(at: index)
                     self.collectionView.reloadData()
-                
-                }
+     
             }
             
         })
@@ -185,11 +181,9 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                    if self.post?.category == "취업"{
                         self.posts.remove(at: index)
                         self.collectionView.reloadData()
-                    
-                }
+                
             }
             
         })
@@ -219,10 +213,9 @@ class PostRoomViewController: UIViewController {
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                    if self.post?.category == "어학"{                    self.posts.remove(at: index)
+                        self.posts.remove(at: index)
                         self.collectionView.reloadData()
-                    
-                }
+                
             }
             
         })
