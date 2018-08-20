@@ -206,34 +206,37 @@ class EditPostViewController: UIViewController {
         
         var categoryText = ""
         
-        //카테고리 지우기
-        if originalCate == 1 {
-            postIntoCateAca.child(newPostId).removeValue()
-        } else if originalCate == 2 {
-            postIntoCateEmpl.child(newPostId).removeValue()
-        } else if originalCate == 3{
-            postIntoCateLan.child(newPostId).removeValue()
-        } else {
-            postIntoCateEtc.child(newPostId).removeValue()
+        if originalCate != selectedCate {
+            //카테고리 지우기
+            if originalCate == 1 {
+                postIntoCateAca.child(newPostId).removeValue()
+            } else if originalCate == 2 {
+                postIntoCateEmpl.child(newPostId).removeValue()
+            } else if originalCate == 3{
+                postIntoCateLan.child(newPostId).removeValue()
+            } else {
+                postIntoCateEtc.child(newPostId).removeValue()
+            }
+            
+            if selectedCate == 1 {
+                categoryText = "학업"
+                postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+                
+            }
+            else if selectedCate == 2 {
+                categoryText = "취업"
+                postIntoCateEmpl.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            }
+            else if selectedCate == 3 {
+                categoryText = "어학"
+                postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            }
+            else if selectedCate == 4 {
+                categoryText = "기타"
+                postIntoCateEtc.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
+            }
         }
         
-        if selectedCate == 1 {
-            categoryText = "학업"
-            postIntoCateAca.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
-            
-        }
-        else if selectedCate == 2 {
-            categoryText = "취업"
-            postIntoCateEmpl.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
-        }
-        else if selectedCate == 3 {
-            categoryText = "어학"
-            postIntoCateLan.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
-        }
-        else if selectedCate == 4 {
-            categoryText = "기타"
-            postIntoCateEtc.updateChildValues([newPostId: true]) // [0728 Dahye] Add info of postId into Category node on DB
-        }
         
         
         // [0726] Dahye: Codes related to the timestamp are added this moment
@@ -245,7 +248,7 @@ class EditPostViewController: UIViewController {
             wanted = false
         }
         
-        newPostReference.setValue(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp, "wanted": wanted!], withCompletionBlock: {
+        newPostReference.updateChildValues(["uid": currentUserId, "title": titleTextField.text!, "category": categoryText, "tags": tagsTextField.text!, "numOfVacan": numOfVacanTextField.text!, "time": timeTextField.text!, "location": locationTextField.text!, "description": descriptionTextView.text!, "timestamp": timestamp, "wanted": wanted!], withCompletionBlock: {
             (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)

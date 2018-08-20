@@ -80,6 +80,11 @@ class ExploreViewController: UIViewController {
             })
             
         })
+        Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
+        Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
+        Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
+        Api.Category.REF_CATEGORY_ETC.removeAllObservers()
+        
         // self.exploreTableView.reloadData()
         
     }
@@ -293,12 +298,16 @@ class ExploreViewController: UIViewController {
             snapshot in
             print(snapshot.key)
             Api.Post.observePost(withId: snapshot.key, completion: { post in
-                
+
                 self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
         })
-        
+        //Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
+        Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
+        Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
+        Api.Category.REF_CATEGORY_ETC.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()
     }
     //
     
@@ -313,6 +322,10 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
+        Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
+        Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
+        Api.Category.REF_CATEGORY_ETC.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()
     }
     
     //[0728 Dahye] load Language Posts
@@ -327,6 +340,11 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
+        Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
+        Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
+        
+        Api.Category.REF_CATEGORY_ETC.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()
     }
     
     func loadEtcPost() {
@@ -340,6 +358,11 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
+        Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
+        Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
+        Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
+        
+        Api.Post.REF_POSTS.removeAllObservers()
     }
     
     
