@@ -255,16 +255,7 @@ class EditPostViewController: UIViewController {
                 return // withCompletionBlock closure에서 한 것은, if we failed to push this url on the DB, we'll recieve a non zero error object. If we catch the error, we can simply report that to the user as we did before using ProgressHUD.showError method.
             }
             
-            
-            //민정
-            let myPostRef = Api.MyPosts.REF_MYPOSTS.child(currentUserId).child(newPostId)
-            myPostRef.setValue(true, withCompletionBlock: {(error,ref) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-                
-            })
+           
             
             
             ProgressHUD.showSuccess("Sucess")
