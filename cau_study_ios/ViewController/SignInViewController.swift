@@ -4,6 +4,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseMessaging
 
 class SignInViewController: UIViewController {
     
@@ -38,6 +40,9 @@ class SignInViewController: UIViewController {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
+            let uid = Auth.auth().currentUser?.uid
+            let token = Messaging.messaging().fcmToken
+            Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken":token!])
         }
     }
     
@@ -65,7 +70,9 @@ class SignInViewController: UIViewController {
         AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
             ProgressHUD.showSuccess("로그인 완료!")
             self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
-            
+            let uid = Auth.auth().currentUser?.uid
+            let token = Messaging.messaging().fcmToken
+            Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken":token!])
         }, onError: { error in
             ProgressHUD.showError(error!)
         })

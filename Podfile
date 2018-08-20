@@ -10,7 +10,7 @@ pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'SDWebImage'
-
+pod 'Alamofire', '~> 4.7'
 pod 'TBEmptyDataSet'
 pod 'TTGSnackbar'
 pod 'XLPagerTabStrip', '~> 8.0'
