@@ -36,6 +36,7 @@
 		DE5F16D4210F077000152210 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */; };
 		DE5F16D6210F561900152210 /* WriterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F16D5210F561900152210 /* WriterInfoViewController.swift */; };
 		DE5F16D8210F577B00152210 /* WriterPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */; };
+		E3847EC4212A961D004FACED /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3847EC3212A961D004FACED /* NotificationModel.swift */; };
 		E39D51BF204EBAB3001D94F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */; };
 		E39D51C9204EBAB3001D94F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39D51C7204EBAB3001D94F9 /* LaunchScreen.storyboard */; };
 		E39D51D4204EBC24001D94F9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39D51D2204EBC24001D94F9 /* SignInViewController.swift */; };
@@ -102,6 +103,7 @@
 		DE5F16D3210F077000152210 /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		DE5F16D5210F561900152210 /* WriterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterInfoViewController.swift; sourceTree = "<group>"; };
 		DE5F16D7210F577B00152210 /* WriterPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterPostsTableViewCell.swift; sourceTree = "<group>"; };
+		E3847EC3212A961D004FACED /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		E39D51BB204EBAB3001D94F9 /* cau_study_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cau_study_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39D51BE204EBAB3001D94F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E39D51C8204EBAB3001D94F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				E39E863A206104B1007CBB6D /* User.swift */,
 				E3B49A4C210713A0006B072E /* ChatModel.swift */,
 				15D47EB22060D4E7001CFF53 /* Post.swift */,
+				E3847EC3212A961D004FACED /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-cau_study_ios/Pods-cau_study_ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -429,6 +433,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -468,6 +473,7 @@
 				FE6520952113D81900DACA6C /* PostRoomViewController.swift in Sources */,
 				539A28422106037E00FD118A /* PostViewController.swift in Sources */,
 				E3E299D4206A373000ECA439 /* ChatViewController.swift in Sources */,
+				E3847EC4212A961D004FACED /* NotificationModel.swift in Sources */,
 				E3B49A4921071391006B072E /* DestinationMessageCell.swift in Sources */,
 				53F88656210CD5D600696C98 /* CategoryApi.swift in Sources */,
 				E3B49A4D210713A0006B072E /* ChatModel.swift in Sources */,

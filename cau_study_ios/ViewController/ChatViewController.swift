@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import Alamofire
 
 class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -22,7 +23,7 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var uid :String?
     var chatRoomUid :String?
     var comments : [ChatModel.Comment] = []
-    var userModel : User?
+    var destinationUserModel : User?
     
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.white // [0809 Dahye] change the navgi bar color into white
@@ -97,11 +98,11 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             return view
         }else{
             let view = tableview.dequeueReusableCell(withIdentifier: "DestinationMessageCell", for: indexPath) as! DestinationMessageCell
-            view.labelName.text = userModel?.username
+            view.labelName.text = destinationUserModel?.username
             view.label_message.text = self.comments[indexPath.row].message
             view.label_message.numberOfLines = 0
             
-            let url = URL(string: (self.userModel?.profileImageUrl)!)
+            let url = URL(string: (self.destinationUserModel?.profileImageUrl)!)
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, err) in
                 DispatchQueue.main.async {
                     view.imageview_profile.image = UIImage(data: data!)
@@ -154,9 +155,31 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             if textField_message.text! != ""
             { Database.database().reference().child("chatRooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value, withCompletionBlock: {
                 (err, ref) in
+                self.sendGcm()
                 self.textField_message.text = "" //메세지 보낸다음에 지워준다
             })
             }
+        }
+    }
+    
+    //0820, bro, send Messaging
+    func sendGcm(){
+        let url = "https://gcm-http.googleapis.com/gcm/send"
+        let header : HTTPHeaders = [
+            "Content-Type":"application/json",
+            "Authorization":"key=AIzaSyCdj2mWTNihfWg0LETxeWkZk5k-59Iu4lI"
+        ]
+        
+        var notificationModel = NotificationModel()
+        notificationModel.to = destinationUserModel?.pushToken
+        notificationModel.notification.title = "보낸이 ID"
+        notificationModel.notification.text = textField_message.text
+        
+        let params = notificationModel.toJSON()
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON{
+            (response) in
+            print(response.result.value)
         }
     }
     
@@ -196,14 +219,14 @@ class ChatViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func getDestinationInfo(){
         /*기존코드 Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
-         self.userModel = User()
-         self.userModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
+         self.destinationUserModel = User()
+         self.destinationUserModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
          self.getMessageList()
          })
          */
         Api.User.observeUser(withId: destinationUid!, completion: { user in
-            self.userModel = User()
-            self.userModel = user
+            self.destinationUserModel = User()
+            self.destinationUserModel = user
             self.getMessageList()
         })
         //왜 되는지 모르곘음;;;;
