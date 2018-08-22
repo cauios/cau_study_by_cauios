@@ -17,6 +17,8 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         return IndicatorInfo(title: "전체")
     }
     
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     var postId: String?
@@ -24,12 +26,13 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
     var user: User!
     var selectedCellId: String?
     
-    
+    private let refreshControl = UIRefreshControl()
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         collectionView.emptyDataSetDataSource = self
         collectionView.emptyDataSetDelegate = self
         
@@ -40,27 +43,45 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
         collectionView.dataSource = self
         fetchUser()
         fetchSaved()
-
         
-       
-    }
-    // whenever saved tabbar item clicked, badge will remove!!
-    override func viewDidAppear(_ animated: Bool) {
-        self.removeRedDotAtTabBarItemIndex(index: 2)
-    }
-    
-    
-    func fetchUser() {
-        Api.User.observeCurrentUser { (user) in
-            self.user = user
-            
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
         }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData(sender:)), for: .valueChanged)
+
+    }
+    
+    @objc func refreshData(sender: UIRefreshControl) {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        //추가된 포스트 리로드
+        Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
+            snapshot in
+            Api.Post.observeMyPosts(withId: snapshot.key, completion: {
+                post in
+                if let index = self.posts.index(where: {(item)-> Bool in item.id == snapshot.key}) {
+                self.posts.remove(at: index)
+                }
+                self.posts.insert(post, at: 0)
+                self.collectionView.reloadData()
+            })
+            
+            
+        })
+  
+        self.refreshControl.endRefreshing()
+
     }
     
     func fetchSaved() {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
+
         //추가된 포스트 리로드
         Api.Saved.REF_SAVED.child(currentUser.uid).observe(.childAdded, with: {
             snapshot in
@@ -80,12 +101,26 @@ class SavedCollectionViewController: UIViewController,IndicatorInfoProvider {
                 self.posts.remove(at: index)
                 self.collectionView.reloadData()
                 
-                
             }
             
         })
+    }
+    
+    // whenever saved tabbar item clicked, badge will remove!!
+    override func viewDidAppear(_ animated: Bool) {
+        self.removeRedDotAtTabBarItemIndex(index: 2)
         
     }
+    
+
+    
+    func fetchUser() {
+        Api.User.observeCurrentUser { (user) in
+            self.user = user
+            
+        }
+    }
+ 
     
     
     func removeRedDotAtTabBarItemIndex(index: Int) {
