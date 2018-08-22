@@ -75,6 +75,10 @@ class ExploreViewController: UIViewController {
         Api.Post.REF_POSTS.observe(.childAdded, with: {
             snapshot in
             Api.Post.observePost(withId: snapshot.key, completion: { post in
+                // [0822]
+                if let index = self.posts.index(where: {(item) -> Bool in item.id == snapshot.key}) {
+                    self.posts.remove(at:index)
+                }
                 self.posts.insert(post, at: 0)
                 self.exploreTableView.reloadData()
             })
