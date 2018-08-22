@@ -72,31 +72,8 @@ class ExploreViewController: UIViewController {
         lanLineView.backgroundColor = UIColor.clear
         etcLineView.backgroundColor = UIColor.clear
         posts = [Post]()
-        Api.Post.REF_POSTS.observe(.childAdded, with: {
-            snapshot in
-            Api.Post.observePost(withId: snapshot.key, completion: { post in
-                // [0822]
-                if let index = self.posts.index(where: {(item) -> Bool in item.id == snapshot.key}) {
-                    self.posts.remove(at:index)
-                }
-                self.posts.insert(post, at: 0)
-                self.exploreTableView.reloadData()
-            })
-            
-        })
-        Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
-            let snapId = snap.key
-            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
-                self.posts.remove(at: index)
-                self.exploreTableView.reloadData()
-            }
-        })
-        Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
-        Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
-        Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
-        Api.Category.REF_CATEGORY_ETC.removeAllObservers()
-        
-        // self.exploreTableView.reloadData()
+        self.exploreTableView.reloadData()
+        loadAllPost()
         
     }
     @IBAction func acaCateTouchUpInside(_ sender: Any) {
@@ -186,7 +163,7 @@ class ExploreViewController: UIViewController {
         exploreTableView.dataSource = self
         
         setExploreView()
-        allCateButton.sendActions(for: .touchUpInside)
+        //allCateButton.sendActions(for: .touchUpInside)
     }
     
     
@@ -301,6 +278,29 @@ class ExploreViewController: UIViewController {
         
     }
     
+    func loadAllPost() {
+        Api.Post.REF_POSTS.observe(.childAdded, with: {
+            snapshot in
+            Api.Post.observePost(withId: snapshot.key, completion: { post in
+                self.posts.insert(post, at: 0)
+                self.exploreTableView.reloadData()
+            })
+            
+        })
+        /*
+        Api.Post.REF_POSTS.observe(.childRemoved, with: {snap in
+            let snapId = snap.key
+            if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
+                self.posts.remove(at: index)
+                self.exploreTableView.reloadData()
+            }
+        })
+        Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
+        Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
+        Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
+        Api.Category.REF_CATEGORY_ETC.removeAllObservers()*/
+    }
+    
     
     
     //[0728 Dahye] load Academic Posts
@@ -314,7 +314,7 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
-       Api.Category.REF_CATEGORY_ACADEMIC.observe(.childRemoved, with: {snap in
+       /*Api.Category.REF_CATEGORY_ACADEMIC.observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
@@ -326,7 +326,7 @@ class ExploreViewController: UIViewController {
         Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
         Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
         Api.Category.REF_CATEGORY_ETC.removeAllObservers()
-        Api.Post.REF_POSTS.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()*/
     }
     //
     
@@ -341,7 +341,7 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
-        Api.Category.REF_CATEGORY_EMPLPREP.observe(.childRemoved, with: {snap in
+       /* Api.Category.REF_CATEGORY_EMPLPREP.observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
@@ -351,7 +351,7 @@ class ExploreViewController: UIViewController {
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
         Api.Category.REF_CATEGORY_ETC.removeAllObservers()
-        Api.Post.REF_POSTS.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()*/
     }
     
     //[0728 Dahye] load Language Posts
@@ -366,7 +366,7 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
-        Api.Category.REF_CATEGORY_LANGUAGE.observe(.childRemoved, with: {snap in
+        /*Api.Category.REF_CATEGORY_LANGUAGE.observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
@@ -377,7 +377,7 @@ class ExploreViewController: UIViewController {
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         
         Api.Category.REF_CATEGORY_ETC.removeAllObservers()
-        Api.Post.REF_POSTS.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()*/
     }
     
     func loadEtcPost() {
@@ -391,7 +391,7 @@ class ExploreViewController: UIViewController {
                 self.exploreTableView.reloadData()
             })
         })
-        Api.Category.REF_CATEGORY_ETC.observe(.childRemoved, with: {snap in
+        /*Api.Category.REF_CATEGORY_ETC.observe(.childRemoved, with: {snap in
             let snapId = snap.key
             if let index = self.posts.index(where: {(item)-> Bool in item.id == snapId}) {
                 self.posts.remove(at: index)
@@ -401,20 +401,10 @@ class ExploreViewController: UIViewController {
         Api.Category.REF_CATEGORY_EMPLPREP.removeAllObservers()
         Api.Category.REF_CATEGORY_ACADEMIC.removeAllObservers()
         Api.Category.REF_CATEGORY_LANGUAGE.removeAllObservers()
-        
-        Api.Post.REF_POSTS.removeAllObservers()
+        Api.Post.REF_POSTS.removeAllObservers()*/
     }
     
     
-    
-    
-    func fetchUser(uid: String, completed: @escaping() -> Void) {
-        Api.User.observeUser(withId: uid, completion: {
-            user in
-            //self.users.append(user)
-            self.users.insert(user, at: 0)
-            completed()})
-    }
     
     // [Dahye 5.20] prepare method will be called right before the transition which is a perfect place to send the data on the destination view controller. prepare method should be implemented in the file where the performSegue is implemented. We should note that the data passed along is a string Id. So we need to convert the sender parameter of type any into string.
     
@@ -550,7 +540,8 @@ extension ExploreViewController: UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        editedPost()
+        //editedPost()
+        allCateButton.sendActions(for: .touchUpInside)
     }
     
 }
