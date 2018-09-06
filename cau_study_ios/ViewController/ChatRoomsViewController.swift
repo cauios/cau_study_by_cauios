@@ -31,6 +31,33 @@ class ChatRoomsViewController: UIViewController,UITableViewDelegate,UITableViewD
         self.uid = Auth.auth().currentUser?.uid
         self.getChatroomsList()
         // Do any additional setup after loading the view.
+        
+        //0907 for badge
+        StartListeningForBadgeUpdates()
+        UpdateBadgeLabel()
+    }
+    
+    func StartListeningForBadgeUpdates(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.BadgeWasUpdated), name: NSNotification.Name(rawValue: "com.bro.cau-study"), object: nil)
+    }
+    
+    @objc func BadgeWasUpdated(){
+        UpdateBadgeLabel()
+    }
+    
+    func UpdateBadgeLabel(){
+        if UIApplication.shared.applicationIconBadgeNumber == 0{
+            if let tabItems = tabBarController?.tabBar.items {
+                let tabItem = tabItems[1]
+                tabItem.badgeValue = nil
+            }
+        }else{
+            if let tabItems = tabBarController?.tabBar.items {
+                // In this case we want to modify the badge number of the third tab:
+                let tabItem = tabItems[1]
+                tabItem.badgeValue = String(UIApplication.shared.applicationIconBadgeNumber)
+            }
+        }
     }
     
     func getChatroomsList(){
